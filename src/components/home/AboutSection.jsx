@@ -1,6 +1,6 @@
 function AboutSection() {
   return (
-    <section className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-6 lg:grid-cols-[1.1fr_0.9fr]">
+    <section className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 sm:gap-10 sm:px-6 lg:grid-cols-[1.05fr_0.95fr]">
       <div className="space-y-4">
         <div className="flex items-center gap-3">
           <span className="h-1 w-10 rounded-full bg-red-500" />
@@ -19,7 +19,7 @@ function AboutSection() {
           <span aria-hidden className="text-base">→</span>
         </a>
       </div>
-      <div className="relative overflow-hidden rounded-3xl shadow-lg">
+      <div className="relative min-h-[260px] overflow-hidden rounded-3xl shadow-lg sm:min-h-[320px]">
         <img
           src="https://metosan.com.tr/Storage/Upload/cache/637695442382333208-b75-1hakkimizda-494-632.jpeg"
           alt="Hakkımızda görseli"

@@ -50,7 +50,7 @@ function Contact() {
 
   return (
     <div className="bg-slate-50 pb-16 text-slate-900">
-      <section className="mx-auto max-w-6xl space-y-10 px-6 pt-10">
+      <section className="mx-auto max-w-6xl space-y-10 px-4 pt-10 sm:px-6">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {contactCards.map((card) => (
             <div
@@ -65,8 +65,8 @@ function Contact() {
         </div>
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="space-y-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-            <div className="flex items-start justify-between gap-3">
+          <div className="space-y-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7">
+            <div className="flex flex-col items-start justify-between gap-3 sm:flex-row">
               <div>
                 <p className="text-xs uppercase tracking-[0.12em] text-slate-500">Form</p>
                 <h2 className="text-xl font-semibold text-slate-900">Mesaj bırakın</h2>
@@ -166,7 +166,7 @@ function Contact() {
           </div>
 
           <div className="space-y-4">
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7">
               <p className="text-xs uppercase tracking-[0.12em] text-slate-500">Ofis</p>
               <h3 className="text-lg font-semibold text-slate-900">Çalışma Saatleri</h3>
               <ul className="mt-3 space-y-2 text-sm text-slate-700">

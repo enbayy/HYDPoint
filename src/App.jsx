@@ -150,6 +150,8 @@ const brandGallery = {
 
 function App() {
   const [openSecondary, setOpenSecondary] = useState(null)
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [mobileSubOpen, setMobileSubOpen] = useState(null)
   const closeSecondaryTimer = useRef(null)
   const pumpGroup = [
     'POMPA',
@@ -241,7 +243,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-slate-50 text-slate-900">
-        <header className="fixed top-0 left-0 right-0 z-40 backdrop-blur bg-white/95 shadow-sm shadow-slate-200/70">
+        <header className="relative z-40 backdrop-blur bg-white/95 shadow-sm shadow-slate-200/70">
           <div className="border-b border-slate-100">
             <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-8 py-3 text-xs text-slate-500">
               <div className="flex items-center gap-4">
@@ -306,11 +308,34 @@ function App() {
               <button className="rounded-full bg-[#ff7f00] px-4 py-2 text-xs font-semibold uppercase text-slate-900 shadow-sm transition hover:bg-[#e07000]">
                 Teklif Al
               </button>
+              <button
+                onClick={() => setMobileOpen((prev) => !prev)}
+                className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-[#1e4294]/40 hover:text-[#1e4294] lg:hidden"
+                aria-label="Menüyü aç/kapat"
+              >
+                <span className="relative block h-4 w-5">
+                  <span
+                    className={`absolute left-0 block h-0.5 w-full rounded-full bg-current transition ${
+                      mobileOpen ? 'top-1/2 rotate-45' : 'top-0'
+                    }`}
+                  />
+                  <span
+                    className={`absolute left-0 block h-0.5 w-full rounded-full bg-current transition ${
+                      mobileOpen ? 'opacity-0' : 'top-1/2 -translate-y-1/2'
+                    }`}
+                  />
+                  <span
+                    className={`absolute left-0 block h-0.5 w-full rounded-full bg-current transition ${
+                      mobileOpen ? 'top-1/2 -rotate-45' : 'bottom-0'
+                    }`}
+                  />
+                </span>
+              </button>
             </div>
           </div>
 
           <div className="border-t border-slate-100 bg-gradient-to-r from-slate-50 via-white to-slate-50">
-            <div className="relative mx-auto flex w-full max-w-7xl items-center justify-center gap-8 px-8 py-3 text-sm font-semibold text-slate-700">
+            <div className="relative mx-auto flex w-full max-w-7xl flex-wrap items-center justify-center gap-4 px-6 py-3 text-sm font-semibold text-slate-700">
               {secondaryNav.map((item) => (
                 <div
                   key={item.label}
@@ -546,9 +571,90 @@ function App() {
               ))}
             </div>
           </div>
+
+        {mobileOpen ? (
+          <div className="fixed inset-0 z-50 lg:hidden" role="dialog" aria-label="Mobil menü">
+            <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
+            <div className="relative ml-auto h-full w-[90vw] max-w-sm overflow-y-auto border-l border-slate-200 bg-white shadow-2xl">
+              <div className="flex items-center justify-between px-6 py-5">
+                <div className="flex items-center gap-2">
+                  <img src={hydLogo3} alt="HYD Point logo" className="h-8 w-auto" />
+                  <span className="text-sm font-semibold text-slate-700">HYD Point</span>
+                </div>
+                <button
+                  onClick={() => setMobileOpen(false)}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-slate-700 transition hover:bg-slate-200"
+                  aria-label="Menüyü kapat"
+                >
+                  ✕
+                </button>
+              </div>
+
+              <div className="space-y-2 px-4">
+                {navItems.map((item) => (
+                  <NavLink
+                    key={item.path}
+                    to={item.path}
+                    onClick={() => setMobileOpen(false)}
+                    className={({ isActive }) =>
+                      `flex items-center justify-between rounded-xl px-4 py-3 text-base font-semibold transition ${
+                        isActive ? 'bg-[#1e4294] text-white' : 'text-slate-800 hover:bg-slate-100'
+                      }`
+                    }
+                    end={item.path === '/'}
+                  >
+                    <span>{item.label}</span>
+                    <span className="text-xs text-slate-400">›</span>
+                  </NavLink>
+                ))}
+              </div>
+
+              <div className="mt-4 border-t border-slate-100 px-4 pt-4">
+                <p className="px-2 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">Kategoriler</p>
+                <div className="mt-2 space-y-2">
+                  {secondaryNav.map((item) => (
+                    <div key={item.label} className="rounded-xl border border-slate-200">
+                      <button
+                        onClick={() => setMobileSubOpen((prev) => (prev === item.label ? null : item.label))}
+                        className="flex w-full items-center justify-between px-4 py-3 text-left text-sm font-semibold text-slate-800"
+                      >
+                        <span>{item.label}</span>
+                        <span className="text-xs text-slate-500">{mobileSubOpen === item.label ? '▲' : '▼'}</span>
+                      </button>
+                      {mobileSubOpen === item.label ? (
+                        <div className="space-y-1 px-4 pb-4">
+                          {item.links.map((link) => (
+                            <a
+                              key={link}
+                              href="#"
+                              className="block rounded-lg px-3 py-2 text-sm text-slate-700 transition hover:bg-slate-100"
+                            >
+                              {link}
+                            </a>
+                          ))}
+                        </div>
+                      ) : null}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-6 border-t border-slate-100 px-4 py-4">
+                <div className="flex flex-col gap-2">
+                  <button className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:border-[#ff7f00]/40 hover:text-[#1e4294]">
+                    🔍 Ara
+                  </button>
+                  <button className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ff7f00] px-4 py-3 text-sm font-semibold uppercase text-slate-900 shadow-sm transition hover:bg-[#e07000]">
+                    Teklif Al
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : null}
         </header>
 
-        <main className="pt-[190px]">
+        <main className="pt-2">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route

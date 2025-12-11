@@ -14,15 +14,15 @@ function HeroSection({ slides }) {
   }, [slideCount])
 
   return (
-    <section className="mx-auto max-w-6xl px-6 pt-8">
+    <section className="mx-auto w-full max-w-6xl px-4 pt-8 sm:px-6">
       <div className="relative overflow-hidden rounded-3xl bg-slate-900 text-white shadow-2xl">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="pointer-events-none absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `linear-gradient(90deg, rgba(15,23,42,0.8), rgba(15,23,42,0.4)), url(${activeHero.image})`,
           }}
         />
-        <div className="relative z-10 flex flex-col gap-6 p-10 sm:p-14">
+        <div className="relative z-10 flex min-h-[420px] flex-col gap-6 p-8 sm:min-h-[480px] sm:p-12 md:min-h-[520px] md:p-14">
           <div className="flex items-center gap-2 text-xs uppercase tracking-[0.12em] text-red-200">
             <span className="inline-block h-1 w-8 rounded-full bg-red-500" />
             Güçlü Çözümler
@@ -56,8 +56,9 @@ function HeroSection({ slides }) {
             ))}
           </div>
         </div>
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-slate-900/35 to-transparent" />
-        <div className="absolute bottom-6 right-6 flex gap-3">
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-slate-900/35 to-transparent max-sm:hidden" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/55 via-transparent to-transparent sm:hidden" />
+        <div className="absolute bottom-4 right-4 flex gap-3 sm:bottom-6 sm:right-6">
           <button
             onClick={() => setActiveSlide((prev) => (prev - 1 + slideCount) % slideCount)}
             className="rounded-full bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur transition hover:bg-white/25"

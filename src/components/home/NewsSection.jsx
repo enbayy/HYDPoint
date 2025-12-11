@@ -1,6 +1,6 @@
 function NewsSection({ items }) {
   return (
-    <section className="mx-auto max-w-6xl space-y-8 px-6">
+    <section className="mx-auto max-w-6xl space-y-8 px-4 sm:px-6">
       <div className="flex items-center gap-3">
         <span className="h-1 w-10 rounded-full bg-red-500" />
         <h2 className="text-lg font-semibold text-slate-900">Haberler</h2>

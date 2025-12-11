@@ -66,9 +66,9 @@ function Products() {
 
   return (
     <div className="bg-slate-50 pb-16 text-slate-900">
-      <section className="mx-auto flex max-w-6xl flex-col gap-8 px-6 pt-8 lg:flex-row">
+      <section className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 pt-8 sm:gap-8 sm:px-6 lg:flex-row">
         <aside className="w-full lg:w-96">
-          <div className="sticky top-28 space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm lg:sticky lg:top-28">
             {catalogGroups.map((group) => {
               const groupOpen = openGroups.includes(group.title)
               return (
@@ -128,7 +128,7 @@ function Products() {
         </aside>
 
         <div className="flex-1 space-y-5">
-          <div className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-5 py-3 shadow-sm">
+          <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Seçilen grup</p>
               <h2 className="text-xl font-semibold">{activeSection ?? 'Henüz seçilmedi'}</h2>
@@ -147,7 +147,7 @@ function Products() {
               Bu grup için ürün bulunamadı.
             </div>
           ) : (
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
               {currentItems.map((item) => {
                 const img = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(item)}`
                 return (

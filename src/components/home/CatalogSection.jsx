@@ -1,6 +1,6 @@
 function CatalogSection() {
   return (
-    <section className="mx-auto max-w-6xl grid grid-cols-1 items-center gap-10 px-6 lg:grid-cols-[1.2fr_0.8fr]">
+    <section className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.2fr_0.8fr]">
       <div className="relative overflow-hidden rounded-3xl bg-white shadow-sm">
         <div className="absolute inset-0 bg-gradient-to-tr from-red-50 via-white to-white" />
         <div className="relative space-y-4 p-8 sm:p-10">
@@ -12,7 +12,7 @@ function CatalogSection() {
             Bu bölümde ürünlerimize ait genel katalogları bulabilir, indirebilir ve çevrim dışı olarak rahatça
             inceleyebilirsiniz.
           </p>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-[1.2fr_0.8fr] sm:items-center">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-[1.2fr_0.8fr] md:items-center">
             <select className="h-12 rounded-full border border-slate-200 px-4 text-sm font-semibold text-slate-700 shadow-sm focus:border-red-400 focus:outline-none">
               <option>Metosan Ürün Kataloğu</option>
               <option>Hidrolik Çözümler</option>
