@@ -3,6 +3,7 @@ import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom'
 import hydLogo3 from './assets/hydLogo3.png'
 import Home from './pages/Home'
 import InfoPage from './pages/InfoPage'
+import ProductDetail from './pages/ProductDetail'
 import Products from './pages/Products'
 import Contact from './pages/Contact'
 
@@ -245,7 +246,7 @@ function App() {
       <div className="min-h-screen bg-slate-50 text-slate-900">
         <header className="relative z-40 backdrop-blur bg-white/95 shadow-sm shadow-slate-200/70">
           <div className="border-b border-slate-100">
-            <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-8 py-3 text-xs text-slate-500">
+            <div className="mx-auto flex w-full max-w-[95%] items-center justify-between px-4 py-3 text-xs text-slate-500">
               <div className="flex items-center gap-4">
                 <span className="hidden sm:inline-flex items-center gap-1">
                   📞 +90 212 000 00 00
@@ -265,7 +266,7 @@ function App() {
             </div>
           </div>
 
-          <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-8 py-5">
+          <div className="mx-auto flex w-full max-w-[95%] items-center justify-between px-4 py-5">
             <div className="flex items-center gap-3">
               <img
                 src={hydLogo3}
@@ -334,47 +335,52 @@ function App() {
             </div>
           </div>
 
-          <div className="border-t border-slate-100 bg-gradient-to-r from-slate-50 via-white to-slate-50">
-            <div className="relative mx-auto flex w-full max-w-7xl flex-wrap items-center justify-center gap-4 px-6 py-3 text-sm font-semibold text-slate-700">
+          <div className="border-t border-slate-200/80 bg-gradient-to-b from-white via-slate-50/50 to-white backdrop-blur-sm shadow-sm">
+            <div className="relative mx-auto flex w-full max-w-[95%] flex-wrap items-center justify-center gap-3 px-4 py-4 text-sm font-semibold text-slate-700">
               {secondaryNav.map((item) => (
                 <div
                   key={item.label}
-                  className="group"
+                  className="group relative"
                   onMouseEnter={() => handleOpenSecondary(item.label)}
                   onMouseLeave={handleCloseSecondary}
                 >
                   <NavLink
                     to={item.path}
-                    className="flex items-center gap-2 rounded-full px-4 py-2 transition hover:bg-[#ff7f00]/10 hover:text-[#1e4294]"
+                    className="relative flex items-center gap-2 rounded-xl px-5 py-2.5 transition-all duration-200 hover:bg-gradient-to-r hover:from-[#ff7f00]/10 hover:to-[#1e4294]/5 hover:text-[#1e4294] hover:shadow-sm"
                   >
-                    {item.label}
-                    <span className="text-xs text-slate-400 group-hover:text-[#ff7f00]">▼</span>
+                    <span className="relative z-10">{item.label}</span>
+                    <span className="relative z-10 text-xs text-slate-400 transition-all duration-200 group-hover:translate-y-0.5 group-hover:text-[#ff7f00]">▼</span>
+                    <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#ff7f00]/5 to-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
                   </NavLink>
                   {openSecondary === item.label ? (
                     <div
                       onMouseEnter={() => handleOpenSecondary(item.label)}
                       onMouseLeave={handleCloseSecondary}
-                      className="absolute left-0 right-0 top-full mt-1 w-full rounded-2xl border border-slate-200 bg-white p-6 shadow-2xl"
+                      className="absolute left-1/2 top-full z-50 mt-2 w-[95vw] max-w-6xl -translate-x-1/2 rounded-2xl border border-slate-200/80 bg-white p-8 shadow-2xl backdrop-blur-sm transition-all duration-200"
+                      style={{
+                        boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                      }}
                     >
-                      {item.label !== 'Hidrolik' ? (
-                        <div className="flex items-start justify-between gap-3">
-                          <p className="text-sm font-semibold text-slate-900">{item.label}</p>
+                      {item.label !== 'Hidrolik' && item.label !== 'Markalar' ? (
+                        <div className="mb-4 border-b border-slate-100 pb-4">
+                          <h3 className="text-lg font-bold text-slate-900">{item.label}</h3>
+                          <p className="mt-1 text-sm text-slate-600">{item.description}</p>
                         </div>
                       ) : null}
                       {item.label === 'Hidrolik' ? (
-                        <div className="mt-4 grid grid-cols-6 gap-x-8 gap-y-2 text-sm text-slate-700">
+                        <div className="mt-2 grid grid-cols-6 gap-x-8 gap-y-2 text-sm text-slate-700">
                           <div className="space-y-2">
                             {pumpGroup.map((link) => {
                               const isHeading = link === 'POMPA'
                               return (
                                 <div key={link} className="flex items-start gap-2">
                                   {!isHeading && (
-                                    <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
+                                    <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
                                   )}
                                   <a
                                     href="#"
-                                    className={`transition hover:text-[#1e4294] ${
-                                      isHeading ? 'text-[#ff7f00] font-semibold' : ''
+                                    className={`transition-all duration-150 hover:text-[#1e4294] hover:translate-x-1 ${
+                                      isHeading ? 'font-bold text-[#ff7f00] text-base' : ''
                                     }`}
                                   >
                                     {link}
@@ -389,12 +395,12 @@ function App() {
                               return (
                                 <div key={link} className="flex items-start gap-2">
                                   {!isHeading && (
-                                    <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
+                                    <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
                                   )}
                                   <a
                                     href="#"
-                                    className={`transition hover:text-[#1e4294] ${
-                                      isHeading ? 'text-[#ff7f00] font-semibold' : ''
+                                    className={`transition-all duration-150 hover:text-[#1e4294] hover:translate-x-1 ${
+                                      isHeading ? 'font-bold text-[#ff7f00] text-base' : ''
                                     }`}
                                   >
                                     {link}
@@ -407,12 +413,12 @@ function App() {
                               return (
                                 <div key={link} className="flex items-start gap-2">
                                   {!isHeading && (
-                                    <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
+                                    <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
                                   )}
                                   <a
                                     href="#"
-                                    className={`transition hover:text-[#1e4294] ${
-                                      isHeading ? 'text-[#ff7f00] font-semibold' : ''
+                                    className={`transition-all duration-150 hover:text-[#1e4294] hover:translate-x-1 ${
+                                      isHeading ? 'font-bold text-[#ff7f00] text-base' : ''
                                     }`}
                                   >
                                     {link}
@@ -425,12 +431,12 @@ function App() {
                               return (
                                 <div key={link} className="flex items-start gap-2">
                                   {!isHeading && (
-                                    <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
+                                    <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
                                   )}
                                   <a
                                     href="#"
-                                    className={`transition hover:text-[#1e4294] ${
-                                      isHeading ? 'text-[#ff7f00] font-semibold' : ''
+                                    className={`transition-all duration-150 hover:text-[#1e4294] hover:translate-x-1 ${
+                                      isHeading ? 'font-bold text-[#ff7f00] text-base' : ''
                                     }`}
                                   >
                                     {link}
@@ -445,12 +451,12 @@ function App() {
                               return (
                                 <div key={link} className="flex items-start gap-2">
                                   {!isHeading && (
-                                    <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
+                                    <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
                                   )}
                                   <a
                                     href="#"
-                                    className={`transition hover:text-[#1e4294] ${
-                                      isHeading ? 'text-[#ff7f00] font-semibold' : ''
+                                    className={`transition-all duration-150 hover:text-[#1e4294] hover:translate-x-1 ${
+                                      isHeading ? 'font-bold text-[#ff7f00] text-base' : ''
                                     }`}
                                   >
                                     {link}
@@ -465,12 +471,12 @@ function App() {
                               return (
                                 <div key={link} className="flex items-start gap-2">
                                   {!isHeading && (
-                                    <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
+                                    <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
                                   )}
                                   <a
                                     href="#"
-                                    className={`transition hover:text-[#1e4294] ${
-                                      isHeading ? 'text-[#ff7f00] font-semibold' : ''
+                                    className={`transition-all duration-150 hover:text-[#1e4294] hover:translate-x-1 ${
+                                      isHeading ? 'font-bold text-[#ff7f00] text-base' : ''
                                     }`}
                                   >
                                     {link}
@@ -485,12 +491,12 @@ function App() {
                               return (
                                 <div key={link} className="flex items-start gap-2">
                                   {!isHeading && (
-                                    <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
+                                    <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
                                   )}
                                   <a
                                     href="#"
-                                    className={`transition hover:text-[#1e4294] ${
-                                      isHeading ? 'text-[#ff7f00] font-semibold' : ''
+                                    className={`transition-all duration-150 hover:text-[#1e4294] hover:translate-x-1 ${
+                                      isHeading ? 'font-bold text-[#ff7f00] text-base' : ''
                                     }`}
                                   >
                                     {link}
@@ -505,12 +511,12 @@ function App() {
                               return (
                                 <div key={link} className="flex items-start gap-2">
                                   {!isHeading && (
-                                    <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
+                                    <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
                                   )}
                                   <a
                                     href="#"
-                                    className={`transition hover:text-[#1e4294] ${
-                                      isHeading ? 'text-[#ff7f00] font-semibold' : ''
+                                    className={`transition-all duration-150 hover:text-[#1e4294] hover:translate-x-1 ${
+                                      isHeading ? 'font-bold text-[#ff7f00] text-base' : ''
                                     }`}
                                   >
                                     {link}
@@ -523,12 +529,12 @@ function App() {
                               return (
                                 <div key={link} className="flex items-start gap-2">
                                   {!isHeading && (
-                                    <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
+                                    <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
                                   )}
                                   <a
                                     href="#"
-                                    className={`transition hover:text-[#1e4294] ${
-                                      isHeading ? 'text-[#ff7f00] font-semibold' : ''
+                                    className={`transition-all duration-150 hover:text-[#1e4294] hover:translate-x-1 ${
+                                      isHeading ? 'font-bold text-[#ff7f00] text-base' : ''
                                     }`}
                                   >
                                     {link}
@@ -539,31 +545,63 @@ function App() {
                           </div>
                         </div>
                       ) : item.label === 'Markalar' ? (
-                        <div className="mt-4 grid grid-cols-3 gap-3 sm:grid-cols-6">
-                          {item.links.map((link) => (
-                            <div
-                              key={link}
-                              className="flex items-center justify-center rounded-lg border border-slate-200 bg-white p-3 shadow-sm transition hover:-translate-y-1 hover:border-[#ff7f00]/60 hover:shadow-md"
+                        <div className="mt-2">
+                          <div className="mb-6 border-b border-slate-100 pb-4">
+                            <h3 className="text-xl font-bold text-slate-900">Güvenilir Markalarımız</h3>
+                            <p className="mt-1.5 text-sm leading-relaxed text-slate-600">
+                              Dünya çapında tanınmış hidrolik, pnömatik ve sızdırmazlık markalarını tek çatı altında sunuyoruz.
+                            </p>
+                          </div>
+                          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+                            {item.links.map((link) => (
+                              <div
+                                key={link}
+                                className="group relative flex flex-col items-center justify-center rounded-xl border border-slate-200 bg-gradient-to-br from-white to-slate-50/50 p-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#ff7f00]/40 hover:shadow-xl hover:shadow-[#ff7f00]/10"
+                              >
+                                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[#ff7f00]/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                                <div className="relative z-10 flex h-20 w-full items-center justify-center">
+                                  <img
+                                    src={brandGallery[link]}
+                                    alt={link}
+                                    className="max-h-14 w-auto object-contain transition-all duration-300 group-hover:scale-110"
+                                  />
+                                </div>
+                                <span className="relative z-10 mt-3 text-xs font-semibold text-slate-600 transition-colors duration-300 group-hover:text-[#1e4294]">
+                                  {link}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                          <div className="mt-6 flex items-center justify-center">
+                            <a
+                              href="/markalar"
+                              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#ff7f00] to-[#e07000] px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:shadow-lg hover:shadow-[#ff7f00]/30"
                             >
-                              <img
-                                src={brandGallery[link]}
-                                alt={link}
-                                className="max-h-10 w-auto object-contain"
-                              />
-                            </div>
-                          ))}
+                              Tüm Markaları Görüntüle
+                              <span className="text-base">→</span>
+                            </a>
+                          </div>
                         </div>
                       ) : (
-                        <ul className="mt-4 grid grid-cols-2 gap-y-2 gap-x-4 text-sm text-slate-700 dark:text-slate-200">
-                          {item.links.map((link) => (
-                            <li key={link} className="flex items-start gap-2">
-                              <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
-                              <a href="#" className="transition hover:text-[#1e4294] dark:hover:text-[#ffb347]">
-                                {link}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
+                        <div className="mt-2">
+                          <div className="mb-4 border-b border-slate-100 pb-4">
+                            <h3 className="text-lg font-bold text-slate-900">{item.label}</h3>
+                            <p className="mt-1 text-sm text-slate-600">{item.description}</p>
+                          </div>
+                          <ul className="grid grid-cols-2 gap-y-2.5 gap-x-6 text-sm text-slate-700">
+                            {item.links.map((link) => (
+                              <li key={link}>
+                                <a
+                                  href="#"
+                                  className="group flex items-center gap-2.5 transition-all duration-150 hover:text-[#1e4294]"
+                                >
+                                  <span className="mt-0.5 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00] transition-all duration-150 group-hover:scale-125" />
+                                  <span className="transition-all duration-150 group-hover:translate-x-1">{link}</span>
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       )}
                     </div>
                   ) : null}
@@ -677,11 +715,15 @@ function App() {
               path="/iletisim"
               element={<Contact />}
             />
+            <Route
+              path="/urun-detay/:slug"
+              element={<ProductDetail />}
+            />
           </Routes>
         </main>
 
         <footer className="mt-16 bg-[#1e4294] text-slate-200">
-          <div className="mx-auto max-w-6xl px-6 py-12">
+          <div className="mx-auto max-w-[95%] px-4 py-12">
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
               <div className="space-y-4">
                 <img
@@ -716,7 +758,7 @@ function App() {
             </div>
           </div>
           <div className="border-t border-white/10 bg-[#142f73]">
-            <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 py-4 text-xs text-slate-400 sm:flex-row">
+            <div className="mx-auto flex max-w-[95%] flex-col items-center justify-between gap-3 px-4 py-4 text-xs text-slate-400 sm:flex-row">
               <p>Copyrights © 2020. HYD Point all rights reserved.</p>
               <a href="https://atlikarinca.net/" className="font-semibold text-slate-300 hover:text-white">
                 madeBy

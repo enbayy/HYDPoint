@@ -1,6 +1,6 @@
 function CatalogSection() {
   return (
-    <section className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.2fr_0.8fr]">
+    <section className="mx-auto grid w-full max-w-[95%] grid-cols-1 items-center gap-10 px-3 sm:px-4 lg:grid-cols-[1.2fr_0.8fr]">
       <div className="relative overflow-hidden rounded-3xl bg-white shadow-sm">
         <div className="absolute inset-0 bg-gradient-to-tr from-red-50 via-white to-white" />
         <div className="relative space-y-4 p-8 sm:p-10">

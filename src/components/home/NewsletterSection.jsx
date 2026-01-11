@@ -1,6 +1,6 @@
 function NewsletterSection() {
   return (
-    <section className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+    <section className="mx-auto w-full max-w-[95%] px-3 sm:px-4">
       <div className="flex flex-col justify-between gap-6 rounded-3xl bg-slate-900 px-8 py-10 text-white shadow-lg lg:flex-row lg:items-center">
         <div className="space-y-2">
           <h3 className="text-2xl font-semibold">Mail Bültenimize Kaydolun</h3>

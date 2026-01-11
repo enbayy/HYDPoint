@@ -1,6 +1,6 @@
 function BrandsSection({ brands }) {
   return (
-    <section id="markalar" className="mx-auto max-w-6xl space-y-8 px-4 sm:px-6">
+    <section id="markalar" className="mx-auto max-w-[95%] space-y-8 px-3 sm:px-4">
       <div className="flex flex-col gap-3">
         <div className="flex items-center gap-3">
           <span className="h-1 w-10 rounded-full bg-red-500" />

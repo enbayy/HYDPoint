@@ -14,7 +14,7 @@ function HeroSection({ slides }) {
   }, [slideCount])
 
   return (
-    <section className="mx-auto w-full max-w-6xl px-4 pt-8 sm:px-6">
+    <section className="mx-auto w-full max-w-[95%] px-3 pt-8 sm:px-4">
       <div className="relative overflow-hidden rounded-3xl bg-slate-900 text-white shadow-2xl">
         <div
           className="pointer-events-none absolute inset-0 bg-cover bg-center"
