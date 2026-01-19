@@ -3,15 +3,15 @@ function InfoPage({ title, subtitle, sections = [], hideHeader = false, brands =
     <div className="space-y-10 pb-16">
       {!hideHeader ? (
         <section className="bg-slate-900 text-white">
-          <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-12 sm:px-6 sm:py-14">
-            <p className="text-xs uppercase tracking-[0.14em] text-red-200">Metosan</p>
+          <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-8 py-12 sm:py-14">
+            <p className="text-xs uppercase tracking-[0.14em] text-red-200">HYD Point</p>
             <h1 className="text-3xl font-semibold sm:text-4xl">{title}</h1>
             {subtitle ? <p className="max-w-3xl text-slate-100/80">{subtitle}</p> : null}
           </div>
         </section>
       ) : null}
 
-      <section className="mx-auto w-full max-w-6xl space-y-8 px-4 sm:px-6">
+      <section className="mx-auto w-full max-w-7xl space-y-8 px-8">
         {brands.length > 0 ? (
           <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">

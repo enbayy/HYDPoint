@@ -4,6 +4,15 @@ import { useMemo, useState } from 'react'
 const getProductImage = (productName) => {
   // Özel eşleştirmeler
   const specialMappings = {
+    'POMPA': '/pompa.png',
+    'AKIŞ BÖLÜCÜLER': '/akisboluculer.png',
+    'AKÜLER': '/aküler.png',
+    'DİREKSİYON BEYİNLERİ': '/direksiyon-beyinleri.png',
+    'BASINÇ, ISI ÖLÇÜM VE KONTROL CİHAZLARI': '/basinc-isi-olcum-ve-kontro.png',
+    'HİDROMOTORLAR': '/hidromotorlar.png',
+    'KUMANDA KOLLARI , JOİSTİK VE LOADER VALF': '/kumanda-kollari--joistik.png',
+    'HİDROLİK BAĞLANTI ELEMANLARI': '/hidrolik-baglanti-elemanla.png',
+    'HİDROLİK SİLİNDİR VE AKSESUARLARI': '/hidrolik-silindir-ve-akses.png',
     'ALÜMİNYUM GÖVDELİ DİŞLİ POMPALAR': '/pompa.png',
     'DÖKÜM GÖVDELİ DİŞLİ POMPALAR': '/dokum-govdeli-disli-pompal.png',
     'EL POMPASI': '/el-pompasi.png',
@@ -118,8 +127,9 @@ const catalogGroups = [
 ]
 
 function Products() {
-  const [activeSection, setActiveSection] = useState('POMPA')
+  const [activeSection, setActiveSection] = useState(null)
   const [openGroups, setOpenGroups] = useState(['HİDROLİK'])
+  const [selectedGroup, setSelectedGroup] = useState(null)
 
   const currentItems = useMemo(() => {
     if (!activeSection) return []
@@ -131,7 +141,47 @@ function Products() {
   }, [activeSection])
 
   const toggleGroup = (title) => {
-    setOpenGroups((prev) => (prev.includes(title) ? prev.filter((t) => t !== title) : [...prev, title]))
+    // Hidrolik için özel davranış: kapanmaz, sadece açılır
+    if (title === 'HİDROLİK') {
+      const isOpen = openGroups.includes(title)
+      if (!isOpen) {
+        setOpenGroups((prev) => [...prev, title])
+        setSelectedGroup('HİDROLİK')
+        setActiveSection(null) // Alt kategori kartlarını göstermek için
+      }
+      // Açıksa hiçbir şey yapma (kapanmaz)
+    } else {
+      // Sızdırmazlık ve Pnömatik için normal davranış
+      setOpenGroups((prev) => (prev.includes(title) ? prev.filter((t) => t !== title) : [...prev, title]))
+      if (openGroups.includes(title)) {
+        // Kapanıyorsa
+        if (selectedGroup === title) {
+          setSelectedGroup(null)
+          setActiveSection(null)
+        }
+      } else {
+        // Açılıyorsa
+        setSelectedGroup(title)
+        setActiveSection(null)
+      }
+    }
+  }
+
+  const handleGroupClick = (title) => {
+    if (title === 'HİDROLİK') {
+      setSelectedGroup('HİDROLİK')
+      setActiveSection(null) // Alt kategori kartlarını göstermek için
+      // Hidrolik her zaman açık kalmalı
+      if (!openGroups.includes(title)) {
+        setOpenGroups((prev) => [...prev, title])
+      }
+    } else {
+      setSelectedGroup(title)
+      setActiveSection(null)
+      if (!openGroups.includes(title)) {
+        setOpenGroups((prev) => [...prev, title])
+      }
+    }
   }
 
   return (
@@ -144,7 +194,13 @@ function Products() {
               return (
                 <div key={group.title} className="space-y-2">
                   <button
-                    onClick={() => toggleGroup(group.title)}
+                    onClick={() => {
+                      if (group.title === 'HİDROLİK') {
+                        handleGroupClick(group.title)
+                      } else {
+                        toggleGroup(group.title)
+                      }
+                    }}
                     className={`flex w-full items-center justify-between rounded-xl px-3 py-2 text-left text-base font-semibold transition ${
                       groupOpen ? 'bg-[#ff7f00]/10 text-[#ff7f00]' : 'text-slate-800 hover:bg-slate-100'
                     }`}
@@ -198,52 +254,39 @@ function Products() {
         </aside>
 
         <div className="flex-1 space-y-5">
-          <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Seçilen grup</p>
-              <h2 className="text-xl font-semibold">{activeSection ?? 'Henüz seçilmedi'}</h2>
-            </div>
-            <span className="text-sm text-slate-500">
-              {activeSection ? `${currentItems.length} ürün` : 'Seçim yapın'}
-            </span>
-          </div>
-
-          {!activeSection ? (
-            <div className="rounded-2xl border border-dashed border-slate-200 bg-white p-8 text-sm text-slate-500 shadow-sm">
-              Bir kategori seçin, ürünleri listeleyelim.
-            </div>
-          ) : currentItems.length === 0 ? (
-            <div className="rounded-2xl border border-dashed border-slate-200 bg-white p-8 text-sm text-slate-500 shadow-sm">
-              Bu grup için ürün bulunamadı.
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-              {currentItems.map((item) => {
-                const img = getProductImage(item)
-                return (
-                  <div
-                    key={item}
-                    className="group relative overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#ff7f00]/30 hover:shadow-xl"
-                  >
-                    <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100">
-                      <img 
-                        src={img} 
-                        alt={item} 
-                        className="h-full w-full object-contain p-4 transition-transform duration-300 group-hover:scale-105"
-                        onError={(e) => {
-                          // Resim yüklenemezse placeholder göster
-                          e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(item)}`
-                        }}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                    </div>
-                    <div className="p-6">
+          {selectedGroup === 'HİDROLİK' && !activeSection ? (
+            <>
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Hidrolik Kategorileri</p>
+                  <h2 className="text-xl font-semibold">Alt Kategorileri Seçin</h2>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {hydraulicSections.map((section) => {
+                  const sectionImg = getProductImage(section.title)
+                  return (
+                    <button
+                      key={section.title}
+                      onClick={() => setActiveSection(section.title)}
+                      className="group relative overflow-hidden rounded-xl border border-slate-200/80 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#ff7f00]/30 hover:shadow-xl"
+                    >
+                      <div className="relative mb-4 h-40 w-full overflow-hidden rounded-lg bg-gradient-to-br from-slate-50 to-slate-100">
+                        <img 
+                          src={sectionImg} 
+                          alt={section.title} 
+                          className="h-full w-full object-contain p-3 transition-transform duration-300 group-hover:scale-105"
+                          onError={(e) => {
+                            e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(section.title)}`
+                          }}
+                        />
+                      </div>
                       <h3 className="text-base font-semibold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
-                        {item}
+                        {section.title}
                       </h3>
-                      <div className="mt-3 flex items-center gap-2">
-                        <span className="text-xs font-medium uppercase tracking-wide text-[#ff7f00] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                          Detayları Gör
+                      <div className="mt-2 flex items-center gap-2">
+                        <span className="text-xs font-medium text-slate-500">
+                          {section.items.length} ürün
                         </span>
                         <svg 
                           className="h-4 w-4 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100" 
@@ -254,11 +297,76 @@ function Products() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                       </div>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
+                    </button>
+                  )
+                })}
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Seçilen grup</p>
+                  <h2 className="text-xl font-semibold">{activeSection ?? 'Henüz seçilmedi'}</h2>
+                </div>
+                <span className="text-sm text-slate-500">
+                  {activeSection ? `${currentItems.length} ürün` : 'Seçim yapın'}
+                </span>
+              </div>
+
+              {!activeSection ? (
+                <div className="rounded-2xl border border-dashed border-slate-200 bg-white p-8 text-sm text-slate-500 shadow-sm">
+                  Bir kategori seçin, ürünleri listeleyelim.
+                </div>
+              ) : currentItems.length === 0 ? (
+                <div className="rounded-2xl border border-dashed border-slate-200 bg-white p-8 text-sm text-slate-500 shadow-sm">
+                  Bu grup için ürün bulunamadı.
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+                  {currentItems.map((item) => {
+                    const img = getProductImage(item)
+                    return (
+                      <div
+                        key={item}
+                        className="group relative overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#ff7f00]/30 hover:shadow-xl"
+                      >
+                        <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100">
+                          <img 
+                            src={img} 
+                            alt={item} 
+                            className="h-full w-full object-contain p-4 transition-transform duration-300 group-hover:scale-105"
+                            onError={(e) => {
+                              // Resim yüklenemezse placeholder göster
+                              e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(item)}`
+                            }}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                        </div>
+                        <div className="p-6">
+                          <h3 className="text-base font-semibold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                            {item}
+                          </h3>
+                          <div className="mt-3 flex items-center gap-2">
+                            <span className="text-xs font-medium uppercase tracking-wide text-[#ff7f00] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                              Detayları Gör
+                            </span>
+                            <svg 
+                              className="h-4 w-4 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100" 
+                              fill="none" 
+                              viewBox="0 0 24 24" 
+                              stroke="currentColor"
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              )}
+            </>
           )}
         </div>
       </section>

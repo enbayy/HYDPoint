@@ -50,7 +50,7 @@ function Contact() {
 
   return (
     <div className="bg-slate-50 pb-16 text-slate-900">
-      <section className="mx-auto max-w-6xl space-y-10 px-4 pt-10 sm:px-6">
+      <section className="mx-auto max-w-7xl space-y-10 px-4 pt-10 sm:px-6">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {contactCards.map((card) => (
             <div

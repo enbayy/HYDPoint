@@ -14,7 +14,7 @@ function CatalogSection() {
           </p>
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-4 md:grid-cols-[1.2fr_0.8fr] md:items-center">
             <select className="h-12 rounded-full border border-slate-200 px-4 text-sm font-semibold text-slate-700 shadow-sm focus:border-[#ff7f00] focus:outline-none">
-              <option>Metosan Ürün Kataloğu</option>
+              <option>HYD Point Ürün Kataloğu</option>
               <option>Hidrolik Çözümler</option>
               <option>Tesisat ve Sızdırmazlık</option>
             </select>

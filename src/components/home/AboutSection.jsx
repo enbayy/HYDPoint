@@ -7,9 +7,9 @@ function AboutSection() {
           <h2 className="text-lg font-semibold text-slate-900">HAKKIMIZDA</h2>
         </div>
         <p className="text-base leading-relaxed text-slate-600">
-          1978 yılında ticari faaliyetlerine başlayan firmamız 1995 yılında METOSAN Hidrolik ve Pnömatik San. ve Tic. Ltd.
-          Şti adı altında 6000 m² alanda Hidrolik ve Pnömatik sektöründe hizmet vermeye başlamıştır. Firmamız bulunduğu
-          sektörde sahip olduğu tecrübe ve birikimi sayesinde günümüzün en etkin ve saygın kuruluşlarından biridir.
+          HYD Point Endüstriyel, hidrolik ve pnömatik sistemler alanında faaliyet gösteren, sektörün önde gelen firmalarından biridir. 
+          Geniş ürün yelpazesi ve teknik uzmanlığımızla, endüstriyel uygulamalardan mobil makine sektörüne kadar geniş bir yelpazede hizmet vermekteyiz. 
+          Müşterilerimize en kaliteli ürünleri, en uygun fiyatlarla sunarak, sektörde güvenilir bir çözüm ortağı olmayı hedefliyoruz.
         </p>
         <a
           href="#"

@@ -8,11 +8,11 @@ export const heroSlides = [
   {
     title: 'GÜÇ ONUN İŞİ',
     description:
-      'Metosan ürün gamındaki hidrolik çözümler; ağır iş, endüstri, tarım ve mobil uygulamalarda sahada kendini kanıtladı.',
+      'HYD Point ürün gamındaki hidrolik çözümler; ağır iş, endüstri, tarım ve mobil uygulamalarda sahada kendini kanıtladı.',
     image: 'https://metosan.com.tr/Storage/Upload/cache/637286938676461652-b75-1turkiye-nin-hidrolik-marketi--800-547.jpeg',
   },
   {
-    title: "METOSAN'LA ŞAH-MAT!",
+    title: "HYD Point'LA ŞAH-MAT!",
     description: '40 yılı aşkın tecrübe, güçlü stok ve uzman mühendislik desteğiyle her zaman yanınızdayız.',
     image: 'https://metosan.com.tr/Storage/Upload/cache/637310364767955696-b75-2covid19-icin-aldigimiz-tedbir-800-547.jpeg',
   },

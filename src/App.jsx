@@ -32,10 +32,11 @@ const footerSections = [
 ]
 
 const navItems = [
-  { label: 'Anasayfa', path: '/' },
-  { label: 'Ürünler', path: '/urunler' },
-  { label: 'Markalar', path: '/markalar' },
-  { label: 'İletişim', path: '/iletisim' },
+  { label: 'ANASAYFA', path: '/' },
+  { label: 'ÜRÜNLER', path: '/urunler' },
+  { label: 'MARKALAR', path: '/markalar' },
+  { label: 'HAKKIMIZDA', path: '/hakkimizda' },
+  { label: 'İLETİŞİM', path: '/iletisim' },
 ]
 
 const brandLogos = [
@@ -97,6 +98,49 @@ const pageContent = {
       { heading: 'Kataloglar', body: 'Ürün kataloglarımızın dijital kopyalarını görüntüleyip indirebilirsiniz.' },
     ],
   },
+  hakkimizda: {
+    title: 'Hakkımızda',
+    subtitle: 'Hidrolik ve pnömatik sektöründe güvenilir çözüm ortağınız.',
+    sections: [
+      {
+        heading: 'HYD Point Endüstriyel',
+        body: 'HYD Point Endüstriyel, hidrolik ve pnömatik sistemler alanında faaliyet gösteren, sektörün önde gelen firmalarından biridir. Geniş ürün yelpazesi ve teknik uzmanlığımızla, endüstriyel uygulamalardan mobil makine sektörüne kadar geniş bir yelpazede hizmet vermekteyiz. Müşterilerimize en kaliteli ürünleri, en uygun fiyatlarla sunarak, sektörde güvenilir bir çözüm ortağı olmayı hedefliyoruz.',
+      },
+      {
+        heading: 'Ürün Gamımız',
+        body: 'Hidrolik pompalar, motorlar, valfler, akış bölücüler, aküler, direksiyon sistemleri, basınç ölçüm cihazları, bağlantı elemanları ve daha birçok hidrolik komponenti geniş bir yelpazede sunmaktayız. Ayrıca pnömatik sistemler, sızdırmazlık elemanları ve elektronik kontrol sistemleri konusunda da hizmet vermekteyiz.',
+        items: [
+          'Hidrolik pompalar ve motorlar',
+          'Akış bölücüler ve aküler',
+          'Direksiyon sistemleri ve kumanda kolları',
+          'Basınç ölçüm ve kontrol cihazları',
+          'Hidrolik bağlantı elemanları ve hortumlar',
+          'Pnömatik sistemler',
+          'Sızdırmazlık elemanları',
+        ],
+      },
+      {
+        heading: 'Misyonumuz',
+        body: 'Müşterilerimize en kaliteli hidrolik ve pnömatik ürünleri, teknik destek ve danışmanlık hizmetleriyle birlikte sunarak, onların başarısına katkıda bulunmak. Sektörde güvenilirlik, kalite ve müşteri memnuniyeti odaklı bir hizmet anlayışıyla öncü olmak.',
+      },
+      {
+        heading: 'Vizyonumuz',
+        body: 'Türkiye ve bölge ülkelerinde hidrolik ve pnömatik sektöründe tanınan, güvenilir ve tercih edilen bir marka olmak. Sürekli gelişen teknolojiye ayak uydurarak, müşterilerimize en güncel çözümleri sunmak ve sektörde lider konumda yer almak.',
+      },
+      {
+        heading: 'Değerlerimiz',
+        body: 'Kalite, güvenilirlik, müşteri odaklılık ve sürekli gelişim temel değerlerimizdir. Her projede müşteri memnuniyetini ön planda tutarak, uzun vadeli iş ortaklıkları kurmayı hedefliyoruz.',
+        items: [
+          'Kalite ve güvenilirlik',
+          'Müşteri odaklı hizmet anlayışı',
+          'Teknik uzmanlık ve danışmanlık',
+          'Zamanında teslimat',
+          'Rekabetçi fiyatlandırma',
+          'Sürekli gelişim ve yenilik',
+        ],
+      },
+    ],
+  },
   iletisim: {
     title: 'İletişim',
     subtitle: 'Satış, teknik destek ve insan kaynakları için bize ulaşın.',
@@ -112,7 +156,7 @@ const pageContent = {
 
 const secondaryNav = [
   {
-    label: 'Hidrolik',
+    label: 'HİDROLİK',
     path: '/urunler',
     description: 'Pompalar, valfler, güç üniteleri, ağır iş uygulamaları.',
     links: [
@@ -134,13 +178,13 @@ const secondaryNav = [
     ],
   },
   {
-    label: 'Pnömatik',
+    label: 'PNÖMATİK',
     path: '/urunler',
     description: 'Silindirler, hava hazırlama ve bağlantı ekipmanları.',
     links: ['Silindirler', 'Basınç Regülatörleri', 'Filtreler', 'Bağlantı Elemanları', 'Aksesuarlar'],
   },
   {
-    label: 'Sızdırmazlık',
+    label: 'SIZDIRMAZLIK',
     path: '/urunler',
     description: 'Tesisat ve hidrolik sistemler için contalar, kelepçeler.',
     links: ['O-ring', 'Keçe', 'Hortum Kelepçeleri', 'Flanş Contaları', 'Bakım Kitleri'],
@@ -178,7 +222,7 @@ const brandGallery = {
   Kawasaki: '/kawasaki.png',
   KCL: '/kcl.png',
   Linde: '/linde.png',
-  Metosan: '/metosan.png',
+  'HYD Point': '/metosan.png',
   MS: '/ms.png',
   Oleocon: '/oleocon.png',
   OMFB: '/omfb.png',
@@ -329,11 +373,11 @@ function App() {
           </div>
 
           <div className="relative mx-auto flex w-full max-w-7xl items-center justify-between px-8 py-5">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 -my-5">
               <img
                 src={hydLogo3}
                 alt="HYD Point logo"
-                className="h-10 w-auto"
+                className="h-16 w-auto"
               />
             </div>
 
@@ -363,7 +407,7 @@ function App() {
                       >
                         {({ isActive }) => (
                           <>
-                            <span>Markalar</span>
+                            <span>MARKALAR</span>
                             <span
                               className={`absolute -bottom-1 left-0 h-[2px] w-full rounded-full bg-[#ff7f00] transition ${
                                 isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'
@@ -437,7 +481,7 @@ function App() {
                     className="flex items-center justify-center gap-2 rounded-lg bg-[#ff7f00]/10 px-4 py-2 text-sm font-semibold text-[#1e4294] transition hover:bg-[#ff7f00]/20"
                     onClick={() => setBrandsMenuOpen(false)}
                   >
-                    Tüm Markalar
+                    TÜM MARKALAR
                     <span>→</span>
                   </NavLink>
                 </div>
@@ -452,7 +496,7 @@ function App() {
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Ürün ara"
+                    placeholder="ÜRÜN ARA"
                     className="w-full rounded-full border border-slate-200 bg-white px-4 py-2.5 pl-11 pr-4 text-sm text-slate-700 placeholder:text-slate-400 transition-all duration-200 focus:border-[#ff7f00] focus:outline-none focus:ring-2 focus:ring-[#ff7f00]/20 hover:border-slate-300"
                   />
                   <svg
@@ -522,6 +566,16 @@ function App() {
                 >
                   <NavLink
                     to={item.path}
+                    onClick={(e) => {
+                      // Hidrolik için dropdown'ı açık tut
+                      if (item.label === 'HİDROLİK') {
+                        e.preventDefault()
+                        handleOpenSecondary(item.label)
+                      } else {
+                        // Sızdırmazlık ve Pnömatik için dropdown'ı kapat
+                        setOpenSecondary(null)
+                      }
+                    }}
                     className="flex items-center gap-2 rounded-full px-4 py-2 transition hover:bg-[#ff7f00]/10 hover:text-[#1e4294]"
                   >
                     {item.label}
@@ -533,12 +587,12 @@ function App() {
                       onMouseLeave={handleCloseSecondary}
                       className="absolute left-0 right-0 top-full mt-1 w-full rounded-2xl border border-slate-200 bg-white p-6 shadow-2xl"
                     >
-                      {item.label !== 'Hidrolik' ? (
+                      {item.label !== 'HİDROLİK' ? (
                         <div className="flex items-start justify-between gap-3">
                           <p className="text-sm font-semibold text-slate-900">{item.label}</p>
                         </div>
                       ) : null}
-                      {item.label === 'Hidrolik' ? (
+                      {item.label === 'HİDROLİK' ? (
                         <div className="mt-4 grid grid-cols-6 gap-x-8 gap-y-2 text-sm text-slate-700">
                           <div className="space-y-2">
                             {pumpGroup.map((link) => {
@@ -715,7 +769,7 @@ function App() {
                             })}
                           </div>
                         </div>
-                      ) : item.label === 'Markalar' ? (
+                      ) : item.label === 'MARKALAR' ? (
                         <div className="mt-4 grid grid-cols-3 gap-3 sm:grid-cols-6">
                           {item.links.map((link) => (
                             <div
@@ -822,7 +876,7 @@ function App() {
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Ürün ara"
+                    placeholder="ÜRÜN ARA"
                     className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 pl-11 pr-4 text-sm text-slate-700 placeholder:text-slate-400 transition-all duration-200 focus:border-[#ff7f00] focus:outline-none focus:ring-2 focus:ring-[#ff7f00]/20"
                   />
                   <svg
@@ -877,53 +931,115 @@ function App() {
               element={<InfoPage {...pageContent.medya} />}
             />
             <Route
+              path="/hakkimizda"
+              element={<InfoPage {...pageContent.hakkimizda} />}
+            />
+            <Route
               path="/iletisim"
               element={<Contact />}
             />
           </Routes>
         </main>
 
-        <footer className="mt-16 bg-[#1e4294] text-slate-200">
-          <div className="mx-auto max-w-[95%] px-4 py-12">
+        <footer className="mt-16 bg-slate-900 text-slate-200">
+          <div className="mx-auto max-w-7xl px-8 py-12">
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
               <div className="space-y-4">
                 <img
                   src={hydLogo3}
-                  alt="HYD Point footer logo"
-                  className="h-10 w-auto"
+                  alt="Derya Rakor Logo"
+                  className="h-16 w-auto"
                 />
                 <p className="text-sm text-slate-300">
-                  1978&apos;den bu yana hidrolik ve pnömatik sektöründe güçlü markalar ve mühendislik çözümleri sunuyoruz.
+                  Hidrolik ve pnömatik sektöründe kaliteli ürünler ve çözümler sunuyoruz.
                 </p>
-                <div className="flex gap-3 text-sm font-semibold text-white">
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10">FB</span>
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10">IG</span>
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10">YT</span>
-                </div>
               </div>
 
-              {footerSections.map((section) => (
-                <div key={section.title} className="space-y-3">
-                  <h4 className="text-sm font-semibold uppercase tracking-[0.08em] text-white">{section.title}</h4>
-                  <ul className="space-y-2 text-sm text-slate-300">
-                    {section.links.map((link) => (
-                      <li key={link}>
-                        <a href="#" className="transition hover:text-white">
-                          {link}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+              <div className="space-y-3">
+                <h4 className="text-sm font-semibold uppercase tracking-[0.08em] text-white">ÜRÜNLER</h4>
+                <ul className="space-y-1.5 text-xs text-slate-300">
+                  <li>
+                    <a href="#" className="transition hover:text-white">
+                      POMPA
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="transition hover:text-white">
+                      AKIŞ BÖLÜCÜLER
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="transition hover:text-white">
+                      AKÜLER
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="transition hover:text-white">
+                      HİDROMOTORLAR
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="transition hover:text-white">
+                      HİDROLİK BAĞLANTI ELEMANLARI
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="transition hover:text-white">
+                      HİDROLİK SİLİNDİR VE AKSESUARLARI
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="transition hover:text-white">
+                      DİREKSİYON BEYİNLERİ
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="transition hover:text-white">
+                      BASINÇ, ISI ÖLÇÜM VE KONTROL CİHAZLARI
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="transition hover:text-white">
+                      KUMANDA KOLLARI, JOİSTİK VE LOADER VALF
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="space-y-3">
+                <h4 className="text-sm font-semibold uppercase tracking-[0.08em] text-white">İLETİŞİM</h4>
+                <ul className="space-y-3 text-sm text-slate-300">
+                  <li className="flex items-center gap-2">
+                    <svg className="h-4 w-4 text-[#ff7f00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <a href="mailto:info@hydpoint.com" className="transition hover:text-white">
+                      info@hydpoint.com
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <svg className="h-4 w-4 text-[#ff7f00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    <a href="tel:+902123456789" className="transition hover:text-white">
+                      (0212) 345 67 89
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="space-y-3">
+                <h4 className="text-sm font-semibold uppercase tracking-[0.08em] text-white">ADRES</h4>
+                <p className="text-sm text-slate-300 leading-relaxed">
+                  Fevziçakmak, 10670. Sk. Bayır Özel Org. San. Bölg No:31 D:31A,<br />
+                  42050 Karatay/Konya
+                </p>
+              </div>
             </div>
           </div>
-          <div className="border-t border-white/10 bg-[#142f73]">
-            <div className="mx-auto flex max-w-[95%] flex-col items-center justify-between gap-3 px-4 py-4 text-xs text-slate-400 sm:flex-row">
-              <p>Copyrights © 2020. HYD Point all rights reserved.</p>
-              <a href="https://atlikarinca.net/" className="font-semibold text-slate-300 hover:text-white">
-                madeBy
-              </a>
+          <div className="border-t border-white/10 bg-slate-800">
+            <div className="mx-auto flex max-w-7xl items-center justify-center px-8 py-4 text-xs text-white">
+              <p>Telif Hakkı © 2026. HYD Point Endüstriyel tüm hakları saklıdır.</p>
             </div>
           </div>
         </footer>
