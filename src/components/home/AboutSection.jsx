@@ -1,6 +1,6 @@
 function AboutSection() {
   return (
-    <section className="mx-auto grid max-w-[95%] grid-cols-1 gap-8 px-3 sm:gap-10 sm:px-4 lg:grid-cols-[1.05fr_0.95fr]">
+    <section className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 sm:gap-10 sm:px-6 lg:grid-cols-[1.05fr_0.95fr]">
       <div className="space-y-4">
         <div className="flex items-center gap-3">
           <span className="h-1 w-10 rounded-full bg-red-500" />
