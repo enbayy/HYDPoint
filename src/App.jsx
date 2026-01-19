@@ -555,12 +555,12 @@ function App() {
             </div>
           </div>
 
-          <div className="border-t border-slate-100 bg-gradient-to-r from-slate-50 via-white to-slate-50">
-            <div className="relative mx-auto flex w-full max-w-7xl flex-wrap items-center justify-center gap-4 px-6 py-3 text-sm font-semibold text-slate-700">
+          <div className="relative z-30 border-t border-slate-200/80 bg-gradient-to-b from-white via-slate-50/30 to-white shadow-sm">
+            <div className="relative mx-auto flex w-full max-w-7xl flex-wrap items-center justify-center gap-3 px-6 py-4">
               {secondaryNav.map((item) => (
                 <div
                   key={item.label}
-                  className="group"
+                  className="group relative z-40"
                   onMouseEnter={() => handleOpenSecondary(item.label)}
                   onMouseLeave={handleCloseSecondary}
                 >
@@ -576,17 +576,23 @@ function App() {
                         setOpenSecondary(null)
                       }
                     }}
-                    className="flex items-center gap-2 rounded-full px-4 py-2 transition hover:bg-[#ff7f00]/10 hover:text-[#1e4294]"
+                    className="relative flex items-center gap-2.5 rounded-xl border border-slate-200/60 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition-all duration-200 hover:border-[#1e4294]/40 hover:bg-gradient-to-r hover:from-[#1e4294]/5 hover:to-[#ff7f00]/5 hover:text-[#1e4294] hover:shadow-md hover:shadow-[#1e4294]/10 active:scale-[0.98]"
                   >
-                    {item.label}
-                    <span className="text-xs text-slate-400 group-hover:text-[#ff7f00]">▼</span>
+                    <span className="relative z-10">{item.label}</span>
+                    <span className="relative z-10 text-[10px] text-slate-400 transition-all duration-200 group-hover:translate-y-0.5 group-hover:text-[#ff7f00]">▼</span>
+                    <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#1e4294]/0 via-[#1e4294]/0 to-[#ff7f00]/0 opacity-0 transition-opacity duration-200 group-hover:opacity-5" />
                   </NavLink>
-                  {openSecondary === item.label ? (
-                    <div
-                      onMouseEnter={() => handleOpenSecondary(item.label)}
-                      onMouseLeave={handleCloseSecondary}
-                      className="absolute left-0 right-0 top-full mt-1 w-full rounded-2xl border border-slate-200 bg-white p-6 shadow-2xl"
-                    >
+                </div>
+              ))}
+            </div>
+            {secondaryNav.map((item) => (
+              openSecondary === item.label && (
+                <div
+                  key={item.label}
+                  onMouseEnter={() => handleOpenSecondary(item.label)}
+                  onMouseLeave={handleCloseSecondary}
+                  className="absolute left-0 right-0 top-full z-50 mx-auto mt-1 w-full max-w-7xl rounded-2xl border border-slate-200 bg-white p-6 shadow-2xl"
+                >
                       {item.label !== 'HİDROLİK' ? (
                         <div className="flex items-start justify-between gap-3">
                           <p className="text-sm font-semibold text-slate-900">{item.label}</p>
@@ -796,11 +802,9 @@ function App() {
                           ))}
                         </ul>
                       )}
-                    </div>
-                  ) : null}
                 </div>
-              ))}
-            </div>
+              )
+            ))}
           </div>
 
         {mobileOpen ? (
