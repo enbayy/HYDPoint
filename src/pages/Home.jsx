@@ -1,20 +1,16 @@
-import AboutSection from '../components/home/AboutSection'
 import BrandsSection from '../components/home/BrandsSection'
 import CatalogSection from '../components/home/CatalogSection'
-import HeroSection from '../components/home/HeroSection'
-import NewsSection from '../components/home/NewsSection'
-import NewsletterSection from '../components/home/NewsletterSection'
-import { brandLogos, heroSlides, newsItems } from '../components/home/homeData'
+import FeaturedProductsSection from '../components/home/FeaturedProductsSection'
+import SimpleHero from '../components/home/SimpleHero'
+import { brandLogos } from '../components/home/homeData'
 
 function Home() {
   return (
-    <div className="space-y-16 pb-16">
-      <HeroSection slides={heroSlides} />
-      <AboutSection />
+    <div className="space-y-20 pb-20">
+      <SimpleHero />
+      <FeaturedProductsSection />
       <BrandsSection brands={brandLogos} />
-      <NewsSection items={newsItems} />
       <CatalogSection />
-      <NewsletterSection />
     </div>
   )
 }

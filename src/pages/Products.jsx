@@ -1,5 +1,74 @@
 import { useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
+
+// Ürün isimlerini resim dosya isimlerine çeviren fonksiyon
+const getProductImage = (productName) => {
+  // Özel eşleştirmeler
+  const specialMappings = {
+    'ALÜMİNYUM GÖVDELİ DİŞLİ POMPALAR': '/pompa.png',
+    'DÖKÜM GÖVDELİ DİŞLİ POMPALAR': '/dokum-govdeli-disli-pompal.png',
+    'EL POMPASI': '/el-pompasi.png',
+    'İÇTEN DİŞLİ POMPALAR': '/icten-disli-pompalar.png',
+    'İŞ MAKİNESİ POMPALARI': '/is-makinesi-pompalari.png',
+    'PALETLİ POMPA': '/paletli-pompa.png',
+    'PİSTONLU POMPA': '/pistonlu-pompa.png',
+    'TANDEM POMPALAR': '/tandem-pompalar.png',
+    'ALÜMİNYUM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER': '/aluminyum-govde-disli-akis-boluculer.png',
+    'DÖKÜM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER': '/dokum-govde-disli-akis-boluculer.png',
+    'MEMBRANLI AKÜLER': '/aküler.png',
+    'BALONLU AKÜLER': '/aküler.png',
+    'EMNİYETLİ NORMAL': '/direksiyon-beyinleri.png',
+    'EMNİYETLİ ANTİŞOKLU': '/direksiyon-beyinleri.png',
+    'EMNİYETSİZ NORMAL': '/direksiyon-beyinleri.png',
+    'EMNİYETSİZ KAPALI MERKEZ': '/direksiyon-beyinleri.png',
+    'EMNİYETSİZ ANTİŞOKLU': '/direksiyon-beyinleri.png',
+    'FORKLİFT İÇİN XY SERİSİ': '/direksiyon-beyinleri.png',
+    'BASINÇ ŞALTERLERİ': '/basinc-salterleri.png',
+    'ISI (SICAKLIK) ÖLÇER': '/isi-sicaklik-olcer.png',
+    'MANOMETRE KORUMA VALFLERİ': '/manometre-koruma-valfleri.png',
+    'MANOMETRE TEST RAKORLARI': '/manometre-test-rakorlari.png',
+    'MANOMETRE VE VAKUMMETRELER': '/manometre-ve-vakummetreler.png',
+    'TRANSMİTTERLER': '/transmitterler.png',
+    'DİŞLİ MOTORLAR': '/disli-motorlar.png',
+    'EĞİK EKSENLİ HİDROMOTORLAR': '/egik-eksenli-hidromotorlar.png',
+    'GEROTOR MOTORLAR (ORBİT)': '/gerotor-motorlar-orbit.png',
+    'YILDIZ (RADIAL) MOTOR': '/yildiz-radial-motor.png',
+    'DİLİMLİ KUMANDA KOLU': '/kumanda-kollari--joistik.png',
+    'MONOBLOK KUMANDA KOLU': '/kumanda-kollari--joistik.png',
+    'ELEKTRİK KONTROLLÜ KUMANDA KOLLARI': '/kumanda-kollari--joistik.png',
+    'JOİSTİK VE YÜKLEYİCİ VALF': '/kumanda-kollari--joistik.png',
+    'HORTUM BAĞLANTI ELEMANLARI': '/hortumbaglantielemanlari.png',
+    'DİŞLİ BAĞLANTI ELEMANLARI': '/dislibaglantielemanlari.png',
+    'HORTUMLAR': '/hortumlar.png',
+    'KROM KAPLI MİLLER': '/hidrolik-silindir-ve-akses.png',
+  }
+
+  // Özel eşleştirme varsa onu kullan
+  if (specialMappings[productName]) {
+    return specialMappings[productName]
+  }
+
+  // Genel dönüşüm: Türkçe karakterleri değiştir, küçük harfe çevir, boşlukları tire ile değiştir
+  let imageName = productName
+    .toLowerCase()
+    .replace(/ı/g, 'i')
+    .replace(/ğ/g, 'g')
+    .replace(/ü/g, 'u')
+    .replace(/ş/g, 's')
+    .replace(/ö/g, 'o')
+    .replace(/ç/g, 'c')
+    .replace(/İ/g, 'i')
+    .replace(/Ğ/g, 'g')
+    .replace(/Ü/g, 'u')
+    .replace(/Ş/g, 's')
+    .replace(/Ö/g, 'o')
+    .replace(/Ç/g, 'c')
+    .replace(/\s+/g, '-')
+    .replace(/[()]/g, '')
+    .replace(/--+/g, '-')
+    .replace(/^-|-$/g, '')
+
+  return `/${imageName}.png`
+}
 
 const hydraulicSections = [
   {
@@ -65,57 +134,10 @@ function Products() {
     setOpenGroups((prev) => (prev.includes(title) ? prev.filter((t) => t !== title) : [...prev, title]))
   }
 
-  // Pompa resimleri mapping
-  const getPumpImage = (itemName) => {
-    const imageMap = {
-      'ALÜMİNYUM GÖVDELİ DİŞLİ POMPALAR': '/aligodi.png',
-      'DÖKÜM GÖVDELİ DİŞLİ POMPALAR': '/dokum-govdeli-disli-pompal.png',
-      'EL POMPASI': '/el-pompasi.png',
-      'İÇTEN DİŞLİ POMPALAR': '/icten-disli-pompalar.png',
-      'İŞ MAKİNESİ POMPALARI': '/is-makinesi-pompalari.png',
-      'PALETLİ POMPA': '/paletli-pompa.png',
-      'PİSTONLU POMPA': '/pistonlu-pompa.png',
-      'TANDEM POMPALAR': '/tandem-pompalar.png',
-    }
-    return imageMap[itemName] || `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(itemName)}`
-  }
-
-  // Ürün logoları mapping
-  const getProductLogo = (itemName) => {
-    const logoMap = {
-      'ALÜMİNYUM GÖVDELİ DİŞLİ POMPALAR': 'https://metosan.com.tr/Storage/Upload/cache/637557325862393960-b-39hydrocar-175-90.png',
-      'DÖKÜM GÖVDELİ DİŞLİ POMPALAR': 'https://metosan.com.tr/Storage/Upload/cache/638340098660595043-b-73grimet-175-90.png',
-      'EL POMPASI': 'https://metosan.com.tr/Storage/Upload/cache/637333620284483912-b-11salami-175-90.png',
-      'İÇTEN DİŞLİ POMPALAR': 'https://metosan.com.tr/Storage/Upload/cache/637661968877589422-b-67walvoil-175-90.png',
-      'İŞ MAKİNESİ POMPALARI': 'https://metosan.com.tr/Storage/Upload/cache/637532341975657085-b-30kawasaki-175-90.png',
-      'PALETLİ POMPA': 'https://metosan.com.tr/Storage/Upload/cache/637635181100323594-b-58wika-175-90.png',
-      'PİSTONLU POMPA': 'https://metosan.com.tr/Storage/Upload/cache/637613397761965452-b-46zhenjiang-175-90.png',
-      'TANDEM POMPALAR': 'https://metosan.com.tr/Storage/Upload/cache/637607340096564042-b-43saip-175-90.png',
-      'ALÜMİNYUM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER': 'https://metosan.com.tr/Storage/Upload/cache/637532342525093881-b-33gold-175-90.png',
-      'DÖKÜM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER': 'https://metosan.com.tr/Storage/Upload/cache/637332590151054674-b75-15hemko-175-90.png',
-      'MEMBRANLI AKÜLER': 'https://metosan.com.tr/Storage/Upload/cache/637557325862393960-b-39hydrocar-175-90.png',
-      'BALONLU AKÜLER': 'https://metosan.com.tr/Storage/Upload/cache/638340098660595043-b-73grimet-175-90.png',
-    }
-    // Eğer ürün için logo yoksa, ürün adına göre bir logo seç (modulo ile)
-    const logos = [
-      'https://metosan.com.tr/Storage/Upload/cache/637557325862393960-b-39hydrocar-175-90.png',
-      'https://metosan.com.tr/Storage/Upload/cache/638340098660595043-b-73grimet-175-90.png',
-      'https://metosan.com.tr/Storage/Upload/cache/637333620284483912-b-11salami-175-90.png',
-      'https://metosan.com.tr/Storage/Upload/cache/637661968877589422-b-67walvoil-175-90.png',
-      'https://metosan.com.tr/Storage/Upload/cache/637532341975657085-b-30kawasaki-175-90.png',
-      'https://metosan.com.tr/Storage/Upload/cache/637635181100323594-b-58wika-175-90.png',
-      'https://metosan.com.tr/Storage/Upload/cache/637613397761965452-b-46zhenjiang-175-90.png',
-      'https://metosan.com.tr/Storage/Upload/cache/637607340096564042-b-43saip-175-90.png',
-      'https://metosan.com.tr/Storage/Upload/cache/637532342525093881-b-33gold-175-90.png',
-      'https://metosan.com.tr/Storage/Upload/cache/637332590151054674-b75-15hemko-175-90.png',
-    ]
-    return logoMap[itemName] || logos[itemName.length % logos.length]
-  }
-
   return (
     <div className="bg-slate-50 pb-16 text-slate-900">
-      <section className="mx-auto flex w-full max-w-[95%] flex-col gap-6 px-3 pt-8 sm:gap-8 sm:px-4 lg:flex-row">
-        <aside className="w-full lg:w-96">
+      <section className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 pt-8 sm:gap-8 sm:px-6 lg:flex-row lg:px-8">
+        <aside className="w-full lg:w-80">
           <div className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm lg:sticky lg:top-28">
             {catalogGroups.map((group) => {
               const groupOpen = openGroups.includes(group.title)
@@ -195,49 +217,45 @@ function Products() {
               Bu grup için ürün bulunamadı.
             </div>
           ) : (
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
               {currentItems.map((item) => {
-                const img = activeSection === 'POMPA' ? getPumpImage(item) : `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(item)}`
-                const productSlug = encodeURIComponent(item.toLowerCase().replace(/\s+/g, '-'))
+                const img = getProductImage(item)
                 return (
-                  <Link
+                  <div
                     key={item}
-                    to={`/urun-detay/${productSlug}`}
-                    state={{ productName: item, productImage: img, productLogo: getProductLogo(item) }}
-                    className="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:border-[#ff7f00]/50 hover:shadow-xl"
+                    className="group relative overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#ff7f00]/30 hover:shadow-xl"
                   >
-                    {/* Ürün Görseli */}
-                    <div className="relative flex h-64 items-center justify-center overflow-hidden bg-white p-6">
+                    <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100">
                       <img 
                         src={img} 
                         alt={item} 
-                        className="h-full w-full object-contain transition-all duration-500 group-hover:scale-105" 
+                        className="h-full w-full object-contain p-4 transition-transform duration-300 group-hover:scale-105"
+                        onError={(e) => {
+                          // Resim yüklenemezse placeholder göster
+                          e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(item)}`
+                        }}
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                     </div>
-                    
-                    {/* Ürün Bilgileri */}
-                    <div className="flex flex-1 flex-col justify-between border-t border-slate-100 bg-white p-5">
-                      <div>
-                        {/* Ürün Adı */}
-                        <h3 className="mb-3 line-clamp-2 min-h-[3rem] text-base font-semibold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#ff7f00]">
-                          {item}
-                        </h3>
-                      </div>
-                      
-                      {/* Detaylar için tıklayın */}
-                      <div className="mt-auto flex items-center">
-                        <span className="text-xs text-slate-500 transition-colors duration-300 group-hover:text-slate-700">Detaylar için tıklayın</span>
+                    <div className="p-6">
+                      <h3 className="text-base font-semibold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                        {item}
+                      </h3>
+                      <div className="mt-3 flex items-center gap-2">
+                        <span className="text-xs font-medium uppercase tracking-wide text-[#ff7f00] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                          Detayları Gör
+                        </span>
                         <svg 
-                          className="ml-2 h-4 w-4 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100" 
+                          className="h-4 w-4 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100" 
                           fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
+                          viewBox="0 0 24 24" 
+                          stroke="currentColor"
                         >
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                       </div>
                     </div>
-                  </Link>
+                  </div>
                 )
               })}
             </div>

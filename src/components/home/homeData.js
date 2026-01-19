@@ -24,16 +24,18 @@ export const heroSlides = [
 ]
 
 export const brandLogos = [
-  { name: 'GRIMET', src: 'https://metosan.com.tr/Storage/Upload/cache/638340098660595043-b-73grimet-175-90.png' },
-  { name: 'SALAMI', src: 'https://metosan.com.tr/Storage/Upload/cache/637333620284483912-b-11salami-175-90.png' },
-  { name: 'WALVOIL', src: 'https://metosan.com.tr/Storage/Upload/cache/637661968877589422-b-67walvoil-175-90.png' },
-  { name: 'WIKA', src: 'https://metosan.com.tr/Storage/Upload/cache/637635181100323594-b-58wika-175-90.png' },
-  { name: 'ZHENJIANG', src: 'https://metosan.com.tr/Storage/Upload/cache/637613397761965452-b-46zhenjiang-175-90.png' },
-  { name: 'SAIP', src: 'https://metosan.com.tr/Storage/Upload/cache/637607340096564042-b-43saip-175-90.png' },
-  { name: 'HYDROCAR', src: 'https://metosan.com.tr/Storage/Upload/cache/637557325862393960-b-39hydrocar-175-90.png' },
-  { name: 'KAWASAKI', src: 'https://metosan.com.tr/Storage/Upload/cache/637532341975657085-b-30kawasaki-175-90.png' },
-  { name: 'GOLD', src: 'https://metosan.com.tr/Storage/Upload/cache/637532342525093881-b-33gold-175-90.png' },
-  { name: 'HEMKO', src: 'https://metosan.com.tr/Storage/Upload/cache/637332590151054674-b75-15hemko-175-90.png' },
+  { name: 'Danfoss', src: '/danfoss.png' },
+  { name: 'Rexroth', src: '/rexroth.png' },
+  { name: 'Parker', src: '/parker.png' },
+  { name: 'Kawasaki', src: '/kawasaki.png' },
+  { name: 'Hydac', src: '/hydac.png' },
+  { name: 'Wika', src: '/wika.png' },
+  { name: 'Salami', src: '/salami.png' },
+  { name: 'Hydrocar', src: '/hydrocar.png' },
+  { name: 'Grimet', src: '/grimet.png' },
+  { name: 'Hemko', src: '/hemko.png' },
+  { name: 'Walvoil', src: '/walvoil.png' },
+  { name: 'Saip', src: '/saip.png' },
 ]
 
 export const newsItems = [

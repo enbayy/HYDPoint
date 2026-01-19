@@ -14,7 +14,7 @@ function HeroSection({ slides }) {
   }, [slideCount])
 
   return (
-    <section className="mx-auto w-full max-w-[95%] px-3 pt-8 sm:px-4">
+    <section className="mx-auto w-full max-w-7xl px-1 pt-8">
       <div className="relative overflow-hidden rounded-3xl bg-slate-900 text-white shadow-2xl">
         <div
           className="pointer-events-none absolute inset-0 bg-cover bg-center"
@@ -23,8 +23,8 @@ function HeroSection({ slides }) {
           }}
         />
         <div className="relative z-10 flex min-h-[420px] flex-col gap-6 p-8 sm:min-h-[480px] sm:p-12 md:min-h-[520px] md:p-14">
-          <div className="flex items-center gap-2 text-xs uppercase tracking-[0.12em] text-red-200">
-            <span className="inline-block h-1 w-8 rounded-full bg-red-500" />
+          <div className="flex items-center gap-2 text-xs uppercase tracking-[0.12em] text-[#ff7f00]/80">
+            <span className="inline-block h-1 w-8 rounded-full bg-[#ff7f00]" />
             Güçlü Çözümler
           </div>
           <h1 className="text-3xl font-semibold sm:text-4xl">{activeHero.title}</h1>
@@ -32,7 +32,7 @@ function HeroSection({ slides }) {
           <div className="flex flex-wrap gap-3">
             <a
               href="#"
-              className="rounded-full bg-red-600 px-5 py-3 text-sm font-semibold uppercase tracking-wide transition hover:bg-red-700"
+              className="rounded-full bg-[#ff7f00] px-5 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-[#e07000]"
             >
               incele
             </a>
@@ -49,7 +49,7 @@ function HeroSection({ slides }) {
                 key={slide.title}
                 onClick={() => setActiveSlide(index)}
                 className={`h-2.5 w-10 rounded-full transition ${
-                  index === activeSlide ? 'bg-red-500' : 'bg-white/30 hover:bg-white/50'
+                  index === activeSlide ? 'bg-[#ff7f00]' : 'bg-white/30 hover:bg-white/50'
                 }`}
                 aria-label={`${slide.title} slaytını göster`}
               />
