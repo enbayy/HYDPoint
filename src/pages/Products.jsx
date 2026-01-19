@@ -269,33 +269,50 @@ function Products() {
                     <button
                       key={section.title}
                       onClick={() => setActiveSection(section.title)}
-                      className="group relative overflow-hidden rounded-xl border border-slate-200/80 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#ff7f00]/30 hover:shadow-xl"
+                      className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white text-left shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-2xl hover:shadow-[#ff7f00]/10"
                     >
-                      <div className="relative mb-4 h-40 w-full overflow-hidden rounded-lg bg-gradient-to-br from-slate-50 to-slate-100">
+                      {/* Image Container with Professional Gradient */}
+                      <div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50">
+                        <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                         <img 
                           src={sectionImg} 
                           alt={section.title} 
-                          className="h-full w-full object-contain p-3 transition-transform duration-300 group-hover:scale-105"
+                          className="h-full w-full object-contain p-6 transition-all duration-500 group-hover:scale-110"
                           onError={(e) => {
                             e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(section.title)}`
                           }}
                         />
+                        {/* Subtle overlay on hover */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#ff7f00]/0 via-transparent to-[#1e4294]/0 transition-all duration-500 group-hover:from-[#ff7f00]/5 group-hover:to-[#1e4294]/5" />
                       </div>
-                      <h3 className="text-base font-semibold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
-                        {section.title}
-                      </h3>
-                      <div className="mt-2 flex items-center gap-2">
-                        <span className="text-xs font-medium text-slate-500">
-                          {section.items.length} ürün
-                        </span>
-                        <svg 
-                          className="h-4 w-4 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100" 
-                          fill="none" 
-                          viewBox="0 0 24 24" 
-                          stroke="currentColor"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
+                      
+                      {/* Content Section */}
+                      <div className="flex flex-1 flex-col p-6 pt-5">
+                        <h3 className="mb-3 text-lg font-bold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                          {section.title}
+                        </h3>
+                        <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                          <div className="flex items-center gap-2">
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600 transition-colors duration-300 group-hover:bg-[#ff7f00]/10 group-hover:text-[#ff7f00]">
+                              <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                              {section.items.length} ürün
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-1 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                            <span className="text-xs font-semibold uppercase tracking-wide">İncele</span>
+                            <svg 
+                              className="h-4 w-4" 
+                              fill="none" 
+                              viewBox="0 0 24 24" 
+                              stroke="currentColor"
+                              strokeWidth={2.5}
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                          </div>
+                        </div>
                       </div>
                     </button>
                   )
@@ -329,36 +346,45 @@ function Products() {
                     return (
                       <div
                         key={item}
-                        className="group relative overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#ff7f00]/30 hover:shadow-xl"
+                        className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-2xl hover:shadow-[#ff7f00]/10"
                       >
-                        <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100">
+                        {/* Image Container with Enhanced Design */}
+                        <div className="relative h-64 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50">
+                          <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                           <img 
                             src={img} 
                             alt={item} 
-                            className="h-full w-full object-contain p-4 transition-transform duration-300 group-hover:scale-105"
+                            className="h-full w-full object-contain p-6 transition-all duration-500 group-hover:scale-110"
                             onError={(e) => {
                               // Resim yüklenemezse placeholder göster
                               e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(item)}`
                             }}
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                          {/* Professional gradient overlay */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-[#ff7f00]/0 via-transparent to-[#1e4294]/0 transition-all duration-500 group-hover:from-[#ff7f00]/5 group-hover:to-[#1e4294]/5" />
                         </div>
-                        <div className="p-6">
-                          <h3 className="text-base font-semibold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                        
+                        {/* Content Section */}
+                        <div className="flex flex-1 flex-col p-6 pt-5">
+                          <h3 className="mb-4 line-clamp-2 min-h-[3.5rem] text-lg font-bold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
                             {item}
                           </h3>
-                          <div className="mt-3 flex items-center gap-2">
-                            <span className="text-xs font-medium uppercase tracking-wide text-[#ff7f00] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                              Detayları Gör
+                          <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                            <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                              Ürün Detayı
                             </span>
-                            <svg 
-                              className="h-4 w-4 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100" 
-                              fill="none" 
-                              viewBox="0 0 24 24" 
-                              stroke="currentColor"
-                            >
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                            </svg>
+                            <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                              <span className="text-xs font-semibold">İncele</span>
+                              <svg 
+                                className="h-4 w-4" 
+                                fill="none" 
+                                viewBox="0 0 24 24" 
+                                stroke="currentColor"
+                                strokeWidth={2.5}
+                              >
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                              </svg>
+                            </div>
                           </div>
                         </div>
                       </div>

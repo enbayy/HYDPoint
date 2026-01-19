@@ -102,35 +102,42 @@ function FeaturedProductsSection() {
               key={product}
               to={`/urun-detay/${productSlug}`}
               state={{ productName: product, productImage, productLogo }}
-              className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md transition-all duration-300 hover:border-[#ff7f00]/50 hover:shadow-2xl hover:-translate-y-1"
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-2xl hover:shadow-[#ff7f00]/10"
             >
-              {/* Ürün Görseli */}
-              <div className="relative flex h-56 items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 to-white p-6">
+              {/* Ürün Görseli - Enhanced Design */}
+              <div className="relative flex h-56 items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50">
                 <img
                   src={productImage}
                   alt={product}
-                  className="h-full w-full object-contain transition-all duration-500 group-hover:scale-110"
+                  className="h-full w-full object-contain p-5 transition-all duration-500 group-hover:scale-110"
                 />
-                {/* Hover efekti için overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/0 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                {/* Professional gradient overlays */}
+                <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#ff7f00]/0 via-transparent to-[#1e4294]/0 transition-all duration-500 group-hover:from-[#ff7f00]/5 group-hover:to-[#1e4294]/5" />
               </div>
 
-              {/* Ürün Bilgileri */}
-              <div className="flex flex-1 flex-col border-t border-slate-100 bg-white p-5">
-                <h3 className="mb-3 line-clamp-2 min-h-[3.5rem] text-base font-semibold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#ff7f00]">
+              {/* Ürün Bilgileri - Enhanced Typography */}
+              <div className="flex flex-1 flex-col border-t border-slate-100 bg-white p-6">
+                <h3 className="mb-4 line-clamp-2 min-h-[3.5rem] text-base font-bold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
                   {product}
                 </h3>
                 
-                <div className="mt-auto flex items-center justify-between">
-                  <span className="text-xs font-medium text-[#ff7f00]">Detayları İncele</span>
-                  <svg
-                    className="h-5 w-5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                    Detaylar
+                  </span>
+                  <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                    <span className="text-xs font-semibold">İncele</span>
+                    <svg
+                      className="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      strokeWidth={2.5}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </Link>
