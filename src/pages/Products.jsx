@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 // Ürün isimlerini resim dosya isimlerine çeviren fonksiyon
 const getProductImage = (productName) => {
@@ -127,9 +128,10 @@ const catalogGroups = [
 ]
 
 function Products() {
+  const navigate = useNavigate()
   const [activeSection, setActiveSection] = useState(null)
   const [openGroups, setOpenGroups] = useState(['HİDROLİK'])
-  const [selectedGroup, setSelectedGroup] = useState(null)
+  const [selectedGroup, setSelectedGroup] = useState('HİDROLİK')
 
   const currentItems = useMemo(() => {
     if (!activeSection) return []
@@ -343,10 +345,12 @@ function Products() {
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
                   {currentItems.map((item) => {
                     const img = getProductImage(item)
+                    const productSlug = encodeURIComponent(item.toLowerCase().replace(/\s+/g, '-'))
                     return (
                       <div
                         key={item}
-                        className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-2xl hover:shadow-[#ff7f00]/10"
+                        onClick={() => navigate(`/urun-detay/${productSlug}`, { state: { productName: item, productImage: img } })}
+                        className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-2xl hover:shadow-[#ff7f00]/10"
                       >
                         {/* Image Container with Enhanced Design */}
                         <div className="relative h-64 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50">

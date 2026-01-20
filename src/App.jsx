@@ -4,6 +4,7 @@ import hydLogo3 from './assets/hydLogo3.png'
 import Home from './pages/Home'
 import InfoPage from './pages/InfoPage'
 import Products from './pages/Products'
+import ProductDetail from './pages/ProductDetail'
 import Contact from './pages/Contact'
 
 const footerSections = [
@@ -561,7 +562,12 @@ function App() {
                 <div
                   key={item.label}
                   className="group relative z-40"
-                  onMouseEnter={() => handleOpenSecondary(item.label)}
+                  onMouseEnter={() => {
+                    // PNÖMATİK ve SIZDIRMAZLIK için dropdown açılmasın
+                    if (item.label !== 'PNÖMATİK' && item.label !== 'SIZDIRMAZLIK') {
+                      handleOpenSecondary(item.label)
+                    }
+                  }}
                   onMouseLeave={handleCloseSecondary}
                 >
                   <NavLink
@@ -921,6 +927,10 @@ function App() {
             <Route
               path="/urunler"
               element={<Products />}
+            />
+            <Route
+              path="/urun-detay/:slug"
+              element={<ProductDetail />}
             />
             <Route
               path="/markalar"
