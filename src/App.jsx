@@ -1083,8 +1083,8 @@ function App() {
                     <svg className="h-4 w-4 text-[#ff7f00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
-                    <a href="tel:+902123456789" className="transition hover:text-white">
-                      (0212) 345 67 89
+                    <a href="tel:+905336000362" className="transition hover:text-white">
+                      0 533 600 0362
                     </a>
                   </li>
                 </ul>
@@ -1093,8 +1093,8 @@ function App() {
               <div className="space-y-3">
                 <h4 className="text-sm font-semibold uppercase tracking-[0.08em] text-white">ADRES</h4>
                 <p className="text-sm text-slate-300 leading-relaxed">
-                  Fevziçakmak, 10670. Sk. Bayır Özel Org. San. Bölg No:31 D:31A,<br />
-                  42050 Karatay/Konya
+                  Fevziçakmak mahallesi 10559. Sokak No:46<br />
+                  Karatay/KONYA
                 </p>
               </div>
             </div>

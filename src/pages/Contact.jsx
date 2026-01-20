@@ -15,10 +15,12 @@ function Contact() {
 
   const contactCards = useMemo(
     () => [
-      { title: 'Satış ve Teklif', detail: '+90 212 000 00 00', helper: 'Hafta içi 08:30 - 18:00' },
-      { title: 'Teknik Destek', detail: '+90 212 000 00 01', helper: 'Uygulama ve arıza desteği' },
-      { title: 'E-posta', detail: 'info@hydpoint.com', helper: '24 saat içinde geri dönüş' },
-      { title: 'Adres', detail: 'İOSB Mah. 1234. Cad. No:45 Başakşehir / İstanbul', helper: 'Merkez ofis & showroom' },
+      { 
+        title: 'Telefon', 
+        details: ['0 533 600 0362'],
+      },
+      { title: 'E-posta', detail: 'info@hydpoint.com' },
+      { title: 'Adres', detail: 'Fevziçakmak mahallesi 10559. Sokak No:46 Karatay/KONYA'},
     ],
     []
   )
@@ -51,15 +53,23 @@ function Contact() {
   return (
     <div className="bg-slate-50 pb-16 text-slate-900">
       <section className="mx-auto max-w-7xl space-y-10 px-4 pt-10 sm:px-6">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {contactCards.map((card) => (
             <div
               key={card.title}
-              className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+              className="text-center"
             >
-              <p className="text-sm font-semibold text-[#1e4294]">{card.title}</p>
-              <p className="mt-2 text-base font-semibold text-slate-900">{card.detail}</p>
-              <p className="mt-1 text-sm text-slate-500">{card.helper}</p>
+              <p className="text-lg font-semibold text-[#1e4294]">{card.title}</p>
+              {card.details ? (
+                <div className="mt-2 space-y-1">
+                  {card.details.map((detail, index) => (
+                    <p key={index} className="text-base font-semibold text-slate-900">{detail}</p>
+                  ))}
+                </div>
+              ) : (
+                <p className="mt-2 text-base font-semibold text-slate-900">{card.detail}</p>
+              )}
+              {card.helper && <p className="mt-1 text-sm text-slate-500">{card.helper}</p>}
             </div>
           ))}
         </div>
