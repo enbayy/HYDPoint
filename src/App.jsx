@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, NavLink, Route, Routes, Link } from 'react-router-dom'
 import hydLogo3 from './assets/hydLogo3.png'
 import Home from './pages/Home'
 import InfoPage from './pages/InfoPage'
@@ -347,42 +347,46 @@ function App() {
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-slate-50 text-slate-900">
-        <header className="relative z-40 backdrop-blur bg-white/95 shadow-sm shadow-slate-200/70">
-          <div className="border-b border-slate-100">
-            <div className="mx-auto flex w-full max-w-7xl items-center justify-center px-8 py-3 text-xs">
-              <div className="flex items-center gap-4">
-                <span className="hidden sm:inline-flex items-center gap-1.5 text-[#1e4294] font-medium">
-                  <svg className="h-4 w-4 text-[#ff7f00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/60 shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
+          {/* Top Info Bar */}
+          <div className="border-b border-slate-100/80 bg-gradient-to-r from-slate-50/50 to-white">
+            <div className="mx-auto flex w-full max-w-7xl items-center justify-center px-6 py-2.5 text-xs">
+              <div className="flex items-center gap-6">
+                <a href="tel:+902120000000" className="hidden sm:inline-flex items-center gap-2 text-[#1e4294] font-medium transition-colors hover:text-[#ff7f00]">
+                  <svg className="h-3.5 w-3.5 text-[#ff7f00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
-                  +90 212 000 00 00
-                </span>
-                <span className="hidden md:inline-flex items-center gap-1.5 text-[#1e4294] font-medium">
-                  <svg className="h-4 w-4 text-[#ff7f00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  <span className="tracking-wide">+90 212 000 00 00</span>
+                </a>
+                <a href="mailto:info@hydpoint.com" className="hidden md:inline-flex items-center gap-2 text-[#1e4294] font-medium transition-colors hover:text-[#ff7f00]">
+                  <svg className="h-3.5 w-3.5 text-[#ff7f00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  info@hydpoint.com
-                </span>
-                <span className="hidden lg:inline-flex items-center gap-1.5 text-[#1e4294] font-medium">
-                  <svg className="h-4 w-4 text-[#ff7f00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <span className="tracking-wide">info@hydpoint.com</span>
+                </a>
+                <span className="hidden lg:inline-flex items-center gap-2 text-slate-600 font-medium">
+                  <svg className="h-3.5 w-3.5 text-[#ff7f00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  Pazartesi - Cumartesi: 09:00 - 18:00
+                  <span className="tracking-wide">Pazartesi - Cumartesi: 09:00 - 18:00</span>
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="relative mx-auto flex w-full max-w-7xl items-center justify-between px-8 py-5">
-            <div className="flex items-center gap-3 -my-5">
+          {/* Main Navigation */}
+          <div className="relative mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4">
+            {/* Logo */}
+            <NavLink to="/" className="flex items-center transition-transform hover:scale-105 duration-200">
               <img
                 src={hydLogo3}
                 alt="HYD Point logo"
-                className="h-16 w-auto"
+                className="h-14 w-auto"
               />
-            </div>
+            </NavLink>
 
-            <nav className="hidden items-center gap-12 text-base font-semibold text-slate-700 lg:flex">
+            {/* Desktop Navigation */}
+            <nav className="hidden items-center gap-10 text-[15px] font-semibold text-slate-800 lg:flex">
               {navItems.map((item) => {
                 if (item.label === 'Markalar') {
                   return (
@@ -403,15 +407,19 @@ function App() {
                       <NavLink
                         to={item.path}
                         className={({ isActive }) =>
-                          `relative pb-1 transition hover:text-[#1e4294] ${isActive ? 'text-[#1e4294]' : ''}`
+                          `relative px-3 py-2.5 transition-colors duration-200 tracking-wide ${
+                            isActive 
+                              ? 'text-[#1e4294]' 
+                              : 'text-slate-700 hover:text-[#1e4294]'
+                          }`
                         }
                       >
                         {({ isActive }) => (
                           <>
-                            <span>MARKALAR</span>
+                            <span className="relative z-10">{item.label}</span>
                             <span
-                              className={`absolute -bottom-1 left-0 h-[2px] w-full rounded-full bg-[#ff7f00] transition ${
-                                isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'
+                              className={`absolute bottom-0 left-0 h-0.5 w-full bg-[#1e4294] transition-all duration-300 ${
+                                isActive ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100'
                               }`}
                             />
                           </>
@@ -425,16 +433,20 @@ function App() {
                     key={item.path}
                     to={item.path}
                     className={({ isActive }) =>
-                      `group relative pb-1 transition hover:text-[#1e4294] ${isActive ? 'text-[#1e4294]' : ''}`
+                      `group relative px-3 py-2.5 transition-colors duration-200 tracking-wide ${
+                        isActive 
+                          ? 'text-[#1e4294]' 
+                          : 'text-slate-700 hover:text-[#1e4294]'
+                      }`
                     }
                     end={item.path === '/'}
                   >
                     {({ isActive }) => (
                       <>
-                        <span>{item.label}</span>
+                        <span className="relative z-10">{item.label}</span>
                         <span
-                          className={`absolute -bottom-1 left-0 h-[2px] w-full rounded-full bg-[#ff7f00] transition ${
-                            isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'
+                          className={`absolute bottom-0 left-0 h-0.5 w-full bg-[#1e4294] transition-all duration-300 ${
+                            isActive ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100'
                           }`}
                         />
                       </>
@@ -444,9 +456,10 @@ function App() {
               })}
             </nav>
             
+            {/* Brands Dropdown */}
             {brandsMenuOpen && (
               <div
-                className="absolute left-0 right-0 top-full z-50 mt-1 rounded-2xl border border-slate-200 bg-white p-6 shadow-2xl"
+                className="absolute left-1/2 top-full z-50 mt-2 w-[90vw] max-w-5xl -translate-x-1/2 rounded-2xl border border-slate-200/80 bg-white/95 backdrop-blur-md p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)]"
                 onMouseEnter={() => {
                   if (brandsMenuTimer.current) {
                     clearTimeout(brandsMenuTimer.current)
@@ -462,46 +475,50 @@ function App() {
                   {brandLogos.map((brand) => (
                     <div
                       key={brand.name}
-                      className="flex flex-col items-center gap-2 rounded-lg border border-slate-200 bg-white p-3 transition hover:-translate-y-1 hover:border-[#ff7f00]/60 hover:shadow-md"
+                      className="group flex flex-col items-center gap-2.5 rounded-xl border border-slate-200 bg-white p-4 transition-all duration-200 hover:-translate-y-1 hover:border-[#ff7f00]/50 hover:shadow-lg hover:shadow-[#ff7f00]/10"
                     >
                       <img
                         src={brand.logo}
                         alt={brand.name}
-                        className="h-12 w-auto max-w-full object-contain"
+                        className="h-12 w-auto max-w-full object-contain transition-transform duration-200 group-hover:scale-110"
                         onError={(e) => {
                           e.target.style.display = 'none'
                         }}
                       />
-                      <span className="text-xs font-medium text-slate-700">{brand.name}</span>
+                      <span className="text-xs font-semibold text-slate-700">{brand.name}</span>
                     </div>
                   ))}
                 </div>
-                <div className="mt-4 border-t border-slate-200 pt-4">
+                <div className="mt-6 border-t border-slate-200 pt-6">
                   <NavLink
                     to="/markalar"
-                    className="flex items-center justify-center gap-2 rounded-lg bg-[#ff7f00]/10 px-4 py-2 text-sm font-semibold text-[#1e4294] transition hover:bg-[#ff7f00]/20"
+                    className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#1e4294] to-[#1e4294]/90 px-6 py-3 text-sm font-bold text-white shadow-md transition-all duration-200 hover:from-[#1e4294]/90 hover:to-[#1e4294] hover:shadow-lg hover:shadow-[#1e4294]/30"
                     onClick={() => setBrandsMenuOpen(false)}
                   >
                     TÜM MARKALAR
-                    <span>→</span>
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
                   </NavLink>
                 </div>
               </div>
             )}
 
+            {/* Search & Mobile Menu */}
             <div className="flex items-center gap-3">
+              {/* Search Bar */}
               <div className="hidden sm:flex">
-                <div className="relative w-64">
+                <div className="relative w-72">
                   <input
                     ref={searchInputRef}
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="ÜRÜN ARA"
-                    className="w-full rounded-full border border-slate-200 bg-white px-4 py-2.5 pl-11 pr-4 text-sm text-slate-700 placeholder:text-slate-400 transition-all duration-200 focus:border-[#ff7f00] focus:outline-none focus:ring-2 focus:ring-[#ff7f00]/20 hover:border-slate-300"
+                    placeholder="Ürün ara..."
+                    className="w-full rounded-full border border-slate-300 bg-white px-5 py-2.5 pl-12 pr-4 text-sm text-slate-700 placeholder:text-slate-400 shadow-sm transition-all duration-200 focus:border-[#ff7f00] focus:outline-none focus:ring-2 focus:ring-[#ff7f00]/20 focus:shadow-md hover:border-slate-400"
                   />
                   <svg
-                    className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
+                    className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -510,7 +527,7 @@ function App() {
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={2}
+                      strokeWidth={2.5}
                       d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                     />
                   </svg>
@@ -520,34 +537,36 @@ function App() {
                         setSearchQuery('')
                         searchInputRef.current?.focus()
                       }}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1 text-slate-400 transition hover:bg-slate-100 hover:text-slate-600"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600"
                       aria-label="Temizle"
                     >
                       <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
                       </svg>
                     </button>
                   )}
                 </div>
               </div>
+              
+              {/* Mobile Menu Button */}
               <button
                 onClick={() => setMobileOpen((prev) => !prev)}
-                className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-[#1e4294]/40 hover:text-[#1e4294] lg:hidden"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-300 bg-white text-slate-700 shadow-sm transition-all duration-200 hover:border-[#1e4294]/50 hover:bg-[#1e4294]/5 hover:text-[#1e4294] lg:hidden"
                 aria-label="Menüyü aç/kapat"
               >
-                <span className="relative block h-4 w-5">
+                <span className="relative block h-5 w-6">
                   <span
-                    className={`absolute left-0 block h-0.5 w-full rounded-full bg-current transition ${
+                    className={`absolute left-0 block h-0.5 w-full rounded-full bg-current transition-all duration-300 ${
                       mobileOpen ? 'top-1/2 rotate-45' : 'top-0'
                     }`}
                   />
                   <span
-                    className={`absolute left-0 block h-0.5 w-full rounded-full bg-current transition ${
-                      mobileOpen ? 'opacity-0' : 'top-1/2 -translate-y-1/2'
+                    className={`absolute left-0 top-1/2 block h-0.5 w-full -translate-y-1/2 rounded-full bg-current transition-all duration-300 ${
+                      mobileOpen ? 'opacity-0' : 'opacity-100'
                     }`}
                   />
                   <span
-                    className={`absolute left-0 block h-0.5 w-full rounded-full bg-current transition ${
+                    className={`absolute left-0 block h-0.5 w-full rounded-full bg-current transition-all duration-300 ${
                       mobileOpen ? 'top-1/2 -rotate-45' : 'bottom-0'
                     }`}
                   />
@@ -556,8 +575,9 @@ function App() {
             </div>
           </div>
 
-          <div className="relative z-30 border-t border-slate-200/80 bg-gradient-to-b from-white via-slate-50/30 to-white shadow-sm">
-            <div className="relative mx-auto flex w-full max-w-7xl flex-wrap items-center justify-center gap-3 px-6 py-4">
+          {/* Secondary Navigation */}
+          <div className="relative z-30 border-t border-slate-200/60 bg-gradient-to-b from-white via-slate-50/40 to-white">
+            <div className="relative mx-auto flex w-full max-w-7xl flex-wrap items-center justify-center gap-3 px-6 py-3.5">
               {secondaryNav.map((item) => (
                 <div
                   key={item.label}
@@ -582,11 +602,12 @@ function App() {
                         setOpenSecondary(null)
                       }
                     }}
-                    className="relative flex items-center gap-2.5 rounded-xl border border-slate-200/60 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition-all duration-200 hover:border-[#1e4294]/40 hover:bg-gradient-to-r hover:from-[#1e4294]/5 hover:to-[#ff7f00]/5 hover:text-[#1e4294] hover:shadow-md hover:shadow-[#1e4294]/10 active:scale-[0.98]"
+                    className="relative flex items-center gap-2 rounded-md border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition-all duration-200 hover:border-[#1e4294] hover:bg-[#1e4294]/5 hover:text-[#1e4294]"
                   >
-                    <span className="relative z-10">{item.label}</span>
-                    <span className="relative z-10 text-[10px] text-slate-400 transition-all duration-200 group-hover:translate-y-0.5 group-hover:text-[#ff7f00]">▼</span>
-                    <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#1e4294]/0 via-[#1e4294]/0 to-[#ff7f00]/0 opacity-0 transition-opacity duration-200 group-hover:opacity-5" />
+                    <span className="relative z-10 tracking-wide">{item.label}</span>
+                    <svg className="relative z-10 h-3 w-3 text-slate-400 transition-colors duration-200 group-hover:text-[#1e4294]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                    </svg>
                   </NavLink>
                 </div>
               ))}
@@ -597,7 +618,7 @@ function App() {
                   key={item.label}
                   onMouseEnter={() => handleOpenSecondary(item.label)}
                   onMouseLeave={handleCloseSecondary}
-                  className="absolute left-0 right-0 top-full z-50 mx-auto mt-1 w-full max-w-7xl rounded-2xl border border-slate-200 bg-white p-6 shadow-2xl"
+                  className="absolute left-0 right-0 top-full z-50 mx-auto mt-2 w-full max-w-7xl rounded-2xl border border-slate-200/80 bg-white/95 backdrop-blur-md p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)]"
                 >
                       {item.label !== 'HİDROLİK' ? (
                         <div className="flex items-start justify-between gap-3">
@@ -614,14 +635,15 @@ function App() {
                                   {!isHeading && (
                                     <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
                                   )}
-                                  <a
-                                    href="#"
-                                    className={`transition hover:text-[#1e4294] ${
+                                  <Link
+                                    to={`/urunler?section=${encodeURIComponent(link)}`}
+                                    onClick={() => setOpenSecondary(null)}
+                                    className={`transition hover:text-[#1e4294] hover:font-semibold ${
                                       isHeading ? 'text-[#ff7f00] font-semibold' : ''
                                     }`}
                                   >
                                     {link}
-                                  </a>
+                                  </Link>
                                 </div>
                               )
                             })}
@@ -634,14 +656,15 @@ function App() {
                                   {!isHeading && (
                                     <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
                                   )}
-                                  <a
-                                    href="#"
-                                    className={`transition hover:text-[#1e4294] ${
+                                  <Link
+                                    to={`/urunler?section=${encodeURIComponent(link)}`}
+                                    onClick={() => setOpenSecondary(null)}
+                                    className={`transition hover:text-[#1e4294] hover:font-semibold ${
                                       isHeading ? 'text-[#ff7f00] font-semibold' : ''
                                     }`}
                                   >
                                     {link}
-                                  </a>
+                                  </Link>
                                 </div>
                               )
                             })}
@@ -652,14 +675,15 @@ function App() {
                                   {!isHeading && (
                                     <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
                                   )}
-                                  <a
-                                    href="#"
-                                    className={`transition hover:text-[#1e4294] ${
+                                  <Link
+                                    to={`/urunler?section=${encodeURIComponent(link)}`}
+                                    onClick={() => setOpenSecondary(null)}
+                                    className={`transition hover:text-[#1e4294] hover:font-semibold ${
                                       isHeading ? 'text-[#ff7f00] font-semibold' : ''
                                     }`}
                                   >
                                     {link}
-                                  </a>
+                                  </Link>
                                 </div>
                               )
                             })}
@@ -670,14 +694,15 @@ function App() {
                                   {!isHeading && (
                                     <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
                                   )}
-                                  <a
-                                    href="#"
-                                    className={`transition hover:text-[#1e4294] ${
+                                  <Link
+                                    to={`/urunler?section=${encodeURIComponent(link)}`}
+                                    onClick={() => setOpenSecondary(null)}
+                                    className={`transition hover:text-[#1e4294] hover:font-semibold ${
                                       isHeading ? 'text-[#ff7f00] font-semibold' : ''
                                     }`}
                                   >
                                     {link}
-                                  </a>
+                                  </Link>
                                 </div>
                               )
                             })}
@@ -690,14 +715,15 @@ function App() {
                                   {!isHeading && (
                                     <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
                                   )}
-                                  <a
-                                    href="#"
-                                    className={`transition hover:text-[#1e4294] ${
+                                  <Link
+                                    to={`/urunler?section=${encodeURIComponent(link)}`}
+                                    onClick={() => setOpenSecondary(null)}
+                                    className={`transition hover:text-[#1e4294] hover:font-semibold ${
                                       isHeading ? 'text-[#ff7f00] font-semibold' : ''
                                     }`}
                                   >
                                     {link}
-                                  </a>
+                                  </Link>
                                 </div>
                               )
                             })}
@@ -710,14 +736,15 @@ function App() {
                                   {!isHeading && (
                                     <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
                                   )}
-                                  <a
-                                    href="#"
-                                    className={`transition hover:text-[#1e4294] ${
+                                  <Link
+                                    to={`/urunler?section=${encodeURIComponent(link)}`}
+                                    onClick={() => setOpenSecondary(null)}
+                                    className={`transition hover:text-[#1e4294] hover:font-semibold ${
                                       isHeading ? 'text-[#ff7f00] font-semibold' : ''
                                     }`}
                                   >
                                     {link}
-                                  </a>
+                                  </Link>
                                 </div>
                               )
                             })}
@@ -730,14 +757,15 @@ function App() {
                                   {!isHeading && (
                                     <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
                                   )}
-                                  <a
-                                    href="#"
-                                    className={`transition hover:text-[#1e4294] ${
+                                  <Link
+                                    to={`/urunler?section=${encodeURIComponent(link)}`}
+                                    onClick={() => setOpenSecondary(null)}
+                                    className={`transition hover:text-[#1e4294] hover:font-semibold ${
                                       isHeading ? 'text-[#ff7f00] font-semibold' : ''
                                     }`}
                                   >
                                     {link}
-                                  </a>
+                                  </Link>
                                 </div>
                               )
                             })}
@@ -750,14 +778,15 @@ function App() {
                                   {!isHeading && (
                                     <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
                                   )}
-                                  <a
-                                    href="#"
-                                    className={`transition hover:text-[#1e4294] ${
+                                  <Link
+                                    to={`/urunler?section=${encodeURIComponent(link)}`}
+                                    onClick={() => setOpenSecondary(null)}
+                                    className={`transition hover:text-[#1e4294] hover:font-semibold ${
                                       isHeading ? 'text-[#ff7f00] font-semibold' : ''
                                     }`}
                                   >
                                     {link}
-                                  </a>
+                                  </Link>
                                 </div>
                               )
                             })}
@@ -768,14 +797,15 @@ function App() {
                                   {!isHeading && (
                                     <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
                                   )}
-                                  <a
-                                    href="#"
-                                    className={`transition hover:text-[#1e4294] ${
+                                  <Link
+                                    to={`/urunler?section=${encodeURIComponent(link)}`}
+                                    onClick={() => setOpenSecondary(null)}
+                                    className={`transition hover:text-[#1e4294] hover:font-semibold ${
                                       isHeading ? 'text-[#ff7f00] font-semibold' : ''
                                     }`}
                                   >
                                     {link}
-                                  </a>
+                                  </Link>
                                 </div>
                               )
                             })}
@@ -813,81 +843,99 @@ function App() {
             ))}
           </div>
 
+        {/* Mobile Menu */}
         {mobileOpen ? (
           <div className="fixed inset-0 z-50 lg:hidden" role="dialog" aria-label="Mobil menü">
-            <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
+            <div className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm transition-opacity" onClick={() => setMobileOpen(false)} />
             <div className="relative ml-auto h-full w-[90vw] max-w-sm overflow-y-auto border-l border-slate-200 bg-white shadow-2xl">
-              <div className="flex items-center justify-between px-6 py-5">
-                <div className="flex items-center gap-2">
-                  <img src={hydLogo3} alt="HYD Point logo" className="h-8 w-auto" />
-                  <span className="text-sm font-semibold text-slate-700">HYD Point</span>
-                </div>
+              {/* Mobile Header */}
+              <div className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 bg-white px-6 py-4">
+                <NavLink to="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5">
+                  <img src={hydLogo3} alt="HYD Point logo" className="h-9 w-auto" />
+                  <span className="text-base font-bold text-slate-800">HYD Point</span>
+                </NavLink>
                 <button
                   onClick={() => setMobileOpen(false)}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-slate-700 transition hover:bg-slate-200"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-slate-700 transition-all duration-200 hover:bg-slate-200 hover:text-[#1e4294]"
                   aria-label="Menüyü kapat"
                 >
-                  ✕
+                  <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
                 </button>
               </div>
 
-              <div className="space-y-2 px-4">
+              {/* Mobile Navigation */}
+              <div className="space-y-1 px-4 py-4">
                 {navItems.map((item) => (
                   <NavLink
                     key={item.path}
                     to={item.path}
                     onClick={() => setMobileOpen(false)}
                     className={({ isActive }) =>
-                      `flex items-center justify-between rounded-xl px-4 py-3 text-base font-semibold transition ${
-                        isActive ? 'bg-[#1e4294] text-white' : 'text-slate-800 hover:bg-slate-100'
+                      `flex items-center justify-between rounded-xl px-4 py-3.5 text-[15px] font-semibold transition-all duration-200 ${
+                        isActive 
+                          ? 'bg-gradient-to-r from-[#1e4294] to-[#1e4294]/90 text-white shadow-md' 
+                          : 'text-slate-800 hover:bg-slate-100'
                       }`
                     }
                     end={item.path === '/'}
                   >
-                    <span>{item.label}</span>
-                    <span className="text-xs text-slate-400">›</span>
+                    <span className="tracking-wide">{item.label}</span>
+                    <svg className={`h-4 w-4 transition-transform ${item.path === '/' ? 'text-white' : 'text-slate-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                    </svg>
                   </NavLink>
                 ))}
               </div>
 
-              <div className="mt-4 border-t border-slate-100 px-4 pt-4">
-                <p className="px-2 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">Kategoriler</p>
-                <div className="mt-2 space-y-2">
+              {/* Mobile Categories */}
+              <div className="border-t border-slate-200 px-4 pt-4 pb-4">
+                <p className="px-2 pb-3 text-xs font-bold uppercase tracking-wider text-slate-500">Kategoriler</p>
+                <div className="space-y-2">
                   {secondaryNav.map((item) => (
-                    <div key={item.label} className="rounded-xl border border-slate-200">
+                    <div key={item.label} className="overflow-hidden rounded-xl border border-slate-200 bg-white">
                       <button
                         onClick={() => setMobileSubOpen((prev) => (prev === item.label ? null : item.label))}
-                        className="flex w-full items-center justify-between px-4 py-3 text-left text-sm font-semibold text-slate-800"
+                        className="flex w-full items-center justify-between px-4 py-3.5 text-left text-sm font-bold text-slate-800 transition-colors hover:bg-slate-50"
                       >
-                        <span>{item.label}</span>
-                        <span className="text-xs text-slate-500">{mobileSubOpen === item.label ? '▲' : '▼'}</span>
+                        <span className="tracking-wide">{item.label}</span>
+                        <svg 
+                          className={`h-4 w-4 text-slate-400 transition-transform duration-200 ${mobileSubOpen === item.label ? 'rotate-180' : ''}`} 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                        </svg>
                       </button>
-                      {mobileSubOpen === item.label ? (
-                        <div className="space-y-1 px-4 pb-4">
+                      {mobileSubOpen === item.label && (
+                        <div className="space-y-1 border-t border-slate-100 bg-slate-50/50 px-4 pb-4 pt-3">
                           {item.links.map((link) => (
                             <a
                               key={link}
                               href="#"
-                              className="block rounded-lg px-3 py-2 text-sm text-slate-700 transition hover:bg-slate-100"
+                              className="block rounded-lg px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-white hover:text-[#1e4294]"
                             >
                               {link}
                             </a>
                           ))}
                         </div>
-                      ) : null}
+                      )}
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-6 border-t border-slate-100 px-4 py-4">
+              {/* Mobile Search */}
+              <div className="border-t border-slate-200 px-4 py-4">
                 <div className="relative">
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="ÜRÜN ARA"
-                    className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 pl-11 pr-4 text-sm text-slate-700 placeholder:text-slate-400 transition-all duration-200 focus:border-[#ff7f00] focus:outline-none focus:ring-2 focus:ring-[#ff7f00]/20"
+                    placeholder="Ürün ara..."
+                    className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 pl-11 pr-4 text-sm text-slate-700 placeholder:text-slate-400 shadow-sm transition-all duration-200 focus:border-[#ff7f00] focus:outline-none focus:ring-2 focus:ring-[#ff7f00]/20"
                   />
                   <svg
                     className="absolute left-3.5 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400"
@@ -899,18 +947,18 @@ function App() {
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={2}
+                      strokeWidth={2.5}
                       d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                     />
                   </svg>
                   {searchQuery && (
                     <button
                       onClick={() => setSearchQuery('')}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1.5 text-slate-400 transition hover:bg-slate-100 hover:text-slate-600"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600"
                       aria-label="Temizle"
                     >
                       <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
                       </svg>
                     </button>
                   )}
