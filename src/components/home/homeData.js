@@ -2,23 +2,23 @@ export const heroSlides = [
   {
     title: 'SINIFININ EN GÜÇLÜ POMPASI',
     description:
-      'Yüksek verimlilik, düşük kayıp ve maksimum dayanım için geliştirilen yeni nesil pompalarımızla üretiminize güç katın.',
+      'Yüksek verimlilik, düşük kayıp ve maksimum dayanım için geliştirilen yeni nesil pompalarımızla üretiminize değer katıyoruz.',
     image: 'https://metosan.com.tr/Storage/Upload/cache/637695442382333208-b75-1hakkimizda-494-632.jpeg',
   },
   {
     title: 'GÜÇ ONUN İŞİ',
     description:
-      'HYD Point ürün gamındaki hidrolik çözümler; ağır iş, endüstri, tarım ve mobil uygulamalarda sahada kendini kanıtladı.',
+      'HYD Point ürün portföyündeki hidrolik çözümlerimiz; ağır iş, endüstri, tarım ve mobil uygulamalarda sahada kanıtlanmıştır.',
     image: 'https://metosan.com.tr/Storage/Upload/cache/637286938676461652-b75-1turkiye-nin-hidrolik-marketi--800-547.jpeg',
   },
   {
     title: "HYD Point'LA ŞAH-MAT!",
-    description: '40 yılı aşkın tecrübe, güçlü stok ve uzman mühendislik desteğiyle her zaman yanınızdayız.',
+    description: '40 yılı aşkın tecrübemiz, güçlü stok yapımız ve uzman mühendislik desteğimizle her zaman hizmetinizdeyiz.',
     image: 'https://metosan.com.tr/Storage/Upload/cache/637310364767955696-b75-2covid19-icin-aldigimiz-tedbir-800-547.jpeg',
   },
   {
     title: 'TESİSAT İÇİN HER ŞEY!',
-    description: 'Tesisat, sızdırmazlık ve elektronik kontrol ürünlerinde dünya markalarını aynı çatı altında sunuyoruz.',
+    description: 'Tesisat, sızdırmazlık ve elektronik kontrol ürünlerinde dünya markalarını aynı çatı altında sunmaktayız.',
     image: 'https://metosan.com.tr/Storage/Upload/cache/637607340096564042-b-43saip-175-90.png',
   },
 ]
@@ -45,7 +45,7 @@ export const newsItems = [
     image:
       'https://metosan.com.tr/Storage/Upload/cache/637286938676461652-b75-1turkiye-nin-hidrolik-marketi--800-547.jpeg',
     description:
-      'Artık hidrolik ve pnömatik ürünlere tek tıkla ulaşıp satın alabileceğiniz marketimiz hidrolikurunler.com açıldı.',
+      'Artık hidrolik ve pnömatik ürünlere tek tıkla ulaşıp satın alabileceğiniz e-ticaret platformumuz hidrolikurunler.com hizmete açılmıştır.',
   },
   {
     title: 'Covid-19 İçin Aldığımız Tedbirler',
@@ -53,7 +53,7 @@ export const newsItems = [
     image:
       'https://metosan.com.tr/Storage/Upload/cache/637310364767955696-b75-2covid19-icin-aldigimiz-tedbir-800-547.jpeg',
     description:
-      'Çalışanlarımızın ve iş ortaklarımızın sağlığı için üretim ve lojistik süreçlerinde aldığımız önlemleri paylaşıyoruz.',
+      'Çalışanlarımızın ve iş ortaklarımızın sağlığı için üretim ve lojistik süreçlerinde aldığımız önlemleri paylaşmaktayız.',
   },
 ]
 

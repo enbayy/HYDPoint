@@ -18,20 +18,20 @@ function SimpleHero() {
             </span>
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-slate-200 sm:text-lg md:text-xl">
-            40 yılı aşkın tecrübe, güçlü stok ve uzman mühendislik desteğiyle hidrolik, pnömatik ve sızdırmazlık çözümlerinde yanınızdayız.
+            40 yılı aşkın tecrübemiz, güçlü stok yapımız ve uzman mühendislik desteğimizle hidrolik, pnömatik ve sızdırmazlık çözümlerinde hizmetinizdeyiz.
           </p>
           <div className="mt-4 flex flex-wrap items-center justify-center gap-4">
             <Link
               to="/urunler"
               className="rounded-full bg-[#ff7f00] px-8 py-4 text-sm font-semibold uppercase tracking-wide text-white transition-all hover:bg-[#e07000] hover:shadow-xl hover:-translate-y-0.5"
             >
-              Ürünleri Keşfet
+              Ürünleri İnceleyin
             </Link>
             <Link
               to="/iletisim"
               className="rounded-full bg-white/10 px-8 py-4 text-sm font-semibold uppercase tracking-wide text-white backdrop-blur transition-all hover:bg-white/20"
             >
-              İletişime Geç
+              İletişime Geçin
             </Link>
           </div>
         </div>

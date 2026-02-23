@@ -109,11 +109,11 @@ function FeaturedProductsSection() {
       <div className="mb-16 text-center">
         <div className="mb-4 flex items-center justify-center gap-3">
           <span className="h-1 w-12 rounded-full bg-[#ff7f00]" />
-          <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">Ürünlerimiz</h2>
+          <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">ÜRÜNLERİMİZ</h2>
           <span className="h-1 w-12 rounded-full bg-[#ff7f00]" />
         </div>
         <p className="mx-auto mt-4 max-w-2xl text-base text-slate-600">
-          Endüstriyel hidrolik çözümlerimizle işinize güç katın
+          Endüstriyel hidrolik çözümlerimizle işinize değer katıyoruz
         </p>
       </div>
 
@@ -219,7 +219,7 @@ function FeaturedProductsSection() {
           to="/urunler"
           className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-[#ff7f00] to-[#ff9500] px-10 py-4 text-base font-bold uppercase tracking-wide text-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:scale-105"
         >
-          <span className="relative z-10">Tüm Ürünleri Görüntüle</span>
+          <span className="relative z-10">Tüm Ürünleri İnceleyin</span>
           <svg 
             className="relative z-10 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" 
             fill="none" 

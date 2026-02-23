@@ -46,7 +46,7 @@ function Contact() {
       setStatus({ type: 'error', message: error })
       return
     }
-    setStatus({ type: 'success', message: 'Mesajınız alındı. En kısa sürede dönüş yapacağız.' })
+    setStatus({ type: 'success', message: 'Mesajınız alınmıştır. En kısa sürede size dönüş yapacağız.' })
     setForm(initialForm)
   }
 
@@ -81,12 +81,9 @@ function Contact() {
                 <p className="text-xs uppercase tracking-[0.12em] text-slate-500">Form</p>
                 <h2 className="text-xl font-semibold text-slate-900">Mesaj bırakın</h2>
                 <p className="mt-2 text-sm text-slate-600">
-                  Talebinizi ilgili ekibe yönlendirelim. Zorunlu alanlar işaretlidir.
+                  Talebinizi ilgili ekibimize iletebilirsiniz. Zorunlu alanlar işaretlenmiştir.
                 </p>
               </div>
-              <span className="rounded-full bg-[#ff7f00]/15 px-3 py-1 text-xs font-semibold uppercase text-[#b65a00]">
-                7/24
-              </span>
             </div>
 
             {status.type ? (
@@ -127,7 +124,7 @@ function Contact() {
                   className="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none transition focus:border-[#1e4294] focus:ring-2 focus:ring-[#ff7f00]/40"
                   value={form.phone}
                   onChange={(e) => updateField('phone', e.target.value)}
-                  placeholder="+90 5xx xxx xx xx"
+                  placeholder="0 5xx xxx xx xx"
                 />
               </label>
               <label className="space-y-1 text-sm font-medium text-slate-700">
@@ -160,7 +157,7 @@ function Contact() {
                   className="min-h-[140px] w-full rounded-xl border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none transition focus:border-[#1e4294] focus:ring-2 focus:ring-[#ff7f00]/40"
                   value={form.message}
                   onChange={(e) => updateField('message', e.target.value)}
-                  placeholder="İhtiyacınızı kısaca anlatabilirsiniz."
+                  placeholder="İhtiyacınızı kısaca belirtebilirsiniz."
                 />
               </label>
               <div className="md:col-span-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -187,10 +184,6 @@ function Contact() {
                 <li className="flex items-center justify-between">
                   <span>Cumartesi</span>
                   <span className="font-semibold text-slate-900">09:00 - 13:00</span>
-                </li>
-                <li className="flex items-center justify-between">
-                  <span>Destek</span>
-                  <span className="font-semibold text-[#1e4294]">7/24 e-posta</span>
                 </li>
               </ul>
             </div>

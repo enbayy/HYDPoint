@@ -1076,7 +1076,7 @@ function Products() {
               <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 md:p-8">
                 {allBrandLogos.length === 0 ? (
                   <div className="py-12 text-center text-slate-500">
-                    <p>Bu ürün için marka logosu bulunamadı.</p>
+                    <p>Bu ürün için marka logosu bulunmamaktadır.</p>
                   </div>
                 ) : (
                   <div className="flex flex-wrap gap-3 sm:gap-4">
@@ -1121,16 +1121,6 @@ function Products() {
                     >
                       {/* Decorative top accent */}
                       <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#ff7f00] via-[#ff9500] to-[#ff7f00] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                      
-                      {/* Professional Header Badge */}
-                      <div className="absolute top-4 right-4 z-10">
-                        <div className="flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#ff9500] to-[#ffaa33] px-3 py-1.5 shadow-md">
-                          <svg className="h-3 w-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                          </svg>
-                          <span className="text-xs font-bold text-white">{section.items.length}</span>
-                        </div>
-                      </div>
 
                       {/* Image Container with Professional Design */}
                       <div className="relative h-52 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50 border-b border-slate-100">
@@ -1215,11 +1205,11 @@ function Products() {
 
               {!activeSection ? (
                 <div className="rounded-2xl border border-dashed border-slate-200 bg-white p-8 text-sm text-slate-500 shadow-sm">
-                  Bir kategori seçin, ürünleri listeleyelim.
+                  Lütfen bir kategori seçiniz, ürünleri listeleyebilirsiniz.
                 </div>
               ) : currentItems.length === 0 ? (
                 <div className="rounded-2xl border border-dashed border-slate-200 bg-white p-8 text-sm text-slate-500 shadow-sm">
-                  Bu grup için ürün bulunamadı.
+                  Bu grup için ürün bulunmamaktadır.
                 </div>
               ) : (
                 <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">

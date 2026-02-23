@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
-import { BrowserRouter, NavLink, Route, Routes, Link } from 'react-router-dom'
+import { useEffect, useRef, useState, useMemo } from 'react'
+import { BrowserRouter, NavLink, Route, Routes, Link, useLocation, useNavigate } from 'react-router-dom'
 import hydLogo3 from './assets/hydLogo3.png'
 import Home from './pages/Home'
 import InfoPage from './pages/InfoPage'
@@ -61,12 +61,12 @@ const brandLogos = [
 const pageContent = {
   urunler: {
     title: 'Ürünler',
-    subtitle: 'Hidrolik, pnömatik, elektronik ve tesisat ürün gamımızı inceleyin.',
+    subtitle: 'Hidrolik, pnömatik, elektronik ve tesisat ürün portföyümüzü inceleyebilirsiniz.',
     sections: [
       {
         heading: 'Hidrolik',
-        body: 'Pompalar, valfler, güç üniteleri ve mobil çözümler.',
-        items: ['Yüksek basınç çözümleri', 'Mobil hidrolik', 'Endüstriyel uygulamalar'],
+        body: 'Pompalar, valfler, güç üniteleri ve mobil uygulama çözümlerimiz.',
+        items: ['Yüksek basınç uygulama çözümleri', 'Mobil hidrolik sistemler', 'Endüstriyel uygulamalar'],
       },
       {
         heading: 'Pnömatik',
@@ -76,27 +76,27 @@ const pageContent = {
   },
   markalar: {
     title: 'Markalar',
-    subtitle: 'Dünya çapında temsil ettiğimiz markalar ve iş ortaklarımız.',
+    subtitle: 'Dünya çapında temsil ettiğimiz markalar ve stratejik iş ortaklarımız.',
     sections: [
       {
         heading: 'Çözüm Ortaklarımız',
-        body: 'Kawasaki, Walvoil, Wika, Salami ve daha fazlasını tek çatı altında topluyoruz.',
+        body: 'Kawasaki, Walvoil, Wika, Salami ve daha fazlasını tek çatı altında bir araya getiriyoruz.',
       },
     ],
   },
   projeler: {
     title: 'Projeler',
-    subtitle: 'Tamamladığımız endüstriyel ve mobil uygulama projelerinden seçkiler.',
+    subtitle: 'Tamamladığımız endüstriyel ve mobil uygulama projelerinden örnekler.',
     sections: [
-      { heading: 'Referanslar', body: 'Çelik, otomotiv, enerji ve denizcilik sektörlerinde sahada kanıtlanmış projeler.' },
+      { heading: 'Referanslar', body: 'Çelik, otomotiv, enerji ve denizcilik sektörlerinde sahada kanıtlanmış proje referanslarımız.' },
     ],
   },
   medya: {
     title: 'Medya',
-    subtitle: 'Haberler, etkinlikler, fotoğraf galerileri ve kataloglarımız tek yerde.',
+    subtitle: 'Haberler, etkinlikler, fotoğraf galerileri ve ürün kataloglarımız tek platformda.',
     sections: [
-      { heading: 'Haberler', body: 'Etkinlik ve lansman duyurularını yakında burada paylaşacağız.' },
-      { heading: 'Kataloglar', body: 'Ürün kataloglarımızın dijital kopyalarını görüntüleyip indirebilirsiniz.' },
+      { heading: 'Haberler', body: 'Etkinlik ve lansman duyurularımızı yakında bu bölümde paylaşacağız.' },
+      { heading: 'Kataloglar', body: 'Ürün kataloglarımızın dijital kopyalarını görüntüleyebilir ve indirebilirsiniz.' },
     ],
   },
   hakkimizda: {
@@ -105,10 +105,10 @@ const pageContent = {
     sections: [
       {
         heading: 'HYD Point Endüstriyel',
-        body: 'HYD Point Endüstriyel, hidrolik ve pnömatik sistemler alanında faaliyet gösteren, sektörün önde gelen firmalarından biridir. Geniş ürün yelpazesi ve teknik uzmanlığımızla, endüstriyel uygulamalardan mobil makine sektörüne kadar geniş bir yelpazede hizmet vermekteyiz. Müşterilerimize en kaliteli ürünleri, en uygun fiyatlarla sunarak, sektörde güvenilir bir çözüm ortağı olmayı hedefliyoruz.',
+        body: 'HYD Point Endüstriyel, hidrolik ve pnömatik sistemler alanında faaliyet gösteren, sektörün önde gelen firmalarından biridir. Geniş ürün portföyümüz ve teknik uzmanlığımızla, endüstriyel uygulamalardan mobil makine sektörüne kadar geniş bir yelpazede hizmet sunmaktayız. Müşterilerimize en kaliteli ürünleri, rekabetçi fiyatlarla sunarak, sektörde güvenilir bir çözüm ortağı olmayı hedefliyoruz.',
       },
       {
-        heading: 'Ürün Gamımız',
+        heading: 'Ürün Portföyümüz',
         body: 'Hidrolik pompalar, motorlar, valfler, akış bölücüler, aküler, direksiyon sistemleri, basınç ölçüm cihazları, bağlantı elemanları ve daha birçok hidrolik komponenti geniş bir yelpazede sunmaktayız. Ayrıca pnömatik sistemler, sızdırmazlık elemanları ve elektronik kontrol sistemleri konusunda da hizmet vermekteyiz.',
         items: [
           'Hidrolik pompalar ve motorlar',
@@ -122,7 +122,7 @@ const pageContent = {
       },
       {
         heading: 'Misyonumuz',
-        body: 'Müşterilerimize en kaliteli hidrolik ve pnömatik ürünleri, teknik destek ve danışmanlık hizmetleriyle birlikte sunarak, onların başarısına katkıda bulunmak. Sektörde güvenilirlik, kalite ve müşteri memnuniyeti odaklı bir hizmet anlayışıyla öncü olmak.',
+        body: 'Müşterilerimize en kaliteli hidrolik ve pnömatik ürünleri, teknik destek ve danışmanlık hizmetleriyle birlikte sunarak, onların başarısına katkıda bulunmak. Sektörde güvenilirlik, kalite ve müşteri memnuniyeti odaklı bir hizmet anlayışıyla öncü konumda yer almak.',
       },
       {
         heading: 'Vizyonumuz',
@@ -144,11 +144,11 @@ const pageContent = {
   },
   iletisim: {
     title: 'İletişim',
-    subtitle: 'Satış, teknik destek ve insan kaynakları için bize ulaşın.',
+    subtitle: 'Satış, teknik destek ve insan kaynakları için bizimle iletişime geçebilirsiniz.',
     sections: [
       {
         heading: 'Merkez',
-        body: 'Adres, telefon ve e-posta bilgilerini buraya ekleyeceğiz.',
+        body: 'İletişim bilgilerimiz aşağıda yer almaktadır.',
         items: ['Telefon', 'E-posta', 'Çalışma saatleri'],
       },
     ],
@@ -251,15 +251,19 @@ const brandGallery = {
   Zhenjiang: '/zhenjiang.png',
 }
 
-function App() {
+function AppContent() {
+  const location = useLocation()
+  const navigate = useNavigate()
   const [openSecondary, setOpenSecondary] = useState(null)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mobileSubOpen, setMobileSubOpen] = useState(null)
   const [brandsMenuOpen, setBrandsMenuOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
+  const [showSearchResults, setShowSearchResults] = useState(false)
   const closeSecondaryTimer = useRef(null)
   const brandsMenuTimer = useRef(null)
   const searchInputRef = useRef(null)
+  const searchResultsRef = useRef(null)
   const pumpGroup = [
     'POMPA',
     'ALÜMİNYUM GÖVDELİ DİŞLİ POMPALAR',
@@ -317,6 +321,111 @@ function App() {
     'JOİSTİK VE YÜKLEYİCİ VALF',
   ]
 
+  // Tüm ürün isimlerini topla
+  const allProducts = useMemo(() => {
+    const products = [
+      ...pumpGroup,
+      ...flowGroup,
+      ...batteryGroup,
+      ...steeringGroup,
+      ...pressureGroup,
+      ...motorGroup,
+      ...controlGroup,
+      ...cylinderGroup,
+      ...loaderGroup,
+      // PNÖMATİK ürünleri
+      'PNÖMATİK',
+      'SİLİNDİRLER',
+      'BASINÇ REGÜLATÖRLERİ',
+      'FİLTRELER',
+      'BAĞLANTI ELEMANLARI',
+      'AKSESUARLAR',
+      // SIZDIRMAZLIK ürünleri
+      'SIZDIRMAZLIK',
+      'O-RING',
+      'KEÇE',
+      'HİDROLİK CONTALAR',
+      'FLANŞ CONTALARI',
+      'BAKIM KİTLERİ',
+      // Alt kategoriler
+      'ALT BAĞLANTILI MANOMETRELER',
+      'KONTAKLI VAKUMMETRELER',
+      'PANO BAĞLANTILI VAKUMMETRELER',
+      'MANOVAKOMETRELER',
+      'ALT BAĞLANTILI VAKUMMETRELER',
+      'KONTAKLI MANOMETRELER',
+      'ARKADAN BAĞLANTILI MANOMETRELER',
+      'PANO BAĞLANTILI MANOMETRELER',
+      'ARKADAN BAĞLANTILI VAKUMMETRELER',
+      'ALÜMİNYUM GÖVDELİ DİŞLİ HİDROMOTORLAR',
+      'DÖKÜM GÖVDELİ DİŞLİ MOTORLAR',
+      'PVC HORTUMLAR',
+      'HİDROLİK HORTUMLAR',
+      'ENDÜSTRİYEL HORTUMLAR',
+      'TERMOPLASTİK HORTUMLAR',
+      'HORTUM KORUYUCULAR',
+    ]
+    // Tekrarları kaldır
+    return [...new Set(products)]
+  }, [])
+
+  // Arama sorgusuna göre ürünleri filtrele
+  const filteredProducts = useMemo(() => {
+    if (!searchQuery.trim()) return []
+    
+    const query = searchQuery.toLowerCase().trim()
+    return allProducts
+      .filter((product) => {
+        const productLower = product.toLowerCase()
+        // Türkçe karakterleri normalize et
+        const normalize = (str) => str
+          .replace(/ı/g, 'i')
+          .replace(/ğ/g, 'g')
+          .replace(/ü/g, 'u')
+          .replace(/ş/g, 's')
+          .replace(/ö/g, 'o')
+          .replace(/ç/g, 'c')
+          .replace(/İ/g, 'i')
+          .replace(/Ğ/g, 'g')
+          .replace(/Ü/g, 'u')
+          .replace(/Ş/g, 's')
+          .replace(/Ö/g, 'o')
+          .replace(/Ç/g, 'c')
+        
+        const normalizedProduct = normalize(productLower)
+        const normalizedQuery = normalize(query)
+        
+        return normalizedProduct.includes(normalizedQuery)
+      })
+      .slice(0, 10) // Maksimum 10 sonuç göster
+  }, [searchQuery, allProducts])
+
+  // Arama sonuçlarını kapat
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        searchResultsRef.current &&
+        !searchResultsRef.current.contains(event.target) &&
+        searchInputRef.current &&
+        !searchInputRef.current.contains(event.target)
+      ) {
+        setShowSearchResults(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
+
+  // Ürün seçildiğinde yönlendir
+  const handleProductSelect = (product) => {
+    setSearchQuery('')
+    setShowSearchResults(false)
+    navigate(`/urunler?section=${encodeURIComponent(product)}`)
+  }
+
   const handleOpenSecondary = (label) => {
     if (closeSecondaryTimer.current) {
       clearTimeout(closeSecondaryTimer.current)
@@ -355,10 +464,17 @@ function App() {
     }
   }, [mobileOpen])
 
+  // Close mobile menu when navigating to products page on mobile
+  useEffect(() => {
+    const isMobile = window.innerWidth < 1024 // lg breakpoint
+    if (location.pathname === '/urunler' && isMobile) {
+      setMobileOpen(false)
+    }
+  }, [location.pathname])
+
 
   return (
-    <BrowserRouter>
-      <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className="min-h-screen bg-slate-50 text-slate-900">
         <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/60 shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
           {/* Top Info Bar */}
           <div className="border-b border-slate-100/80 bg-gradient-to-r from-slate-50/50 to-white">
@@ -507,7 +623,7 @@ function App() {
                     className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#1e4294] to-[#1e4294]/90 px-6 py-3 text-sm font-bold text-white shadow-md transition-all duration-200 hover:from-[#1e4294]/90 hover:to-[#1e4294] hover:shadow-lg hover:shadow-[#1e4294]/30"
                     onClick={() => setBrandsMenuOpen(false)}
                   >
-                    TÜM MARKALAR
+                    TÜM MARKALARI GÖRÜNTÜLE
                     <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
@@ -520,13 +636,21 @@ function App() {
             <div className="flex items-center gap-3">
               {/* Search Bar */}
               <div className="hidden sm:flex">
-                <div className="relative w-72">
+                <div className="relative w-72" ref={searchResultsRef}>
                   <input
                     ref={searchInputRef}
                     type="text"
                     value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Ürün ara..."
+                    onChange={(e) => {
+                      setSearchQuery(e.target.value)
+                      setShowSearchResults(true)
+                    }}
+                    onFocus={() => {
+                      if (filteredProducts.length > 0) {
+                        setShowSearchResults(true)
+                      }
+                    }}
+                    placeholder="Ürün arayın..."
                     className="w-full rounded-full border border-slate-300 bg-white px-5 py-2.5 pl-12 pr-4 text-sm text-slate-700 placeholder:text-slate-400 shadow-sm transition-all duration-200 focus:border-[#ff7f00] focus:outline-none focus:ring-2 focus:ring-[#ff7f00]/20 focus:shadow-md hover:border-slate-400"
                   />
                   <svg
@@ -547,6 +671,7 @@ function App() {
                     <button
                       onClick={() => {
                         setSearchQuery('')
+                        setShowSearchResults(false)
                         searchInputRef.current?.focus()
                       }}
                       className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600"
@@ -556,6 +681,34 @@ function App() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
                       </svg>
                     </button>
+                  )}
+                  
+                  {/* Arama Sonuçları Dropdown */}
+                  {showSearchResults && filteredProducts.length > 0 && (
+                    <div className="absolute top-full left-0 right-0 z-50 mt-2 max-h-96 overflow-y-auto rounded-2xl border border-slate-200 bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)]">
+                      <div className="p-2">
+                        {filteredProducts.map((product, index) => (
+                          <button
+                            key={index}
+                            onClick={() => handleProductSelect(product)}
+                            className="w-full rounded-xl px-4 py-3 text-left text-sm text-slate-700 transition-all duration-200 hover:bg-[#ff7f00]/10 hover:text-[#ff7f00]"
+                          >
+                            <div className="flex items-center gap-3">
+                              <svg className="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                              </svg>
+                              <span className="font-medium">{product}</span>
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  
+                  {showSearchResults && searchQuery.trim() && filteredProducts.length === 0 && (
+                    <div className="absolute top-full left-0 right-0 z-50 mt-2 rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)]">
+                      <p className="text-sm text-slate-500">Ürün bulunamadı</p>
+                    </div>
                   )}
                 </div>
               </div>
@@ -588,7 +741,7 @@ function App() {
           </div>
 
           {/* Secondary Navigation */}
-          <div className="relative z-30 border-t border-slate-200/60 bg-gradient-to-b from-white via-slate-50/40 to-white">
+          <div className="hidden lg:block relative z-30 border-t border-slate-200/60 bg-gradient-to-b from-white via-slate-50/40 to-white">
             <div className="relative mx-auto flex w-full max-w-7xl flex-wrap items-center justify-center gap-3 px-6 py-3.5">
               {secondaryNav.map((item) => (
                 <div
@@ -843,9 +996,13 @@ function App() {
                           {item.links.map((link) => (
                             <li key={link} className="flex items-start gap-2">
                               <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[#ff7f00]" />
-                              <a href="#" className="transition hover:text-[#1e4294]">
+                              <Link
+                                to={`/urunler?section=${encodeURIComponent(link)}`}
+                                onClick={() => setOpenSecondary(null)}
+                                className="transition hover:text-[#1e4294]"
+                              >
                                 {link}
-                              </a>
+                              </Link>
                             </li>
                           ))}
                         </ul>
@@ -990,9 +1147,13 @@ function App() {
                         {mobileSubOpen === item.label && (
                           <div className="space-y-1 border-t border-slate-100 bg-gradient-to-b from-slate-50/50 to-white px-5 pb-4 pt-3 transform transition-all duration-300">
                             {item.links.map((link, linkIndex) => (
-                              <a
+                              <Link
                                 key={link}
-                                href="#"
+                                to={`/urunler?section=${encodeURIComponent(link)}`}
+                                onClick={() => {
+                                  setMobileOpen(false)
+                                  setMobileSubOpen(null)
+                                }}
                                 className="group flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-medium text-slate-700 transition-all duration-200 hover:bg-white hover:text-[#1e4294] hover:shadow-sm"
                                 style={{ animationDelay: `${linkIndex * 30}ms` }}
                               >
@@ -1001,7 +1162,7 @@ function App() {
                                 <svg className="h-4 w-4 text-slate-300 group-hover:text-[#1e4294] transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                 </svg>
-                              </a>
+                              </Link>
                             ))}
                           </div>
                         )}
@@ -1014,12 +1175,20 @@ function App() {
                 <div className="px-4 pb-6">
                   <div className="relative group">
                     <div className="absolute inset-0 bg-gradient-to-r from-[#ff7f00]/20 to-[#1e4294]/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="relative">
+                    <div className="relative" ref={searchResultsRef}>
                       <input
                         type="text"
                         value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        placeholder="Ürün ara..."
+                        onChange={(e) => {
+                          setSearchQuery(e.target.value)
+                          setShowSearchResults(true)
+                        }}
+                        onFocus={() => {
+                          if (filteredProducts.length > 0) {
+                            setShowSearchResults(true)
+                          }
+                        }}
+                        placeholder="Ürün arayın..."
                         className="w-full rounded-2xl border-2 border-slate-200 bg-white px-5 py-3.5 pl-12 pr-12 text-sm font-medium text-slate-700 placeholder:text-slate-400 shadow-sm transition-all duration-300 focus:border-[#ff7f00] focus:outline-none focus:ring-4 focus:ring-[#ff7f00]/10 focus:shadow-lg hover:border-slate-300"
                       />
                       <svg
@@ -1037,7 +1206,10 @@ function App() {
                       </svg>
                       {searchQuery && (
                         <button
-                          onClick={() => setSearchQuery('')}
+                          onClick={() => {
+                            setSearchQuery('')
+                            setShowSearchResults(false)
+                          }}
                           className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1.5 text-slate-400 transition-all duration-200 hover:bg-slate-100 hover:text-slate-600 hover:scale-110 active:scale-95"
                           aria-label="Temizle"
                         >
@@ -1045,6 +1217,37 @@ function App() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
                           </svg>
                         </button>
+                      )}
+                      
+                      {/* Mobile Arama Sonuçları Dropdown */}
+                      {showSearchResults && filteredProducts.length > 0 && (
+                        <div className="absolute top-full left-0 right-0 z-50 mt-2 max-h-96 overflow-y-auto rounded-2xl border border-slate-200 bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)]">
+                          <div className="p-2">
+                            {filteredProducts.map((product, index) => (
+                              <button
+                                key={index}
+                                onClick={() => {
+                                  handleProductSelect(product)
+                                  setMobileOpen(false)
+                                }}
+                                className="w-full rounded-xl px-4 py-3 text-left text-sm text-slate-700 transition-all duration-200 hover:bg-[#ff7f00]/10 hover:text-[#ff7f00]"
+                              >
+                                <div className="flex items-center gap-3">
+                                  <svg className="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                  </svg>
+                                  <span className="font-medium">{product}</span>
+                                </div>
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                      
+                      {showSearchResults && searchQuery.trim() && filteredProducts.length === 0 && (
+                        <div className="absolute top-full left-0 right-0 z-50 mt-2 rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)]">
+                          <p className="text-sm text-slate-500">Ürün bulunamadı</p>
+                        </div>
                       )}
                     </div>
                   </div>
@@ -1122,7 +1325,7 @@ function App() {
                   className="h-16 w-auto"
                 />
                 <p className="text-sm text-slate-300">
-                  Hidrolik ve pnömatik sektöründe kaliteli ürünler ve çözümler sunuyoruz.
+                  Hidrolik ve pnömatik sektöründe kaliteli ürünler ve profesyonel çözümler sunmaktayız.
                 </p>
               </div>
 
@@ -1130,49 +1333,49 @@ function App() {
                 <h4 className="text-sm font-semibold uppercase tracking-[0.08em] text-white">ÜRÜNLER</h4>
                 <ul className="space-y-1.5 text-xs text-slate-300">
                   <li>
-                    <a href="#" className="transition hover:text-white">
+                    <Link to={`/urunler?section=${encodeURIComponent('POMPA')}`} className="transition hover:text-white">
                       POMPA
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="transition hover:text-white">
+                    <Link to={`/urunler?section=${encodeURIComponent('AKIŞ BÖLÜCÜLER')}`} className="transition hover:text-white">
                       AKIŞ BÖLÜCÜLER
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="transition hover:text-white">
+                    <Link to={`/urunler?section=${encodeURIComponent('AKÜLER')}`} className="transition hover:text-white">
                       AKÜLER
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="transition hover:text-white">
+                    <Link to={`/urunler?section=${encodeURIComponent('HİDROMOTORLAR')}`} className="transition hover:text-white">
                       HİDROMOTORLAR
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="transition hover:text-white">
+                    <Link to={`/urunler?section=${encodeURIComponent('HİDROLİK BAĞLANTI ELEMANLARI')}`} className="transition hover:text-white">
                       HİDROLİK BAĞLANTI ELEMANLARI
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="transition hover:text-white">
+                    <Link to={`/urunler?section=${encodeURIComponent('HİDROLİK SİLİNDİR VE AKSESUARLARI')}`} className="transition hover:text-white">
                       HİDROLİK SİLİNDİR VE AKSESUARLARI
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="transition hover:text-white">
+                    <Link to={`/urunler?section=${encodeURIComponent('DİREKSİYON BEYİNLERİ')}`} className="transition hover:text-white">
                       DİREKSİYON BEYİNLERİ
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="transition hover:text-white">
+                    <Link to={`/urunler?section=${encodeURIComponent('BASINÇ, ISI ÖLÇÜM VE KONTROL CİHAZLARI')}`} className="transition hover:text-white">
                       BASINÇ, ISI ÖLÇÜM VE KONTROL CİHAZLARI
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="transition hover:text-white">
+                    <Link to={`/urunler?section=${encodeURIComponent('KUMANDA KOLLARI , JOİSTİK VE LOADER VALF')}`} className="transition hover:text-white">
                       KUMANDA KOLLARI, JOİSTİK VE LOADER VALF
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -1215,6 +1418,13 @@ function App() {
           </div>
         </footer>
       </div>
+  )
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
     </BrowserRouter>
   )
 }

@@ -4,7 +4,7 @@ function BrandsSection({ brands }) {
       <div className="flex flex-col gap-4">
         <div className="flex items-center gap-3">
           <span className="h-1 w-12 rounded-full bg-gradient-to-r from-[#ff7f00] to-[#ff8f20]" />
-          <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">Markalarımız</h2>
+          <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">MARKALARIMIZ</h2>
         </div>
         <p className="text-sm text-slate-600 sm:text-base">
           Dünya çapında tanınmış markalarla iş birliği içinde, kaliteli ve güvenilir ürünler sunuyoruz.
