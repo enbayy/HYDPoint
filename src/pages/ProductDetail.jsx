@@ -931,16 +931,16 @@ function ProductDetail() {
                     <p>Bu ürün için marka logosu bulunamadı.</p>
                   </div>
                 ) : (
-                  <div className="flex flex-wrap gap-3 sm:gap-4">
+                  <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 sm:gap-4 md:grid-cols-6">
                     {allBrandLogos.map((logo, index) => (
                       <div
                         key={index}
-                        className="flex h-20 w-32 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-2 transition hover:border-[#ff7f00] hover:bg-white hover:shadow-md sm:h-24 sm:w-36 sm:p-3"
+                        className="flex h-16 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-2 transition hover:border-[#ff7f00] hover:bg-white hover:shadow-md sm:h-20 sm:p-3"
                       >
                         <img 
                           src={logo} 
                           alt={`Brand ${index + 1}`} 
-                          className="h-12 w-auto object-contain sm:h-14"
+                          className="h-10 w-auto object-contain sm:h-12"
                           onError={(e) => {
                             e.target.style.display = 'none'
                           }}

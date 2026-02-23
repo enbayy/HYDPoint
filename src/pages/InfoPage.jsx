@@ -14,17 +14,23 @@ function InfoPage({ title, subtitle, sections = [], hideHeader = false, brands =
       <section className="mx-auto w-full max-w-7xl space-y-8 px-8">
         {brands.length > 0 ? (
           <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+            <div className="mb-6 text-center">
+              <p className="text-xs uppercase tracking-[0.18em] text-[#ff7f00]">HYD Point</p>
+              <h2 className="mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">
+                MARKALARIMIZ
+              </h2>
+            </div>
+            <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 sm:gap-4 md:grid-cols-6 md:gap-5">
               {brands.map((brand) => (
                 <div
                   key={brand.name || brand}
-                  className="group relative flex h-32 items-center justify-center rounded-xl border-2 border-slate-200 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#ff7f00] hover:bg-gradient-to-br hover:from-white hover:to-[#ff7f00]/5 hover:shadow-xl"
+                  className="group relative flex h-16 items-center justify-center rounded-xl border-2 border-slate-200 bg-white p-3 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#ff7f00] hover:bg-gradient-to-br hover:from-white hover:to-[#ff7f00]/5 hover:shadow-xl sm:h-20 sm:p-4"
                 >
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[#ff7f00]/0 to-[#ff7f00]/0 transition-all duration-300 group-hover:from-[#ff7f00]/5 group-hover:to-[#ff7f00]/10" />
                   <img
                     src={brand.src || brand}
                     alt={brand.name || brand}
-                    className="relative z-10 h-16 w-auto max-w-full object-contain transition-all duration-300 group-hover:scale-110"
+                    className="relative z-10 h-10 w-auto max-w-full object-contain transition-all duration-300 group-hover:scale-110 sm:h-12"
                     onError={(e) => {
                       console.error(`Failed to load image for ${brand.name || brand}:`, brand.src || brand)
                       e.target.style.display = 'none'
