@@ -47,11 +47,24 @@ const getProductImage = (productName) => {
     'ISI (SICAKLIK) ÖLÇER': '/isi-sicaklik-olcer.png',
     'MANOMETRE KORUMA VALFLERİ': '/manometre-koruma-valfleri.png',
     'MANOMETRE TEST RAKORLARI': '/manometre-test-rakorlari.png',
-    'MANOMETRE VE VAKUMMETRELER': '/manometre-ve-vakummetreler.png',
+    'MANOMETRE VE VAKUMMETRELER': '/manometrevevakummetreler.png',
     'TRANSMİTTERLER': '/transmitterler.png',
+    
+    // Manometre ve Vakummetreler Alt Kategorileri
+    'ALT BAĞLANTILI MANOMETRELER': '/manometrevevakummetreler.png',
+    'KONTAKLI VAKUMMETRELER': '/manometrevevakummetreler.png',
+    'PANO BAĞLANTILI VAKUMMETRELER': '/manometrevevakummetreler.png',
+    'MANOVAKOMETRELER': '/manometrevevakummetreler.png',
+    'ALT BAĞLANTILI VAKUMMETRELER': '/manometrevevakummetreler.png',
+    'KONTAKLI MANOMETRELER': '/manometrevevakummetreler.png',
+    'ARKADAN BAĞLANTILI MANOMETRELER': '/manometrevevakummetreler.png',
+    'PANO BAĞLANTILI MANOMETRELER': '/manometrevevakummetreler.png',
+    'ARKADAN BAĞLANTILI VAKUMMETRELER': '/manometrevevakummetreler.png',
     
     // Hidromotorlar Alt Kategorileri
     'DİŞLİ MOTORLAR': '/disli-motorlar.png',
+    'ALÜMİNYUM GÖVDELİ DİŞLİ HİDROMOTORLAR': '/manometrevevakummetreler.png',
+    'DÖKÜM GÖVDELİ DİŞLİ MOTORLAR': '/manometrevevakummetreler.png',
     'EĞİK EKSENLİ HİDROMOTORLAR': '/egik-eksenli-hidromotorlar.png',
     'GEROTOR MOTORLAR (ORBİT)': '/gerotor-motorlar-orbit.png',
     'YILDIZ (RADIAL) MOTOR': '/yildiz-radial-motor.png',
@@ -66,6 +79,13 @@ const getProductImage = (productName) => {
     'HORTUM BAĞLANTI ELEMANLARI': '/hortumbaglantielemanlari.png',
     'DİŞLİ BAĞLANTI ELEMANLARI': '/dislibaglantielemanlari.png',
     'HORTUMLAR': '/hortumlar.png',
+    
+    // Hortumlar Alt Kategorileri
+    'PVC HORTUMLAR': '/hortumlar.png',
+    'HİDROLİK HORTUMLAR': '/hortumlar.png',
+    'ENDÜSTRİYEL HORTUMLAR': '/hortumlar.png',
+    'TERMOPLASTİK HORTUMLAR': '/hortumlar.png',
+    'HORTUM KORUYUCULAR': '/hortumlar.png',
     
     // Hidrolik Silindir ve Aksesuarları Alt Kategorileri
     'KROM KAPLI MİLLER': '/hidrolik-silindir-ve-akses.png',
@@ -163,6 +183,40 @@ const catalogGroups = [
   { title: 'SIZDIRMAZLIK', sections: sealingSections },
 ]
 
+// MANOMETRE VE VAKUMMETRELER alt kategorileri
+const manometreVakummetreAltKategoriler = [
+  'ALT BAĞLANTILI MANOMETRELER',
+  'KONTAKLI VAKUMMETRELER',
+  'PANO BAĞLANTILI VAKUMMETRELER',
+  'MANOVAKOMETRELER',
+  'ALT BAĞLANTILI VAKUMMETRELER',
+  'KONTAKLI MANOMETRELER',
+  'ARKADAN BAĞLANTILI MANOMETRELER',
+  'PANO BAĞLANTILI MANOMETRELER',
+  'ARKADAN BAĞLANTILI VAKUMMETRELER',
+]
+
+// DİŞLİ MOTORLAR alt kategorileri
+const disliMotorlarAltKategoriler = [
+  'ALÜMİNYUM GÖVDELİ DİŞLİ HİDROMOTORLAR',
+  'DÖKÜM GÖVDELİ DİŞLİ MOTORLAR',
+]
+
+// HORTUMLAR alt kategorileri
+const hortumlarAltKategoriler = [
+  'PVC HORTUMLAR',
+  'HİDROLİK HORTUMLAR',
+  'ENDÜSTRİYEL HORTUMLAR',
+  'TERMOPLASTİK HORTUMLAR',
+  'HORTUM KORUYUCULAR',
+]
+
+// DİŞLİ MOTORLAR alt kategorileri
+const disliMotorAltKategoriler = [
+  'ALÜMİNYUM GÖVDELİ DİŞLİ HİDROMOTORLAR',
+  'DÖKÜM GÖVDELİ DİŞLİ MOTORLAR',
+]
+
 function Products() {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
@@ -243,11 +297,331 @@ function Products() {
     return Math.abs(hash)
   }
 
-  // Ürün adına göre rastgele logolar seç (deterministik)
+  // Ürün adına göre marka logolarını seç
   const getProductBrandLogos = (productName) => {
     if (!productName) return []
     
-    // Ürün adına göre seed oluştur
+    // Belirli ürünler için sabit logo listeleri
+    if (productName === 'ALÜMİNYUM GÖVDELİ DİŞLİ POMPALAR') {
+      return [
+        '/hydropack.png',
+        '/asc.png',
+        '/casappa.png',
+        '/hema.png',
+        '/rexroth.png',
+        '/galtec.png',
+        '/vivolo.png',
+        '/salami.png',
+      ]
+    }
+
+    if (productName === 'DÖKÜM GÖVDELİ DİŞLİ POMPALAR') {
+      return [
+        '/asc.png',
+        '/casappa.png',
+        '/david-brown.png',
+        '/hemko.png',
+        '/hidromas.png',
+      ]
+    }
+
+    if (productName === 'EL POMPASI') {
+      return [
+        '/hydropack.png',
+        '/omfb.png',
+        '/cms.png',
+        '/ferro.png',
+        '/oleocon.png',
+      ]
+    }
+
+    if (productName === 'İÇTEN DİŞLİ POMPALAR') {
+      return ['/eckerle.png']
+    }
+
+    if (productName === 'İŞ MAKİNESİ POMPALARI') {
+      return ['/david-brown.png']
+    }
+
+    if (productName === 'PALETLİ POMPA') {
+      return [
+        '/berarma.png',
+        '/oxim.png',
+        '/hystar.png',
+        '/hytek.png',
+        '/kcl.png',
+      ]
+    }
+
+    if (productName === 'PİSTONLU POMPA') {
+      return [
+        '/casappa.png',
+        '/hema.png',
+        '/kawasaki.png',
+        '/linde.png',
+        '/celebi.png',
+        '/gold.png',
+        '/hpt.png',
+        '/pzb.png',
+        '/samhydraulic.png',
+        '/sunfab.png',
+        '/parker.png',
+      ]
+    }
+
+    if (productName === 'TANDEM POMPALAR') {
+      return [
+        '/hydropack.png',
+        '/asc.png',
+        '/casappa.png',
+        '/hema.png',
+        '/vivolo.png',
+        '/salami.png',
+        '/hydrocar.png',
+      ]
+    }
+
+    if (productName === 'ALÜMİNYUM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER') {
+      return [
+        '/asc.png',
+        '/casappa.png',
+        '/hema.png',
+      ]
+    }
+
+    if (productName === 'DÖKÜM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER') {
+      return ['/casappa.png']
+    }
+
+    if (productName === 'MEMBRANLI AKÜLER') {
+      return [
+        '/fox.png',
+        '/saip.png',
+        '/hydac.png',
+      ]
+    }
+
+    if (productName === 'BALONLU AKÜLER') {
+      return [
+        '/fox.png',
+        '/saip.png',
+        '/hydac.png',
+      ]
+    }
+
+    // Manometre & Vakummetre alt ürünleri
+    if (productName === 'ALT BAĞLANTILI MANOMETRELER') {
+      return [
+        '/pakkens.png',
+        '/wika.png',
+      ]
+    }
+
+    if (productName === 'KONTAKLI VAKUMMETRELER') {
+      return ['/pakkens.png']
+    }
+
+    if (productName === 'PANO BAĞLANTILI VAKUMMETRELER') {
+      return ['/pakkens.png']
+    }
+
+    if (productName === 'MANOVAKOMETRELER') {
+      return ['/pakkens.png']
+    }
+
+    if (productName === 'ALT BAĞLANTILI VAKUMMETRELER') {
+      return ['/pakkens.png']
+    }
+
+    if (productName === 'KONTAKLI MANOMETRELER') {
+      return ['/pakkens.png']
+    }
+
+    if (productName === 'ARKADAN BAĞLANTILI MANOMETRELER') {
+      return ['/pakkens.png']
+    }
+
+    if (productName === 'PANO BAĞLANTILI MANOMETRELER') {
+      return ['/pakkens.png']
+    }
+
+    if (productName === 'ARKADAN BAĞLANTILI VAKUMMETRELER') {
+      return ['/pakkens.png']
+    }
+
+    if (productName === 'EMNİYETLİ NORMAL') {
+      return [
+        '/hydropack.png',
+        '/hema.png',
+      ]
+    }
+
+    if (productName === 'EMNİYETLİ ANTİŞOKLU') {
+      return [
+        '/hydropack.png',
+        '/hema.png',
+      ]
+    }
+
+    if (productName === 'EMNİYETSİZ NORMAL') {
+      return [
+        '/hydropack.png',
+        '/zhenjiang.png',
+      ]
+    }
+
+    if (productName === 'EMNİYETSİZ KAPALI MERKEZ') {
+      return ['/hydropack.png']
+    }
+
+    if (productName === 'EMNİYETSİZ ANTİŞOKLU') {
+      return ['/hydropack.png']
+    }
+
+    if (productName === 'FORKLİFT İÇİN XY SERİSİ') {
+      return ['/hydropack.png']
+    }
+
+    if (productName === 'BASINÇ ŞALTERLERİ') {
+      return [
+        '/hystar.png',
+        '/fox.png',
+        '/hydac.png',
+        '/etna.png',
+        '/danfoss.png',
+        '/hlp.png',
+        '/pnomek.png',
+        '/telemecanique.png',
+      ]
+    }
+
+    if (productName === 'ISI (SICAKLIK) ÖLÇER') {
+      return [
+        '/fox.png',
+        '/pnomek.png',
+      ]
+    }
+
+    if (productName === 'MANOMETRE KORUMA VALFLERİ') {
+      return ['/tognella.png']
+    }
+
+    if (productName === 'MANOMETRE TEST RAKORLARI') {
+      return ['/ferro.png']
+    }
+
+    if (productName === 'TRANSMİTTERLER') {
+      return [
+        '/sick.png',
+        '/wika.png',
+        '/trafag.png',
+      ]
+    }
+
+    if (productName === 'ALÜMİNYUM GÖVDELİ DİŞLİ HİDROMOTORLAR') {
+      return [
+        '/asc.png',
+        '/casappa.png',
+        '/hema.png',
+      ]
+    }
+
+    if (productName === 'DÖKÜM GÖVDELİ DİŞLİ MOTORLAR') {
+      return [
+        '/asc.png',
+        '/casappa.png',
+      ]
+    }
+
+    if (productName === 'EĞİK EKSENLİ HİDROMOTORLAR') {
+      return [
+        '/celebi.png',
+        '/gold.png',
+        '/sunfab.png',
+        '/parker.png',
+      ]
+    }
+
+    if (productName === 'GEROTOR MOTORLAR (ORBİT)') {
+      return [
+        '/hema.png',
+        '/oxim.png',
+        '/samhydraulic.png',
+        '/parker.png',
+        '/zhenjiang.png',
+        '/danfoss.png',
+        '/white.png',
+        '/ms.png',
+        '/dinamicoil.png',
+      ]
+    }
+
+    if (productName === 'YILDIZ (RADIAL) MOTOR') {
+      return [
+        '/hydropack.png',
+        '/sai.png',
+        '/italgroup.png',
+      ]
+    }
+
+    if (productName === 'DİLİMLİ KUMANDA KOLU') {
+      return [
+        '/hydropack.png',
+        '/akon.png',
+        '/walvoil.png',
+      ]
+    }
+
+    if (productName === 'MONOBLOK KUMANDA KOLU') {
+      return [
+        '/hydropack.png',
+        '/galtec.png',
+        '/akon.png',
+        '/walvoil.png',
+      ]
+    }
+
+    if (productName === 'ELEKTRİK KONTROLLÜ KUMANDA KOLLARI') {
+      return ['/hydropack.png']
+    }
+
+    if (productName === 'JOİSTİK VE YÜKLEYİCİ VALF') {
+      return ['/hydropack.png']
+    }
+
+    if (productName === 'HORTUM BAĞLANTI ELEMANLARI') {
+      return ['/rekorsan.png']
+    }
+
+    if (productName === 'DİŞLİ BAĞLANTI ELEMANLARI') {
+      return ['/rekorsan.png']
+    }
+
+    if (productName === 'KROM KAPLI MİLLER') {
+      return ['/grimet.png']
+    }
+
+    if (productName === 'PVC HORTUMLAR') {
+      return ['/sel.png']
+    }
+
+    if (productName === 'HİDROLİK HORTUMLAR') {
+      return ['/sel.png']
+    }
+
+    if (productName === 'ENDÜSTRİYEL HORTUMLAR') {
+      return ['/sel.png']
+    }
+
+    if (productName === 'TERMOPLASTİK HORTUMLAR') {
+      return ['/sel.png']
+    }
+
+    if (productName === 'HORTUM KORUYUCULAR') {
+      return ['/sel.png']
+    }
+
+    // Diğer tüm ürünler için: deterministik rastgele seçim
     const seed = hashString(productName)
     
     // Her ürün için farklı sayıda logo (3-8 arası)
@@ -408,7 +782,287 @@ function Products() {
         </aside>
 
         <div className="flex-1 space-y-5">
-          {selectedItem ? (
+          {selectedItem === 'MANOMETRE VE VAKUMMETRELER' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Alt Kategoriler</p>
+                  <h2 className="text-xl font-semibold">{selectedItem}</h2>
+                </div>
+              </div>
+
+              {/* Alt Kategori Kartları */}
+              <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+                {manometreVakummetreAltKategoriler.map((item) => {
+                  const img = getProductImage(item)
+                  const productSlug = encodeURIComponent(item.toLowerCase().replace(/\s+/g, '-'))
+                  return (
+                    <div
+                      key={item}
+                      onClick={() => navigate(`/urun-detay/${productSlug}`, { state: { productName: item, productImage: img } })}
+                      className="group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border border-slate-200/60 bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-[#ff7f00]/30 hover:shadow-xl hover:shadow-[#ff7f00]/5 max-w-md w-full mx-auto min-h-[360px]"
+                    >
+                      {/* Decorative top accent */}
+                      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#ff7f00] via-[#ff9500] to-[#ff7f00] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                      
+                      {/* Professional Product Badge */}
+                      <div className="absolute top-4 right-4 z-10">
+                        <div className="rounded-full bg-white/95 px-2.5 py-1.5 shadow-md backdrop-blur-sm">
+                          <svg className="h-3.5 w-3.5 text-[#ff7f00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </div>
+                      </div>
+
+                      {/* Image Container with Professional Design */}
+                      <div className="relative h-64 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50 border-b border-slate-100">
+                        {/* Background pattern */}
+                        <div className="absolute inset-0 opacity-[0.015] group-hover:opacity-[0.03] transition-opacity duration-500" 
+                             style={{
+                               backgroundImage: 'radial-gradient(circle at 2px 2px, #1e4294 1px, transparent 0)',
+                               backgroundSize: '32px 32px'
+                             }}
+                        />
+                        
+                        <div className="relative z-10 flex h-full items-center justify-center p-4">
+                          <img 
+                            src={img} 
+                            alt={item} 
+                            className="h-full w-full max-h-[190px] object-contain transition-all duration-700 group-hover:scale-110"
+                            onError={(e) => {
+                              e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(item)}`
+                            }}
+                          />
+                        </div>
+                        
+                        {/* Gradient overlays */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#ff7f00]/0 via-transparent to-[#1e4294]/0 transition-all duration-500 group-hover:from-[#ff7f00]/6 group-hover:to-[#1e4294]/6" />
+                        
+                        {/* Shine effect on hover */}
+                        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-0 transition-all duration-1000 group-hover:translate-x-full group-hover:opacity-100" />
+                      </div>
+                      
+                      {/* Content Section */}
+                      <div className="relative flex flex-1 flex-col bg-white p-5">
+                        {/* Category badge */}
+                        <div className="mb-2.5">
+                          <span className="inline-block rounded-md bg-slate-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-slate-600 transition-all duration-300 group-hover:bg-[#ff7f00]/10 group-hover:text-[#ff7f00] group-hover:shadow-sm">
+                            Manometre & Vakummetre
+                          </span>
+                        </div>
+                        
+                        <h3 className="mb-3 line-clamp-2 min-h-[3rem] text-base font-bold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                          {item}
+                        </h3>
+                        
+                        <div className="mt-auto flex items-center justify-between border-t border-slate-100/80 pt-3">
+                          <span className="text-xs font-medium uppercase tracking-wider text-slate-400 transition-colors duration-300 group-hover:text-slate-600">
+                            Ürün Detayları
+                          </span>
+                          <div className="relative flex items-center gap-1 overflow-hidden rounded-md bg-gradient-to-r from-[#ff9500] to-[#ffaa33] px-2.5 py-1.5 text-white opacity-0 shadow-md transition-all duration-300 group-hover:-translate-y-0.5 group-hover:opacity-100 group-hover:shadow-lg group-hover:shadow-[#ff9500]/20">
+                            {/* Shine effect */}
+                            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                            <span className="relative z-10 text-[10px] font-bold uppercase tracking-wide">İncele</span>
+                            <svg
+                              className="relative z-10 h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              strokeWidth={3}
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Corner decoration */}
+                      <div className="absolute top-4 right-4 h-6 w-6 rounded-bl-lg bg-gradient-to-br from-[#ff7f00]/0 to-[#1e4294]/0 transition-all duration-500 group-hover:from-[#ff7f00]/8 group-hover:to-[#1e4294]/8" />
+                    </div>
+                  )
+                })}
+              </div>
+            </>
+          ) : selectedItem === 'DİŞLİ MOTORLAR' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Alt Kategoriler</p>
+                  <h2 className="text-xl font-semibold">{selectedItem}</h2>
+                </div>
+              </div>
+
+              {/* DİŞLİ MOTORLAR Alt Kategori Kartları */}
+              <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+                {disliMotorlarAltKategoriler.map((item) => {
+                  const img = getProductImage(item)
+                  const productSlug = encodeURIComponent(item.toLowerCase().replace(/\s+/g, '-'))
+                  return (
+                    <div
+                      key={item}
+                      onClick={() => navigate(`/urun-detay/${productSlug}`, { state: { productName: item, productImage: img } })}
+                      className="group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border border-slate-200/60 bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-[#ff7f00]/30 hover:shadow-xl hover:shadow-[#ff7f00]/5 max-w-md w-full mx-auto min-h-[360px]"
+                    >
+                      {/* Decorative top accent */}
+                      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#ff7f00] via-[#ff9500] to-[#ff7f00] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                      
+                      {/* Professional Product Badge */}
+                      <div className="absolute top-4 right-4 z-10">
+                        <div className="rounded-full bg-white/95 px-2.5 py-1.5 shadow-md backdrop-blur-sm">
+                          <svg className="h-3.5 w-3.5 text-[#ff7f00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </div>
+                      </div>
+
+                      {/* Image Container with Professional Design */}
+                      <div className="relative h-64 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50 border-b border-slate-100">
+                        {/* Background pattern */}
+                        <div className="absolute inset-0 opacity-[0.015] group-hover:opacity-[0.03] transition-opacity duration-500" 
+                             style={{
+                               backgroundImage: 'radial-gradient(circle at 2px 2px, #1e4294 1px, transparent 0)',
+                               backgroundSize: '32px 32px'
+                             }}
+                        />
+                        
+                        <div className="relative z-10 flex h-full items-center justify-center p-4">
+                          <img 
+                            src={img} 
+                            alt={item} 
+                            className="h-full w-full max-h-[190px] object-contain transition-all duration-700 group-hover:scale-110"
+                            onError={(e) => {
+                              e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(item)}`
+                            }}
+                          />
+                        </div>
+                        
+                        {/* Gradient overlays */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#ff7f00]/0 via-transparent to-[#1e4294]/0 transition-all duration-500 group-hover:from-[#ff7f00]/6 group-hover:to-[#1e4294]/6" />
+                        
+                        {/* Shine effect on hover */}
+                        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-0 transition-all duration-1000 group-hover:translate-x-full group-hover:opacity-100" />
+                      </div>
+                      
+                      {/* Content Section */}
+                      <div className="relative flex flex-1 flex-col bg-white p-5">
+                        {/* Category badge */}
+                        <div className="mb-2.5">
+                          <span className="inline-block rounded-md bg-slate-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-slate-600 transition-all duration-300 group-hover:bg-[#ff7f00]/10 group-hover:text-[#ff7f00] group-hover:shadow-sm">
+                            Dişli Hidromotor
+                          </span>
+                        </div>
+                        
+                        <h3 className="mb-3 line-clamp-2 min-h-[3rem] text-base font-bold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                          {item}
+                        </h3>
+                        
+                        <div className="mt-auto flex items-center justify-between border-t border-slate-100/80 pt-3">
+                          <span className="text-xs font-medium uppercase tracking-wider text-slate-400 transition-colors duration-300 group-hover:text-slate-600">
+                            Ürün Detayları
+                          </span>
+                          <div className="relative flex items-center gap-1 overflow-hidden rounded-md bg-gradient-to-r from-[#ff9500] to-[#ffaa33] px-2.5 py-1.5 text-white opacity-0 shadow-md transition-all duration-300 group-hover:-translate-y-0.5 group-hover:opacity-100 group-hover:shadow-lg group-hover:shadow-[#ff9500]/20">
+                            {/* Shine effect */}
+                            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                            <span className="relative z-10 text-[10px] font-bold uppercase tracking-wide">İncele</span>
+                            <svg
+                              className="relative z-10 h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              strokeWidth={3}
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Corner decoration */}
+                      <div className="absolute top-4 right-4 h-6 w-6 rounded-bl-lg bg-gradient-to-br from-[#ff7f00]/0 to-[#1e4294]/0 transition-all duration-500 group-hover:from-[#ff7f00]/8 group-hover:to-[#1e4294]/8" />
+                    </div>
+                  )
+                })}
+              </div>
+            </>
+          ) : selectedItem === 'HORTUMLAR' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Alt Kategoriler</p>
+                  <h2 className="text-xl font-semibold">{selectedItem}</h2>
+                </div>
+              </div>
+
+              {/* HORTUMLAR Alt Kategori Kartları */}
+              <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+                {hortumlarAltKategoriler.map((item) => {
+                  const img = getProductImage(item)
+                  const productSlug = encodeURIComponent(item.toLowerCase().replace(/\s+/g, '-'))
+                  return (
+                    <div
+                      key={item}
+                      onClick={() => navigate(`/urun-detay/${productSlug}`, { state: { productName: item, productImage: img } })}
+                      className="group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border border-slate-200/60 bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-[#ff7f00]/30 hover:shadow-xl hover:shadow-[#ff7f00]/5 max-w-md w-full mx-auto min-h-[360px]"
+                    >
+                      {/* Decorative top accent */}
+                      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#ff7f00] via-[#ff9500] to-[#ff7f00] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                      
+                      {/* Professional Product Badge */}
+                      <div className="absolute top-4 right-4 z-10">
+                        <div className="rounded-full bg-white/95 px-2.5 py-1.5 shadow-md backdrop-blur-sm">
+                          <svg className="h-3.5 w-3.5 text-[#ff7f00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </div>
+                      </div>
+
+                      {/* Content Section */}
+                      <div className="relative flex flex-1 flex-col bg-white p-5 pt-8">
+                        {/* Category badge */}
+                        <div className="mb-2.5">
+                          <span className="inline-block rounded-md bg-slate-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-slate-600 transition-all duration-300 group-hover:bg-[#ff7f00]/10 group-hover:text-[#ff7f00] group-hover:shadow-sm">
+                            Hortum
+                          </span>
+                        </div>
+                        
+                        <h3 className="mb-3 line-clamp-2 min-h-[3rem] text-base font-bold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                          {item}
+                        </h3>
+                        
+                        <div className="mt-auto flex items-center justify-between border-t border-slate-100/80 pt-3">
+                          <span className="text-xs font-medium uppercase tracking-wider text-slate-400 transition-colors duration-300 group-hover:text-slate-600">
+                            Ürün Detayları
+                          </span>
+                          <div className="relative flex items-center gap-1 overflow-hidden rounded-md bg-gradient-to-r from-[#ff9500] to-[#ffaa33] px-2.5 py-1.5 text-white opacity-0 shadow-md transition-all duration-300 group-hover:-translate-y-0.5 group-hover:opacity-100 group-hover:shadow-lg group-hover:shadow-[#ff9500]/20">
+                            {/* Shine effect */}
+                            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                            <span className="relative z-10 text-[10px] font-bold uppercase tracking-wide">İncele</span>
+                            <svg
+                              className="relative z-10 h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              strokeWidth={3}
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Corner decoration */}
+                      <div className="absolute top-4 right-4 h-6 w-6 rounded-bl-lg bg-gradient-to-br from-[#ff7f00]/0 to-[#1e4294]/0 transition-all duration-500 group-hover:from-[#ff7f00]/8 group-hover:to-[#1e4294]/8" />
+                    </div>
+                  )
+                })}
+              </div>
+            </>
+          ) : selectedItem ? (
             <>
               {/* Ürün Başlığı */}
               <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
@@ -453,7 +1107,7 @@ function Products() {
                   <h2 className="text-xl font-semibold">Alt Kategorileri Seçin</h2>
                 </div>
               </div>
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
                 {hydraulicSections.map((section) => {
                   const sectionImg = getProductImage(section.title)
                   return (
@@ -463,7 +1117,7 @@ function Products() {
                         setActiveSection(section.title)
                         setSelectedItem(null) // Kategori kartına tıklandığında ürün seçimini temizle
                       }}
-                      className="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200/60 bg-white text-left shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-[#ff7f00]/30 hover:shadow-xl hover:shadow-[#ff7f00]/5"
+                      className="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200/60 bg-white text-left shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-[#ff7f00]/30 hover:shadow-xl hover:shadow-[#ff7f00]/5 max-w-md w-full mx-auto min-h-[320px]"
                     >
                       {/* Decorative top accent */}
                       <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#ff7f00] via-[#ff9500] to-[#ff7f00] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -479,7 +1133,7 @@ function Products() {
                       </div>
 
                       {/* Image Container with Professional Design */}
-                      <div className="relative h-44 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50 border-b border-slate-100">
+                      <div className="relative h-52 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50 border-b border-slate-100">
                         {/* Background pattern */}
                         <div className="absolute inset-0 opacity-[0.015] group-hover:opacity-[0.03] transition-opacity duration-500" 
                              style={{
@@ -568,7 +1222,7 @@ function Products() {
                   Bu grup için ürün bulunamadı.
                 </div>
               ) : (
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+                <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
                   {currentItems.map((item) => {
                     const img = getProductImage(item)
                     const productSlug = encodeURIComponent(item.toLowerCase().replace(/\s+/g, '-'))
@@ -576,7 +1230,7 @@ function Products() {
                       <div
                         key={item}
                         onClick={() => navigate(`/urun-detay/${productSlug}`, { state: { productName: item, productImage: img } })}
-                        className="group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border border-slate-200/60 bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-[#ff7f00]/30 hover:shadow-xl hover:shadow-[#ff7f00]/5"
+                      className="group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border border-slate-200/60 bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-[#ff7f00]/30 hover:shadow-xl hover:shadow-[#ff7f00]/5 max-w-md w-full mx-auto min-h-[360px]"
                       >
                         {/* Decorative top accent */}
                         <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#ff7f00] via-[#ff9500] to-[#ff7f00] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -591,7 +1245,7 @@ function Products() {
                         </div>
 
                         {/* Image Container with Professional Design */}
-                        <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50 border-b border-slate-100">
+                        <div className="relative h-64 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50 border-b border-slate-100">
                           {/* Background pattern */}
                           <div className="absolute inset-0 opacity-[0.015] group-hover:opacity-[0.03] transition-opacity duration-500" 
                                style={{
