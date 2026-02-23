@@ -1023,7 +1023,7 @@ function AppContent() {
             />
             
             {/* Menu Panel with slide-in animation */}
-            <div className="relative ml-auto h-full w-[85vw] max-w-sm overflow-hidden bg-gradient-to-b from-white via-white to-slate-50/30 shadow-[0_0_50px_rgba(0,0,0,0.3)] transform transition-transform duration-300 ease-out translate-x-0">
+            <div className="relative ml-auto h-full w-[85vw] max-w-sm overflow-hidden bg-gradient-to-b from-white via-white to-slate-50/30 shadow-[0_0_50px_rgba(0,0,0,0.25)] transform transition-transform duration-300 ease-out translate-x-0">
               {/* Scrollable Content */}
               <div className="h-full overflow-y-auto">
                 {/* Mobile Header with gradient */}
@@ -1057,17 +1057,17 @@ function AppContent() {
                 </div>
 
                 {/* Mobile Navigation */}
-                <div className="px-4 py-5 space-y-2">
+                <div className="px-4 py-4 space-y-2">
                   {navItems.map((item, index) => (
                     <NavLink
                       key={item.path}
                       to={item.path}
                       onClick={() => setMobileOpen(false)}
                       className={({ isActive }) =>
-                        `group flex items-center justify-between rounded-2xl px-5 py-4 text-[15px] font-bold transition-all duration-300 transform ${
+                        `group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold transition-all duration-300 transform ${
                           isActive
-                            ? 'bg-gradient-to-r from-[#1e4294] via-[#1e4294] to-[#1e4294]/90 text-white shadow-lg shadow-[#1e4294]/30 scale-[1.02]'
-                            : 'bg-white text-slate-800 hover:bg-gradient-to-r hover:from-slate-50 hover:to-white hover:shadow-md hover:scale-[1.01] border border-slate-200/60'
+                            ? 'bg-gradient-to-r from-[#1e4294] via-[#1e4294] to-[#1e4294]/90 text-white shadow-lg shadow-[#1e4294]/30 scale-[1.01]'
+                            : 'bg-white text-slate-800 hover:bg-gradient-to-r hover:from-slate-50 hover:to-white hover:shadow-md hover:scale-[1.005] border border-slate-200/60'
                         }`
                       }
                       style={{ animationDelay: `${index * 50}ms` }}
@@ -1100,24 +1100,24 @@ function AppContent() {
                 </div>
 
                 {/* Mobile Categories */}
-                <div className="px-4 pb-6">
-                  <div className="mb-4 px-2">
-                    <p className="text-xs font-bold uppercase tracking-[0.15em] text-slate-500 flex items-center gap-2">
+                <div className="px-4 pb-5">
+                  <div className="mb-3 px-2">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-500 flex items-center gap-2">
                       <span className="h-px w-8 bg-gradient-to-r from-transparent to-slate-300" />
                       Kategoriler
                       <span className="h-px flex-1 bg-gradient-to-l from-transparent to-slate-300" />
                     </p>
                   </div>
-                  <div className="space-y-3">
+                  <div className="space-y-2">
                     {secondaryNav.map((item, index) => (
                       <div 
                         key={item.label} 
-                        className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:border-[#1e4294]/30"
+                        className="overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:border-[#1e4294]/30"
                         style={{ animationDelay: `${(navItems.length + index) * 50}ms` }}
                       >
                         <button
                           onClick={() => setMobileSubOpen((prev) => (prev === item.label ? null : item.label))}
-                          className="flex w-full items-center justify-between px-5 py-4 text-left transition-all duration-300 hover:bg-gradient-to-r hover:from-slate-50 hover:to-white"
+                          className="flex w-full items-center justify-between px-4 py-3 text-left transition-all duration-300 hover:bg-gradient-to-r hover:from-slate-50 hover:to-white"
                         >
                           <div className="flex items-center gap-3">
                             <div className={`h-10 w-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
@@ -1129,7 +1129,7 @@ function AppContent() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                               </svg>
                             </div>
-                            <span className="text-sm font-bold text-slate-800 tracking-wide">{item.label}</span>
+                            <span className="text-xs font-semibold text-slate-800 tracking-wide">{item.label}</span>
                           </div>
                           <svg 
                             className={`h-5 w-5 text-slate-400 transition-all duration-300 ${
@@ -1145,7 +1145,7 @@ function AppContent() {
                           </svg>
                         </button>
                         {mobileSubOpen === item.label && (
-                          <div className="space-y-1 border-t border-slate-100 bg-gradient-to-b from-slate-50/50 to-white px-5 pb-4 pt-3 transform transition-all duration-300">
+                          <div className="space-y-1 border-t border-slate-100 bg-gradient-to-b from-slate-50/50 to-white px-4 pb-3 pt-2 transform transition-all duration-300">
                             {item.links.map((link, linkIndex) => (
                               <Link
                                 key={link}
@@ -1154,7 +1154,7 @@ function AppContent() {
                                   setMobileOpen(false)
                                   setMobileSubOpen(null)
                                 }}
-                                className="group flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-medium text-slate-700 transition-all duration-200 hover:bg-white hover:text-[#1e4294] hover:shadow-sm"
+                                className="group flex items-center gap-3 rounded-lg px-3 py-2 text-xs font-medium text-slate-700 transition-all duration-200 hover:bg-white hover:text-[#1e4294] hover:shadow-sm"
                                 style={{ animationDelay: `${linkIndex * 30}ms` }}
                               >
                                 <span className="h-1.5 w-1.5 rounded-full bg-[#ff7f00] opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
