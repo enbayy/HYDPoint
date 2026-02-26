@@ -1155,7 +1155,9 @@ function Products() {
                             }
 
                             // Genel durum: marka bazlı ürün detay sayfasına git
-                            navigate(`/urun-detay/${productSlug}?brand=${brandName}`)
+                            navigate(`/urun-detay/${productSlug}?brand=${brandName}`, {
+                              state: { productName: selectedItem, brand: brandName }
+                            })
                           }}
                           className={`flex h-20 w-32 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-2 transition hover:border-[#ff7f00] hover:bg-white hover:shadow-md sm:h-24 sm:w-36 sm:p-3 ${
                             isClickable ? 'cursor-pointer' : ''
@@ -1184,7 +1186,7 @@ function Products() {
                   <h2 className="text-xl font-semibold">Alt Kategorileri Seçin</h2>
                 </div>
               </div>
-              <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
                 {hydraulicSections.map((section) => {
                   const sectionImg = getProductImage(section.title)
                   return (

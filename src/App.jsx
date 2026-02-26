@@ -1305,6 +1305,10 @@ function AppContent() {
               element={<ProductDetail />}
             />
             <Route
+              path="/urunler/:category/:subcategory/:brand/:product"
+              element={<ProductDetail />}
+            />
+            <Route
               path="/urun-detay/:slug"
               element={<ProductDetail />}
             />

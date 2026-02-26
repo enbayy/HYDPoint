@@ -52,8 +52,8 @@ const getProductImage = (productName) => {
 
     // Hidromotorlar alt kategorileri
     'DİŞLİ MOTORLAR': '/disli-motorlar.png',
-    'ALÜMİNYUM GÖVDELİ DİŞLİ HİDROMOTORLAR': '/manometrevevakummetreler.png',
-    'DÖKÜM GÖVDELİ DİŞLİ MOTORLAR': '/manometrevevakummetreler.png',
+    'ALÜMİNYUM GÖVDELİ DİŞLİ HİDROMOTORLAR': '/aluminyum-govdeli-disli-hidromotorlar.png',
+    'DÖKÜM GÖVDELİ DİŞLİ MOTORLAR': '/dokum-govdeli-disli-motorlar.png',
     'EĞİK EKSENLİ HİDROMOTORLAR': '/egik-eksenli-hidromotorlar.png',
     'GEROTOR MOTORLAR (ORBİT)': '/gerotor-motorlar-orbit.png',
     'YILDIZ (RADIAL) MOTOR': '/yildiz-radial-motor.png',
@@ -355,6 +355,185 @@ const ASC_20_GRUP_AKIS_BOLUCULER_SECTIONS = [
       { model: '31223', bar: '50', iletimHacmi: '5,9 CM³', maksBasinç: '250', maksHiz: '3000', maxAkis: '16,8', minAkis: '7,3', minHiz: '1250' },
       { model: '31226', bar: '50', iletimHacmi: '8,0 CM³', maksBasinç: '250', maksHiz: '3000', maxAkis: '22,8', minAkis: '10,0', minHiz: '1250' },
       { model: '31227', bar: '50', iletimHacmi: '9,4 CM³', maksBasinç: '250', maksHiz: '2750', maxAkis: '24,6', minAkis: '11,2', minHiz: '1200' },
+    ],
+  },
+]
+
+// CASAPPA - 20. GRUP HİDROMOTORLAR (ALÜMİNYUM GÖVDELİ DİŞLİ HİDROMOTORLAR)
+const CASAPPA_20_GRUP_HIDROMOTORLAR_CATEGORIES = [
+  {
+    name: '20. GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ MOTORLAR',
+    headers: ['MODEL', 'ÇALIŞMA BASINCI', 'İLETİM HACMİ', 'MAKS.HIZ', 'MİL-KAPAK TİPİ'],
+    rows: [
+      { model: 'C01999804', calismaBasinci: '250', iletimHacmi: '11,23 CM³', maksHiz: '3500', milKapak: '82-E2' },
+      { model: 'C02002916', calismaBasinci: '250', iletimHacmi: '14,53 CM³', maksHiz: '3500', milKapak: '82-E2' },
+      { model: '36955', calismaBasinci: '250', iletimHacmi: '16,85 CM³', maksHiz: '3000', milKapak: '82-E2' },
+      { model: 'C02002918', calismaBasinci: '250', iletimHacmi: '21,14 CM³', maksHiz: '3000', milKapak: '82-E2' },
+      { model: '36957', calismaBasinci: '170', iletimHacmi: '26,45 CM³', maksHiz: '2500', milKapak: '82-E2' },
+      { model: '36958', calismaBasinci: '130', iletimHacmi: '33,03 CM³', maksHiz: '2000', milKapak: '82-E2' },
+      { model: 'C01999801', calismaBasinci: '250', iletimHacmi: '4,95 CM³', maksHiz: '4000', milKapak: '82-E2' },
+      { model: '36929', calismaBasinci: '250', iletimHacmi: '8,26 CM³', maksHiz: '3500', milKapak: '82-E2' },
+    ],
+  },
+]
+
+// HEMA - 20. GRUP HİDROMOTORLAR (ALÜMİNYUM GÖVDELİ DİŞLİ HİDROMOTORLAR)
+const HEMA_20_GRUP_HIDROMOTORLAR_CATEGORIES = [
+  {
+    name: '20. GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ MOTORLAR',
+    headers: ['MODEL', 'ÇALIŞMA BASINCI', 'ÇIKIŞ PORTU', 'GİRİŞ PORTU', 'İLETİM HACMİ', 'KAPAK', 'ŞAFT TİPİ'],
+    rows: [
+      { model: '1MN061001M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '6,10 CM³', kapak: 'B', saftTipi: '1/8' },
+      { model: '1MN082001M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '8,20 CM³', kapak: 'B', saftTipi: '1/8' },
+      { model: '1MN095001M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '9,50 CM³', kapak: 'B', saftTipi: '1/8' },
+      { model: '1MN105001M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '10,50 CM³', kapak: 'B', saftTipi: '1/8' },
+      { model: '1MN119001M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '11,90 CM³', kapak: 'B', saftTipi: '1/8' },
+      { model: '1MN126001M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '12,60 CM³', kapak: 'B', saftTipi: '1/8' },
+      { model: '1MN140001M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '14,00 CM³', kapak: 'B', saftTipi: '1/8' },
+      { model: '1MN168001M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '16,80 CM³', kapak: 'B', saftTipi: '1/8' },
+      { model: '1MN168002M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '16,80 CM³', kapak: 'B', saftTipi: '1/5' },
+      { model: '1MN192001M', calismaBasinci: '220', cikisPortu: '40 - M8*4', girisPortu: '40 - M8*4', iletimHacmi: '19,20 CM³', kapak: 'B', saftTipi: '1/8' },
+      { model: '1MN229001M', calismaBasinci: '200', cikisPortu: '40 - M8*4', girisPortu: '40 - M8*4', iletimHacmi: '22,90 CM³', kapak: 'B', saftTipi: '1/8' },
+      { model: '1MN229002M', calismaBasinci: '200', cikisPortu: '40 - M8*4', girisPortu: '40 - M8*4', iletimHacmi: '22,90 CM³', kapak: 'B', saftTipi: '1/5' },
+      { model: '1MN260001M', calismaBasinci: '180', cikisPortu: '40 - M8*4', girisPortu: '40 - M8*4', iletimHacmi: '26,00 CM³', kapak: 'B', saftTipi: '1/8' },
+    ],
+  },
+  {
+    name: '20. GRUP B TİPİ KAPAK 1/5 KONİK MİLLİ MOTORLAR',
+    headers: ['MODEL', 'ÇALIŞMA BASINCI', 'ÇIKIŞ PORTU', 'GİRİŞ PORTU', 'İLETİM HACMİ', 'KAPAK', 'ŞAFT TİPİ'],
+    rows: [
+      { model: '1MN061002M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '6,10 CM³', kapak: 'B', saftTipi: '1/5' },
+      { model: '1MN082002M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '8,20 CM³', kapak: 'B', saftTipi: '1/5' },
+      { model: '1MN119002M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '11,90 CM³', kapak: 'B', saftTipi: '1/5' },
+    ],
+  },
+  {
+    name: '20. GRUP G TİPİ KAPAK 1/5 KONİK MİLLİ MOTORLAR',
+    headers: ['MODEL', 'İLETİM HACMİ', 'MAKS.BASINÇ', 'MAKS.HIZ', 'MİN.HIZ'],
+    rows: [
+      { model: '1MN061003M', iletimHacmi: '6,1 CM³', maksBasinc: '250', maksHiz: '4000', minHiz: '600' },
+      { model: '1MN082003M', iletimHacmi: '8,2CM³', maksBasinc: '250', maksHiz: '4000', minHiz: '600' },
+      { model: '1MN095003M', iletimHacmi: '9,5 CM³', maksBasinc: '250', maksHiz: '4000', minHiz: '600' },
+      { model: '1MN119003M', iletimHacmi: '11,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '500' },
+      { model: '1MN126003M', iletimHacmi: '12,6 CM³', maksBasinc: '250', maksHiz: '3400', minHiz: '500' },
+      { model: '1MN140003M', iletimHacmi: '14,0 CM³', maksBasinc: '250', maksHiz: '3200', minHiz: '500' },
+      { model: '1MN168003M', iletimHacmi: '16,8 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '450' },
+      { model: '1MN192003M', iletimHacmi: '19,2 CM³', maksBasinc: '220', maksHiz: '3000', minHiz: '450' },
+      { model: '1MN229003M', iletimHacmi: '22,9 CM³', maksBasinc: '200', maksHiz: '2850', minHiz: '450' },
+    ],
+  },
+  {
+    name: '20. GRUP G TİPİ KAPAK 9 DİŞ FREZELİ (Ø15,5) MOTORLAR',
+    headers: ['MODEL', 'ÇALIŞMA BASINCI', 'ÇIKIŞ PORTU', 'GİRİŞ PORTU', 'İLETİM HACMİ', 'KAPAK', 'ŞAFT TİPİ'],
+    rows: [
+      { model: '1MN061004M', calismaBasinci: '250', cikisPortu: 'SAE 10 7/8-14 UNF', girisPortu: 'SAE 10 7/8-14 UNF', iletimHacmi: '9,50 CM³', kapak: 'G SAE A', saftTipi: 'SAE 16-4 9 DİŞ/15,5' },
+      { model: '1MN082004M', calismaBasinci: '250', cikisPortu: 'SAE 10 7/8-14 UNF', girisPortu: 'SAE 10 7/8-14 UNF', iletimHacmi: '8,20 CM³', kapak: 'G SAE A', saftTipi: 'SAE 16-4 9 DİŞ/15,5' },
+      { model: '1MN095004M', calismaBasinci: '250', cikisPortu: 'SAE 10 7/8-14 UNF', girisPortu: 'SAE 10 7/8-14 UNF', iletimHacmi: '9,50 CM³', kapak: 'G SAE A', saftTipi: 'SAE 16-4 9 DİŞ/15,5' },
+      { model: '1MN119004M', calismaBasinci: '250', cikisPortu: 'SAE 10 7/8-14 UNF', girisPortu: 'SAE 10 7/8-14 UNF', iletimHacmi: '11,90 CM³', kapak: 'G SAE A', saftTipi: 'SAE 16-4 9 DİŞ/15,5' },
+      { model: '1MN140004M', calismaBasinci: '250', cikisPortu: 'SAE 10 7/8-14 UNF', girisPortu: 'SAE 10 7/8-14 UNF', iletimHacmi: '14,00 CM³', kapak: 'G SAE A', saftTipi: 'SAE 16-4 9 DİŞ/15,5' },
+      { model: '1MN168004M', calismaBasinci: '250', cikisPortu: 'SAE 10 7/8-14 UNF', girisPortu: 'SAE 10 7/8-14 UNF', iletimHacmi: '16,80 CM³', kapak: 'G SAE A', saftTipi: 'SAE 16-4 9 DİŞ/15,5' },
+      { model: '1MN192004M', calismaBasinci: '220', cikisPortu: 'SAE 12 1/1-16 UN', girisPortu: 'SAE 12 1/1-16 UN', iletimHacmi: '19,20 CM³', kapak: 'G SAE A', saftTipi: 'SAE 16-4 9 DİŞ/15,5' },
+    ],
+  },
+  {
+    name: '20. GRUP B TİPİ KAPAK 9 DİŞ FREZELİ (Ø16,5) MOTORLAR',
+    headers: ['MODEL', 'KAPAK', 'MİL TİPİ'],
+    rows: [
+      { model: '36970', kapak: 'B KAPAK', milTipi: '9 FREZE' },
+    ],
+  },
+]
+
+// ASC - 20. GRUP HİDROMOTORLAR (ALÜMİNYUM GÖVDELİ DİŞLİ HİDROMOTORLAR)
+const ASC_20_GRUP_HIDROMOTORLAR_CATEGORIES = [
+  {
+    name: '20. GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ MOTORLAR',
+    headers: ['MODEL', 'İLETİM HACMİ', 'MAKS.BASINÇ', 'MAKS.HIZ', 'MİN.HIZ'],
+    rows: [
+      { model: '36919', iletimHacmi: '3,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '600' },
+      { model: '36931', iletimHacmi: '5,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+      { model: '36937', iletimHacmi: '8,0 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+      { model: '36938', iletimHacmi: '9,4 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '600' },
+      { model: '36917', iletimHacmi: '11,4 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '36918', iletimHacmi: '13,9 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '36930', iletimHacmi: '14,8 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '36932', iletimHacmi: '16,0 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '36933', iletimHacmi: '19,2 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '36934', iletimHacmi: '21,9 CM³', maksBasinc: '210', maksHiz: '2500', minHiz: '600' },
+      { model: '36935', iletimHacmi: '24,8 CM³', maksBasinc: '190', maksHiz: '2500', minHiz: '600' },
+      { model: '36936', iletimHacmi: '27,9 CM³', maksBasinc: '170', maksHiz: '2200', minHiz: '600' },
+    ],
+  },
+  {
+    name: '20. GRUP B TİPİ KAPAK 9 DİŞ FREZELİ (Ø16,5) MOTORLAR',
+    headers: ['MODEL', 'İLETİM HACMİ', 'MAKS.BASINÇ', 'MAKS.HIZ', 'MİN.HIZ'],
+    rows: [
+      { model: '36968', iletimHacmi: '3,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+      { model: '36971', iletimHacmi: '5,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+      { model: '36977', iletimHacmi: '8,0 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+      { model: '36978', iletimHacmi: '9,4 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '600' },
+      { model: '36966', iletimHacmi: '11,4 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '36967', iletimHacmi: '13,9 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '36969', iletimHacmi: '14,8 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '36972', iletimHacmi: '16,0 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '36973', iletimHacmi: '19,2 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '36974', iletimHacmi: '21,9 CM³', maksBasinc: '210', maksHiz: '2500', minHiz: '600' },
+      { model: '36975', iletimHacmi: '24,8 CM³', maksBasinc: '190', maksHiz: '2500', minHiz: '600' },
+      { model: '36976', iletimHacmi: '27,9 CM³', maksBasinc: '170', maksHiz: '2200', minHiz: '600' },
+    ],
+  },
+  {
+    name: '20. GRUP F TİPİ KAPAK 1/5 KONİK MİLLİ MOTORLAR',
+    headers: ['MODEL', 'İLETİM HACMİ', 'MAKS.BASINÇ', 'MAKS.HIZ', 'MİN.HIZ'],
+    rows: [
+      { model: '36993', iletimHacmi: '3,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+      { model: '36995', iletimHacmi: '5,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+      { model: '37001', iletimHacmi: '8,0 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+      { model: '37002', iletimHacmi: '9,4 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '600' },
+      { model: '36991', iletimHacmi: '11,4 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '36992', iletimHacmi: '13,9 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '36994', iletimHacmi: '14,8 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '36996', iletimHacmi: '16,0 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '36997', iletimHacmi: '19,2 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '36998', iletimHacmi: '21,9 CM³', maksBasinc: '210', maksHiz: '2500', minHiz: '600' },
+      { model: '36999', iletimHacmi: '24,8 CM³', maksBasinc: '190', maksHiz: '2500', minHiz: '600' },
+      { model: '37000', iletimHacmi: '27,9 CM³', maksBasinc: '170', maksHiz: '2500', minHiz: '600' },
+    ],
+  },
+  {
+    name: '20. GRUP F TİPİ KAPAK 9 DİŞ FREZELİ (Ø16,5) MOTORLAR',
+    headers: ['MODEL', 'İLETİM HACMİ', 'MAKS.BASINÇ', 'MAKS.HIZ', 'MİN.HIZ'],
+    rows: [
+      { model: '37005', iletimHacmi: '3,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+      { model: '37007', iletimHacmi: '5,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+      { model: '37013', iletimHacmi: '8,0 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+      { model: '37014', iletimHacmi: '9,4 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '600' },
+      { model: '37003', iletimHacmi: '11,4 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '37004', iletimHacmi: '13,9 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '37006', iletimHacmi: '14,8 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '37008', iletimHacmi: '16,0 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '37009', iletimHacmi: '19,2 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '37010', iletimHacmi: '21,9 CM³', maksBasinc: '210', maksHiz: '2500', minHiz: '600' },
+      { model: '37011', iletimHacmi: '24,8 CM³', maksBasinc: '190', maksHiz: '2500', minHiz: '600' },
+      { model: '37012', iletimHacmi: '27,9 CM³', maksBasinc: '170', maksHiz: '2200', minHiz: '600' },
+    ],
+  },
+  {
+    name: '20. GRUP ASC \"C\" TİPİ KAPAK ÖZEL MOTORLAR',
+    headers: ['MODEL', 'İLETİM HACMİ', 'MAKS.BASINÇ', 'MAKS.HIZ', 'MİN.HIZ'],
+    rows: [
+      { model: '36981', iletimHacmi: '3,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+      { model: '36983', iletimHacmi: '5,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+      { model: '36989', iletimHacmi: '8,0 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+      { model: '36990', iletimHacmi: '9,4 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '600' },
+      { model: '36979', iletimHacmi: '11,4 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '36980', iletimHacmi: '13,9 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '36982', iletimHacmi: '14,8 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '36984', iletimHacmi: '16,0 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '36985', iletimHacmi: '19,2 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+      { model: '36986', iletimHacmi: '21,9 CM³', maksBasinc: '210', maksHiz: '2500', minHiz: '600' },
+      { model: '36987', iletimHacmi: '24,8 CM³', maksBasinc: '190', maksHiz: '2500', minHiz: '600' },
+      { model: '36988', iletimHacmi: '27,9 CM³', maksBasinc: '170', maksHiz: '2200', minHiz: '600' },
     ],
   },
 ]
@@ -1087,6 +1266,1052 @@ const WALVOIL_DILIMLI_KUMANDA_KOLU_CATEGORIES = [
   },
 ]
 
+// REKORSAN METRİK HORTUM RAKORLARI kategorileri
+const REKORSAN_METRIK_HORTUM_RAKORLARI_CATEGORIES = [
+  {
+    name: 'METRİK SOMUNLU 90° HORTUM REKORLARI (L TİPİ)',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'SOMUN ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0506-MSO90-L', hortumOlcusu: '3/16', somunOlcusu: 'M12X1,5 6L' },
+      { model: 'RK-0508-MSO90-L', hortumOlcusu: '3/16', somunOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-0606-MSO90-L', hortumOlcusu: '1/4', somunOlcusu: 'M12X1,5 6L' },
+      { model: 'RK-0608-MSO90-L', hortumOlcusu: '1/4', somunOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-0610-MSO90-L', hortumOlcusu: '1/4', somunOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-0612-MSO90-L', hortumOlcusu: '1/4', somunOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-0808-MSO90-L', hortumOlcusu: '5/16', somunOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-0810-MSO90-L', hortumOlcusu: '5/16', somunOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-0812-MSO90-L', hortumOlcusu: '5/16', somunOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-1010-MSO90-L', hortumOlcusu: '3/8', somunOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-1012-MSO90-L', hortumOlcusu: '3/8', somunOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-1015-MSO90-L', hortumOlcusu: '3/8', somunOlcusu: 'M22X1,5 15L' },
+      { model: 'RK-1312-MSO45-L', hortumOlcusu: '1/2', somunOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-1312-MSO90-L', hortumOlcusu: '1/2', somunOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-1315-MSO90-L', hortumOlcusu: '1/2', somunOlcusu: 'M22X1,5 15L' },
+      { model: 'RK-1618-MSO90-L', hortumOlcusu: '5/8', somunOlcusu: 'M26X1,5 18L' },
+      { model: 'RK-1922-MSO90-L', hortumOlcusu: '3/4', somunOlcusu: 'M30X2 22L' },
+      { model: 'RK-1928-MSO90-L', hortumOlcusu: '3/4', somunOlcusu: 'M36X2 28L' },
+      { model: 'RK-2528-MSO90-L', hortumOlcusu: '1', somunOlcusu: 'M36X2 28L' },
+      { model: 'RK-2535-MSO90-L', hortumOlcusu: '1', somunOlcusu: 'M45X2 35L' },
+      { model: 'RK-3235-MSO90-L', hortumOlcusu: '1.25', somunOlcusu: 'M45X2 35L' },
+      { model: 'RK-3242-MSO90-L', hortumOlcusu: '1.25', somunOlcusu: 'M52X2 42L' },
+      { model: 'RK-3842-MSO90-L', hortumOlcusu: '1.5', somunOlcusu: 'M52X2 42L' },
+    ],
+  },
+  {
+    name: 'METRİK SOMUNLU 90° HORTUM REKORLARI (S TİPİ)',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'SOMUN ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0506-MSO90-S', hortumOlcusu: '3/16', somunOlcusu: 'M14X1,5 6S' },
+      { model: 'RK-0606-MSO90-S', hortumOlcusu: '1/4', somunOlcusu: 'M14X1,5 6S' },
+      { model: 'RK-0608-MSO90-S', hortumOlcusu: '1/4', somunOlcusu: 'M16X1,5 8S' },
+      { model: 'RK-0610-MSO90-S', hortumOlcusu: '1/4', somunOlcusu: 'M18X1,5 10S' },
+      { model: 'RK-0808-MSO90-S', hortumOlcusu: '5/16', somunOlcusu: 'M16X1,5 8S' },
+      { model: 'RK-0810-MSO90-S', hortumOlcusu: '5/16', somunOlcusu: 'M18X1,5 10S' },
+      { model: 'RK-0812-MSO45-S', hortumOlcusu: '5/16', somunOlcusu: 'M20X1,5 12S' },
+      { model: 'RK-0812-MSO90-S', hortumOlcusu: '5/16', somunOlcusu: 'M20X1,5 12S' },
+      { model: 'RK-1010-MSO90-S', hortumOlcusu: '3/8', somunOlcusu: 'M18X1,5 10S' },
+      { model: 'RK-1012-MSO90-S', hortumOlcusu: '3/8', somunOlcusu: 'M20X1,5 12S' },
+      { model: 'RK-1016-MSO90-S', hortumOlcusu: '3/8', somunOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-1312-MSO90-S', hortumOlcusu: '1/2', somunOlcusu: 'M20X1,5 12S' },
+      { model: 'RK-1316-MSO90-S', hortumOlcusu: '1/2', somunOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-1616-MSO90-S', hortumOlcusu: '5/8', somunOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-1620-MSO90-S', hortumOlcusu: '5/8', somunOlcusu: 'M30X2 20S' },
+      { model: 'RK-1920-MSO90-S', hortumOlcusu: '3/4', somunOlcusu: 'M30X2 20S' },
+      { model: 'RK-1925-MSO90-S', hortumOlcusu: '3/4', somunOlcusu: 'M36X2 25S' },
+      { model: 'RK-2525-MSO90-S', hortumOlcusu: '1', somunOlcusu: 'M36X2 25S' },
+      { model: 'RK-3230-MSO90-S', hortumOlcusu: '1.25', somunOlcusu: 'M42X2 30S' },
+      { model: 'RK-3238-MSO90-S', hortumOlcusu: '1.25', somunOlcusu: 'M52X2 38S' },
+      { model: 'RK-3838-MSO90-S', hortumOlcusu: '1.5', somunOlcusu: 'M52X2 38S' },
+    ],
+  },
+  {
+    name: 'L TİPİ',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0506-ME-L', disOlcusu: 'M12X1,5 6L', hortumOlcusu: '3/16' },
+      { model: 'RK-0508-ME-L', disOlcusu: 'M14X1,5 8L', hortumOlcusu: '3/16' },
+      { model: 'RK-0606-ME-L', disOlcusu: 'M12X1,5 6L', hortumOlcusu: '1/4' },
+      { model: 'RK-0608-ME-L', disOlcusu: 'M14X1,5 8L', hortumOlcusu: '1/4' },
+      { model: 'RK-0608-ME-S', disOlcusu: 'M16X1,5 8S', hortumOlcusu: '1/4' },
+      { model: 'RK-0610-ME-L', disOlcusu: 'M16X1,5 10L', hortumOlcusu: '1/4' },
+      { model: 'RK-0808-ME-L', disOlcusu: 'M14X1,5 8L', hortumOlcusu: '5/16' },
+      { model: 'RK-0810-ME-L', disOlcusu: 'M16X1,5 10L', hortumOlcusu: '5/16' },
+      { model: 'RK-0812-ME-L', disOlcusu: 'M18X1,5 12L', hortumOlcusu: '5/16' },
+      { model: 'RK-1010-ME-L', disOlcusu: 'M16X1,5 10L', hortumOlcusu: '3/8' },
+      { model: 'RK-1012-ME-L', disOlcusu: 'M18X1,5 12L', hortumOlcusu: '3/8' },
+      { model: 'RK-1015-ME-L', disOlcusu: 'M22X1,5 15L', hortumOlcusu: '3/8' },
+      { model: 'RK-1312-ME-L', disOlcusu: 'M18X1,5 12L', hortumOlcusu: '1/2' },
+      { model: 'RK-1315-ME-L', disOlcusu: 'M22X1,5 15L', hortumOlcusu: '1/2' },
+      { model: 'RK-1618-ME-L', disOlcusu: 'M26X1,5 18L', hortumOlcusu: '5/8' },
+      { model: 'RK-2535-ME-L', disOlcusu: 'M45X2 35L', hortumOlcusu: '1' },
+    ],
+  },
+  {
+    name: 'METRİK SOMUNLU 45° HORTUM REKORLARI (L TİPİ)',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'SOMUN ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0506-MSO45-L', hortumOlcusu: '3/16', somunOlcusu: 'M12X1,5 6L' },
+      { model: 'RK-0508-MSO45-L', hortumOlcusu: '3/16', somunOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-0606-MSO45-L', hortumOlcusu: '1/4', somunOlcusu: 'M12X1,5 6L' },
+      { model: 'RK-0608-MSO45-L', hortumOlcusu: '1/4', somunOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-0610-MSO45-L', hortumOlcusu: '1/4', somunOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-0612-MSO45-L', hortumOlcusu: '1/4', somunOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-0808-MSO45-L', hortumOlcusu: '5/16', somunOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-0810-MSO45-L', hortumOlcusu: '5/16', somunOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-0810-MSO45-S', hortumOlcusu: '5/16', somunOlcusu: 'M18X1,5 10S' },
+      { model: 'RK-0812-MSO45-L', hortumOlcusu: '5/16', somunOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-1010-MSO45-L', hortumOlcusu: '3/8', somunOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-1012-MSO45-L', hortumOlcusu: '3/8', somunOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-1015-MSO45-L', hortumOlcusu: '3/8', somunOlcusu: 'M22X1,5 15L' },
+      { model: 'RK-1315-MSO45-L', hortumOlcusu: '1/2', somunOlcusu: 'M22X1,5 15L' },
+      { model: 'RK-1618-MSO45-L', hortumOlcusu: '5/8', somunOlcusu: 'M26X1,5 18L' },
+      { model: 'RK-1922-MSO45-L', hortumOlcusu: '3/4', somunOlcusu: 'M30X2 22L' },
+      { model: 'RK-1928-MSO45-L', hortumOlcusu: '3/4', somunOlcusu: 'M36X2 28L' },
+      { model: 'RK-2528-MSO45-L', hortumOlcusu: '1', somunOlcusu: 'M36X2 28L' },
+      { model: 'RK-2535-MSO45-L', hortumOlcusu: '1', somunOlcusu: 'M45X2 35L' },
+      { model: 'RK-3235-MSO45-L', hortumOlcusu: '1.25', somunOlcusu: 'M45X2 35L' },
+      { model: 'RK-3242-MSO45-L', hortumOlcusu: '1.25', somunOlcusu: 'M52X2 42L' },
+      { model: 'RK-3842-MSO45-L', hortumOlcusu: '1.5', somunOlcusu: 'M52X2 42L' },
+    ],
+  },
+  {
+    name: 'METRİK SOMUNLU DÜZ HORTUM REKORLARI (L TİPİ)',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'SOMUN ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0506-MSOD-L', hortumOlcusu: '3/16', somunOlcusu: 'M12X1,5 6L' },
+      { model: 'RK-0508-MSOD-L', hortumOlcusu: '3/16', somunOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-0606-MSOD-L', hortumOlcusu: '1/4', somunOlcusu: 'M12X1,5 6L' },
+      { model: 'RK-0608-MSOD-L', hortumOlcusu: '1/4', somunOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-0610-MSOD-L', hortumOlcusu: '1/4', somunOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-0612-MSOD-L', hortumOlcusu: '1/4', somunOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-0808-MSOD-L', hortumOlcusu: '5/16', somunOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-0810-MSOD-L', hortumOlcusu: '5/16', somunOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-0812-MSOD-L', hortumOlcusu: '5/16', somunOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-1010-MSOD-L', hortumOlcusu: '3/8', somunOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-1012-MSOD-L', hortumOlcusu: '3/8', somunOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-1015-MSOD-L', hortumOlcusu: '3/8', somunOlcusu: 'M22X1,5 15L' },
+      { model: 'RK-1312-MSOD-L', hortumOlcusu: '1/2', somunOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-1315-MSOD-L', hortumOlcusu: '1/2', somunOlcusu: 'M22X1,5 15L' },
+      { model: 'RK-1318-MSOD-L', hortumOlcusu: '1/2', somunOlcusu: 'M26X1,5 18L' },
+      { model: 'RK-1618-MSOD-L', hortumOlcusu: '5/8', somunOlcusu: 'M26X1,5 18L' },
+      { model: 'RK-1922-MSOD-L', hortumOlcusu: '3/4', somunOlcusu: 'M30X2 22L' },
+      { model: 'RK-1928-MSOD-L', hortumOlcusu: '3/4', somunOlcusu: 'M36X2 28L' },
+      { model: 'RK-2528-MSOD-L', hortumOlcusu: '1', somunOlcusu: 'M36X2 28L' },
+      { model: 'RK-2535-MSOD-L', hortumOlcusu: '1', somunOlcusu: 'M45X2 35L' },
+      { model: 'RK-3235-MSOD-L', hortumOlcusu: '1.25', somunOlcusu: 'M45X2 35L' },
+      { model: 'RK-3242-MSOD-L', hortumOlcusu: '1.25', somunOlcusu: 'M52X2 42L' },
+      { model: 'RK-3842-MSOD-L', hortumOlcusu: '1.5', somunOlcusu: 'M52X2 42L' },
+    ],
+  },
+  {
+    name: 'METRİK SOMUNLU DÜZ HORTUM REKORLARI (S TİPİ)',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'SOMUN ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0506-MSOD-S', hortumOlcusu: '3/16', somunOlcusu: 'M14X1,5 6S' },
+      { model: 'RK-0606-MSOD-S', hortumOlcusu: '1/4', somunOlcusu: 'M14X1,5 6S' },
+      { model: 'RK-0608-MSOD-S', hortumOlcusu: '1/4', somunOlcusu: 'M16X1,5 8S' },
+      { model: 'RK-0610-MSOD-S', hortumOlcusu: '1/4', somunOlcusu: 'M18X1,5 10S' },
+      { model: 'RK-0808-MSOD-S', hortumOlcusu: '5/16', somunOlcusu: 'M16X1,5 8S' },
+      { model: 'RK-0810-MSOD-S', hortumOlcusu: '5/16', somunOlcusu: 'M18X1,5 10S' },
+      { model: 'RK-0812-MSOD-S', hortumOlcusu: '5/16', somunOlcusu: 'M20X1,5 12S' },
+      { model: 'RK-1010-MSOD-S', hortumOlcusu: '3/8', somunOlcusu: 'M18X1,5 10S' },
+      { model: 'RK-1012-MSOD-S', hortumOlcusu: '3/8', somunOlcusu: 'M20X1,5 12S' },
+      { model: 'RK-1016-MSOD-S', hortumOlcusu: '3/8', somunOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-1312-MSOD-S', hortumOlcusu: '1/2', somunOlcusu: 'M20X1,5 12S' },
+      { model: 'RK-1316-MSOD-S', hortumOlcusu: '1/2', somunOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-1616-MSOD-S', hortumOlcusu: '5/8', somunOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-1620-MSOD-S', hortumOlcusu: '5/8', somunOlcusu: 'M30X2 20S' },
+      { model: 'RK-1920-MSOD-S', hortumOlcusu: '3/4', somunOlcusu: 'M30X2 20S' },
+      { model: 'RK-1925-MSOD-S', hortumOlcusu: '3/4', somunOlcusu: 'M36X2 25S' },
+      { model: 'RK-2525-MSOD-S', hortumOlcusu: '1', somunOlcusu: 'M36X2 25S' },
+      { model: 'RK-2530-MSOD-S', hortumOlcusu: '1', somunOlcusu: 'M42X2 30S' },
+      { model: 'RK-3230-MSOD-S', hortumOlcusu: '1.25', somunOlcusu: 'M42X2 30S' },
+      { model: 'RK-3238-MSOD-S', hortumOlcusu: '1.25', somunOlcusu: 'M52X2 38S' },
+      { model: 'RK-3838-MSOD-S', hortumOlcusu: '1.5', somunOlcusu: 'M52X2 38S' },
+    ],
+  },
+  {
+    name: 'S TİPİ',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0612-ME-L', disOlcusu: 'M18X1,5 12L', hortumOlcusu: '1/4' },
+      { model: 'RK-0812-ME-S', disOlcusu: 'M20X1,5 12S', hortumOlcusu: '5/16' },
+      { model: 'RK-1012-ME-S', disOlcusu: 'M20X1,5 12S', hortumOlcusu: '3/8' },
+      { model: 'RK-1016-ME-S', disOlcusu: 'M24X1,5 16S', hortumOlcusu: '3/8' },
+      { model: 'RK-1316-ME-S', disOlcusu: 'M24X1,5 16S', hortumOlcusu: '1/2' },
+      { model: 'RK-1616-ME-S', disOlcusu: 'M24X1,5 16S', hortumOlcusu: '5/8' },
+      { model: 'RK-1620-ME-S', disOlcusu: 'M30X2 20S', hortumOlcusu: '5/8' },
+      { model: 'RK-1622-ME-L', disOlcusu: 'M30X2 22L', hortumOlcusu: '5/8' },
+      { model: 'RK-1920-ME-S', disOlcusu: 'M30X2 20S', hortumOlcusu: '3/4' },
+      { model: 'RK-1922-ME-L', disOlcusu: 'M30X2 22L', hortumOlcusu: '3/4' },
+      { model: 'RK-1925-ME-S', disOlcusu: 'M36X2 25S', hortumOlcusu: '3/4' },
+      { model: 'RK-2525-ME-S', disOlcusu: 'M36X2 25S', hortumOlcusu: '1' },
+      { model: 'RK-2528-ME-L', disOlcusu: 'M36X2 28L', hortumOlcusu: '1' },
+      { model: 'RK-2530-ME-S', disOlcusu: 'M42X2 30S', hortumOlcusu: '1' },
+      { model: 'RK-3230-ME-S', disOlcusu: 'M42X2 30S', hortumOlcusu: '1.25' },
+      { model: 'RK-3235-ME-L', disOlcusu: 'M45X2 35L', hortumOlcusu: '1.25' },
+      { model: 'RK-3238-ME-S', disOlcusu: 'M52X2 38S', hortumOlcusu: '1.25' },
+      { model: 'RK-3838-ME-S', disOlcusu: 'M52X2 38S', hortumOlcusu: '1.5' },
+      { model: 'RK-3842-ME-L', disOlcusu: 'M52X2 42L', hortumOlcusu: '1.5' },
+    ],
+  },
+  {
+    name: 'METRİK İÇE HAVŞA DÜZ HORTUM REKORLARI',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'SOMUN ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0614-MISD', hortumOlcusu: '1/4', somunOlcusu: 'M14X1,5' },
+      { model: 'RK-0814-MISD', hortumOlcusu: '5/16', somunOlcusu: 'M14X1,5' },
+      { model: 'RK-0818-MISD', hortumOlcusu: '5/16', somunOlcusu: 'M18X1,5' },
+      { model: 'RK-1018-MISD', hortumOlcusu: '3/8', somunOlcusu: 'M18X1,5' },
+      { model: 'RK-1322-MISD', hortumOlcusu: '1/2', somunOlcusu: 'M22X1,5' },
+      { model: 'RK-1324-MISD', hortumOlcusu: '1/2', somunOlcusu: 'M24X1,5' },
+      { model: 'RK-1624-MISD', hortumOlcusu: '5/8', somunOlcusu: 'M24X1,5' },
+      { model: 'RK-1930-MISD', hortumOlcusu: '3/4', somunOlcusu: 'M30X1,5' },
+      { model: 'RK-2533-MISD', hortumOlcusu: '1', somunOlcusu: 'M33X1,5' },
+      { model: 'RK-3236-MISD', hortumOlcusu: '1.25', somunOlcusu: 'M36X1,5' },
+      { model: 'RK-3242-MISD', hortumOlcusu: '1.25', somunOlcusu: 'M42X1,5' },
+    ],
+  },
+  {
+    name: 'METRİK SOMUNLU 45° HORTUM REKORLARI (S TİPİ)',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'SOMUN ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1012-MSO45-S', hortumOlcusu: '3/8', somunOlcusu: 'M20X1,5 12S' },
+      { model: 'RK-1016-MSO45-S', hortumOlcusu: '3/8', somunOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-1312-MSO45-S', hortumOlcusu: '1/2', somunOlcusu: 'M20X1,5 12S' },
+      { model: 'RK-1316-MSO45-S', hortumOlcusu: '1/2', somunOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-1616-MSO45-S', hortumOlcusu: '5/8', somunOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-1620-MSO45-S', hortumOlcusu: '5/8', somunOlcusu: 'M30X2 20S' },
+      { model: 'RK-1920-MSO45-S', hortumOlcusu: '3/4', somunOlcusu: 'M30X2 20S' },
+      { model: 'RK-1925-MSO45-S', hortumOlcusu: '3/4', somunOlcusu: 'M36X2 25S' },
+      { model: 'RK-2525-MSO45-S', hortumOlcusu: '1', somunOlcusu: 'M36X2 25S' },
+      { model: 'RK-2530-MSO45-S', hortumOlcusu: '1', somunOlcusu: 'M42X2 30S' },
+      { model: 'RK-3230-MSO45-S', hortumOlcusu: '1.25', somunOlcusu: 'M42X2 30S' },
+      { model: 'RK-3238-MSO45-S', hortumOlcusu: '1.25', somunOlcusu: 'M52X2 38S' },
+      { model: 'RK-3838-MSO45-S', hortumOlcusu: '1.5', somunOlcusu: 'M52X2 38S' },
+    ],
+  },
+]
+
+// REKORSAN SOKETLER kategorileri
+const REKORSAN_SOKETLER_CATEGORIES = [
+  {
+    name: 'DN-2 - DN-4 SOKETLER',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'İÇ ÇAP ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0205-TSS', hortumOlcusu: 'DN2', icCapOlcusu: '5' },
+      { model: 'RK-0409-TSS', hortumOlcusu: 'DN4', icCapOlcusu: '9' },
+    ],
+  },
+  {
+    name: 'R1-R2 SOKETLER',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'İÇ ÇAP ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0517-ÇS', hortumOlcusu: '3/16', icCapOlcusu: '13' },
+      { model: 'RK-0620-ÇS', hortumOlcusu: '1/4', icCapOlcusu: '14.5' },
+      { model: 'RK-0822-ÇS', hortumOlcusu: '5/16', icCapOlcusu: '15.5' },
+      { model: 'RK-1025-ÇS', hortumOlcusu: '3/8', icCapOlcusu: '18.4' },
+      { model: 'RK-1328-ÇS', hortumOlcusu: '1/2', icCapOlcusu: '21.7' },
+      { model: 'RK-1632-ÇS', hortumOlcusu: '5/8', icCapOlcusu: '24.7' },
+      { model: 'RK-2546-ÇS', hortumOlcusu: '1', icCapOlcusu: '36.5' },
+      { model: 'RK-3256-ÇS', hortumOlcusu: '1.25', icCapOlcusu: '46' },
+      { model: 'RK-3862-ÇS', hortumOlcusu: '1.5', icCapOlcusu: '53' },
+      { model: 'RK-5175-ÇS', hortumOlcusu: '2', icCapOlcusu: '64' },
+      { model: 'RK-6487-ÇS', hortumOlcusu: '2.5', icCapOlcusu: '79' },
+      { model: 'RK-76103-ÇS', hortumOlcusu: '3', icCapOlcusu: '93' },
+    ],
+  },
+  {
+    name: 'FLEXOPAK SOKETLER',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'İÇ ÇAP ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0621-SÇS', hortumOlcusu: '1/4', icCapOlcusu: '15.7' },
+      { model: 'RK-0824-SÇS', hortumOlcusu: '5/16', icCapOlcusu: '17.3' },
+      { model: 'RK-1026-SÇS', hortumOlcusu: '3/8', icCapOlcusu: '19.7' },
+      { model: 'RK-1329-SÇS', hortumOlcusu: '1/2', icCapOlcusu: '23' },
+      { model: 'RK-1634-SÇS', hortumOlcusu: '5/8', icCapOlcusu: '26' },
+      { model: 'RK-1938-SÇS', hortumOlcusu: '3/4', icCapOlcusu: '30.2' },
+      { model: 'RK-2546-SÇS', hortumOlcusu: '1', icCapOlcusu: '38.8' },
+    ],
+  },
+  {
+    name: 'R9 ÇELİK SOKETLER',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'İÇ ÇAP ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1026-ÇS', hortumOlcusu: '3/8', icCapOlcusu: '18.5' },
+      { model: 'RK-1329-ÇS', hortumOlcusu: '1/2', icCapOlcusu: '21' },
+      { model: 'RK-1633-ÇS', hortumOlcusu: '5/8', icCapOlcusu: '25.5' },
+      { model: 'RK-1938-ÇS', hortumOlcusu: '3/4', icCapOlcusu: '29.2' },
+      { model: 'RK-2545-ÇS', hortumOlcusu: '1', icCapOlcusu: '36.5' },
+      { model: 'RK-3255-ÇS', hortumOlcusu: '1.25', icCapOlcusu: '44.5' },
+      { model: 'RK-3863-ÇS', hortumOlcusu: '1.5', icCapOlcusu: '50' },
+    ],
+  },
+  {
+    name: 'BUHAR HORTUM SOKETLERİ',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'İÇ ÇAP ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1936-ÇS', hortumOlcusu: '3/4', icCapOlcusu: '29' },
+    ],
+  },
+]
+
+// REKORSAN DN2 HORTUM REKORLARI kategorileri
+const REKORSAN_DN2_HORTUM_REKORLARI_CATEGORIES = [
+  {
+    name: 'DN2 HORTUM REKORLARI',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'SOMUN ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0212-TSR', hortumOlcusu: 'DN2', somunOlcusu: 'M12X1,5' },
+      { model: 'RK-0213-TSR', hortumOlcusu: 'DN2', somunOlcusu: 'R1/4' },
+      { model: 'RK-0214-TSR', hortumOlcusu: 'DN2', somunOlcusu: 'M14X1,5' },
+      { model: 'RK-0216-TSR', hortumOlcusu: 'DN2', somunOlcusu: 'M16X1,5' },
+      { model: 'RK-0217-TSR', hortumOlcusu: 'DN2', somunOlcusu: 'M16X2' },
+    ],
+  },
+]
+
+// REKORSAN DN4 HORTUM REKORLARI kategorileri
+const REKORSAN_DN4_HORTUM_REKORLARI_CATEGORIES = [
+  {
+    name: 'DN4 HORTUM REKORLARI',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'SOMUN ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0411-TSR', hortumOlcusu: 'DN4', somunOlcusu: '7/16 UNF' },
+      { model: 'RK-0412-TSR', hortumOlcusu: 'DN4', somunOlcusu: 'M12' },
+      { model: 'RK-0412-TSR90', hortumOlcusu: 'DN4', somunOlcusu: 'M12' },
+      { model: 'RK-0414-TSR', hortumOlcusu: 'DN4', somunOlcusu: 'M14' },
+      { model: 'RK-0414-TSR90', hortumOlcusu: 'DN4', somunOlcusu: 'M14' },
+      { model: 'RK-0416-TSR', hortumOlcusu: 'DN4', somunOlcusu: 'M16' },
+      { model: 'RK-0416-TSR90', hortumOlcusu: 'DN4', somunOlcusu: 'M16' },
+    ],
+  },
+]
+
+// REKORSAN HALKA REKORLAR kategorileri
+const REKORSAN_HALKA_REKORLAR_CATEGORIES = [
+  {
+    name: 'POLYAMİD HALKA REKORLARI',
+    tableHeaders: ['MODEL', 'HALKA İÇ ÇAPI [MM]', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0408-HP', halkaIcCapi: '8', hortumOlcusu: '4X6' },
+      { model: 'RK-0608-HP', halkaIcCapi: '8', hortumOlcusu: '6X8' },
+      { model: 'RK-0612-HP', halkaIcCapi: '12', hortumOlcusu: '6X8' },
+      { model: 'RK-0614-HP', halkaIcCapi: '14', hortumOlcusu: '6X8' },
+      { model: 'RK-0812-HP', halkaIcCapi: '12', hortumOlcusu: '8X10' },
+      { model: 'RK-0814-HP', halkaIcCapi: '14', hortumOlcusu: '8X10' },
+      { model: 'RK-0914-HP', halkaIcCapi: '14', hortumOlcusu: '9X12' },
+    ],
+  },
+  {
+    name: 'SAÇ SOKET SIKMALI HALKA REKORLARI',
+    tableHeaders: ['MODEL', 'HALKA İÇ ÇAPI [MM]', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0508-HB', halkaIcCapi: '8', hortumOlcusu: '3/16' },
+      { model: 'RK-0510-HB', halkaIcCapi: '10', hortumOlcusu: '3/16' },
+      { model: 'RK-0610-HB', halkaIcCapi: '10', hortumOlcusu: '1/4' },
+      { model: 'RK-0612-HB', halkaIcCapi: '12', hortumOlcusu: '1/4' },
+      { model: 'RK-0812-HB', halkaIcCapi: '12', hortumOlcusu: '5/16' },
+      { model: 'RK-0813-HB', halkaIcCapi: '13', hortumOlcusu: '5/16' },
+      { model: 'RK-0814-HB', halkaIcCapi: '14', hortumOlcusu: '5/16' },
+      { model: 'RK-1014-HB', halkaIcCapi: '14', hortumOlcusu: '3/8' },
+      { model: 'RK-1016-HB', halkaIcCapi: '16', hortumOlcusu: '3/8' },
+      { model: 'RK-1018-HB', halkaIcCapi: '18', hortumOlcusu: '3/8' },
+      { model: 'RK-1318-HB', halkaIcCapi: '18', hortumOlcusu: '1/2' },
+    ],
+  },
+  {
+    name: 'KAYNAKLIK HALKA REKORLAR',
+    tableHeaders: ['MODEL', 'BORU ÖLÇÜSÜ', 'HALKA İÇ ÇAPI [MM]'],
+    products: [
+      { model: 'RK-0508-HK', boruOlcusu: '5', halkaIcCapi: '8' },
+      { model: 'RK-0610-HK', boruOlcusu: '6', halkaIcCapi: '10' },
+      { model: 'RK-0812-HK', boruOlcusu: '8', halkaIcCapi: '12' },
+      { model: 'RK-1216-HK', boruOlcusu: '12', halkaIcCapi: '16' },
+      { model: 'RK-1217-HK', boruOlcusu: '12', halkaIcCapi: '17' },
+      { model: 'RK-1418-HK', boruOlcusu: '14', halkaIcCapi: '18' },
+    ],
+  },
+  {
+    name: 'HİDROLİK PRESLİ HALKA REKORLAR',
+    tableHeaders: ['MODEL', 'HALKA İÇ ÇAPI [MM]', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0510-HT', halkaIcCapi: '10', hortumOlcusu: '3/16' },
+      { model: 'RK-0610-HT', halkaIcCapi: '10', hortumOlcusu: '1/4' },
+      { model: 'RK-0612-HT', halkaIcCapi: '12', hortumOlcusu: '1/4' },
+      { model: 'RK-0613-HT', halkaIcCapi: '13', hortumOlcusu: '1/4' },
+      { model: 'RK-0614-HT', halkaIcCapi: '14', hortumOlcusu: '1/4' },
+      { model: 'RK-0617-HT', halkaIcCapi: '17', hortumOlcusu: '1/4' },
+      { model: 'RK-0812-HT', halkaIcCapi: '12', hortumOlcusu: '5/16' },
+      { model: 'RK-0813-HT', halkaIcCapi: '13', hortumOlcusu: '5/16' },
+      { model: 'RK-0814-HT', halkaIcCapi: '14', hortumOlcusu: '5/16' },
+      { model: 'RK-0816-HT', halkaIcCapi: '16', hortumOlcusu: '5/16' },
+      { model: 'RK-0817-HT', halkaIcCapi: '17', hortumOlcusu: '5/16' },
+      { model: 'RK-1014-HT', halkaIcCapi: '14', hortumOlcusu: '3/8' },
+      { model: 'RK-1016-HT', halkaIcCapi: '16', hortumOlcusu: '3/8' },
+      { model: 'RK-1017-HT', halkaIcCapi: '17', hortumOlcusu: '3/8' },
+      { model: 'RK-1018-HT', halkaIcCapi: '18', hortumOlcusu: '3/8' },
+      { model: 'RK-1021-HT', halkaIcCapi: '21', hortumOlcusu: '3/8' },
+      { model: 'RK-1316-HT', halkaIcCapi: '16', hortumOlcusu: '1/2' },
+      { model: 'RK-1318-HT', halkaIcCapi: '18', hortumOlcusu: '1/2' },
+      { model: 'RK-1320-HT', halkaIcCapi: '20', hortumOlcusu: '1/2' },
+      { model: 'RK-1321-HT', halkaIcCapi: '21', hortumOlcusu: '1/2' },
+      { model: 'RK-1322-HT', halkaIcCapi: '22', hortumOlcusu: '1/2' },
+    ],
+  },
+  {
+    name: 'METRİK CİVATA REKORLARI',
+    tableHeaders: ['MODEL', 'BOY ÖLÇÜSÜ [MM]', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0812-MCR', boyOlcusu: '16', hortumOlcusu: 'M8X1,25' },
+      { model: 'RK-1010-MCR', boyOlcusu: '20', hortumOlcusu: 'M10X1' },
+      { model: 'RK-1215-MCR', boyOlcusu: '23.5', hortumOlcusu: 'M12X1,5' },
+      { model: 'RK-1615-MCR', boyOlcusu: '30', hortumOlcusu: 'M16X1,5' },
+      { model: 'RK-1815-MCR', boyOlcusu: '34', hortumOlcusu: 'M18X1,5' },
+    ],
+  },
+  {
+    name: 'BSP CİVATA REKORLARI',
+    tableHeaders: ['MODEL', 'BOY ÖLÇÜSÜ [MM]', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1028-RCR', boyOlcusu: '20', hortumOlcusu: 'R1/8-28' },
+      { model: 'RK-1319-RCR', boyOlcusu: '25.5', hortumOlcusu: 'R1/4-19' },
+      { model: 'RK-1719-RCR', boyOlcusu: '30.5', hortumOlcusu: 'R3/8-19' },
+      { model: 'RK-2114-RCR', boyOlcusu: '36', hortumOlcusu: 'R1/2-14' },
+    ],
+  },
+]
+
+// REKORSAN HORTUM EKLERİ kategorileri
+const REKORSAN_HORTUM_EKLERI_CATEGORIES = [
+  {
+    name: 'HORTUM EKLERİ',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0505-HE', hortumOlcusu: '3/16' },
+      { model: 'RK-0606-HE', hortumOlcusu: '1/4' },
+      { model: 'RK-0808-HE', hortumOlcusu: '5/16' },
+      { model: 'RK-1010-HE', hortumOlcusu: '3/8' },
+      { model: 'RK-1313-HE', hortumOlcusu: '1/2' },
+      { model: 'RK-1616-HE', hortumOlcusu: '5/8' },
+      { model: 'RK-1919-HE', hortumOlcusu: '3/4' },
+      { model: 'RK-2525-HE', hortumOlcusu: '1' },
+      { model: 'RK-3232-HE', hortumOlcusu: '1.25' },
+      { model: 'RK-3838-HE', hortumOlcusu: '1.5' },
+      { model: 'RK-5050-HE', hortumOlcusu: '2' },
+    ],
+  },
+]
+
+// REKORSAN BORU UÇLU HORTUM REKORLARI kategorileri
+const REKORSAN_BORU_UCLU_HORTUM_REKORLARI_CATEGORIES = [
+  {
+    name: 'BORU UÇLU 45° HORTUM REKORLARI',
+    tableHeaders: ['MODEL', 'BORU ÖLÇÜSÜ', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0506-BU45', boruOlcusu: '6', hortumOlcusu: '3/16' },
+      { model: 'RK-0606-BU45', boruOlcusu: '6', hortumOlcusu: '1/4' },
+      { model: 'RK-0608-BU45', boruOlcusu: '8', hortumOlcusu: '1/4' },
+      { model: 'RK-0610-BU45', boruOlcusu: '10', hortumOlcusu: '1/4' },
+      { model: 'RK-0808-BU45', boruOlcusu: '8', hortumOlcusu: '5/16' },
+      { model: 'RK-0810-BU45', boruOlcusu: '10', hortumOlcusu: '5/16' },
+      { model: 'RK-0812-BU45', boruOlcusu: '12', hortumOlcusu: '5/16' },
+      { model: 'RK-1008-BU45', boruOlcusu: '8', hortumOlcusu: '3/8' },
+      { model: 'RK-1010-BU45', boruOlcusu: '10', hortumOlcusu: '3/8' },
+      { model: 'RK-1012-BU45', boruOlcusu: '12', hortumOlcusu: '3/8' },
+      { model: 'RK-1312-BU45', boruOlcusu: '12', hortumOlcusu: '1/2' },
+      { model: 'RK-1316-BU45', boruOlcusu: '16', hortumOlcusu: '1/2' },
+    ],
+  },
+  {
+    name: 'BORU UÇLU 90° HORTUM REKORLARI',
+    tableHeaders: ['MODEL', 'BORU ÖLÇÜSÜ', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0506-BU90', boruOlcusu: '6', hortumOlcusu: '3/16' },
+      { model: 'RK-0606-BU90', boruOlcusu: '6', hortumOlcusu: '1/4' },
+      { model: 'RK-0608-BU90', boruOlcusu: '8', hortumOlcusu: '1/4' },
+      { model: 'RK-0610-BU90', boruOlcusu: '10', hortumOlcusu: '1/4' },
+      { model: 'RK-0808-BU90', boruOlcusu: '8', hortumOlcusu: '5/16' },
+      { model: 'RK-0810-BU90', boruOlcusu: '10', hortumOlcusu: '5/16' },
+      { model: 'RK-0812-BU90', boruOlcusu: '12', hortumOlcusu: '5/16' },
+      { model: 'RK-1008-BU90', boruOlcusu: '8', hortumOlcusu: '3/8' },
+      { model: 'RK-1010-BU90', boruOlcusu: '10', hortumOlcusu: '3/8' },
+      { model: 'RK-1012-BU90', boruOlcusu: '12', hortumOlcusu: '3/8' },
+      { model: 'RK-1312-BU90', boruOlcusu: '12', hortumOlcusu: '1/2' },
+      { model: 'RK-1316-BU90', boruOlcusu: '16', hortumOlcusu: '1/2' },
+    ],
+  },
+  {
+    name: 'BORU UÇLU DÜZ HORTUM REKORLARI',
+    tableHeaders: ['MODEL', 'BORU ÖLÇÜSÜ', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0506-BUD', boruOlcusu: '6', hortumOlcusu: '3/16' },
+      { model: 'RK-0606-BUD', boruOlcusu: '6', hortumOlcusu: '1/4' },
+      { model: 'RK-0608-BUD', boruOlcusu: '8', hortumOlcusu: '1/4' },
+      { model: 'RK-0610-BUD', boruOlcusu: '10', hortumOlcusu: '1/4' },
+      { model: 'RK-0808-BUD', boruOlcusu: '8', hortumOlcusu: '5/16' },
+      { model: 'RK-0810-BUD', boruOlcusu: '10', hortumOlcusu: '5/16' },
+      { model: 'RK-0812-BUD', boruOlcusu: '12', hortumOlcusu: '5/16' },
+      { model: 'RK-1008-BUD', boruOlcusu: '8', hortumOlcusu: '3/8' },
+      { model: 'RK-1010-BUD', boruOlcusu: '10', hortumOlcusu: '3/8' },
+      { model: 'RK-1012-BUD', boruOlcusu: '12', hortumOlcusu: '3/8' },
+      { model: 'RK-1312-BUD', boruOlcusu: '12', hortumOlcusu: '1/2' },
+      { model: 'RK-1316-BUD', boruOlcusu: '16', hortumOlcusu: '1/2' },
+    ],
+  },
+]
+
+// REKORSAN BSP HORTUM REKORLARI kategorileri
+const REKORSAN_BSP_HORTUM_REKORLARI_CATEGORIES = [
+  {
+    name: 'NPT ERKEK HORTUM REKORLARI',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0510-NE', disOlcusu: '1/8-28 BSPT', hortumOlcusu: '3/16' },
+      { model: 'RK-0513-NE', disOlcusu: '1/4-19 BSPT', hortumOlcusu: '3/16' },
+      { model: 'RK-0610-NE', disOlcusu: '1/8-28 BSPT', hortumOlcusu: '1/4' },
+      { model: 'RK-0613-NE', disOlcusu: '1/4-19 BSPT', hortumOlcusu: '1/4' },
+      { model: 'RK-0617-NE', disOlcusu: '3/8-19 BSPT', hortumOlcusu: '1/4' },
+      { model: 'RK-0621-NE', disOlcusu: '1/2-14 BSPT', hortumOlcusu: '1/4' },
+      { model: 'RK-0813-NE', disOlcusu: '1/4-19 BSPT', hortumOlcusu: '5/16' },
+      { model: 'RK-0817-NE', disOlcusu: '3/8-19 BSPT', hortumOlcusu: '5/16' },
+      { model: 'RK-0821-NE', disOlcusu: '1/2-14 BSPT', hortumOlcusu: '5/16' },
+      { model: 'RK-1013-NE', disOlcusu: '1/4-19 BSPT', hortumOlcusu: '3/8' },
+      { model: 'RK-1017-NE', disOlcusu: '3/8-19 BSPT', hortumOlcusu: '3/8' },
+      { model: 'RK-1021-NE', disOlcusu: '1/2-14 BSPT', hortumOlcusu: '3/8' },
+      { model: 'RK-1321-NE', disOlcusu: '1/2-14 BSPT', hortumOlcusu: '1/2' },
+      { model: 'RK-1326-NE', disOlcusu: '3/4-14 BSPT', hortumOlcusu: '1/2' },
+      { model: 'RK-1626-NE', disOlcusu: '3/4-14 BSPT', hortumOlcusu: '5/8' },
+      { model: 'RK-1926-NE', disOlcusu: '3/4-14 BSPT', hortumOlcusu: '3/4' },
+      { model: 'RK-2533-NE', disOlcusu: '1-11 BSPT', hortumOlcusu: '1' },
+      { model: 'RK-3242-NE', disOlcusu: '1 1/4-11 BSPT', hortumOlcusu: '1.25' },
+      { model: 'RK-3848-NE', disOlcusu: '1 1/2-11 BSPT', hortumOlcusu: '1.5' },
+      { model: 'RK-5060-NE', disOlcusu: '2-11 BSPT', hortumOlcusu: '2' },
+    ],
+  },
+  {
+    name: 'BSP SOMUNLU 45° HORTUM REKORLARI',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'SOMUN ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0510-RS45', hortumOlcusu: '3/16', somunOlcusu: 'R1/8-28' },
+      { model: 'RK-0513-RS45', hortumOlcusu: '3/16', somunOlcusu: 'R1/4-19' },
+      { model: 'RK-0610-RS45', hortumOlcusu: '1/4', somunOlcusu: 'R1/8-28' },
+      { model: 'RK-0613-RS45', hortumOlcusu: '1/4', somunOlcusu: 'R1/4-19' },
+      { model: 'RK-0617-RS45', hortumOlcusu: '1/4', somunOlcusu: 'R3/8-19' },
+      { model: 'RK-0621-RS45', hortumOlcusu: '1/4', somunOlcusu: 'R1/2-14' },
+      { model: 'RK-0813-RS45', hortumOlcusu: '5/16', somunOlcusu: 'R1/4-19' },
+      { model: 'RK-0817-RS45', hortumOlcusu: '5/16', somunOlcusu: 'R3/8-19' },
+      { model: 'RK-0821-RS45', hortumOlcusu: '5/16', somunOlcusu: 'R1/2-14' },
+      { model: 'RK-1017-RS45', hortumOlcusu: '3/8', somunOlcusu: 'R3/8-19' },
+      { model: 'RK-1021-RS45', hortumOlcusu: '3/8', somunOlcusu: 'R1/2-14' },
+      { model: 'RK-1317-RS45', hortumOlcusu: '1/2', somunOlcusu: 'R3/8-19' },
+      { model: 'RK-1321-RS45', hortumOlcusu: '1/2', somunOlcusu: 'R1/2-14' },
+      { model: 'RK-1623-RS45', hortumOlcusu: '5/8', somunOlcusu: 'R5/8-14' },
+      { model: 'RK-1626-RS45', hortumOlcusu: '5/8', somunOlcusu: 'R3/4-14' },
+      { model: 'RK-1926-RS45', hortumOlcusu: '3/4', somunOlcusu: 'R3/4-14' },
+      { model: 'RK-2533-RS45', hortumOlcusu: '1', somunOlcusu: 'R1-11' },
+      { model: 'RK-3242-RS45', hortumOlcusu: '1.25', somunOlcusu: 'R1 1/4-11' },
+      { model: 'RK-3848-RS45', hortumOlcusu: '1.5', somunOlcusu: 'R1 1/2-11' },
+      { model: 'RK-5060-RS45', hortumOlcusu: '2', somunOlcusu: 'R2' },
+      { model: 'RK-6475-RS45', hortumOlcusu: '2.5', somunOlcusu: 'R2 1/2' },
+      { model: 'RK-7688-RS45', hortumOlcusu: '3', somunOlcusu: 'R3' },
+    ],
+  },
+  {
+    name: 'BSP SOMUNLU 90° HORTUM REKORLARI',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'SOMUN ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0510-RS90', hortumOlcusu: '3/16', somunOlcusu: 'R1/8-28' },
+      { model: 'RK-0513-RS90', hortumOlcusu: '3/16', somunOlcusu: 'R1/4-19' },
+      { model: 'RK-0610-RS90', hortumOlcusu: '1/4', somunOlcusu: 'R1/8-28' },
+      { model: 'RK-0613-RS90', hortumOlcusu: '1/4', somunOlcusu: 'R1/4-19' },
+      { model: 'RK-0617-RS90', hortumOlcusu: '1/4', somunOlcusu: 'R3/8-19' },
+      { model: 'RK-0621-RS90', hortumOlcusu: '1/4', somunOlcusu: 'R1/2-14' },
+      { model: 'RK-0813-RS90', hortumOlcusu: '5/16', somunOlcusu: 'R1/4-19' },
+      { model: 'RK-0817-RS90', hortumOlcusu: '5/16', somunOlcusu: 'R3/8-19' },
+      { model: 'RK-0821-RS90', hortumOlcusu: '5/16', somunOlcusu: 'R1/2-14' },
+      { model: 'RK-1017-RS90', hortumOlcusu: '3/8', somunOlcusu: 'R3/8-19' },
+      { model: 'RK-1021-RS90', hortumOlcusu: '3/8', somunOlcusu: 'R1/2-14' },
+      { model: 'RK-1317-RS90', hortumOlcusu: '1/2', somunOlcusu: 'R3/8-19' },
+      { model: 'RK-1321-RS90', hortumOlcusu: '1/2', somunOlcusu: 'R1/2-14' },
+      { model: 'RK-1623-RS90', hortumOlcusu: '5/8', somunOlcusu: 'R5/8-14' },
+      { model: 'RK-1626-RS90', hortumOlcusu: '5/8', somunOlcusu: 'R3/4-14' },
+      { model: 'RK-1926-RS90', hortumOlcusu: '3/4', somunOlcusu: 'R3/4-14' },
+      { model: 'RK-1933-RS90', hortumOlcusu: '3/4', somunOlcusu: 'R1-11' },
+      { model: 'RK-2533-RS90', hortumOlcusu: '1', somunOlcusu: 'R1-11' },
+      { model: 'RK-3242-RS90', hortumOlcusu: '1.25', somunOlcusu: 'R1 1/4-11' },
+      { model: 'RK-3848-RS90', hortumOlcusu: '1.5', somunOlcusu: 'R1 1/2-11' },
+      { model: 'RK-5060-RS90', hortumOlcusu: '2', somunOlcusu: 'R2-11' },
+      { model: 'RK-6475-RS90', hortumOlcusu: '2.5', somunOlcusu: 'R2 1/2' },
+      { model: 'RK-7688-RS90', hortumOlcusu: '3', somunOlcusu: 'R3' },
+    ],
+  },
+  {
+    name: 'BSP SOMUNLU DÜZ HORTUM REKORLARI',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'SOMUN ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0510-RSD', hortumOlcusu: '3/16', somunOlcusu: 'R1/8-28' },
+      { model: 'RK-0513-RSD', hortumOlcusu: '3/16', somunOlcusu: 'R1/4-19' },
+      { model: 'RK-0610-RSD', hortumOlcusu: '1/4', somunOlcusu: 'R1/8-28' },
+      { model: 'RK-0613-RSD', hortumOlcusu: '1/4', somunOlcusu: 'R1/4-19' },
+      { model: 'RK-0617-RSD', hortumOlcusu: '1/4', somunOlcusu: 'R3/8-19' },
+      { model: 'RK-0621-RSD', hortumOlcusu: '1/4', somunOlcusu: 'R1/2-14' },
+      { model: 'RK-0813-RSD', hortumOlcusu: '5/16', somunOlcusu: 'R1/4-19' },
+      { model: 'RK-0817-RSD', hortumOlcusu: '5/16', somunOlcusu: 'R3/8-19' },
+      { model: 'RK-0821-RSD', hortumOlcusu: '5/16', somunOlcusu: 'R1/2-14' },
+      { model: 'RK-1017-RSD', hortumOlcusu: '3/8', somunOlcusu: 'R3/8-19' },
+      { model: 'RK-1021-RSD', hortumOlcusu: '3/8', somunOlcusu: 'R1/2-14' },
+      { model: 'RK-1317-RSD', hortumOlcusu: '1/2', somunOlcusu: 'R3/8-19' },
+      { model: 'RK-1321-RSD', hortumOlcusu: '1/2', somunOlcusu: 'R1/2-14' },
+      { model: 'RK-1323-RSD', hortumOlcusu: '1/2', somunOlcusu: 'R5/8-14' },
+      { model: 'RK-1326-RSD', hortumOlcusu: '1/2', somunOlcusu: 'R3/4-14' },
+      { model: 'RK-1621-RSD', hortumOlcusu: '5/8', somunOlcusu: 'R1/2-14' },
+      { model: 'RK-1623-RSD', hortumOlcusu: '5/8', somunOlcusu: 'R5/8-14' },
+      { model: 'RK-1626-RSD', hortumOlcusu: '5/8', somunOlcusu: 'R3/4-14' },
+      { model: 'RK-1633-RSD', hortumOlcusu: '5/8', somunOlcusu: 'R1-11' },
+      { model: 'RK-1926-RSD', hortumOlcusu: '3/4', somunOlcusu: 'R3/4-14' },
+      { model: 'RK-1933-RSD', hortumOlcusu: '3/4', somunOlcusu: 'R1-11' },
+      { model: 'RK-2533-RSD', hortumOlcusu: '1', somunOlcusu: 'R1-11' },
+      { model: 'RK-2542-RSD', hortumOlcusu: '1', somunOlcusu: 'R1 1/4-11' },
+      { model: 'RK-3242-RSD', hortumOlcusu: '1.25', somunOlcusu: 'R1 1/4-11' },
+      { model: 'RK-3848-RSD', hortumOlcusu: '1.5', somunOlcusu: 'R1 1/2-11' },
+      { model: 'RK-5060-RSD', hortumOlcusu: '2', somunOlcusu: 'R2-11' },
+      { model: 'RK-6475-RSD', hortumOlcusu: '2.5', somunOlcusu: 'R2 1/2-11' },
+      { model: 'RK-7688-RSD', hortumOlcusu: '3', somunOlcusu: 'R3-11' },
+    ],
+  },
+  {
+    name: 'BSP PUL SIKMALI ERKEK HORTUM REKORLARI',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0613-RE', disOlcusu: 'R1/4-19', hortumOlcusu: '1/4' },
+      { model: 'RK-0617-RE', disOlcusu: 'R3/8-19', hortumOlcusu: '1/4' },
+      { model: 'RK-0621-RE', disOlcusu: 'R1/2-14', hortumOlcusu: '1/4' },
+      { model: 'RK-0821-RE', disOlcusu: 'R1/2-14', hortumOlcusu: '5/16' },
+      { model: 'RK-1017-RE', disOlcusu: 'R3/8-19', hortumOlcusu: '3/8' },
+      { model: 'RK-1021-RE', disOlcusu: 'R1/2-14', hortumOlcusu: '3/8' },
+      { model: 'RK-1321-RE', disOlcusu: 'R1/2-14', hortumOlcusu: '1/2' },
+      { model: 'RK-1626-RE', disOlcusu: 'R3/4-14', hortumOlcusu: '5/8' },
+      { model: 'RK-1633-RE', disOlcusu: 'R1-11', hortumOlcusu: '5/8' },
+      { model: 'RK-1926-RE', disOlcusu: 'R3/4-14', hortumOlcusu: '3/4' },
+      { model: 'RK-2533-RE', disOlcusu: 'R1-11', hortumOlcusu: '1' },
+      { model: 'RK-3242-RE', disOlcusu: 'R1 1/4-11', hortumOlcusu: '1.25' },
+      { model: 'RK-3848-RE', disOlcusu: 'R1 1/2-11', hortumOlcusu: '1.5' },
+    ],
+  },
+  {
+    name: 'BSP İÇE HAVŞA 90° HORTUM REKORLARI',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'SOMUN ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0613-RIS90', hortumOlcusu: '1/4', somunOlcusu: 'R1/4-19' },
+      { model: 'RK-0617-RIS90', hortumOlcusu: '1/4', somunOlcusu: 'R3/8-19' },
+      { model: 'RK-0621-RIS90', hortumOlcusu: '1/4', somunOlcusu: 'R1/2-14' },
+      { model: 'RK-0817-RIS90', hortumOlcusu: '5/16', somunOlcusu: 'R3/8-19' },
+      { model: 'RK-0821-RIS90', hortumOlcusu: '5/16', somunOlcusu: 'R1/2-14' },
+      { model: 'RK-1017-RIS90', hortumOlcusu: '3/8', somunOlcusu: 'R3/8-19' },
+      { model: 'RK-1021-RIS90', hortumOlcusu: '3/8', somunOlcusu: 'R1/2-14' },
+      { model: 'RK-1321-RIS90', hortumOlcusu: '1/2', somunOlcusu: 'R1/2-14' },
+      { model: 'RK-1626-RIS90', hortumOlcusu: '5/8', somunOlcusu: 'R3/4-14' },
+      { model: 'RK-1926-RIS90', hortumOlcusu: '3/4', somunOlcusu: 'R3/4-14' },
+      { model: 'RK-2533-RIS90', hortumOlcusu: '1', somunOlcusu: 'R1-11' },
+      { model: 'RK-3242-RIS90', hortumOlcusu: '1.25', somunOlcusu: 'R1 1/4-11' },
+      { model: 'RK-3848-RIS90', hortumOlcusu: '1.5', somunOlcusu: 'R1 1/2-11' },
+    ],
+  },
+  {
+    name: 'BSP İÇE HAVŞA DÜZ HORTUM REKORLARI',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'SOMUN ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0613-RISD', hortumOlcusu: '1/4', somunOlcusu: 'R1/4-19' },
+      { model: 'RK-0617-RISD', hortumOlcusu: '1/4', somunOlcusu: 'R3/8-19' },
+      { model: 'RK-0621-RISD', hortumOlcusu: '1/4', somunOlcusu: 'R1/2-14' },
+      { model: 'RK-0817-RISD', hortumOlcusu: '5/16', somunOlcusu: 'R3/8-19' },
+      { model: 'RK-0821-RISD', hortumOlcusu: '5/16', somunOlcusu: 'R1/2-14' },
+      { model: 'RK-1017-RISD', hortumOlcusu: '3/8', somunOlcusu: 'R3/8-19' },
+      { model: 'RK-1021-RISD', hortumOlcusu: '3/8', somunOlcusu: 'R1/2-14' },
+      { model: 'RK-1321-RISD', hortumOlcusu: '1/2', somunOlcusu: 'R1/2-14' },
+      { model: 'RK-1626-RISD', hortumOlcusu: '5/8', somunOlcusu: 'R3/4-14' },
+      { model: 'RK-1926-RISD', hortumOlcusu: '3/4', somunOlcusu: 'R3/4-14' },
+      { model: 'RK-2533-RISD', hortumOlcusu: '1', somunOlcusu: 'R1-11' },
+      { model: 'RK-3242-RISD', hortumOlcusu: '1.25', somunOlcusu: 'R1 1/4-11' },
+      { model: 'RK-3848-RISD', hortumOlcusu: '1.5', somunOlcusu: 'R1 1/2-11' },
+    ],
+  },
+]
+
+// REKORSAN UNF HORTUM RAKORLARI kategorileri
+const REKORSAN_UNF_HORTUM_RAKORLARI_CATEGORIES = [
+  {
+    name: 'UNF ERKEK HORTUM REKORLARI',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0511-WE', disOlcusu: '7/16-20', hortumOlcusu: '3/16' },
+      { model: 'RK-0611-WE', disOlcusu: '7/16-20', hortumOlcusu: '1/4' },
+      { model: 'RK-0612-WE', disOlcusu: '1/2-20', hortumOlcusu: '1/4' },
+      { model: 'RK-0614-WE', disOlcusu: '9/16-18', hortumOlcusu: '1/4' },
+      { model: 'RK-0812-WE', disOlcusu: '1/2-20', hortumOlcusu: '5/16' },
+      { model: 'RK-0814-WE', disOlcusu: '9/16-18', hortumOlcusu: '5/16' },
+      { model: 'RK-0816-WE', disOlcusu: '5/8-18', hortumOlcusu: '5/16' },
+      { model: 'RK-1014-WE', disOlcusu: '9/16-18', hortumOlcusu: '3/8' },
+      { model: 'RK-1016-WE', disOlcusu: '5/8-18', hortumOlcusu: '3/8' },
+      { model: 'RK-1019-WE', disOlcusu: '3/4-16', hortumOlcusu: '3/8' },
+      { model: 'RK-1319-WE', disOlcusu: '3/4-16', hortumOlcusu: '1/2' },
+      { model: 'RK-1322-WE', disOlcusu: '7/8-14', hortumOlcusu: '1/2' },
+      { model: 'RK-1622-WE', disOlcusu: '7/8-14', hortumOlcusu: '5/8' },
+      { model: 'RK-1627-WE', disOlcusu: '1 1/16-12', hortumOlcusu: '5/8' },
+      { model: 'RK-1927-WE', disOlcusu: '1 1/16-12', hortumOlcusu: '3/4' },
+      { model: 'RK-2533-WE', disOlcusu: '1 5/16-12', hortumOlcusu: '1' },
+    ],
+  },
+  {
+    name: 'UNF SOMUNLU 45° HORTUM REKORLARI',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'SOMUN ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0511-WS45', hortumOlcusu: '3/16', somunOlcusu: '7/16-20' },
+      { model: 'RK-0611-WS45', hortumOlcusu: '1/4', somunOlcusu: '7/16-20' },
+      { model: 'RK-0612-WS45', hortumOlcusu: '1/4', somunOlcusu: '1/2-20' },
+      { model: 'RK-0614-WS45', hortumOlcusu: '1/4', somunOlcusu: '9/16-18' },
+      { model: 'RK-0812-WS45', hortumOlcusu: '5/16', somunOlcusu: '1/2-20' },
+      { model: 'RK-0814-WS45', hortumOlcusu: '5/16', somunOlcusu: '9/16-18' },
+      { model: 'RK-0816-WS45', hortumOlcusu: '5/16', somunOlcusu: '5/8-18' },
+      { model: 'RK-0819-WS45', hortumOlcusu: '5/16', somunOlcusu: '3/4-16' },
+      { model: 'RK-1014-WS45', hortumOlcusu: '3/8', somunOlcusu: '9/16-18' },
+      { model: 'RK-1016-WS45', hortumOlcusu: '3/8', somunOlcusu: '5/8-18' },
+      { model: 'RK-1019-WS45', hortumOlcusu: '3/8', somunOlcusu: '3/4-16' },
+      { model: 'RK-1319-WS45', hortumOlcusu: '1/2', somunOlcusu: '3/4-16' },
+      { model: 'RK-1322-WS45', hortumOlcusu: '1/2', somunOlcusu: '7/8-14' },
+      { model: 'RK-1622-WS45', hortumOlcusu: '5/8', somunOlcusu: '7/8-14' },
+      { model: 'RK-1627-WS45', hortumOlcusu: '5/8', somunOlcusu: '1 1/16-12' },
+      { model: 'RK-1927-WS45', hortumOlcusu: '3/4', somunOlcusu: '1 1/16-12' },
+      { model: 'RK-2533-WS45', hortumOlcusu: '1', somunOlcusu: '1 5/16-12' },
+      { model: 'RK-3241-WS45', hortumOlcusu: '1.25', somunOlcusu: '1 5/8-12' },
+      { model: 'RK-3847-WS45', hortumOlcusu: '1.5', somunOlcusu: '1 7/8-12' },
+    ],
+  },
+  {
+    name: 'UNF SOMUNLU 90° HORTUM REKORLARI',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'SOMUN ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0511-WS90', hortumOlcusu: '3/16', somunOlcusu: '7/16-20' },
+      { model: 'RK-0611-WS90', hortumOlcusu: '1/4', somunOlcusu: '7/16-20' },
+      { model: 'RK-0612-WS90', hortumOlcusu: '1/4', somunOlcusu: '1/2-20' },
+      { model: 'RK-0614-WS90', hortumOlcusu: '1/4', somunOlcusu: '9/16-18' },
+      { model: 'RK-0812-WS90', hortumOlcusu: '5/16', somunOlcusu: '1/2-20' },
+      { model: 'RK-0814-WS90', hortumOlcusu: '5/16', somunOlcusu: '9/16-18' },
+      { model: 'RK-0816-WS90', hortumOlcusu: '5/16', somunOlcusu: '5/8-18' },
+      { model: 'RK-0819-WS90', hortumOlcusu: '5/16', somunOlcusu: '3/4-16' },
+      { model: 'RK-1014-WS90', hortumOlcusu: '3/8', somunOlcusu: '9/16-18' },
+      { model: 'RK-1016-WS90', hortumOlcusu: '3/8', somunOlcusu: '5/8-18' },
+      { model: 'RK-1019-WS90', hortumOlcusu: '3/8', somunOlcusu: '3/4-16' },
+      { model: 'RK-1022-WS90', hortumOlcusu: '3/8', somunOlcusu: '7/8-14' },
+      { model: 'RK-1319-WS90', hortumOlcusu: '1/2', somunOlcusu: '3/4-16' },
+      { model: 'RK-1322-WS90', hortumOlcusu: '1/2', somunOlcusu: '7/8-14' },
+      { model: 'RK-1622-WS90', hortumOlcusu: '5/8', somunOlcusu: '7/8-14' },
+      { model: 'RK-1627-WS90', hortumOlcusu: '5/8', somunOlcusu: '1 1/16-12' },
+      { model: 'RK-1927-WS90', hortumOlcusu: '3/4', somunOlcusu: '1 1/16-12' },
+      { model: 'RK-2533-WS90', hortumOlcusu: '1', somunOlcusu: '1 5/16-12' },
+      { model: 'RK-3241-WS90', hortumOlcusu: '1.25', somunOlcusu: '1 5/8-12' },
+      { model: 'RK-3847-WS90', hortumOlcusu: '1.5', somunOlcusu: '1 7/8-12' },
+    ],
+  },
+  {
+    name: 'UNF SOMUNLU DÜZ HORTUM REKORLARI',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'SOMUN ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0511-WSD', hortumOlcusu: '3/16', somunOlcusu: '7/16-20' },
+      { model: 'RK-0611-WSD', hortumOlcusu: '1/4', somunOlcusu: '7/16-20' },
+      { model: 'RK-0612-WSD', hortumOlcusu: '1/4', somunOlcusu: '1/2-20' },
+      { model: 'RK-0614-WSD', hortumOlcusu: '1/4', somunOlcusu: '9/16-18' },
+      { model: 'RK-0812-WSD', hortumOlcusu: '5/16', somunOlcusu: '1/2-20' },
+      { model: 'RK-0814-WSD', hortumOlcusu: '5/16', somunOlcusu: '9/16-18' },
+      { model: 'RK-0816-WSD', hortumOlcusu: '5/16', somunOlcusu: '5/8-18' },
+      { model: 'RK-0819-WSD', hortumOlcusu: '5/16', somunOlcusu: '3/4-16' },
+      { model: 'RK-1014-WSD', hortumOlcusu: '3/8', somunOlcusu: '9/16-18' },
+      { model: 'RK-1016-WSD', hortumOlcusu: '3/8', somunOlcusu: '5/8-18' },
+      { model: 'RK-1019-WSD', hortumOlcusu: '3/8', somunOlcusu: '3/4-16' },
+      { model: 'RK-1022-WSD', hortumOlcusu: '3/8', somunOlcusu: '7/8-14' },
+      { model: 'RK-1319-WSD', hortumOlcusu: '1/2', somunOlcusu: '3/4-16' },
+      { model: 'RK-1322-WSD', hortumOlcusu: '1/2', somunOlcusu: '7/8-14' },
+      { model: 'RK-1622-WSD', hortumOlcusu: '5/8', somunOlcusu: '7/8-14' },
+      { model: 'RK-1627-WSD', hortumOlcusu: '5/8', somunOlcusu: '1 1/16-12' },
+      { model: 'RK-1927-WSD', hortumOlcusu: '3/4', somunOlcusu: '1 1/16-12' },
+      { model: 'RK-1933-WSD', hortumOlcusu: '3/4', somunOlcusu: '1 5/16-12' },
+      { model: 'RK-2533-WSD', hortumOlcusu: '1', somunOlcusu: '1 5/16-12' },
+      { model: 'RK-3241-WSD', hortumOlcusu: '1.25', somunOlcusu: '1 5/8-12' },
+      { model: 'RK-3847-WSD', hortumOlcusu: '1.5', somunOlcusu: '1 7/8-12' },
+      { model: 'RK-5063-WSD', hortumOlcusu: '2', somunOlcusu: '2 1/2-12' },
+    ],
+  },
+]
+
+// REKORSAN ORFS HORTUM REKORLARI kategorileri
+const REKORSAN_ORFS_HORTUM_REKORLARI_CATEGORIES = [
+  {
+    name: 'ORFS ERKEK HORTUM REKORLARI',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0614-OE', disOlcusu: '9/16-18', hortumOlcusu: '1/4' },
+      { model: 'RK-0617-OE', disOlcusu: '11/16-16', hortumOlcusu: '1/4' },
+      { model: 'RK-0814-OE', disOlcusu: '9/16-18', hortumOlcusu: '5/16' },
+      { model: 'RK-0817-OE', disOlcusu: '11/16-16', hortumOlcusu: '5/16' },
+      { model: 'RK-1017-OE', disOlcusu: '11/16-16', hortumOlcusu: '3/8' },
+      { model: 'RK-1021-OE', disOlcusu: '13/16-16', hortumOlcusu: '3/8' },
+      { model: 'RK-1321-OE', disOlcusu: '13/16-16', hortumOlcusu: '1/2' },
+      { model: 'RK-1325-OE', disOlcusu: '1-14', hortumOlcusu: '1/2' },
+      { model: 'RK-1625-OE', disOlcusu: '1-14', hortumOlcusu: '5/8' },
+      { model: 'RK-1630-OE', disOlcusu: '1 3/16-12', hortumOlcusu: '5/8' },
+      { model: 'RK-1930-OE', disOlcusu: '1 3/16-12', hortumOlcusu: '3/4' },
+      { model: 'RK-1937-OE', disOlcusu: '1 7/16-12', hortumOlcusu: '3/4' },
+      { model: 'RK-2537-OE', disOlcusu: '1 7/16-12', hortumOlcusu: '1' },
+      { model: 'RK-2543-OE', disOlcusu: '1 11/16-12', hortumOlcusu: '1' },
+      { model: 'RK-3243-OE', disOlcusu: '1 11/16-12', hortumOlcusu: '1.25' },
+    ],
+  },
+  {
+    name: 'ORFS SOMUNLU 45° HORTUM REKORLARI',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'SOMUN ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0614-OS45', hortumOlcusu: '1/4', somunOlcusu: '9/16-18' },
+      { model: 'RK-0617-OS45', hortumOlcusu: '1/4', somunOlcusu: '11/16-16' },
+      { model: 'RK-0814-OS45', hortumOlcusu: '5/16', somunOlcusu: '9/16-18' },
+      { model: 'RK-0817-OS45', hortumOlcusu: '5/16', somunOlcusu: '11/16-16' },
+      { model: 'RK-1017-OS45', hortumOlcusu: '3/8', somunOlcusu: '11/16-16' },
+      { model: 'RK-1021-OS45', hortumOlcusu: '3/8', somunOlcusu: '13/16-16' },
+      { model: 'RK-1321-OS45', hortumOlcusu: '1/2', somunOlcusu: '13/16-16' },
+      { model: 'RK-1325-OS45', hortumOlcusu: '1/2', somunOlcusu: '1-14' },
+      { model: 'RK-1625-OS45', hortumOlcusu: '5/8', somunOlcusu: '1-14' },
+      { model: 'RK-1630-OS45', hortumOlcusu: '5/8', somunOlcusu: '1 3/16-12' },
+      { model: 'RK-1930-OS45', hortumOlcusu: '3/4', somunOlcusu: '1 3/16-12' },
+      { model: 'RK-1937-OS45', hortumOlcusu: '3/4', somunOlcusu: '1 7/16-12' },
+      { model: 'RK-2537-OS45', hortumOlcusu: '1', somunOlcusu: '1 7/16-12' },
+      { model: 'RK-3243-OS45', hortumOlcusu: '1.25', somunOlcusu: '1 11/16-12' },
+    ],
+  },
+  {
+    name: 'ORFS SOMUNLU 90° HORTUM REKORLARI',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'SOMUN ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0614-OS90', hortumOlcusu: '1/4', somunOlcusu: '9/16-18' },
+      { model: 'RK-0617-OS90', hortumOlcusu: '1/4', somunOlcusu: '11/16-16' },
+      { model: 'RK-0814-OS90', hortumOlcusu: '5/16', somunOlcusu: '9/16-18' },
+      { model: 'RK-0817-OS90', hortumOlcusu: '5/16', somunOlcusu: '11/16-16' },
+      { model: 'RK-1017-OS90', hortumOlcusu: '3/8', somunOlcusu: '11/16-16' },
+      { model: 'RK-1021-OS90', hortumOlcusu: '3/8', somunOlcusu: '13/16-16' },
+      { model: 'RK-1321-OS90', hortumOlcusu: '1/2', somunOlcusu: '13/16-16' },
+      { model: 'RK-1325-OS90', hortumOlcusu: '1/2', somunOlcusu: '1-14' },
+      { model: 'RK-1625-OS90', hortumOlcusu: '5/8', somunOlcusu: '1-14' },
+      { model: 'RK-1630-OS90', hortumOlcusu: '5/8', somunOlcusu: '1 3/16-12' },
+      { model: 'RK-1930-OS90', hortumOlcusu: '3/4', somunOlcusu: '1 3/16-12' },
+      { model: 'RK-1937-OS90', hortumOlcusu: '3/4', somunOlcusu: '1 7/16-12' },
+      { model: 'RK-2537-OS90', hortumOlcusu: '1', somunOlcusu: '1 7/16-12' },
+      { model: 'RK-3243-OS90', hortumOlcusu: '1.25', somunOlcusu: '1 11/16-12' },
+    ],
+  },
+  {
+    name: 'ORFS SOMUNLU DÜZ HORTUM REKORLARI',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'SOMUN ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0614-OSD', hortumOlcusu: '1/4', somunOlcusu: '9/16-18' },
+      { model: 'RK-0617-OSD', hortumOlcusu: '1/4', somunOlcusu: '11/16-16' },
+      { model: 'RK-0814-OSD', hortumOlcusu: '5/16', somunOlcusu: '9/16-18' },
+      { model: 'RK-0817-OSD', hortumOlcusu: '5/16', somunOlcusu: '11/16-16' },
+      { model: 'RK-1017-OSD', hortumOlcusu: '3/8', somunOlcusu: '11/16-16' },
+      { model: 'RK-1021-OSD', hortumOlcusu: '3/8', somunOlcusu: '13/16-16' },
+      { model: 'RK-1321-OSD', hortumOlcusu: '1/2', somunOlcusu: '13/16-16' },
+      { model: 'RK-1325-OSD', hortumOlcusu: '1/2', somunOlcusu: '1-14' },
+      { model: 'RK-1625-OSD', hortumOlcusu: '5/8', somunOlcusu: '1-14' },
+      { model: 'RK-1630-OSD', hortumOlcusu: '5/8', somunOlcusu: '1 3/16-12' },
+      { model: 'RK-1930-OSD', hortumOlcusu: '3/4', somunOlcusu: '1 3/16-12' },
+      { model: 'RK-1937-OSD', hortumOlcusu: '3/4', somunOlcusu: '1 7/16-12' },
+      { model: 'RK-2537-OSD', hortumOlcusu: '1', somunOlcusu: '1 7/16-12' },
+      { model: 'RK-2543-OS45', hortumOlcusu: '1', somunOlcusu: '1 11/16-12' },
+      { model: 'RK-2543-OSD', hortumOlcusu: '1', somunOlcusu: '1 11/16-12' },
+      { model: 'RK-3243-OSD', hortumOlcusu: '1.25', somunOlcusu: '1 11/16-12' },
+    ],
+  },
+]
+
+// REKORSAN FLANŞLI HORTUM REKORLARI kategorileri
+const REKORSAN_FLANSLI_HORTUM_REKORLARI_CATEGORIES = [
+  {
+    name: 'FLANŞLI 45° HORTUM REKORLARI 3000 SERİSİ',
+    tableHeaders: ['MODEL', 'FLANŞ ÖLÇÜSÜ', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-133007-FL45', flansOlcusu: '30.2', hortumOlcusu: '1/2' },
+      { model: 'RK-133807-FL45', flansOlcusu: '38.1', hortumOlcusu: '1/2' },
+      { model: 'RK-163807-FL45', flansOlcusu: '38.1', hortumOlcusu: '5/8' },
+      { model: 'RK-193807-FL45', flansOlcusu: '38.1', hortumOlcusu: '3/4' },
+      { model: 'RK-194408-FL45', flansOlcusu: '44.4', hortumOlcusu: '3/4' },
+      { model: 'RK-253807-FL45', flansOlcusu: '38.1', hortumOlcusu: '1' },
+      { model: 'RK-254408-FL45', flansOlcusu: '44.4', hortumOlcusu: '1' },
+      { model: 'RK-255108-FL45', flansOlcusu: '50.8', hortumOlcusu: '1' },
+      { model: 'RK-324408-FL45', flansOlcusu: '44.4', hortumOlcusu: '1.25' },
+      { model: 'RK-325108-FL45', flansOlcusu: '50.8', hortumOlcusu: '1.25' },
+      { model: 'RK-326008-FL45', flansOlcusu: '60.3', hortumOlcusu: '1.25' },
+      { model: 'RK-386008-FL45', flansOlcusu: '60.3', hortumOlcusu: '1.5' },
+      { model: 'RK-507110-FL45', flansOlcusu: '71.4', hortumOlcusu: '2' },
+    ],
+  },
+  {
+    name: 'FLANŞLI 90° HORTUM REKORLARI 3000 SERİSİ',
+    tableHeaders: ['MODEL', 'FLANŞ ÖLÇÜSÜ', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-133007-FL90', flansOlcusu: '30.2', hortumOlcusu: '1/2' },
+      { model: 'RK-133807-FL90', flansOlcusu: '38.1', hortumOlcusu: '1/2' },
+      { model: 'RK-163807-FL90', flansOlcusu: '38.1', hortumOlcusu: '5/8' },
+      { model: 'RK-193807-FL90', flansOlcusu: '38.1', hortumOlcusu: '3/4' },
+      { model: 'RK-194408-FL90', flansOlcusu: '44.4', hortumOlcusu: '3/4' },
+      { model: 'RK-253807-FL90', flansOlcusu: '38.1', hortumOlcusu: '1' },
+      { model: 'RK-254408-FL90', flansOlcusu: '44.4', hortumOlcusu: '1' },
+      { model: 'RK-255108-FL90', flansOlcusu: '50.8', hortumOlcusu: '1' },
+      { model: 'RK-324408-FL90', flansOlcusu: '44.4', hortumOlcusu: '1.25' },
+      { model: 'RK-325108-FL90', flansOlcusu: '50.8', hortumOlcusu: '1.25' },
+      { model: 'RK-326008-FL90', flansOlcusu: '60.3', hortumOlcusu: '1.25' },
+      { model: 'RK-386008-FL90', flansOlcusu: '60.3', hortumOlcusu: '1.5' },
+      { model: 'RK-507110-FL90', flansOlcusu: '71.4', hortumOlcusu: '2' },
+      { model: 'RK-648410-FL90', flansOlcusu: '84.1', hortumOlcusu: '2.5' },
+      { model: 'RK-7610110-FL90', flansOlcusu: '101.6', hortumOlcusu: '3' },
+    ],
+  },
+  {
+    name: 'FLANŞLI DÜZ HORTUM REKORLARI 3000 SERİSİ',
+    tableHeaders: ['MODEL', 'FLANŞ ÖLÇÜSÜ', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-133007-FLD', flansOlcusu: '30.2', hortumOlcusu: '1/2' },
+      { model: 'RK-133807-FLD', flansOlcusu: '38.1', hortumOlcusu: '1/2' },
+      { model: 'RK-163807-FLD', flansOlcusu: '38.1', hortumOlcusu: '5/8' },
+      { model: 'RK-193807-FLD', flansOlcusu: '38.1', hortumOlcusu: '3/4' },
+      { model: 'RK-194408-FLD', flansOlcusu: '44.4', hortumOlcusu: '3/4' },
+      { model: 'RK-253807-FLD', flansOlcusu: '38.1', hortumOlcusu: '1' },
+      { model: 'RK-254408-FLD', flansOlcusu: '44.4', hortumOlcusu: '1' },
+      { model: 'RK-255108-FLD', flansOlcusu: '50.8', hortumOlcusu: '1' },
+      { model: 'RK-324408-FLD', flansOlcusu: '44.4', hortumOlcusu: '1.25' },
+      { model: 'RK-325108-FLD', flansOlcusu: '50.8', hortumOlcusu: '1.25' },
+      { model: 'RK-326008-FLD', flansOlcusu: '60.3', hortumOlcusu: '1.25' },
+      { model: 'RK-386008-FLD', flansOlcusu: '60.3', hortumOlcusu: '1.5' },
+      { model: 'RK-507110-FLD', flansOlcusu: '71.4', hortumOlcusu: '2' },
+      { model: 'RK-648410-FLD', flansOlcusu: '84.1', hortumOlcusu: '2.5' },
+      { model: 'RK-7610110-FLD', flansOlcusu: '101.6', hortumOlcusu: '3' },
+    ],
+  },
+  {
+    name: 'FLANŞLI 45° HORTUM REKORLARI 6000 SERİSİ',
+    tableHeaders: ['MODEL', 'FLANŞ ÖLÇÜSÜ', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-133208-FL45', flansOlcusu: '32', hortumOlcusu: '1/2' },
+      { model: 'RK-133408-FL45', flansOlcusu: '34.1', hortumOlcusu: '1/2' },
+      { model: 'RK-163208-FL45', flansOlcusu: '32', hortumOlcusu: '5/8' },
+      { model: 'RK-163408-FL45', flansOlcusu: '34.1', hortumOlcusu: '5/8' },
+      { model: 'RK-164110-FL45', flansOlcusu: '41.3', hortumOlcusu: '5/8' },
+      { model: 'RK-194110-FL45', flansOlcusu: '41.3', hortumOlcusu: '3/4' },
+      { model: 'RK-194810-FL45', flansOlcusu: '47.6', hortumOlcusu: '3/4' },
+      { model: 'RK-254110-FL45', flansOlcusu: '41.3', hortumOlcusu: '1' },
+      { model: 'RK-254810-FL45', flansOlcusu: '47.6', hortumOlcusu: '1' },
+      { model: 'RK-255410-FL45', flansOlcusu: '54', hortumOlcusu: '1' },
+      { model: 'RK-325410-FL45', flansOlcusu: '54', hortumOlcusu: '1.25' },
+      { model: 'RK-326314-FL45', flansOlcusu: '63.5', hortumOlcusu: '1.25' },
+      { model: 'RK-386314-FL45', flansOlcusu: '63.5', hortumOlcusu: '1.5' },
+    ],
+  },
+  {
+    name: 'FLANŞLI 90° HORTUM REKORLARI 6000 SERİSİ',
+    tableHeaders: ['MODEL', 'FLANŞ ÖLÇÜSÜ', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-133208-FL90', flansOlcusu: '32', hortumOlcusu: '1/2' },
+      { model: 'RK-133408-FL90', flansOlcusu: '34.1', hortumOlcusu: '1/2' },
+      { model: 'RK-163208-FL90', flansOlcusu: '32', hortumOlcusu: '5/8' },
+      { model: 'RK-163408-FL90', flansOlcusu: '34.1', hortumOlcusu: '5/8' },
+      { model: 'RK-164110-FL90', flansOlcusu: '41.3', hortumOlcusu: '5/8' },
+      { model: 'RK-194110-FL90', flansOlcusu: '41.3', hortumOlcusu: '3/4' },
+      { model: 'RK-194810-FL90', flansOlcusu: '47.6', hortumOlcusu: '3/4' },
+      { model: 'RK-254110-FL90', flansOlcusu: '41.3', hortumOlcusu: '1' },
+      { model: 'RK-254810-FL90', flansOlcusu: '47.6', hortumOlcusu: '1' },
+      { model: 'RK-255410-FL90', flansOlcusu: '54', hortumOlcusu: '1' },
+      { model: 'RK-325410-FL90', flansOlcusu: '54', hortumOlcusu: '1.25' },
+      { model: 'RK-326314-FL90', flansOlcusu: '63.5', hortumOlcusu: '1.25' },
+      { model: 'RK-386314-FL90', flansOlcusu: '63.5', hortumOlcusu: '1.5' },
+    ],
+  },
+  {
+    name: 'FLANŞLI DÜZ HORTUM REKORLARI 6000 SERİSİ',
+    tableHeaders: ['MODEL', 'FLANŞ ÖLÇÜSÜ', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-133208-FLD', flansOlcusu: '32', hortumOlcusu: '1/2' },
+      { model: 'RK-133408-FLD', flansOlcusu: '34.1', hortumOlcusu: '1/2' },
+      { model: 'RK-163208-FLD', flansOlcusu: '32', hortumOlcusu: '5/8' },
+      { model: 'RK-163408-FLD', flansOlcusu: '34.1', hortumOlcusu: '5/8' },
+      { model: 'RK-164110-FLD', flansOlcusu: '41.3', hortumOlcusu: '5/8' },
+      { model: 'RK-194110-FLD', flansOlcusu: '41.3', hortumOlcusu: '3/4' },
+      { model: 'RK-194810-FLD', flansOlcusu: '47.6', hortumOlcusu: '3/4' },
+      { model: 'RK-254110-FLD', flansOlcusu: '41.3', hortumOlcusu: '1' },
+      { model: 'RK-254810-FLD', flansOlcusu: '47.6', hortumOlcusu: '1' },
+      { model: 'RK-255410-FLD', flansOlcusu: '54', hortumOlcusu: '1' },
+      { model: 'RK-325410-FLD', flansOlcusu: '54', hortumOlcusu: '1.25' },
+      { model: 'RK-326314-FLD', flansOlcusu: '63.5', hortumOlcusu: '1.25' },
+      { model: 'RK-386314-FLD', flansOlcusu: '63.5', hortumOlcusu: '1.5' },
+    ],
+  },
+  {
+    name: 'FLANŞLI 45° REKORLARI 6000 SERİSİ (KALIN TİP)',
+    tableHeaders: ['MODEL', 'FLANŞ ÖLÇÜSÜ', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-194110-KFL45', flansOlcusu: '41.3', hortumOlcusu: '3/4' },
+      { model: 'RK-254814-KFL45', flansOlcusu: '47.6', hortumOlcusu: '1' },
+      { model: 'RK-255414-KFL45', flansOlcusu: '54', hortumOlcusu: '1' },
+      { model: 'RK-324814-KFL45', flansOlcusu: '47.6', hortumOlcusu: '1.25' },
+      { model: 'RK-325414-KFL45', flansOlcusu: '54', hortumOlcusu: '1.25' },
+      { model: 'RK-326314-KFL45', flansOlcusu: '63.5', hortumOlcusu: '1.25' },
+      { model: 'RK-386314-KFL45', flansOlcusu: '63.5', hortumOlcusu: '1.5' },
+    ],
+  },
+  {
+    name: 'FLANŞLI 90° REKORLARI 6000 SERİSİ (KALIN TİP)',
+    tableHeaders: ['MODEL', 'FLANŞ ÖLÇÜSÜ', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-194110-KFL90', flansOlcusu: '41.3', hortumOlcusu: '3/4' },
+      { model: 'RK-254814-KFL90', flansOlcusu: '47.6', hortumOlcusu: '1' },
+      { model: 'RK-255414-KFL90', flansOlcusu: '54', hortumOlcusu: '1' },
+      { model: 'RK-324814-KFL90', flansOlcusu: '47.6', hortumOlcusu: '1.25' },
+      { model: 'RK-325414-KFL90', flansOlcusu: '54', hortumOlcusu: '1.25' },
+      { model: 'RK-326314-KFL90', flansOlcusu: '63.5', hortumOlcusu: '1.25' },
+      { model: 'RK-386314-KFL90', flansOlcusu: '63.5', hortumOlcusu: '1.5' },
+    ],
+  },
+  {
+    name: 'FLANŞLI DÜZ REKORLARI 6000 SERİSİ (KALIN TİP)',
+    tableHeaders: ['MODEL', 'FLANŞ ÖLÇÜSÜ', 'HORTUM ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-194110-KFLD', flansOlcusu: '41.3', hortumOlcusu: '3/4' },
+      { model: 'RK-254814-KFLD', flansOlcusu: '47.6', hortumOlcusu: '1' },
+      { model: 'RK-255414-KFLD', flansOlcusu: '54', hortumOlcusu: '1' },
+      { model: 'RK-324814-KFLD', flansOlcusu: '47.6', hortumOlcusu: '1.25' },
+      { model: 'RK-325414-KFLD', flansOlcusu: '54', hortumOlcusu: '1.25' },
+      { model: 'RK-326314-KFLD', flansOlcusu: '63.5', hortumOlcusu: '1.25' },
+      { model: 'RK-386314-KFLD', flansOlcusu: '63.5', hortumOlcusu: '1.5' },
+    ],
+  },
+]
+
+// REKORSAN KIRICILAR İÇİN TAKVİYELİ HORTUM RAKORLARI kategorileri
+const REKORSAN_KIRICILAR_ICIN_TAKVIYELI_HORTUM_RAKORLARI_CATEGORIES = [
+  {
+    name: 'KIRICILAR İÇİN TAKVİYELİ HORTUM RAKORLARI',
+    tableHeaders: ['MODEL', 'HORTUM ÖLÇÜSÜ', 'SOMUN ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-2533-KR', hortumOlcusu: '1', somunOlcusu: 'R1-11' },
+      { model: 'RK-2536-KR', hortumOlcusu: '1', somunOlcusu: 'M36' },
+      { model: 'RK-2537-KR', hortumOlcusu: '1', somunOlcusu: '1 7/16-12 ORFS' },
+      { model: 'RK-2542-KR', hortumOlcusu: '1', somunOlcusu: 'M42' },
+      { model: 'RK-2545-KR', hortumOlcusu: '1', somunOlcusu: 'M45' },
+      { model: 'RK-2552-KR', hortumOlcusu: '1', somunOlcusu: 'M52' },
+      { model: 'RK-3242-KR', hortumOlcusu: '1.25', somunOlcusu: 'M42' },
+      { model: 'RK-3243-KR', hortumOlcusu: '1.25', somunOlcusu: '1 11/16-12 ORFS' },
+      { model: 'RK-3245-KR', hortumOlcusu: '1.25', somunOlcusu: 'M45' },
+      { model: 'RK-3252-KR', hortumOlcusu: '1.25', somunOlcusu: 'M52' },
+    ],
+  },
+]
+
 // PALETLİ POMPA için markalara göre kartlar
 const getPaletliPompaBrandCards = (brandName) => {
   const brandCards = {
@@ -1221,8 +2446,8 @@ const decodeProductName = (slug, groups) => {
 function ProductDetail() {
   const location = useLocation()
   const navigate = useNavigate()
-  const { slug, category, subcategory, brand: brandParam, group: groupParam } = useParams()
-  const [searchParams] = useSearchParams()
+  const { slug, category, subcategory, brand: brandParam, group: groupParam, product: productSlugParam } = useParams()
+  const [searchParams, setSearchParams] = useSearchParams()
   const { productName: stateProductName, productImage, productLogo, brand: stateBrand } = location.state || {}
   
   const [activeSection, setActiveSection] = useState(null)
@@ -1237,6 +2462,7 @@ function ProductDetail() {
   const [selectedEmniyetsizNormalCard, setSelectedEmniyetsizNormalCard] = useState(null) // Seçilen EMNİYETSİZ NORMAL kartı
   const [selectedEmniyetsizAntisokluCard, setSelectedEmniyetsizAntisokluCard] = useState(null) // Seçilen EMNİYETSİZ ANTİŞOKLU kartı
   const [showTermostatDetail, setShowTermostatDetail] = useState(false) // ISI (SICAKLIK) ÖLÇER - TERMOSTATLAR detay görünümü
+  const [selected20GrupHidromotorBrand, setSelected20GrupHidromotorBrand] = useState(null) // 20. GRUP HİDROMOTORLAR detay markası
   
   // URL parametrelerinden veya query parameter'dan veya state'ten marka bilgisini al
   const brandFromQuery = searchParams.get('brand')
@@ -1360,7 +2586,34 @@ function ProductDetail() {
     } else {
       setProductNameFromUrl(null)
     }
-  }, [category, subcategory, brandParam, groupParam])
+  }, [category, subcategory, brandParam, groupParam, productSlugParam])
+
+  // HORTUM BAĞLANTI ELEMANLARI için product slug'ını oku
+  useEffect(() => {
+    if (category === 'hidrolik-baglanti-elemanlari' && subcategory === 'hortum-baglanti-elemanlari' && productSlugParam) {
+      const productNameMap = {
+        'metrik-hortum-rakorlari': 'METRİK HORTUM RAKORLARI',
+        'soketler': 'SOKETLER',
+        'dn2-hortum-rekorlari': 'DN2 HORTUM REKORLARI',
+        'dn4-hortum-rekorlari': 'DN4 HORTUM REKORLARI',
+        'halka-rekorlar': 'HALKA REKORLAR',
+        'hortum-ekleri': 'HORTUM EKLERİ',
+        'boru-uclu-hortum-rekorlari': 'BORU UÇLU HORTUM REKORLARI',
+        'bsp-hortum-rekorlari': 'BSP HORTUM REKORLARI',
+        'unf-hortum-rakorlari': 'UNF HORTUM RAKORLARI',
+        'orfs-hortum-rekorlari': 'ORFS HORTUM REKORLARI',
+        'flansli-hortum-rekorlari': 'FLANŞLI HORTUM REKORLARI',
+        'kiricilar-icin-takviyeli-hortum-rakorlari': 'KIRICILAR İÇİN TAKVİYELİ HORTUM RAKORLARI',
+      }
+      const decodedProductName = productNameMap[productSlugParam]
+      if (decodedProductName) {
+        setSelectedProduct(decodedProductName)
+        if (brandParam === 'rekorsan') {
+          setSelectedBrand('rekorsan')
+        }
+      }
+    }
+  }, [category, subcategory, brandParam, productSlugParam])
   
   // State'ten, URL'den, slug'dan veya seçilen üründen ürün adını al
   const productName = selectedProduct || productNameFromUrl || stateProductName || decodeProductName(slug, catalogGroups)
@@ -1380,6 +2633,9 @@ function ProductDetail() {
     }
     if (productName !== 'ISI (SICAKLIK) ÖLÇER') {
       setShowTermostatDetail(false)
+    }
+    if (productName !== 'ALÜMİNYUM GÖVDELİ DİŞLİ HİDROMOTORLAR') {
+      setSelected20GrupHidromotorBrand(null)
     }
   }, [productName])
 
@@ -1730,6 +2986,29 @@ function ProductDetail() {
       setSelectedBrand(brandName)
       setSelectedProduct(null)
       setShowTermostatDetail(false) // Kart gösterilecek, detay değil
+    } else if (productName === 'ISI (SICAKLIK) ÖLÇER') {
+      // ISI (SICAKLIK) ÖLÇER için marka bazlı detay sayfasına navigate et (TERMOSTATLAR kartı gösterilecek)
+      if (category && subcategory) {
+        navigate(`/urunler/${category}/${subcategory}/${brandName}`)
+      } else {
+        const productSlug = encodeURIComponent(productName.toLowerCase().replace(/\s+/g, '-'))
+        navigate(`/urun-detay/${productSlug}?brand=${brandName}`, {
+          state: { productName, productImage, productLogo, brand: brandName }
+        })
+      }
+      setSelectedBrand(brandName)
+      setSelectedProduct(null)
+      setShowTermostatDetail(false)
+    } else if (productName === 'DÖKÜM GÖVDELİ DİŞLİ MOTORLAR') {
+      // DÖKÜM GÖVDELİ DİŞLİ MOTORLAR için direkt detay sayfasını göster
+      setSelectedBrand(brandName)
+      setSelectedProduct(null)
+      // URL'yi güncelle - navigate ile aynı sayfaya brand parametresiyle git
+      const productSlug = encodeURIComponent(productName.toLowerCase().replace(/\s+/g, '-'))
+      navigate(`/urun-detay/${productSlug}?brand=${brandName}`, {
+        state: { productName, productImage, productLogo, brand: brandName },
+        replace: true
+      })
     } else {
       // Diğer ürünler için marka bazlı detay sayfasına navigate et
       if (category && subcategory) {
@@ -1742,6 +3021,9 @@ function ProductDetail() {
       }
       setSelectedBrand(brandName)
       setSelectedProduct(null)
+      if (productName === 'ALÜMİNYUM GÖVDELİ DİŞLİ HİDROMOTORLAR') {
+        setSelected20GrupHidromotorBrand(null)
+      }
     }
   }
 
@@ -2080,6 +3362,10 @@ function ProductDetail() {
       return ['/rekorsan.png']
     }
 
+    if (productName === 'METRİK HORTUM RAKORLARI' || productName === 'SOKETLER' || productName === 'DN2 HORTUM REKORLARI' || productName === 'DN4 HORTUM REKORLARI' || productName === 'HALKA REKORLAR' || productName === 'HORTUM EKLERİ' || productName === 'BORU UÇLU HORTUM REKORLARI' || productName === 'BSP HORTUM REKORLARI' || productName === 'UNF HORTUM RAKORLARI' || productName === 'ORFS HORTUM REKORLARI' || productName === 'FLANŞLI HORTUM REKORLARI' || productName === 'KIRICILAR İÇİN TAKVİYELİ HORTUM RAKORLARI') {
+      return ['/rekorsan.png']
+    }
+
     if (productName === 'DİŞLİ BAĞLANTI ELEMANLARI') {
       return ['/rekorsan.png']
     }
@@ -2202,6 +3488,14 @@ function ProductDetail() {
       '35. GRUP AKIŞ BÖLÜCÜLER': '/akisboluculer/35-grup-akis-boluculer.png',
     }
     return imageMap[cardName] || '/dokum-govde-disli-akis-boluculer.png'
+  }
+
+  // 20. GRUP HİDROMOTORLAR kart resmi
+  const getHidromotor20GrupCardImage = (cardName) => {
+    const imageMap = {
+      '20. GRUP HİDROMOTORLAR': '/20-grup-hidromotorlar.png',
+    }
+    return imageMap[cardName] || '/20-grup-hidromotorlar.png'
   }
 
   const getEmniyetsizNormalCardImage = (cardName) => {
@@ -5081,6 +6375,501 @@ function ProductDetail() {
                     </div>
                   )
                 })}
+              </div>
+            </>
+          ) : selectedGroup === '20. GRUP HİDROMOTORLAR' && selectedGroupBrand ? (
+            <>
+              {/* 20. GRUP HİDROMOTORLAR Detay Sayfası */}
+              <div className="max-w-6xl mx-auto space-y-6">
+                {/* Başlık ve Geri Dön Butonu */}
+                <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <h1 className="text-2xl font-bold text-slate-900 mb-1">20. GRUP HİDROMOTORLAR</h1>
+                    <p className="text-lg font-semibold text-slate-700 mb-1">{selectedGroupBrand.toUpperCase()}</p>
+                    <h2 className="text-xl font-semibold text-slate-900">20. GRUP HİDROMOTORLAR</h2>
+                  </div>
+                  <button
+                    onClick={() => {
+                      setSelectedGroup(null)
+                      setSelectedGroupBrand(null)
+                    }}
+                    className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                  >
+                    ← Geri Dön
+                  </button>
+                </div>
+
+                {/* ASC Detay Sayfası */}
+                {selectedGroupBrand === 'asc' && (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 mt-6 space-y-8">
+                    {/* 20. GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ MOTORLAR */}
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-900 mb-4">20. GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ MOTORLAR</h3>
+                      <div className="rounded-lg border border-slate-200 overflow-hidden">
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-sm">
+                            <thead className="bg-slate-50">
+                              <tr>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.BASINÇ</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MİN.HIZ</th>
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-200">
+                              {[
+                                { model: '36919', iletimHacmi: '3,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '600' },
+                                { model: '36931', iletimHacmi: '5,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+                                { model: '36937', iletimHacmi: '8,0 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+                                { model: '36938', iletimHacmi: '9,4 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '600' },
+                                { model: '36917', iletimHacmi: '11,4 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '36918', iletimHacmi: '13,9 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '36930', iletimHacmi: '14,8 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '36932', iletimHacmi: '16,0 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '36933', iletimHacmi: '19,2 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '36934', iletimHacmi: '21,9 CM³', maksBasinc: '210', maksHiz: '2500', minHiz: '600' },
+                                { model: '36935', iletimHacmi: '24,8 CM³', maksBasinc: '190', maksHiz: '2500', minHiz: '600' },
+                                { model: '36936', iletimHacmi: '27,9 CM³', maksBasinc: '170', maksHiz: '2200', minHiz: '600' },
+                              ].map((row) => (
+                                <tr key={row.model} className="hover:bg-slate-50">
+                                  <td className="px-4 py-3 font-medium text-slate-900">{row.model}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.iletimHacmi}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.maksBasinc}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.maksHiz}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.minHiz}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 20. GRUP B TİPİ KAPAK 9 DİŞ FREZELİ (Ø16,5) MOTORLAR */}
+                    <div className="pt-4 border-t border-slate-200">
+                      <h3 className="text-lg font-bold text-slate-900 mb-4">20. GRUP B TİPİ KAPAK 9 DİŞ FREZELİ (Ø16,5) MOTORLAR</h3>
+                      <div className="rounded-lg border border-slate-200 overflow-hidden">
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-sm">
+                            <thead className="bg-slate-50">
+                              <tr>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.BASINÇ</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MİN.HIZ</th>
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-200">
+                              {[
+                                { model: '36968', iletimHacmi: '3,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+                                { model: '36971', iletimHacmi: '5,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+                                { model: '36977', iletimHacmi: '8,0 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+                                { model: '36978', iletimHacmi: '9,4 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '600' },
+                                { model: '36966', iletimHacmi: '11,4 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '36967', iletimHacmi: '13,9 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '36969', iletimHacmi: '14,8 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '36972', iletimHacmi: '16,0 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '36973', iletimHacmi: '19,2 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '36974', iletimHacmi: '21,9 CM³', maksBasinc: '210', maksHiz: '2500', minHiz: '600' },
+                                { model: '36975', iletimHacmi: '24,8 CM³', maksBasinc: '190', maksHiz: '2500', minHiz: '600' },
+                                { model: '36976', iletimHacmi: '27,9 CM³', maksBasinc: '170', maksHiz: '2200', minHiz: '600' },
+                              ].map((row) => (
+                                <tr key={row.model} className="hover:bg-slate-50">
+                                  <td className="px-4 py-3 font-medium text-slate-900">{row.model}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.iletimHacmi}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.maksBasinc}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.maksHiz}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.minHiz}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 20. GRUP F TİPİ KAPAK 1/5 KONİK MİLLİ MOTORLAR */}
+                    <div className="pt-4 border-t border-slate-200">
+                      <h3 className="text-lg font-bold text-slate-900 mb-4">20. GRUP F TİPİ KAPAK 1/5 KONİK MİLLİ MOTORLAR</h3>
+                      <div className="rounded-lg border border-slate-200 overflow-hidden">
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-sm">
+                            <thead className="bg-slate-50">
+                              <tr>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.BASINÇ</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MİN.HIZ</th>
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-200">
+                              {[
+                                { model: '36993', iletimHacmi: '3,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+                                { model: '36995', iletimHacmi: '5,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+                                { model: '37001', iletimHacmi: '8,0 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+                                { model: '37002', iletimHacmi: '9,4 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '600' },
+                                { model: '36991', iletimHacmi: '11,4 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '36992', iletimHacmi: '13,9 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '36994', iletimHacmi: '14,8 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '36996', iletimHacmi: '16,0 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '36997', iletimHacmi: '19,2 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '36998', iletimHacmi: '21,9 CM³', maksBasinc: '210', maksHiz: '2500', minHiz: '600' },
+                                { model: '36999', iletimHacmi: '24,8 CM³', maksBasinc: '190', maksHiz: '2500', minHiz: '600' },
+                                { model: '37000', iletimHacmi: '27,9 CM³', maksBasinc: '170', maksHiz: '2500', minHiz: '600' },
+                              ].map((row) => (
+                                <tr key={row.model} className="hover:bg-slate-50">
+                                  <td className="px-4 py-3 font-medium text-slate-900">{row.model}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.iletimHacmi}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.maksBasinc}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.maksHiz}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.minHiz}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 20. GRUP F TİPİ KAPAK 9 DİŞ FREZELİ (Ø16,5) MOTORLAR */}
+                    <div className="pt-4 border-t border-slate-200">
+                      <h3 className="text-lg font-bold text-slate-900 mb-4">20. GRUP F TİPİ KAPAK 9 DİŞ FREZELİ (Ø16,5) MOTORLAR</h3>
+                      <div className="rounded-lg border border-slate-200 overflow-hidden">
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-sm">
+                            <thead className="bg-slate-50">
+                              <tr>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.BASINÇ</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MİN.HIZ</th>
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-200">
+                              {[
+                                { model: '37005', iletimHacmi: '3,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+                                { model: '37007', iletimHacmi: '5,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+                                { model: '37013', iletimHacmi: '8,0 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+                                { model: '37014', iletimHacmi: '9,4 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '600' },
+                                { model: '37003', iletimHacmi: '11,4 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '37004', iletimHacmi: '13,9 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '37006', iletimHacmi: '14,8 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '37008', iletimHacmi: '16,0 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '37009', iletimHacmi: '19,2 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '37010', iletimHacmi: '21,9 CM³', maksBasinc: '210', maksHiz: '2500', minHiz: '600' },
+                                { model: '37011', iletimHacmi: '24,8 CM³', maksBasinc: '190', maksHiz: '2500', minHiz: '600' },
+                                { model: '37012', iletimHacmi: '27,9 CM³', maksBasinc: '170', maksHiz: '2200', minHiz: '600' },
+                              ].map((row) => (
+                                <tr key={row.model} className="hover:bg-slate-50">
+                                  <td className="px-4 py-3 font-medium text-slate-900">{row.model}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.iletimHacmi}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.maksBasinc}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.maksHiz}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.minHiz}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 20. GRUP ASC "C" TİPİ KAPAK ÖZEL MOTORLAR */}
+                    <div className="pt-4 border-t border-slate-200">
+                      <h3 className="text-lg font-bold text-slate-900 mb-4">20. GRUP ASC "C" TİPİ KAPAK ÖZEL MOTORLAR</h3>
+                      <div className="rounded-lg border border-slate-200 overflow-hidden">
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-sm">
+                            <thead className="bg-slate-50">
+                              <tr>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.BASINÇ</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MİN.HIZ</th>
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-200">
+                              {[
+                                { model: '36981', iletimHacmi: '3,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+                                { model: '36983', iletimHacmi: '5,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+                                { model: '36989', iletimHacmi: '8,0 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+                                { model: '36990', iletimHacmi: '9,4 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '600' },
+                                { model: '36979', iletimHacmi: '11,4 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '36980', iletimHacmi: '13,9 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '36982', iletimHacmi: '14,8 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '36984', iletimHacmi: '16,0 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '36985', iletimHacmi: '19,2 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+                                { model: '36986', iletimHacmi: '21,9 CM³', maksBasinc: '210', maksHiz: '2500', minHiz: '600' },
+                                { model: '36987', iletimHacmi: '24,8 CM³', maksBasinc: '190', maksHiz: '2500', minHiz: '600' },
+                                { model: '36988', iletimHacmi: '27,9 CM³', maksBasinc: '170', maksHiz: '600', minHiz: '2200' },
+                              ].map((row) => (
+                                <tr key={row.model} className="hover:bg-slate-50">
+                                  <td className="px-4 py-3 font-medium text-slate-900">{row.model}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.iletimHacmi}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.maksBasinc}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.maksHiz}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.minHiz}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* CASAPPA Detay Sayfası */}
+                {selectedGroupBrand === 'casappa' && (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 mt-6 space-y-8">
+                    {/* 20. GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ MOTORLAR */}
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-900 mb-4">20. GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ MOTORLAR</h3>
+                      <div className="rounded-lg border border-slate-200 overflow-hidden">
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-sm">
+                            <thead className="bg-slate-50">
+                              <tr>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇALIŞMA BASINCI</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MİL-KAPAK TİPİ</th>
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-200">
+                              {[
+                                { model: 'C01999804', calismaBasinci: '250', iletimHacmi: '11,23 CM³', maksHiz: '3500', milKapak: '82-E2' },
+                                { model: 'C02002916', calismaBasinci: '250', iletimHacmi: '14,53 CM³', maksHiz: '3500', milKapak: '82-E2' },
+                                { model: '36955', calismaBasinci: '250', iletimHacmi: '16,85 CM³', maksHiz: '3000', milKapak: '82-E2' },
+                                { model: 'C02002918', calismaBasinci: '250', iletimHacmi: '21,14 CM³', maksHiz: '3000', milKapak: '82-E2' },
+                                { model: '36957', calismaBasinci: '170', iletimHacmi: '26,45 CM³', maksHiz: '2500', milKapak: '82-E2' },
+                                { model: '36958', calismaBasinci: '130', iletimHacmi: '33,03 CM³', maksHiz: '2000', milKapak: '82-E2' },
+                                { model: 'C01999801', calismaBasinci: '250', iletimHacmi: '4,95 CM³', maksHiz: '4000', milKapak: '82-E2' },
+                                { model: '36929', calismaBasinci: '250', iletimHacmi: '8,26 CM³', maksHiz: '3500', milKapak: '82-E2' },
+                              ].map((row) => (
+                                <tr key={row.model} className="hover:bg-slate-50">
+                                  <td className="px-4 py-3 font-medium text-slate-900">{row.model}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.calismaBasinci}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.iletimHacmi}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.maksHiz}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.milKapak}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* HEMA Detay Sayfası */}
+                {selectedGroupBrand === 'hema' && (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 mt-6 space-y-8">
+                    {/* 20. GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ MOTORLAR */}
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-900 mb-4">20. GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ MOTORLAR</h3>
+                      <div className="rounded-lg border border-slate-200 overflow-hidden">
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-sm">
+                            <thead className="bg-slate-50">
+                              <tr>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇALIŞMA BASINCI</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇIKIŞ PORTU</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">GİRİŞ PORTU</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">KAPAK</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ŞAFT TİPİ</th>
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-200">
+                              {[
+                                { model: '1MN061001M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '6,10 CM³', kapak: 'B', saftTipi: '1/8' },
+                                { model: '1MN082001M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '8,20 CM³', kapak: 'B', saftTipi: '1/8' },
+                                { model: '1MN095001M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '9,50 CM³', kapak: 'B', saftTipi: '1/8' },
+                                { model: '1MN105001M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '10,50 CM³', kapak: 'B', saftTipi: '1/8' },
+                                { model: '1MN119001M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '11,90 CM³', kapak: 'B', saftTipi: '1/8' },
+                                { model: '1MN126001M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '12,60 CM³', kapak: 'B', saftTipi: '1/8' },
+                                { model: '1MN140001M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '14,00 CM³', kapak: 'B', saftTipi: '1/8' },
+                                { model: '1MN168001M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '16,80 CM³', kapak: 'B', saftTipi: '1/8' },
+                                { model: '1MN168002M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '16,80 CM³', kapak: 'B', saftTipi: '1/5' },
+                                { model: '1MN192001M', calismaBasinci: '220', cikisPortu: '40 - M8*4', girisPortu: '40 - M8*4', iletimHacmi: '19,20 CM³', kapak: 'B', saftTipi: '1/8' },
+                                { model: '1MN229001M', calismaBasinci: '200', cikisPortu: '40 - M8*4', girisPortu: '40 - M8*4', iletimHacmi: '22,90 CM³', kapak: 'B', saftTipi: '1/8' },
+                                { model: '1MN229002M', calismaBasinci: '200', cikisPortu: '40 - M8*4', girisPortu: '40 - M8*4', iletimHacmi: '22,90 CM³', kapak: 'B', saftTipi: '1/5' },
+                                { model: '1MN260001M', calismaBasinci: '180', cikisPortu: '40 - M8*4', girisPortu: '40 - M8*4', iletimHacmi: '26,00 CM³', kapak: 'B', saftTipi: '1/8' },
+                              ].map((row) => (
+                                <tr key={row.model} className="hover:bg-slate-50">
+                                  <td className="px-4 py-3 font-medium text-slate-900">{row.model}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.calismaBasinci}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.cikisPortu}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.girisPortu}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.iletimHacmi}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.kapak}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.saftTipi}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 20. GRUP B TİPİ KAPAK 1/5 KONİK MİLLİ MOTORLAR */}
+                    <div className="pt-4 border-t border-slate-200">
+                      <h3 className="text-lg font-bold text-slate-900 mb-4">20. GRUP B TİPİ KAPAK 1/5 KONİK MİLLİ MOTORLAR</h3>
+                      <div className="rounded-lg border border-slate-200 overflow-hidden">
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-sm">
+                            <thead className="bg-slate-50">
+                              <tr>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇALIŞMA BASINCI</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇIKIŞ PORTU</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">GİRİŞ PORTU</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">KAPAK</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ŞAFT TİPİ</th>
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-200">
+                              {[
+                                { model: '1MN061002M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '6,10 CM³', kapak: 'B', saftTipi: '1/5' },
+                                { model: '1MN082002M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '8,20 CM³', kapak: 'B', saftTipi: '1/5' },
+                                { model: '1MN119002M', calismaBasinci: '250', cikisPortu: '30 - M6*4', girisPortu: '30 - M6*4', iletimHacmi: '11,90 CM³', kapak: 'B', saftTipi: '1/5' },
+                              ].map((row) => (
+                                <tr key={row.model} className="hover:bg-slate-50">
+                                  <td className="px-4 py-3 font-medium text-slate-900">{row.model}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.calismaBasinci}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.cikisPortu}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.girisPortu}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.iletimHacmi}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.kapak}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.saftTipi}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 20. GRUP G TİPİ KAPAK 1/5 KONİK MİLLİ MOTORLAR */}
+                    <div className="pt-4 border-t border-slate-200">
+                      <h3 className="text-lg font-bold text-slate-900 mb-4">20. GRUP G TİPİ KAPAK 1/5 KONİK MİLLİ MOTORLAR</h3>
+                      <div className="rounded-lg border border-slate-200 overflow-hidden">
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-sm">
+                            <thead className="bg-slate-50">
+                              <tr>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.BASINÇ</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MİN.HIZ</th>
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-200">
+                              {[
+                                { model: '1MN061003M', iletimHacmi: '6,1 CM³', maksBasinc: '250', maksHiz: '4000', minHiz: '600' },
+                                { model: '1MN082003M', iletimHacmi: '8,2CM³', maksBasinc: '250', maksHiz: '4000', minHiz: '600' },
+                                { model: '1MN095003M', iletimHacmi: '9,5 CM³', maksBasinc: '250', maksHiz: '4000', minHiz: '600' },
+                                { model: '1MN119003M', iletimHacmi: '11,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '500' },
+                                { model: '1MN126003M', iletimHacmi: '12,6 CM³', maksBasinc: '250', maksHiz: '3400', minHiz: '500' },
+                                { model: '1MN140003M', iletimHacmi: '14,0 CM³', maksBasinc: '250', maksHiz: '3200', minHiz: '500' },
+                                { model: '1MN168003M', iletimHacmi: '16,8 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '450' },
+                                { model: '1MN192003M', iletimHacmi: '19,2 CM³', maksBasinc: '220', maksHiz: '3000', minHiz: '450' },
+                                { model: '1MN229003M', iletimHacmi: '22,9 CM³', maksBasinc: '200', maksHiz: '2850', minHiz: '450' },
+                              ].map((row) => (
+                                <tr key={row.model} className="hover:bg-slate-50">
+                                  <td className="px-4 py-3 font-medium text-slate-900">{row.model}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.iletimHacmi}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.maksBasinc}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.maksHiz}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.minHiz}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 20. GRUP G TİPİ KAPAK 9 DİŞ FREZELİ (Ø15,5) MOTORLAR */}
+                    <div className="pt-4 border-t border-slate-200">
+                      <h3 className="text-lg font-bold text-slate-900 mb-4">20. GRUP G TİPİ KAPAK 9 DİŞ FREZELİ (Ø15,5) MOTORLAR</h3>
+                      <div className="rounded-lg border border-slate-200 overflow-hidden">
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-sm">
+                            <thead className="bg-slate-50">
+                              <tr>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇALIŞMA BASINCI</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇIKIŞ PORTU</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">GİRİŞ PORTU</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">KAPAK</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ŞAFT TİPİ</th>
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-200">
+                              {[
+                                { model: '1MN061004M', calismaBasinci: '250', cikisPortu: 'SAE 10 7/8-14 UNF', girisPortu: 'SAE 10 7/8-14 UNF', iletimHacmi: '9,50 CM³', kapak: 'G SAE A', saftTipi: 'SAE 16-4 9 DİŞ/15,5' },
+                                { model: '1MN082004M', calismaBasinci: '250', cikisPortu: 'SAE 10 7/8-14 UNF', girisPortu: 'SAE 10 7/8-14 UNF', iletimHacmi: '8,20 CM³', kapak: 'G SAE A', saftTipi: 'SAE 16-4 9 DİŞ/15,5' },
+                                { model: '1MN095004M', calismaBasinci: '250', cikisPortu: 'SAE 10 7/8-14 UNF', girisPortu: 'SAE 10 7/8-14 UNF', iletimHacmi: '9,50 CM³', kapak: 'G SAE A', saftTipi: 'SAE 16-4 9 DİŞ/15,5' },
+                                { model: '1MN119004M', calismaBasinci: '250', cikisPortu: 'SAE 10 7/8-14 UNF', girisPortu: 'SAE 10 7/8-14 UNF', iletimHacmi: '11,90 CM³', kapak: 'G SAE A', saftTipi: 'SAE 16-4 9 DİŞ/15,5' },
+                                { model: '1MN140004M', calismaBasinci: '250', cikisPortu: 'SAE 10 7/8-14 UNF', girisPortu: 'SAE 10 7/8-14 UNF', iletimHacmi: '14,00 CM³', kapak: 'G SAE A', saftTipi: 'SAE 16-4 9 DİŞ/15,5' },
+                                { model: '1MN168004M', calismaBasinci: '250', cikisPortu: 'SAE 10 7/8-14 UNF', girisPortu: 'SAE 10 7/8-14 UNF', iletimHacmi: '16,80 CM³', kapak: 'G SAE A', saftTipi: 'SAE 16-4 9 DİŞ/15,5' },
+                                { model: '1MN192004M', calismaBasinci: '220', cikisPortu: 'SAE 12 1/1-16 UN', girisPortu: 'SAE 12 1/1-16 UN', iletimHacmi: '19,20 CM³', kapak: 'G SAE A', saftTipi: 'SAE 16-4 9 DİŞ/15,5' },
+                              ].map((row) => (
+                                <tr key={row.model} className="hover:bg-slate-50">
+                                  <td className="px-4 py-3 font-medium text-slate-900">{row.model}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.calismaBasinci}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.cikisPortu}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.girisPortu}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.iletimHacmi}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.kapak}</td>
+                                  <td className="px-4 py-3 text-slate-700">{row.saftTipi}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 20. GRUP B TİPİ KAPAK 9 DİŞ FREZELİ (Ø16,5) MOTORLAR */}
+                    <div className="pt-4 border-t border-slate-200">
+                      <h3 className="text-lg font-bold text-slate-900 mb-4">20. GRUP B TİPİ KAPAK 9 DİŞ FREZELİ (Ø16,5) MOTORLAR</h3>
+                      <div className="rounded-lg border border-slate-200 overflow-hidden">
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-sm">
+                            <thead className="bg-slate-50">
+                              <tr>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">KAPAK</th>
+                                <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MİL TİPİ</th>
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-200">
+                              <tr className="hover:bg-slate-50">
+                                <td className="px-4 py-3 font-medium text-slate-900">36970</td>
+                                <td className="px-4 py-3 text-slate-700">B KAPAK</td>
+                                <td className="px-4 py-3 text-slate-700">9 FREZE</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </>
           ) : selectedGroup && selectedGroupBrand ? (
@@ -11712,6 +13501,361 @@ function ProductDetail() {
                 )
               })()}
             </>
+          ) : selected20GrupHidromotorBrand && productName === 'ALÜMİNYUM GÖVDELİ DİŞLİ HİDROMOTORLAR' && selected20GrupHidromotorBrand === 'asc' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-slate-900 mb-1">20. GRUP HİDROMOTORLAR</h1>
+                  <p className="text-lg font-semibold text-slate-700 mb-1">ASC</p>
+                  <h2 className="text-xl font-semibold text-slate-900">20. GRUP HİDROMOTORLAR</h2>
+                </div>
+                <button
+                  onClick={() => setSelected20GrupHidromotorBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* ASC 20. GRUP HİDROMOTORLAR Tabloları */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 mt-6 space-y-8">
+                {ASC_20_GRUP_HIDROMOTORLAR_CATEGORIES.map((cat) => (
+                  <div key={cat.name} className="space-y-3">
+                    <h3 className="text-lg font-bold text-slate-900 mb-2">{cat.name}</h3>
+                    <div className="rounded-lg border border-slate-200 overflow-hidden">
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-sm">
+                          <thead className="bg-slate-50">
+                            <tr>
+                              {cat.headers.map((h) => (
+                                <th key={h} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                  {h}
+                                </th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-slate-200">
+                            {cat.rows.map((row) => (
+                              <tr key={row.model} className="hover:bg-slate-50">
+                                <td className="px-4 py-3 font-medium text-slate-900">{row.model}</td>
+                                <td className="px-4 py-3 text-slate-700">{row.iletimHacmi}</td>
+                                <td className="px-4 py-3 text-slate-700">{row.maksBasinc}</td>
+                                <td className="px-4 py-3 text-slate-700">{row.maksHiz}</td>
+                                <td className="px-4 py-3 text-slate-700">{row.minHiz}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : selected20GrupHidromotorBrand && productName === 'ALÜMİNYUM GÖVDELİ DİŞLİ HİDROMOTORLAR' && selected20GrupHidromotorBrand === 'casappa' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-slate-900 mb-1">20. GRUP HİDROMOTORLAR</h1>
+                  <p className="text-lg font-semibold text-slate-700 mb-1">CASAPPA</p>
+                  <h2 className="text-xl font-semibold text-slate-900">20. GRUP HİDROMOTORLAR</h2>
+                </div>
+                <button
+                  onClick={() => setSelected20GrupHidromotorBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* CASAPPA 20. GRUP HİDROMOTORLAR Tabloları */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 mt-6 space-y-8">
+                {CASAPPA_20_GRUP_HIDROMOTORLAR_CATEGORIES.map((cat) => (
+                  <div key={cat.name} className="space-y-3">
+                    <h3 className="text-lg font-bold text-slate-900 mb-2">{cat.name}</h3>
+                    <div className="rounded-lg border border-slate-200 overflow-hidden">
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-sm">
+                          <thead className="bg-slate-50">
+                            <tr>
+                              {cat.headers.map((h) => (
+                                <th key={h} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                  {h}
+                                </th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-slate-200">
+                            {cat.rows.map((row) => (
+                              <tr key={row.model} className="hover:bg-slate-50">
+                                <td className="px-4 py-3 font-medium text-slate-900">{row.model}</td>
+                                <td className="px-4 py-3 text-slate-700">{row.calismaBasinci}</td>
+                                <td className="px-4 py-3 text-slate-700">{row.iletimHacmi}</td>
+                                <td className="px-4 py-3 text-slate-700">{row.maksHiz}</td>
+                                <td className="px-4 py-3 text-slate-700">{row.milKapak}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : selected20GrupHidromotorBrand && productName === 'ALÜMİNYUM GÖVDELİ DİŞLİ HİDROMOTORLAR' && selected20GrupHidromotorBrand === 'hema' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-slate-900 mb-1">20. GRUP HİDROMOTORLAR</h1>
+                  <p className="text-lg font-semibold text-slate-700 mb-1">HEMA</p>
+                  <h2 className="text-xl font-semibold text-slate-900">20. GRUP HİDROMOTORLAR</h2>
+                </div>
+                <button
+                  onClick={() => setSelected20GrupHidromotorBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+            </>
+          ) : productName === 'DÖKÜM GÖVDELİ DİŞLİ MOTORLAR' && currentBrand === 'asc' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-slate-900 mb-1">DÖKÜM GÖVDELİ DİŞLİ MOTORLAR</h1>
+                  <p className="text-lg font-semibold text-slate-700 mb-1">ASC</p>
+                  <h2 className="text-xl font-semibold text-slate-900">DÖKÜM GÖVDELİ DİŞLİ MOTORLAR</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* ASC DÖKÜM GÖVDELİ DİŞLİ MOTORLAR Tabloları */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 mt-6 space-y-8">
+                {/* UNİ BAĞLANTILI */}
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-4">UNİ BAĞLANTILI</h3>
+                  <div className="rounded-lg border border-slate-200 overflow-hidden">
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.BASINÇ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MİN.HIZ</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: '37319', iletimHacmi: '17,2 CM³', maksBasinc: '300', maksHiz: '3000', minHiz: '300' },
+                            { model: '37320', iletimHacmi: '27,1 CM³', maksBasinc: '290', maksHiz: '3000', minHiz: '300' },
+                            { model: '37325', iletimHacmi: '34,4 CM³', maksBasinc: '280', maksHiz: '2750', minHiz: '300' },
+                            { model: '37326', iletimHacmi: '42,9 CM³', maksBasinc: '270', maksHiz: '3000', minHiz: '300' },
+                            { model: '37338', iletimHacmi: '51,2 CM³', maksBasinc: '240', maksHiz: '2500', minHiz: '300' },
+                            { model: '37327', iletimHacmi: '51,2 CM³', maksBasinc: '240', maksHiz: '2500', minHiz: '300' },
+                            { model: '37328', iletimHacmi: '60,7 CM³', maksBasinc: '220', maksHiz: '2000', minHiz: '300' },
+                            { model: '37329', iletimHacmi: '73,0 CM³', maksBasinc: '200', maksHiz: '1750', minHiz: '300' },
+                            { model: '37330', iletimHacmi: '81,4 CM³', maksBasinc: '190', maksHiz: '1750', minHiz: '300' },
+                            { model: '37331', iletimHacmi: '99,7 CM³', maksBasinc: '180', maksHiz: '1750', minHiz: '300' },
+                            { model: '37332', iletimHacmi: '63,8 CM³', maksBasinc: '280', maksHiz: '2750', minHiz: '300' },
+                            { model: '37333', iletimHacmi: '72,2 CM³', maksBasinc: '280', maksHiz: '2750', minHiz: '300' },
+                            { model: '37334', iletimHacmi: '86,1 CM³', maksBasinc: '260', maksHiz: '2750', minHiz: '300' },
+                            { model: '37335', iletimHacmi: '107,03 CM³', maksBasinc: '240', maksHiz: '2750', minHiz: '300' },
+                            { model: '37336', iletimHacmi: '131,6 CM³', maksBasinc: '220', maksHiz: '2500', minHiz: '300' },
+                            { model: '37337', iletimHacmi: '148,3 CM³', maksBasinc: '180', maksHiz: '2500', minHiz: '300' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700">{row.iletimHacmi}</td>
+                              <td className="px-4 py-3 text-slate-700">{row.maksBasinc}</td>
+                              <td className="px-4 py-3 text-slate-700">{row.maksHiz}</td>
+                              <td className="px-4 py-3 text-slate-700">{row.minHiz}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ISO BAĞLANTILI */}
+                <div className="pt-4 border-t border-slate-200">
+                  <h3 className="text-lg font-bold text-slate-900 mb-4">ISO BAĞLANTILI</h3>
+                  <div className="rounded-lg border border-slate-200 overflow-hidden">
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.BASINÇ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MİN.HIZ</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: '37290', iletimHacmi: '17,2 CM³', maksBasinc: '300', maksHiz: '3000', minHiz: '300' },
+                            { model: '37291', iletimHacmi: '17,2 CM³', maksBasinc: '300', maksHiz: '3000', minHiz: '300' },
+                            { model: '37292', iletimHacmi: '27,1 CM³', maksBasinc: '290', maksHiz: '3000', minHiz: '300' },
+                            { model: '37293', iletimHacmi: '27,1 CM³', maksBasinc: '290', maksHiz: '3000', minHiz: '300' },
+                            { model: '37294', iletimHacmi: '34,4 CM³', maksBasinc: '280', maksHiz: '2750', minHiz: '300' },
+                            { model: '37295', iletimHacmi: '34,4 CM³', maksBasinc: '280', maksHiz: '2750', minHiz: '300' },
+                            { model: '37296', iletimHacmi: '42,9 CM³', maksBasinc: '270', maksHiz: '2500', minHiz: '300' },
+                            { model: '37297', iletimHacmi: '42,9 CM³', maksBasinc: '270', maksHiz: '2500', minHiz: '300' },
+                            { model: '37298', iletimHacmi: '51,2 CM³', maksBasinc: '240', maksHiz: '2500', minHiz: '300' },
+                            { model: '37299', iletimHacmi: '51,2 CM³', maksBasinc: '240', maksHiz: '2500', minHiz: '300' },
+                            { model: '37300', iletimHacmi: '60,7 CM³', maksBasinc: '220', maksHiz: '2000', minHiz: '300' },
+                            { model: '37301', iletimHacmi: '60,7 CM³', maksBasinc: '220', maksHiz: '2000', minHiz: '300' },
+                            { model: '37302', iletimHacmi: '60,7 CM³', maksBasinc: '220', maksHiz: '2000', minHiz: '200' },
+                            { model: '37303', iletimHacmi: '73,0 CM³', maksBasinc: '200', maksHiz: '1750', minHiz: '300' },
+                            { model: '37304', iletimHacmi: '73,0 CM³', maksBasinc: '200', maksHiz: '1750', minHiz: '300' },
+                            { model: '37305', iletimHacmi: '81,4 CM³', maksBasinc: '190', maksHiz: '1750', minHiz: '300' },
+                            { model: '37306', iletimHacmi: '81,4 CM³', maksBasinc: '190', maksHiz: '1750', minHiz: '300' },
+                            { model: '37307', iletimHacmi: '99,7 CM³', maksBasinc: '180', maksHiz: '1750', minHiz: '300' },
+                            { model: '37308', iletimHacmi: '99,7 CM³', maksBasinc: '180', maksHiz: '1750', minHiz: '300' },
+                            { model: '37309', iletimHacmi: '63,8 CM³', maksBasinc: '280', maksHiz: '2750', minHiz: '300' },
+                            { model: '37310', iletimHacmi: '72,2 CM³', maksBasinc: '280', maksHiz: '2750', minHiz: '300' },
+                            { model: '37311', iletimHacmi: '86,1 CM³', maksBasinc: '260', maksHiz: '2750', minHiz: '300' },
+                            { model: '37312', iletimHacmi: '107,3 CM³', maksBasinc: '240', maksHiz: '2750', minHiz: '300' },
+                            { model: '37313', iletimHacmi: '131,6 CM³', maksBasinc: '220', maksHiz: '2500', minHiz: '300' },
+                            { model: '37316', iletimHacmi: '148,3 CM³', maksBasinc: '180', maksHiz: '2500', minHiz: '300' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700">{row.iletimHacmi}</td>
+                              <td className="px-4 py-3 text-slate-700">{row.maksBasinc}</td>
+                              <td className="px-4 py-3 text-slate-700">{row.maksHiz}</td>
+                              <td className="px-4 py-3 text-slate-700">{row.minHiz}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : productName === 'DÖKÜM GÖVDELİ DİŞLİ MOTORLAR' && currentBrand === 'casappa' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-slate-900 mb-1">DÖKÜM GÖVDELİ DİŞLİ MOTORLAR</h1>
+                  <p className="text-lg font-semibold text-slate-700 mb-1">CASAPPA</p>
+                  <h2 className="text-xl font-semibold text-slate-900">DÖKÜM GÖVDELİ DİŞLİ MOTORLAR</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* CASAPPA DÖKÜM GÖVDELİ DİŞLİ MOTORLAR Tabloları */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 mt-6 space-y-8">
+                {/* UNİ BAĞLANTILI */}
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-4">UNİ BAĞLANTILI</h3>
+                  <div className="rounded-lg border border-slate-200 overflow-hidden">
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇALIŞMA BASINCI</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MİL-KAPAK TİPİ</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: '37321', calismaBasinci: '280', iletimHacmi: '34,56 CM³', maksHiz: '2800', milKapak: '19-T1' },
+                            { model: '37322', calismaBasinci: '270', iletimHacmi: '43,98 CM³', maksHiz: '2500', milKapak: '19-T1' },
+                            { model: 'C06879870', calismaBasinci: '220', iletimHacmi: '61,26 CM³', maksHiz: '2000', milKapak: '19-T1' },
+                            { model: '37324', calismaBasinci: '260', iletimHacmi: '86,56 CM³', maksHiz: '2700', milKapak: '19-T1' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700">{row.calismaBasinci}</td>
+                              <td className="px-4 py-3 text-slate-700">{row.iletimHacmi}</td>
+                              <td className="px-4 py-3 text-slate-700">{row.maksHiz}</td>
+                              <td className="px-4 py-3 text-slate-700">{row.milKapak}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ÇİFT YÖNLÜ MOTORLAR */}
+                <div className="pt-4 border-t border-slate-200">
+                  <h3 className="text-lg font-bold text-slate-900 mb-4">ÇİFT YÖNLÜ MOTORLAR</h3>
+                  <div className="rounded-lg border border-slate-200 overflow-hidden">
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇALIŞMA BASINCI</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MİL-KAPAK TİPİ</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: '37283', calismaBasinci: '280', iletimHacmi: '21,89 CM³', maksHiz: '3000', milKapak: '04-S3' },
+                            { model: 'C0367018H', calismaBasinci: '280', iletimHacmi: '26,58 CM³', maksHiz: '3000', milKapak: '04-03' },
+                            { model: '37285', calismaBasinci: '270', iletimHacmi: '34,39 CM³', maksHiz: '3000', milKapak: '04-03' },
+                            { model: '37286', calismaBasinci: '270', iletimHacmi: '38,00 CM³', maksHiz: '3000', milKapak: '04-S3' },
+                            { model: '37287', calismaBasinci: '260', iletimHacmi: '43,77 CM³', maksHiz: '3000', milKapak: '04-S3' },
+                            { model: 'C0367018L', calismaBasinci: '230', iletimHacmi: '51,59 CM³', maksHiz: '2500', milKapak: '04-S3' },
+                            { model: 'C0367018P', calismaBasinci: '170', iletimHacmi: '81,29 CM³', maksHiz: '1500', milKapak: '04-S3' },
+                            { model: '37269', calismaBasinci: '270', iletimHacmi: '63,46 CM³', maksHiz: '3000', milKapak: '06-S8' },
+                            { model: '37270', calismaBasinci: '230', iletimHacmi: '90,96 CM³', maksHiz: '2700', milKapak: '06-S8' },
+                            { model: '37271', calismaBasinci: '275', iletimHacmi: '11,23 CM³', maksHiz: '3500/350', milKapak: '82-E2' },
+                            { model: '37272', calismaBasinci: '260', iletimHacmi: '16,85 CM³', maksHiz: '3000/300', milKapak: '82-E2' },
+                            { model: '37273', calismaBasinci: '210', iletimHacmi: '21,14 CM³', maksHiz: '3000/300', milKapak: '82-E2' },
+                            { model: '37274', calismaBasinci: '180', iletimHacmi: '26,42 CM³', maksHiz: '2500/300', milKapak: '82-E2' },
+                            { model: 'C03566995', calismaBasinci: '285', iletimHacmi: '4,95 CM³', maksHiz: '4000/350', milKapak: '82-E2' },
+                            { model: 'C03566996', calismaBasinci: '285', iletimHacmi: '6,61 CM³', maksHiz: '4000/350', milKapak: '82-E2' },
+                            { model: '37279', calismaBasinci: '280', iletimHacmi: '26,7 CM³', maksHiz: '3000/350', milKapak: '83-E3' },
+                            { model: 'C03575600', calismaBasinci: '260', iletimHacmi: '34,56 CM³', maksHiz: '3000/350', milKapak: '83-E3' },
+                            { model: '37275', calismaBasinci: '260', iletimHacmi: '39,27 CM³', maksHiz: '3000/350', milKapak: '83-E3' },
+                            { model: 'C03575620', calismaBasinci: '250', iletimHacmi: '43,98 CM³', maksHiz: '3000/350', milKapak: '83-E3' },
+                            { model: 'C03575630', calismaBasinci: '230', iletimHacmi: '51,83 CM³', maksHiz: '2500/350', milKapak: '83-E3' },
+                            { model: '37277', calismaBasinci: '200', iletimHacmi: '61,26 CM³', maksHiz: '2500/350', milKapak: '83-E3' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700">{row.calismaBasinci}</td>
+                              <td className="px-4 py-3 text-slate-700">{row.iletimHacmi}</td>
+                              <td className="px-4 py-3 text-slate-700">{row.maksHiz}</td>
+                              <td className="px-4 py-3 text-slate-700">{row.milKapak}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
           ) : selectedBrand && productName === 'ISI (SICAKLIK) ÖLÇER' && showTermostatDetail && selectedBrand === 'fox' ? (
             <>
               {/* Ürün Başlığı */}
@@ -11849,6 +13993,70 @@ function ProductDetail() {
                           ))}
                         </tbody>
                       </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : selectedBrand && productName === 'ALÜMİNYUM GÖVDELİ DİŞLİ HİDROMOTORLAR' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">
+                    {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}
+                  </p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* 20. GRUP HİDROMOTORLAR Kartı */}
+              <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <div
+                  className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-2xl hover:shadow-[#ff7f00]/10 cursor-pointer"
+                  onClick={() => setSelected20GrupHidromotorBrand(selectedBrand)}
+                >
+                  {/* Image Container */}
+                  <div className="relative h-64 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50">
+                    <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                    <img
+                      src={getHidromotor20GrupCardImage('20. GRUP HİDROMOTORLAR')}
+                      alt="20. GRUP HİDROMOTORLAR"
+                      className="h-full w-full object-contain p-6 transition-all duration-500 group-hover:scale-110"
+                      onError={(e) => {
+                        e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent('20. GRUP HİDROMOTORLAR')}`
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#ff7f00]/0 via-transparent to-[#1e4294]/0 transition-all duration-500 group-hover:from-[#ff7f00]/5 group-hover:to-[#1e4294]/5" />
+                  </div>
+
+                  {/* Content Section */}
+                  <div className="flex flex-1 flex-col p-6 pt-5">
+                    <h3 className="mb-4 line-clamp-2 min-h-[3.5rem] text-lg font-bold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                      20. GRUP HİDROMOTORLAR
+                    </h3>
+                    <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                        Grup Detayı
+                      </span>
+                      <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                        <span className="text-xs font-semibold">İncele</span>
+                        <svg 
+                          className="h-4 w-4" 
+                          fill="none" 
+                          viewBox="0 0 24 24" 
+                          stroke="currentColor"
+                          strokeWidth={2.5}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -13907,6 +16115,181 @@ function ProductDetail() {
                   <div className="py-12 text-center text-slate-500">
                     <p>Bu ürün için marka logosu bulunamadı.</p>
                   </div>
+                ) : productName === 'HORTUM BAĞLANTI ELEMANLARI' ? (
+                  <div className="space-y-6">
+                    {/* Rekorsan Logo */}
+                    <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-6">
+                      <img 
+                        src="/rekorsan.png" 
+                        alt="Rekorsan" 
+                        className="h-16 w-auto object-contain sm:h-20"
+                        onError={(e) => {
+                          e.target.style.display = 'none'
+                        }}
+                      />
+                    </div>
+                    
+                    {/* Ürün Kartları */}
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                      {[
+                        { name: 'METRİK HORTUM RAKORLARI', image: '/hortumbaglantielemanlari/metrikhortumrakorlari.png' },
+                        { name: 'SOKETLER', image: '/hortumbaglantielemanlari/soketler.png' },
+                        { name: 'DN2 HORTUM REKORLARI', image: '/hortumbaglantielemanlari/dn2hortumrekorlari.png' },
+                        { name: 'DN4 HORTUM REKORLARI', image: '/hortumbaglantielemanlari/dn4hortumrekorlari.png' },
+                        { name: 'HALKA REKORLAR', image: '/hortumbaglantielemanlari/halkarekorlar.png' },
+                        { name: 'HORTUM EKLERİ', image: '/hortumbaglantielemanlari/hortumekleri.png' },
+                        { name: 'BORU UÇLU HORTUM REKORLARI', image: '/hortumbaglantielemanlari/boruucluhortumrekorlari.png' },
+                        { name: 'BSP HORTUM REKORLARI', image: '/hortumbaglantielemanlari/bsphortumrekorlari.png' },
+                        { name: 'UNF HORTUM RAKORLARI', image: '/hortumbaglantielemanlari/unfhortum-rakorlari.png' },
+                        { name: 'ORFS HORTUM REKORLARI', image: '/hortumbaglantielemanlari/orfshortumrekorlari.png' },
+                        { name: 'FLANŞLI HORTUM REKORLARI', image: '/hortumbaglantielemanlari/flanslihortumrekorlari.png' },
+                        { name: 'KIRICILAR İÇİN TAKVİYELİ HORTUM RAKORLARI', image: '/hortumbaglantielemanlari/kiricilaricintakviyelihort.png' },
+                      ].map((product, index) => (
+                        <div
+                          key={index}
+                          onClick={() => {
+                            setSelectedProduct(product.name)
+                            setSelectedBrand('rekorsan')
+                            // URL'yi güncelle
+                            const categorySlug = 'hidrolik-baglanti-elemanlari'
+                            const subcategorySlug = 'hortum-baglanti-elemanlari'
+                            const productSlug = product.name.toLowerCase()
+                              .replace(/\s+/g, '-')
+                              .replace(/ı/g, 'i')
+                              .replace(/ğ/g, 'g')
+                              .replace(/ü/g, 'u')
+                              .replace(/ş/g, 's')
+                              .replace(/ö/g, 'o')
+                              .replace(/ç/g, 'c')
+                              .replace(/İ/g, 'i')
+                              .replace(/Ğ/g, 'g')
+                              .replace(/Ü/g, 'u')
+                              .replace(/Ş/g, 's')
+                              .replace(/Ö/g, 'o')
+                              .replace(/Ç/g, 'c')
+                            navigate(`/urunler/${categorySlug}/${subcategorySlug}/rekorsan/${productSlug}`)
+                          }}
+                          className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-2xl hover:shadow-[#ff7f00]/10"
+                        >
+                          {/* Image Container */}
+                          <div className="relative h-64 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50">
+                            <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                            <img 
+                              src={product.image} 
+                              alt={product.name} 
+                              className="h-full w-full object-contain p-6 transition-all duration-500 group-hover:scale-110"
+                              onError={(e) => {
+                                e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(product.name)}`
+                              }}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-br from-[#ff7f00]/0 via-transparent to-[#1e4294]/0 transition-all duration-500 group-hover:from-[#ff7f00]/5 group-hover:to-[#1e4294]/5" />
+                          </div>
+                          
+                          {/* Content Section */}
+                          <div className="flex flex-1 flex-col p-6 pt-5">
+                            <h3 className="mb-4 line-clamp-3 min-h-[4.5rem] text-lg font-bold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                              {product.name}
+                            </h3>
+                            <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                                Ürün Detayı
+                              </span>
+                              <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                                <span className="text-xs font-semibold">İncele</span>
+                                <svg 
+                                  className="h-4 w-4" 
+                                  fill="none" 
+                                  viewBox="0 0 24 24" 
+                                  stroke="currentColor"
+                                  strokeWidth={2.5}
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : productName === 'ALÜMİNYUM GÖVDELİ DİŞLİ HİDROMOTORLAR' ? (
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    {allBrandLogos.map((logo, index) => {
+                      const logoBrandName = logo.replace(/^\//, '').replace(/\.png$/, '')
+                      const isSelected = currentBrand === logoBrandName
+                      return (
+                        <div
+                          key={index}
+                          onClick={() => {
+                            setSelectedBrand(logoBrandName)
+                            setSelectedGroup('20. GRUP HİDROMOTORLAR')
+                            setSelectedGroupBrand(logoBrandName)
+                          }}
+                          className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-2xl hover:shadow-[#ff7f00]/10"
+                        >
+                          {/* Logo */}
+                          <div
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              handleBrandClick(logo)
+                            }}
+                            className={`flex h-16 items-center justify-center rounded-t-lg border-b p-2 transition sm:h-20 sm:p-3 ${
+                              isSelected 
+                                ? 'border-[#ff7f00] bg-[#ff7f00]/5' 
+                                : 'border-slate-200 bg-slate-50'
+                            }`}
+                          >
+                            <img 
+                              src={logo} 
+                              alt={`Brand ${index + 1}`} 
+                              className="h-10 w-auto object-contain sm:h-12"
+                              onError={(e) => {
+                                e.target.style.display = 'none'
+                              }}
+                            />
+                          </div>
+                          {/* 20. GRUP HİDROMOTORLAR Kartı */}
+                          {/* Image Container */}
+                          <div className="relative h-64 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50">
+                            <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                            <img 
+                              src="/20-grup-hidromotorlar.png" 
+                              alt="20. GRUP HİDROMOTORLAR" 
+                              className="h-full w-full object-contain p-6 transition-all duration-500 group-hover:scale-110"
+                              onError={(e) => {
+                                e.target.src = `https://via.placeholder.com/320x200.png?text=20.%20GRUP%20HİDROMOTORLAR`
+                              }}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-br from-[#ff7f00]/0 via-transparent to-[#1e4294]/0 transition-all duration-500 group-hover:from-[#ff7f00]/5 group-hover:to-[#1e4294]/5" />
+                          </div>
+                          
+                          {/* Content Section */}
+                          <div className="flex flex-1 flex-col p-6 pt-5">
+                            <h3 className="mb-4 text-lg font-bold leading-snug text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                              20. GRUP HİDROMOTORLAR
+                            </h3>
+                            <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                                Grup Detayı
+                              </span>
+                              <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                                <span className="text-xs font-semibold">İncele</span>
+                                <svg 
+                                  className="h-4 w-4" 
+                                  fill="none" 
+                                  viewBox="0 0 24 24" 
+                                  stroke="currentColor"
+                                  strokeWidth={2.5}
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
                 ) : (
                   <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 sm:gap-4 md:grid-cols-6">
                     {allBrandLogos.map((logo, index) => {
@@ -13936,6 +16319,839 @@ function ProductDetail() {
                   </div>
                 )}
               </div>
+
+              {/* REKORSAN METRİK HORTUM RAKORLARI Detay Sayfası */}
+              {selectedProduct === 'METRİK HORTUM RAKORLARI' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN METRİK HORTUM RAKORLARI Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_METRIK_HORTUM_RAKORLARI_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'HORTUM ÖLÇÜSÜ') return row.hortumOlcusu || ''
+                                    if (header === 'SOMUN ÖLÇÜSÜ') return row.somunOlcusu || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ') return row.disOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN SOKETLER Detay Sayfası */}
+              {selectedProduct === 'SOKETLER' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN SOKETLER Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_SOKETLER_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'HORTUM ÖLÇÜSÜ') return row.hortumOlcusu || ''
+                                    if (header === 'İÇ ÇAP ÖLÇÜSÜ') return row.icCapOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN DN2 HORTUM REKORLARI Detay Sayfası */}
+              {selectedProduct === 'DN2 HORTUM REKORLARI' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN DN2 HORTUM REKORLARI Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_DN2_HORTUM_REKORLARI_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'HORTUM ÖLÇÜSÜ') return row.hortumOlcusu || ''
+                                    if (header === 'SOMUN ÖLÇÜSÜ') return row.somunOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN DN4 HORTUM REKORLARI Detay Sayfası */}
+              {selectedProduct === 'DN4 HORTUM REKORLARI' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN DN4 HORTUM REKORLARI Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_DN4_HORTUM_REKORLARI_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'HORTUM ÖLÇÜSÜ') return row.hortumOlcusu || ''
+                                    if (header === 'SOMUN ÖLÇÜSÜ') return row.somunOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN HALKA REKORLAR Detay Sayfası */}
+              {selectedProduct === 'HALKA REKORLAR' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN HALKA REKORLAR Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_HALKA_REKORLAR_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'HALKA İÇ ÇAPI [MM]') return row.halkaIcCapi || ''
+                                    if (header === 'HORTUM ÖLÇÜSÜ') return row.hortumOlcusu || ''
+                                    if (header === 'BORU ÖLÇÜSÜ') return row.boruOlcusu || ''
+                                    if (header === 'BOY ÖLÇÜSÜ [MM]') return row.boyOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN HORTUM EKLERİ Detay Sayfası */}
+              {selectedProduct === 'HORTUM EKLERİ' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN HORTUM EKLERİ Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_HORTUM_EKLERI_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'HORTUM ÖLÇÜSÜ') return row.hortumOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN BORU UÇLU HORTUM REKORLARI Detay Sayfası */}
+              {selectedProduct === 'BORU UÇLU HORTUM REKORLARI' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN BORU UÇLU HORTUM REKORLARI Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_BORU_UCLU_HORTUM_REKORLARI_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'BORU ÖLÇÜSÜ') return row.boruOlcusu || ''
+                                    if (header === 'HORTUM ÖLÇÜSÜ') return row.hortumOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN BSP HORTUM REKORLARI Detay Sayfası */}
+              {selectedProduct === 'BSP HORTUM REKORLARI' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN BSP HORTUM REKORLARI Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_BSP_HORTUM_REKORLARI_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'HORTUM ÖLÇÜSÜ') return row.hortumOlcusu || ''
+                                    if (header === 'SOMUN ÖLÇÜSÜ') return row.somunOlcusu || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ') return row.disOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN UNF HORTUM RAKORLARI Detay Sayfası */}
+              {selectedProduct === 'UNF HORTUM RAKORLARI' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN UNF HORTUM RAKORLARI Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_UNF_HORTUM_RAKORLARI_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'HORTUM ÖLÇÜSÜ') return row.hortumOlcusu || ''
+                                    if (header === 'SOMUN ÖLÇÜSÜ') return row.somunOlcusu || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ') return row.disOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN ORFS HORTUM REKORLARI Detay Sayfası */}
+              {selectedProduct === 'ORFS HORTUM REKORLARI' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN ORFS HORTUM REKORLARI Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_ORFS_HORTUM_REKORLARI_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'HORTUM ÖLÇÜSÜ') return row.hortumOlcusu || ''
+                                    if (header === 'SOMUN ÖLÇÜSÜ') return row.somunOlcusu || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ') return row.disOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN FLANŞLI HORTUM REKORLARI Detay Sayfası */}
+              {selectedProduct === 'FLANŞLI HORTUM REKORLARI' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN FLANŞLI HORTUM REKORLARI Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_FLANSLI_HORTUM_REKORLARI_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'FLANŞ ÖLÇÜSÜ') return row.flansOlcusu || ''
+                                    if (header === 'HORTUM ÖLÇÜSÜ') return row.hortumOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN KIRICILAR İÇİN TAKVİYELİ HORTUM RAKORLARI Detay Sayfası */}
+              {selectedProduct === 'KIRICILAR İÇİN TAKVİYELİ HORTUM RAKORLARI' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN KIRICILAR İÇİN TAKVİYELİ HORTUM RAKORLARI Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_KIRICILAR_ICIN_TAKVIYELI_HORTUM_RAKORLARI_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'HORTUM ÖLÇÜSÜ') return row.hortumOlcusu || ''
+                                    if (header === 'SOMUN ÖLÇÜSÜ') return row.somunOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
 
               {/* KROM KAPLI MİLLER - GRIMET Özel İçerik */}
               {productName === 'KROM KAPLI MİLLER' && currentBrand === 'grimet' && (
