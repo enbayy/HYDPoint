@@ -508,6 +508,284 @@ const HYDAC_MEMBRANLI_AKULER_ROWS = [
   { model: '3041984', bar: '250', litre: '3.5' },
 ]
 
+// TOGNELLA - MANOMETRE KORUMA VALFLERİ
+const TOGNELLA_MANOMETRE_KORUMA_VALFLERI_ROWS = [
+  { model: 'FT29214', disOlcusu: '1/4"', ozellik: 'BASMALI' },
+  { model: 'FT29114', disOlcusu: '1/4"', ozellik: '90° KISMALI' },
+  { model: 'FT29014', disOlcusu: '1/4"', ozellik: 'HAT TİPİ' },
+]
+
+// SICK - TRANSMİTTERLER (BASINÇ TRANSMİTTERLERİ)
+const SICK_TRANSMITTERLER_ROWS = [
+  {
+    model: '1211472',
+    korumaAlaniYuksekligi: '600 MM',
+    taramaAraligi: '10 M',
+    tepkiSuresi: '13 MS',
+    uygulamaAlani: 'NORMAL ENDÜSTRİYEL ORTAM',
+  },
+  {
+    model: '1211471',
+    korumaAlaniYuksekligi: '600 MM',
+    taramaAraligi: '10 M',
+    uygulamaAlani: 'NORMAL ENDÜSTRİYEL ORTAM',
+  },
+  {
+    model: '1091296',
+    anahtarlamaCikisi: 'PNP',
+    elektrikBaglantisi: 'DC 3 TELLİ',
+    frenTipi: '1.000 GH (DEĞİŞTİRME)',
+    govdeUzunlugu: '12,2 MM',
+    muhafazaDerecesi: 'IP68',
+    silindirYapi: 'C-YUVASI (TİPİ)',
+  },
+  {
+    model: '1062991',
+    asiriBasinçGuvenligi: '15 BAR',
+    basincTipi: 'GÖSTERGE BASINCI',
+    olcumAraligi: '0 BAR ... 10 BAR',
+    prosesSicakligi: '0 °C ... +60 °C',
+  },
+  {
+    model: '1062984',
+    asiriBasinçGuvenligi: '15 BAR',
+    basincTipi: 'GÖSTERGE BASINCI',
+    olcumAraligi: '0 BAR ... 10 BAR',
+    prosesSicakligi: '0 °C ... +60 °C',
+  },
+  {
+    model: '5322501',
+    aciklama: '27 MM ALTIGENLİ BASINÇ SENSÖR',
+    aksesuarAilesi: 'MONTAJ BRAKETLERİ',
+    aksesuarGrubu: 'MONTAJ BRAKETLERİ VE PLAKALAR',
+    malzeme: 'ALÜMİNYUM',
+  },
+  {
+    model: '6051099',
+    basincTipi: 'GÖSTERGE BASINCI',
+    olcumAraligi: '0 BAR ... 400 BAR',
+    prosesSicakligi: '–20 °C ... +85 °C',
+    cikisSinyali: '1 X PNP + 4 MA ... 20 MA',
+  },
+  {
+    model: '6041748',
+    basincTipi: 'BİLEŞİK BASINÇ',
+    olcumAraligi: '–1 BAR ... 0 BAR',
+    prosesSicakligi: '0 °C ... +80 °C',
+    cikisSinyali: '4 MA ... 20 MA, 2 TELLİ',
+  },
+  {
+    model: '6038638',
+    basincTipi: 'GÖSTERGE BASINCI',
+    olcumAraligi: '0 BAR ... 10 BAR',
+    prosesSicakligi: '0 °C ... +80 °C',
+    cikisSinyali: '0 V ... 10 V, 3 TELLİ',
+  },
+  {
+    model: '6045038',
+    basincTipi: 'GÖSTERGE BASINCI',
+    olcumAraligi: '0 BAR ... 400 BAR',
+    prosesSicakligi: '–30 °C ... +100 °C',
+    cikisSinyali: '4 MA ... 20 MA, 2 TELLİ',
+  },
+  {
+    model: '6041583',
+    basincTipi: 'GÖSTERGE BASINCI',
+    olcumAraligi: '0 BAR ... 400 BAR',
+    prosesSicakligi: '–30 °C ... +100 °C',
+    cikisSinyali: '4 MA ... 20 MA, 2 TELLİ',
+  },
+  {
+    model: '6041553',
+    basincTipi: 'GÖSTERGE BASINCI',
+    olcumAraligi: '0 BAR ... 400 BAR',
+    prosesSicakligi: '0 °C ... +80 °C',
+    cikisSinyali: '4 MA ... 20 MA, 2 TELLİ',
+  },
+  {
+    model: '6055944',
+    basincTipi: 'GÖSTERGE BASINCI',
+    olcumAraligi: '0 BAR ... 16 BAR',
+    prosesSicakligi: '–30 °C ... +100 °C',
+    cikisSinyali: '4 MA ... 20 MA, 2 TELLİ',
+  },
+  {
+    model: '6066129',
+    basincTipi: 'GÖSTERGE BASINCI',
+    olcumAraligi: '0 BAR ... 25 BAR',
+    prosesSicakligi: '–30 °C ... +100 °C',
+    cikisSinyali: '0 V ... 10 V, 3 TELLİ',
+  },
+  {
+    model: '6062970',
+    basincTipi: 'GÖSTERGE BASINCI',
+    olcumAraligi: '0 BAR ... 400 BAR',
+    prosesSicakligi: '–30 °C ... +100 °C',
+    cikisSinyali: '4 MA ... 20 MA, 2 TELLİ',
+  },
+]
+
+// WIKA - TRANSMİTTERLER (BASINÇ TRANSMİTTERLERİ)
+const WIKA_TRANSMITTERLER_ROWS = [
+  { model: '71234177', basincAraligi: '0-250', cikisSinyali: '0-10V' },
+  { model: '71234169', basincAraligi: '0-400', cikisSinyali: '0-10V' },
+  { model: '71234180', basincAraligi: '0-100', cikisSinyali: '4-20MA' },
+  { model: '71234178', basincAraligi: '0-250', cikisSinyali: '4-20MA' },
+  { model: '71234179', basincAraligi: '0-250', cikisSinyali: '4-20MA' },
+  { model: '71234170', basincAraligi: '0-400', cikisSinyali: '4-20MA' },
+  { model: '71234174', basincAraligi: '0-400', cikisSinyali: '4-20MA' },
+  { model: '71234181', basincAraligi: '0-600', cikisSinyali: '4-20MA' },
+]
+
+// TRAFAG - TRANSMİTTERLER (BASINÇ TRANSMİTTERLERİ)
+const TRAFAG_TRANSMITTERLER_ROWS = [
+  {
+    model: '8472',
+    cikisSinyali: '4 ... 20 MA 0 ... 5 VDC',
+    korumaSinifi: 'IP65 (KABLOLU IP67 / IP68)',
+    mekanikBaglanti: 'G1/4" DİŞİG1/4" ERKEK',
+    ortam: '–25°C ... +125°C (SICAKLIK)',
+    olcumAraligi: '0 ... 1\'DEN 0 ... 400',
+    olcumPrensibi: 'SERAMİK ÜZERİNE KALIN FİLM',
+  },
+  {
+    model: '31049',
+    cikisSinyali: '0 ... 10 VDC',
+    arzVdc: '15-32',
+    basincAraligi: '0-10',
+    maxAsiriBasinç: '30',
+  },
+  {
+    model: '31003',
+    cikisSinyali: '0 ... 10 VDC',
+    arzVdc: '15-32',
+    basincAraligi: '0-16',
+    maxAsiriBasinç: '48',
+  },
+  {
+    model: '31007',
+    cikisSinyali: '0 ... 10 VDC',
+    arzVdc: '15-32',
+    basincAraligi: '0-160',
+    maxAsiriBasinç: '480',
+  },
+  {
+    model: '31010',
+    cikisSinyali: '0 ... 10 VDC',
+    arzVdc: '15-32',
+    basincAraligi: '0-250',
+    maxAsiriBasinç: '750',
+  },
+  {
+    model: '31050',
+    cikisSinyali: '0 ... 10 VDC',
+    arzVdc: '15-32',
+    basincAraligi: '0-400',
+    maxAsiriBasinç: '1000',
+  },
+  {
+    model: '31008',
+    cikisSinyali: '0 ... 10 VDC',
+    arzVdc: '15-32',
+    basincAraligi: '0-60',
+    maxAsiriBasinç: '180',
+  },
+  {
+    model: '31004',
+    cikisSinyali: '4 ... 20 MA',
+    arzVdc: '9-32',
+    basincAraligi: '0-16',
+    maxAsiriBasinç: '48',
+  },
+  {
+    model: '31005',
+    cikisSinyali: '4 ... 20 MA',
+    arzVdc: '9-32',
+    basincAraligi: '0-100',
+    maxAsiriBasinç: '300',
+  },
+  {
+    model: '31048',
+    cikisSinyali: '4 ... 20 MA',
+    arzVdc: '9-32',
+    basincAraligi: '0-25',
+    maxAsiriBasinç: '75',
+  },
+  {
+    model: '31046',
+    cikisSinyali: '4 ... 20 MA',
+    arzVdc: '9-32',
+    basincAraligi: '0-250',
+    maxAsiriBasinç: '750',
+  },
+  {
+    model: '31012',
+    cikisSinyali: '4 ... 20 MA',
+    arzVdc: '9-32',
+    basincAraligi: '0-400',
+    maxAsiriBasinç: '1000',
+  },
+  {
+    model: '31047',
+    arzVdc: '15-32',
+    basincAraligi: '0-250',
+    dogruluk: '±0.5',
+    maxAsiriBasinç: '750',
+  },
+  {
+    model: '31051',
+    arzVdc: '15-32',
+    basincAraligi: '0-400',
+    dogruluk: '±0.5',
+    maxAsiriBasinç: '1000',
+  },
+  {
+    model: '31009',
+    arzVdc: '9-32',
+    basincAraligi: '0-250',
+    dogruluk: '±0.5',
+    maxAsiriBasinç: '750',
+  },
+  {
+    model: '31011',
+    arzVdc: '9-32',
+    basincAraligi: '0-400',
+    dogruluk: '±0.5',
+    maxAsiriBasinç: '1000',
+  },
+]
+
+// FERRO - MANOMETRE TEST RAKORLARI
+const FERRO_MANOMETRE_TEST_RAKORLARI_CATEGORIES = [
+  {
+    name: 'UNF DİŞ MANOMETRE TEST RAKORU',
+    products: [
+      { model: 'TCM162U12N', calismaBasinci: '630', olculerABCD: 'M16*2-20-AA19-11', olculerLLLL: '38-22,50-17', vidaOlcusu: '1/2" UNF' },
+      { model: 'TCM162U516N', calismaBasinci: '400', olculerABCD: 'M16*2-20-AA17-8', olculerLLLL: '35-22,50-17', vidaOlcusu: '5/16" UNF' },
+      { model: 'TCM162U716N', calismaBasinci: '630', olculerABCD: 'M16*2-20-AA19-11', olculerLLLL: '38-22,50-17', vidaOlcusu: '7/16" UNF' },
+      { model: 'TCM162U916N', calismaBasinci: '630', olculerABCD: 'M16*2-20-AA22-11', olculerLLLL: '38-22,50-17', vidaOlcusu: '9/16" UNF' },
+    ],
+  },
+  {
+    name: 'BSP DİŞ MANOMETRE TEST RAKORU',
+    products: [
+      { model: 'TCM162G14N', calismaBasinci: '630', olculerABCD: 'M16*2-20-17-9', olculerLLLL: '38-22,50-17-49', vidaOlcusu: '1/4" BSP' },
+      { model: 'TCSSM162G14N', calismaBasinci: '630', olculerABCD: 'M16*2-20-AA19-11', olculerLLLL: '38-22,50-17', vidaOlcusu: '1/4" BSP' },
+      { model: 'TCM162G18N', calismaBasinci: '400', olculerABCD: 'M16*2-20-17-9', olculerLLLL: '35-22,50-17-46', vidaOlcusu: '1/8" BSP' },
+      { model: 'TCM162G38N', calismaBasinci: '630', olculerABCD: 'M16*2-20-22-11', olculerLLLL: '38-22,50-17-49', vidaOlcusu: '3/8" BSP' },
+    ],
+  },
+  {
+    name: 'METRİK DİŞ MANOMETRE TEST RAKORU',
+    products: [
+      { model: 'TCM162M101N', calismaBasinci: '400', olculerABCD: 'M16*2-20-17-9', olculerLLLL: '35-22,50-17-46', vidaOlcusu: 'M10*1' },
+      { model: 'TCM162M1215N', calismaBasinci: '630', olculerABCD: 'M16*2-20-19-11', olculerLLLL: '38-22,50-17-49', vidaOlcusu: 'M12*1,5' },
+      { model: 'TCM162M1415N', calismaBasinci: '630', olculerABCD: 'M16*2-20-22-11', olculerLLLL: '38-22,50-17-49', vidaOlcusu: 'M14*1,5' },
+      { model: 'TCM162M1615N', calismaBasinci: '630', olculerABCD: 'M16*2-20-22-11', olculerLLLL: '38-22,50-17-49', vidaOlcusu: 'M16*1,5' },
+    ],
+  },
+]
+
 // PALETLİ POMPA için markalara göre kartlar
 const getPaletliPompaBrandCards = (brandName) => {
   const brandCards = {
@@ -2428,6 +2706,224 @@ function ProductDetail() {
         ]
       }
     }
+    return data[brandName] || null
+  }
+
+  // BASINÇ ŞALTERLERİ ürün verilerini al
+  const getBasincSalterleriProductData = (brandName) => {
+    const description = 'Basınç şalterleri, hidrolik ve pnömatik sistemlerde basıncın izlenmesi ve güvenli limitler içinde tutulması için kullanılan ana kontrol elemanlarıdır.'
+    
+    const data = {
+      'hystar': {
+        description,
+        categories: [
+          {
+            name: 'BASINÇ ŞALTERLERİ',
+            tableHeaders: ['MODEL', 'BASINÇ ARALIĞI (BAR)', 'DİŞ ÖLÇÜSÜ', 'MAKS.BASINÇ'],
+            products: [
+              { model: 'HSDNA-100K-06i-BSPP', basincAraligi: '15-100', disOlcusu: '1/4', maksBasinc: '250' },
+              { model: '30532', basincAraligi: '40-250', disOlcusu: '1/4', maksBasinc: '300' },
+              { model: 'HSDNA-360K-06i-BSPP', basincAraligi: '50 - 360', disOlcusu: '1/4', maksBasinc: '400' },
+            ],
+          },
+        ],
+      },
+      'fox': {
+        description,
+        categories: [
+          {
+            name: 'F3S SERİSİ AYARLANABİLİR BASINÇ ŞALTERİ',
+            tableHeaders: ['MODEL', 'BASINÇ ARALIĞI (BAR)', 'DİŞ ÖLÇÜSÜ', 'KONNEKTÖR', 'KONTAK'],
+            products: [
+              { model: 'F3S1/M2', basincAraligi: '0,05-0,5', disOlcusu: '1/4"', konnektor: '16*16', kontak: 'NA-NC' },
+              { model: 'F3S2/M2', basincAraligi: '0,1-1', disOlcusu: '1/4"', konnektor: '16*16', kontak: 'NA-NC' },
+            ],
+          },
+          {
+            name: 'F4 SERİSİ AYARLANABİLİR BASINÇ ŞALTERİ',
+            tableHeaders: ['MODEL', 'BASINÇ ARALIĞI (BAR)', 'DİŞ ÖLÇÜSÜ', 'KONTAK'],
+            products: [
+              { model: 'FOXF31VXG/M3', basincAraligi: '1-12', disOlcusu: '1/4 BSP', kontak: 'NC-NA' },
+              { model: 'FOXF4R1/M2', basincAraligi: '0,2 - 2,5', disOlcusu: '1/4 BSP', kontak: 'NA-NC' },
+              { model: 'FOXF4S1/M2', basincAraligi: '1-12', disOlcusu: '1/4 BSP', kontak: 'NA-NC' },
+              { model: 'FOXF4S1/P3-P1', basincAraligi: '1-12', disOlcusu: '1/4 BSP', kontak: 'NC-NA' },
+              { model: 'FOXF4T1/M2', basincAraligi: '5 - 50', disOlcusu: '1/4 BSP', kontak: 'NA - NC' },
+              { model: 'FOXF4V1/M2', basincAraligi: '10-100', disOlcusu: '1/4 BSP', kontak: 'NA-NC' },
+              { model: 'FOXF4V1/M3', basincAraligi: '10-100', disOlcusu: '1/4 BSP', kontak: 'NA-NC' },
+              { model: 'FOXF4Y0/200/M2', basincAraligi: '50 - 400', disOlcusu: '1/4 BSP', kontak: 'NA - NC' },
+              { model: 'FOXF4Z1/M3', basincAraligi: '20-200', disOlcusu: '1/4 BSP', kontak: 'NA-NC' },
+              { model: 'FOXF4Z1/P3-P1', basincAraligi: '20 - 200', disOlcusu: '1/4 BSP', kontak: 'NA-NC' },
+            ],
+          },
+          {
+            name: 'F5 SERİSİ AYARLANABİLİR BASINÇ ŞALTERİ',
+            tableHeaders: ['MODEL', 'AÇIKLAMA', 'BASINÇ ARALIĞI (BAR)', 'DİŞ ÖLÇÜSÜ'],
+            products: [
+              { model: 'F57', aciklama: 'AYARLANABİLİR', basincAraligi: '30-300', disOlcusu: '1/4 BSP' },
+            ],
+          },
+          {
+            name: 'K4 SERİSİ AYARLANABİLİR BASINÇ ŞALTERİ',
+            tableHeaders: ['MODEL', 'BASINÇ ARALIĞI (BAR)', 'DİŞ ÖLÇÜSÜ', 'KONTAK'],
+            products: [
+              { model: 'FOXK4SAF0/P1', basincAraligi: '1-12', disOlcusu: '1/8"', kontak: 'NA' },
+              { model: 'K4SCF0/P1', basincAraligi: '1-12', disOlcusu: '1/8"', kontak: 'NC' },
+              { model: 'K4VAF1/P1', basincAraligi: '10-100', disOlcusu: '1/4"', kontak: 'NA' },
+              { model: 'K4VCF1/P1', basincAraligi: '10-100', disOlcusu: '1/4"', kontak: 'NC' },
+              { model: 'K4ZAF1/P1', basincAraligi: '20-200', disOlcusu: '1/4"', kontak: 'NA' },
+            ],
+          },
+          {
+            name: 'K5P SERİSİ AYARLANABİLİR BASINÇ ŞALTERİ',
+            tableHeaders: ['MODEL', 'BASINÇ ARALIĞI (BAR)', 'DİŞ ÖLÇÜSÜ', 'KONTAK'],
+            products: [
+              { model: 'FOXK53P', basincAraligi: '2-40', disOlcusu: '1/4"', kontak: 'NA-NC' },
+              { model: 'FOXK54P', basincAraligi: '5-100', disOlcusu: '1/4"', kontak: 'NA-NC' },
+              { model: 'FOXK55P', basincAraligi: '20-200', disOlcusu: '1/4"', kontak: 'NA--NC' },
+              { model: 'FOXK57P', basincAraligi: '30-300', disOlcusu: '1/4"', kontak: 'NA-NC' },
+              { model: 'FOXK59P', basincAraligi: '40-400', disOlcusu: '1/4"', kontak: 'NA-NC' },
+            ],
+          },
+          {
+            name: 'KLV5 SERİSİ DİJİTAL GÖSTERGELİ ELEKT. BASINÇ ŞALTERİ',
+            tableHeaders: ['MODEL', 'AÇIKLAMA', 'BASINÇ ARALIĞI (BAR)', 'DİŞ ÖLÇÜSÜ'],
+            products: [
+              { model: 'KVL59C', aciklama: 'NC-NC', basincAraligi: '0-400', disOlcusu: '1/4' },
+            ],
+          },
+          {
+            name: 'WF4 SERİSİ AYARLANABİLİR VAKUM ŞALTERİ',
+            tableHeaders: ['MODEL', 'AÇIKLAMA', 'BASINÇ ARALIĞI (BAR)', 'DİŞ ÖLÇÜSÜ'],
+            products: [
+              { model: 'FOXWF41/M2', aciklama: 'NA-NC', basincAraligi: '-0,1 - 0,8', disOlcusu: '1/4 BSP' },
+              { model: 'FOXWF4L1/M2', aciklama: 'NA-NC', basincAraligi: '-0,1 - 0,8', disOlcusu: '1/4 BSP' },
+            ],
+          },
+        ],
+      },
+      'hydac': {
+        description,
+        categories: [
+          {
+            name: 'BASINÇ ŞALTERLERİ',
+            tableHeaders: ['MODEL', 'BAĞLANTI BOYUTU', 'BAĞLANTI TÜRÜ', 'ÇALIŞMA SICAKLIĞI', 'ELEKTİRİK BAĞLANTISI', 'KORUMA DERECESİ', 'MAKS.BASINÇ'],
+            products: [
+              { model: '906205', baglantiBoyutu: 'G1/4', baglantiTuru: 'DIN 3852', calismaSicakligi: '-13 İLA 158 ºF', elektrikBaglantisi: '14 KUTUPLU, TERMİNAL BLOĞU', koruma: 'IP65', maksBasinc: '7250 PSİ' },
+              { model: '906206', baglantiBoyutu: 'G1/4', baglantiTuru: 'DIN 3852', calismaSicakligi: '-13 İLA 158 ºF', elektrikBaglantisi: '14 KUTUPLU, TERMİNAL BLOĞU', koruma: 'IP65', maksBasinc: '11600 PSİ' },
+              { model: '908165', baglantiBoyutu: 'G1/4A', baglantiTuru: 'ISO 1179-2', calismaSicakligi: '', elektrikBaglantisi: 'ERKEK M12X1, 4 KUTUP', koruma: '', maksBasinc: '500 BAR' },
+              { model: '908168', baglantiBoyutu: 'G1/4A', baglantiTuru: 'ISO 1179-2', calismaSicakligi: '', elektrikBaglantisi: 'ERKEK M12X1, 4 KUTUP', koruma: '', maksBasinc: '800 BAR' },
+              { model: '908000', baglantiBoyutu: 'G1/4A', baglantiTuru: 'ISO 1179-2', calismaSicakligi: '', elektrikBaglantisi: 'ERKEK M12X1, 4 KUTUP', koruma: '', maksBasinc: '800 BAR' },
+              { model: '908166', baglantiBoyutu: 'G1/4A', baglantiTuru: 'ISO 1179-2', calismaSicakligi: '', elektrikBaglantisi: 'ERKEK M12X1, 5 KUTUP', koruma: '', maksBasinc: '500 BAR' },
+              { model: '908001', baglantiBoyutu: 'G1/4A', baglantiTuru: 'ISO 1179-2', calismaSicakligi: '', elektrikBaglantisi: 'ERKEK M12X1, 5 KUTUP', koruma: '', maksBasinc: '800 BAR' },
+              { model: '920794', baglantiBoyutu: 'G1/4A', baglantiTuru: 'ISO 1179-2', calismaSicakligi: '-40 İLA 100 ºC | -25 İLA 100 ºC', elektrikBaglantisi: 'ERKEK M12X1, 4 KUTUP', koruma: 'IP67', maksBasinc: '800 BAR' },
+            ],
+          },
+        ],
+      },
+      'etna': {
+        description,
+        categories: [
+          {
+            name: 'BASINÇ ŞALTERLERİ',
+            tableHeaders: ['MODEL', 'AĞIRLIK', 'ÇALIŞTIRMA SINIFI', 'DURDURMA BASINCI', 'ELEKTİRİK BAĞLANTISI'],
+            products: [
+              { model: 'ETNA 05', agirlik: '0,375KG', calistirmaSinifi: '70,3-20,3(PSİ)- 0,5-1,4(BAR)', durdurmaBasinci: '36,3 (PSİ)- 2,5(BAR)', elektrikBaglantisi: '3*16AMP-380V A C- 4KW' },
+              { model: 'ETNA 08', agirlik: '0,375KG', calistirmaSinifi: '14,5-43,5(PSİ)-1,0-3,0(BAR)', durdurmaBasinci: '58,0(PSİ)-4,0(BAR)', elektrikBaglantisi: '3*16 AMP- 380 V A C- 4KW' },
+              { model: 'ETNA 02', agirlik: '0,375KG', calistirmaSinifi: '43,5-69,7(PSİ)-3,0-4,8(BAR)', durdurmaBasinci: '101,6(PSİ)-7,0(BAR)', elektrikBaglantisi: '3*16 AMP- 380V A C- 4KW' },
+              { model: 'ETNA 03', agirlik: '0,375KG', calistirmaSinifi: '58,0-116,1(PSİ)- 4,0-8,0(BAR)', durdurmaBasinci: '159,7(PSİ)- 11,0(BAR)', elektrikBaglantisi: '3*16 AMP- 380 V A C- 4KW' },
+            ],
+          },
+        ],
+      },
+      'danfoss': {
+        description,
+        categories: [
+          {
+            name: 'BASINÇ ŞALTERLERİ',
+            tableHeaders: ['MODEL', 'BASINÇ BAĞLANTI BOYUTU', 'BASINÇ BAĞLANTI TİPİ', 'DİFRANSİİYEL(BAR)', 'KORUMA SINIFI', 'MAKS. ÇALIŞMA BASINCI', 'REGÜLASYON TİPİ', 'RESET FONKSİYONU', 'AYAR ARALIĞI'],
+            products: [
+              { model: '30498', basincBaglantiBoyutu: '1/4', basincBaglantiTipi: 'FLARE', difransiyel: '0,70-4,00', koruma: 'IP44', maksCalismaBasinci: '17.0', regulasyonTipi: '', resetFonksiyonu: 'OTOMATİK', ayarAraligi: '0,2-7,5' },
+              { model: '30483', basincBaglantiBoyutu: '', basincBaglantiTipi: '', difransiyel: '0,7-4', koruma: 'IP55', maksCalismaBasinci: '17', regulasyonTipi: '', resetFonksiyonu: '', ayarAraligi: '0.2-75' },
+              { model: '30484', basincBaglantiBoyutu: '', basincBaglantiTipi: '', difransiyel: '0.7-4', koruma: 'IP30', maksCalismaBasinci: '17', regulasyonTipi: '', resetFonksiyonu: '', ayarAraligi: '2-14' },
+            ],
+          },
+        ],
+      },
+      'hlp': {
+        description,
+        categories: [
+          {
+            name: 'BASINÇ ŞALTERLERİ',
+            tableHeaders: ['MODEL', 'BAĞLANTI TİPİ', 'BASINÇ ARALIĞI (BAR)', 'ÇALIŞMA SICAKLIĞI', 'DİFRANSİİYEL(BAR)'],
+            products: [
+              { model: 'LF5508', baglantiTipi: '1/4"', basincAraligi: '0,2-7,5 BAR', calismaSicakligi: '-20 +110C', difransiyel: '1-4 BAR' },
+              { model: 'LF5514', baglantiTipi: '1/4"', basincAraligi: '2-14 BAR', calismaSicakligi: '-20 + 110C', difransiyel: '1-4 BAR' },
+            ],
+          },
+        ],
+      },
+      'pnomek': {
+        description,
+        categories: [
+          {
+            name: 'DS1 SERİSİ',
+            tableHeaders: ['MODEL', 'BAĞLANTI TÜRÜ', 'BASINÇ ARALIĞI (BAR)', 'ELEKTİRİK BAĞLANTISI', 'MAKS. SİSTEM BASINÇ'],
+            products: [
+              { model: 'DS1A3012', baglantiTuru: 'G1 / 4 REKOR BAĞLANTISI', basincAraligi: '0,5-12', elektrikBaglantisi: 'NA/NC', maksSistemBasinc: '40' },
+              { model: 'DS1A3025', baglantiTuru: 'G1 / 4 REKOR BAĞLANTISI', basincAraligi: '5-25', elektrikBaglantisi: 'NA/NC', maksSistemBasinc: '450' },
+              { model: 'DS1A3008', baglantiTuru: 'G1 / 4 REKOR BAĞLANTISI', basincAraligi: '0,5-8', elektrikBaglantisi: 'NA/NC', maksSistemBasinc: '40' },
+            ],
+          },
+          {
+            name: 'DS2 SERİSİ',
+            tableHeaders: ['MODEL', 'BAĞLANTI TÜRÜ', 'BASINÇ ARALIĞI (BAR)'],
+            products: [
+              { model: 'DS2A4012', baglantiTuru: 'G1/8"BAĞLANTI BAĞLANTISI', basincAraligi: '0,5-12' },
+            ],
+          },
+          {
+            name: 'DS3 SERİSİ',
+            tableHeaders: ['MODEL', 'BASINÇ ARALIĞI (BAR)', 'ELEKTİRİK BAĞLANTISI', 'ELEKTRİK BAĞLANTI TİPİ', 'GÖVDE', 'MAKS. SİSTEM BASINÇ', 'MEKANİK BAĞLANTI'],
+            products: [
+              { model: 'DS3A3NA002', basincAraligi: '0,2-2', elektrikBaglantisi: 'NA', elektrikBaglantiTipi: 'TEK KONTAK NA / (NO) NORMALDE AÇIK', govde: 'ÇELİK', maksSistemBasinc: '40 BAR', mekanikBaglanti: 'G1/4 REKOR BAĞLANTI' },
+              { model: 'DS3A3NC002', basincAraligi: '0,5-2', elektrikBaglantisi: 'NC', elektrikBaglantiTipi: '', govde: 'ÇELİK', maksSistemBasinc: '35 BAR', mekanikBaglanti: 'G1/4 REKOR BAĞLANTI' },
+              { model: 'DS3A3NC016', basincAraligi: '0,5-16', elektrikBaglantisi: 'NC', elektrikBaglantiTipi: '', govde: 'ÇELİK', maksSistemBasinc: '35 BAR', mekanikBaglanti: 'G1/4 REKOR BAĞLANTI' },
+              { model: 'DS3A3NA016', basincAraligi: '0,5-16', elektrikBaglantisi: 'NA', elektrikBaglantiTipi: 'TEK KONTAK NA / (NO) NORMALDE AÇIK', govde: 'ÇELİK', maksSistemBasinc: '35 BAR', mekanikBaglanti: 'G1/4 REKOR BAĞLANTI' },
+              { model: 'DS3A3NC008', basincAraligi: '0,5-8', elektrikBaglantisi: 'NC', elektrikBaglantiTipi: '', govde: 'ÇELİK', maksSistemBasinc: '35 BAR', mekanikBaglanti: 'G1/4 REKOR BAĞLANTI' },
+              { model: 'DS3A3NA008', basincAraligi: '0,5-8', elektrikBaglantisi: 'NA', elektrikBaglantiTipi: 'TEK KONTAK NA / (NO) NORMALDE AÇIK', govde: 'ÇELİK', maksSistemBasinc: '35 BAR', mekanikBaglanti: 'G1/4 REKOR BAĞLANTI' },
+              { model: 'DS3A3NC025', basincAraligi: '5-25', elektrikBaglantisi: 'NC', elektrikBaglantiTipi: '', govde: 'ÇELİK', maksSistemBasinc: '350 BAR', mekanikBaglanti: 'G1/4 REKOR BAĞLANTI' },
+              { model: 'DS3A3NA025', basincAraligi: '5-25', elektrikBaglantisi: 'NA', elektrikBaglantiTipi: 'TEK KONTAK NA / (NO) NORMALDE AÇIK', govde: 'ÇELİK', maksSistemBasinc: '350 BAR', mekanikBaglanti: 'G1/4 REKOR BAĞLANTI' },
+              { model: 'DS3A3NC060', basincAraligi: '5-60', elektrikBaglantisi: 'NC', elektrikBaglantiTipi: '', govde: 'ÇELİK', maksSistemBasinc: '350 BAR', mekanikBaglanti: 'G1/4 REKOR BAĞLANTI' },
+              { model: 'DS3A3NA060', basincAraligi: '5-60', elektrikBaglantisi: 'NA', elektrikBaglantiTipi: 'TEK KONTAK NA / (NO) NORMALDE AÇIK', govde: 'ÇELİK', maksSistemBasinc: '350 BAR', mekanikBaglanti: 'G1/4 REKOR BAĞLANTI' },
+              { model: 'DS3A3NA012', basincAraligi: '1-12', elektrikBaglantisi: 'NA', elektrikBaglantiTipi: 'TEK KONTAK NA / (NO) NORMALDE AÇIK', govde: 'ÇELİK', maksSistemBasinc: '40 BAR', mekanikBaglanti: 'G1/4 REKOR BAĞLANTI' },
+              { model: 'DS3A3NC120', basincAraligi: '20-120', elektrikBaglantisi: 'NC', elektrikBaglantiTipi: '', govde: 'ÇELİK', maksSistemBasinc: '350 BAR', mekanikBaglanti: 'G1/4 REKOR BAĞLANTI' },
+              { model: 'DS3A3NA120', basincAraligi: '20-120', elektrikBaglantisi: 'NA', elektrikBaglantiTipi: 'TEK KONTAK NA / (NO) NORMALDE AÇIK', govde: 'ÇELİK', maksSistemBasinc: '350 BAR', mekanikBaglanti: 'G1/4 REKOR BAĞLANTI' },
+              { model: 'DS3A3NC250', basincAraligi: '20-250', elektrikBaglantisi: 'NC', elektrikBaglantiTipi: '', govde: 'ÇELİK', maksSistemBasinc: '350 BAR', mekanikBaglanti: 'G1/4 REKOR BAĞLANTI' },
+              { model: 'DS3A3NA250', basincAraligi: '20-250', elektrikBaglantisi: 'NA', elektrikBaglantiTipi: 'TEK KONTAK NA / (NO) NORMALDE AÇIK', govde: 'ÇELİK', maksSistemBasinc: '350 BAR', mekanikBaglanti: 'G1/4 REKOR BAĞLANTI' },
+            ],
+          },
+        ],
+      },
+      'telemecanique': {
+        description,
+        categories: [
+          {
+            name: 'BASINÇ ŞALTERLERİ',
+            tableHeaders: ['MODEL', 'AĞIRLIK', 'ELEKTİRİK BAĞLANTISI', 'GENİŞLİK', 'MAKS. ÇALIŞMA HIZI', 'ÇALIŞMA SICAKLIĞI', 'AKIŞKAN TİPİ', 'BASINÇ DERECESİ', 'KABLO GİRİŞİ', 'ÖLÇEK TÜRÜ'],
+            products: [
+              { model: '30556', agirlik: '0,485KG', elektrikBaglantisi: 'VİDALI KLEMENSLER, KENETLEME', genislik: '40MM', maksCalismaHizi: '1,5 M/S', calismaSicakligi: '', akiskanTipi: '', basincDerecesi: '', kabloGirisi: '', olcekTuru: '' },
+              { model: 'XCMD2102L1', agirlik: '0,185KG', elektrikBaglantisi: 'ÇIKARILABİLİR KABLO KONEKTÖRÜ', genislik: '30MM', maksCalismaHizi: '', calismaSicakligi: '-25…70 °C', akiskanTipi: '', basincDerecesi: '', kabloGirisi: '', olcekTuru: '' },
+              { model: 'XMLA160D2S11', agirlik: '0,75KG', elektrikBaglantisi: 'VİDA KELEPÇELİ TERMİNALLER', genislik: '35MM', maksCalismaHizi: '60 DEVİR/ DAK', calismaSicakligi: '', akiskanTipi: 'ISO 228\'E UYGUN G 1/4 (DİŞİ)', basincDerecesi: '160 BAR', kabloGirisi: 'KABLO RAKORU 9…13 MM', olcekTuru: 'SABİT DİFRANSİYEL' },
+              { model: 'XMLA300D2S11', agirlik: '0,75KG', elektrikBaglantisi: 'VİDA KELEPÇELİ TERMİNALLER', genislik: '35MM', maksCalismaHizi: '60 DEVİR/ DAK', calismaSicakligi: '', akiskanTipi: 'ISO 228\'E UYGUN G 1/4 (DİŞİ)', basincDerecesi: '300 BAR', kabloGirisi: 'KABLO RAKORU 9…13 MM', olcekTuru: 'SABİT DİFRANSİYEL' },
+              { model: 'XMLA500D2S11', agirlik: '0,75 KG', elektrikBaglantisi: 'VİDA KELEPÇELİ TERMİNALLER', genislik: '35MM', maksCalismaHizi: '60 DEVİR/ DAK', calismaSicakligi: '', akiskanTipi: 'ISO 228\'E UYGUN G 1/4 (DİŞİ)', basincDerecesi: '500 BAR', kabloGirisi: 'KABLO RAKORU 9…13 MM', olcekTuru: 'SABİT DİFRANSİYEL' },
+              { model: 'XMLB160D2S11', agirlik: '0,75KG', elektrikBaglantisi: 'VİDA KELEPÇELİ TERMİNALLER', genislik: '35MM', maksCalismaHizi: '60 DEVİR/DAK', calismaSicakligi: '', akiskanTipi: 'ISO 228\'E UYGUN G 1/4 (DİŞİ)', basincDerecesi: '160 BAR', kabloGirisi: 'KABLO RAKORU 9…13 MM', olcekTuru: 'AYARLANABİLİR DİFRANSİYEL' },
+              { model: 'XMLB300D2S11', agirlik: '0,75KG', elektrikBaglantisi: 'VİDA KELEPÇELİ TERMİNALLER', genislik: '35MM', maksCalismaHizi: '60 DEVİR / DAK', calismaSicakligi: '', akiskanTipi: 'ISO 228\'E UYGUN G 1/4 (DİŞİ)', basincDerecesi: '300 BAR', kabloGirisi: 'KABLO RAKORU 9…13 MM', olcekTuru: 'AYARLANABİLİR DİFERANSİYEL' },
+            ],
+          },
+        ],
+      },
+    }
+
     return data[brandName] || null
   }
 
@@ -9901,6 +10397,152 @@ function ProductDetail() {
                 )
               })()}
             </>
+          ) : selectedBrand && productName === 'BASINÇ ŞALTERLERİ' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">
+                    {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}
+                  </p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Detay Sayfası İçeriği */}
+              {(() => {
+                const productData = getBasincSalterleriProductData(selectedBrand)
+                if (!productData) {
+                  return (
+                    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                      <div className="space-y-4 text-base leading-relaxed">
+                        <h1 className="text-2xl font-bold text-slate-900 mb-4">
+                          {productName} - {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}
+                        </h1>
+                        <p className="text-slate-700">
+                          {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)} markasına ait {productName} ürünleri hakkında detaylı bilgi için lütfen bizimle iletişime geçin.
+                        </p>
+                        <p className="text-slate-600 text-sm mt-4">
+                          Detaylı teknik özellikler, fiyat bilgisi ve teknik destek için satış ekibimizle görüşebilirsiniz.
+                        </p>
+                      </div>
+                    </div>
+                  )
+                }
+
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <div className="space-y-6">
+                      <div>
+                        <h1 className="text-2xl font-bold text-slate-900 mb-4">
+                          {productName} - {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}
+                        </h1>
+                        {productData.description && (
+                          <div className="space-y-4 text-base leading-relaxed text-slate-700">
+                            <p>{productData.description}</p>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Ürün Tabloları */}
+                      <div className="mt-4 space-y-8">
+                        {productData.categories.map((category, catIndex) => (
+                          <div
+                            key={catIndex}
+                            className={catIndex > 0 ? 'pt-8 border-t border-slate-200' : ''}
+                          >
+                            <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                            <div className="overflow-x-auto rounded-lg border border-slate-200">
+                              <table className="w-full text-sm">
+                                <thead className="bg-slate-50">
+                                  <tr>
+                                    {category.tableHeaders.map((header, index) => (
+                                      <th
+                                        key={index}
+                                        className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200"
+                                      >
+                                        {header}
+                                      </th>
+                                    ))}
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {category.products.map((product, index) => {
+                                    const getCellValue = (header) => {
+                                      if (header === 'MODEL') return product.model
+                                      if (header === 'BASINÇ ARALIĞI (BAR)') return product.basincAraligi || ''
+                                      if (header === 'DİŞ ÖLÇÜSÜ') return product.disOlcusu || ''
+                                      if (header === 'MAKS.BASINÇ') return product.maksBasinc || ''
+                                      if (header === 'KONNEKTÖR') return product.konnektor || ''
+                                      if (header === 'KONTAK') return product.kontak || ''
+                                      if (header === 'AÇIKLAMA') return product.aciklama || ''
+                                      if (header === 'BAĞLANTI BOYUTU') return product.baglantiBoyutu || ''
+                                      if (header === 'BAĞLANTI TÜRÜ') return product.baglantiTuru || ''
+                                      if (header === 'BAĞLANTI TİPİ') return product.baglantiTipi || ''
+                                      if (header === 'BASINÇ BAĞLANTI BOYUTU') return product.basincBaglantiBoyutu || ''
+                                      if (header === 'BASINÇ BAĞLANTI TİPİ') return product.basincBaglantiTipi || ''
+                                      if (header === 'ÇALIŞMA SICAKLIĞI') return product.calismaSicakligi || ''
+                                      if (header === 'ELEKTİRİK BAĞLANTISI') return product.elektrikBaglantisi || ''
+                                      if (header === 'ELEKTRİK BAĞLANTI TİPİ') return product.elektrikBaglantiTipi || ''
+                                      if (header === 'KORUMA DERECESİ' || header === 'KORUMA SINIFI') return product.koruma || ''
+                                      if (header === 'MAKS. SİSTEM BASINÇ') return product.maksSistemBasinc || ''
+                                      if (header === 'MAKS. ÇALIŞMA BASINCI') return product.maksCalismaBasinci || ''
+                                      if (header === 'DİFRANSİİYEL(BAR)') return product.difransiyel || ''
+                                      if (header === 'AĞIRLIK') return product.agirlik || ''
+                                      if (header === 'ÇALIŞTIRMA SINIFI') return product.calistirmaSinifi || ''
+                                      if (header === 'DURDURMA BASINCI') return product.durdurmaBasinci || ''
+                                      if (header === 'GENİŞLİK') return product.genislik || ''
+                                      if (header === 'MAKS. ÇALIŞMA HIZI') return product.maksCalismaHizi || ''
+                                      if (header === 'AKIŞKAN TİPİ') return product.akiskanTipi || ''
+                                      if (header === 'KABLO GİRİŞİ') return product.kabloGirisi || ''
+                                      if (header === 'ÖLÇEK TÜRÜ') return product.olcekTuru || ''
+                                      if (header === 'REGÜLASYON TİPİ') return product.regulasyonTipi || ''
+                                      if (header === 'RESET FONKSİYONU') return product.resetFonksiyonu || ''
+                                      if (header === 'AYAR ARALIĞI') return product.ayarAraligi || ''
+                                      if (header === 'MEKANİK BAĞLANTI') return product.mekanikBaglanti || ''
+                                      if (header === 'GÖVDE') return product.govde || ''
+                                      return ''
+                                    }
+
+                                    return (
+                                      <tr
+                                        key={index}
+                                        className="border-b border-slate-200 last:border-b-0 hover:bg-slate-50"
+                                      >
+                                        {category.tableHeaders.map((header, headerIndex) => (
+                                          <td key={headerIndex} className="px-4 py-3 text-slate-700">
+                                            {headerIndex === 0 ? (
+                                              <span className="font-medium text-slate-900">
+                                                {getCellValue(header)}
+                                              </span>
+                                            ) : (
+                                              getCellValue(header)
+                                            )}
+                                          </td>
+                                        ))}
+                                      </tr>
+                                    )
+                                  })}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        ))}
+                        <p className="mt-4 text-sm text-slate-600">
+                          <strong>Not:</strong> Bu tablolar, {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)} markasına ait {productName.toLowerCase()} serilerinin teknik özelliklerini içermektedir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
           ) : selectedEmniyetsizNormalCard && selectedBrand === 'hydropack' && productName === 'EMNİYETSİZ NORMAL' ? (
             <>
               {/* Ürün Başlığı */}
@@ -10156,6 +10798,275 @@ function ProductDetail() {
                   </div>
                 )
               })()}
+            </>
+          ) : selectedBrand && productName === 'MANOMETRE KORUMA VALFLERİ' && currentBrand === 'tognella' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Tognella</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* TOGNELLA Manometre Koruma Valfleri Tablosu */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead className="bg-slate-50">
+                        <tr>
+                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">DİŞ ÖLÇÜSÜ</th>
+                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÖZELLİK</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-200">
+                        {TOGNELLA_MANOMETRE_KORUMA_VALFLERI_ROWS.map((row) => (
+                          <tr key={row.model} className="hover:bg-slate-50">
+                            <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                            <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.disOlcusu}</td>
+                            <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.ozellik}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : selectedBrand && productName === 'TRANSMİTTERLER' && currentBrand === 'sick' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">SICK</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* SICK Basınç Transmitterleri Tablosu */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-xs">
+                      <thead className="bg-slate-50">
+                        <tr>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">KORUMA ALANI YÜKSEKLİĞİ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">TARAMA ARALIĞI</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">TEPKİ SÜRESİ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">UYGULAMA ALANI</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">ANAHTARLAMA ÇIKIŞI</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">ELEKTİRİK BAĞLANTISI</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">FREN TİPİ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">GÖVDE UZUNLUĞU</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MUHAFAZA DERECESİ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">SİLİNDİR YAPI</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">AŞIRI BASINÇ GÜVENLİĞİ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">BASINÇ TİPİ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">ÖLÇÜM ARALIĞI</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">PROSES SICAKLIĞI</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">AÇIKLAMA</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">AKSESUAR AİLESİ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">AKSESUAR GRUBU</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MALZEME</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">ÇIKIŞ SİNYALİ</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-200">
+                        {SICK_TRANSMITTERLER_ROWS.map((row, index) => (
+                          <tr key={row.model || index} className="hover:bg-slate-50">
+                            <td className="px-2 py-2 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.korumaAlaniYuksekligi || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.taramaAraligi || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.tepkiSuresi || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.uygulamaAlani || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.anahtarlamaCikisi || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.elektrikBaglantisi || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.frenTipi || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.govdeUzunlugu || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.muhafazaDerecesi || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.silindirYapi || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.asiriBasinçGuvenligi || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.basincTipi || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.olcumAraligi || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.prosesSicakligi || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.aciklama || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.aksesuarAilesi || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.aksesuarGrubu || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.malzeme || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.cikisSinyali || ''}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : selectedBrand && productName === 'TRANSMİTTERLER' && currentBrand === 'wika' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">WIKA</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* WIKA Basınç Transmitterleri Tablosu */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-xs">
+                      <thead className="bg-slate-50">
+                        <tr>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">BASINÇ ARALIĞI (BAR)</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">ÇIKIŞ SİNYALİ</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-200">
+                        {WIKA_TRANSMITTERLER_ROWS.map((row, index) => (
+                          <tr key={row.model || index} className="hover:bg-slate-50">
+                            <td className="px-2 py-2 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.basincAraligi}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.cikisSinyali}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : selectedBrand && productName === 'TRANSMİTTERLER' && currentBrand === 'trafag' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Trafag</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Trafag Basınç Transmitterleri Tablosu */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-xs">
+                      <thead className="bg-slate-50">
+                        <tr>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">ÇIKIŞ SİNYALİ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">KORUMA SINIFI</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MEKANİK BAĞLANTI</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">ORTAM</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">ÖLÇÜM ARALIĞI</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">ÖLÇÜM PRENSİBİ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">ARZ (VDC)</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">BASINÇ ARALIĞI (BAR)</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAX AŞIRI BASINÇ (BAR)</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">DOĞRULUK @ 25°C TYP. %</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-200">
+                        {TRAFAG_TRANSMITTERLER_ROWS.map((row, index) => (
+                          <tr key={row.model || index} className="hover:bg-slate-50">
+                            <td className="px-2 py-2 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.cikisSinyali || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.korumaSinifi || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.mekanikBaglanti || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.ortam || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.olcumAraligi || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.olcumPrensibi || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.arzVdc || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.basincAraligi || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.maxAsiriBasinç || ''}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.dogruluk || ''}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : selectedBrand && productName === 'MANOMETRE TEST RAKORLARI' && currentBrand === 'ferro' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Ferro</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* FERRO Manometre Test Rakorları Tabloları */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                {FERRO_MANOMETRE_TEST_RAKORLARI_CATEGORIES.map((category, catIndex) => (
+                  <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                    <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                    <div className="rounded-lg border border-slate-200 overflow-hidden">
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-sm">
+                          <thead className="bg-slate-50">
+                            <tr>
+                              <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                              <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇALIŞMA BASINCI</th>
+                              <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÖLÇÜLER-MM (A1-B-C-D)</th>
+                              <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÖLÇÜLER-MM (L-L1-L2-L3)</th>
+                              <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">VİDA ÖLÇÜSÜ</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-slate-200">
+                            {category.products.map((row) => (
+                              <tr key={row.model} className="hover:bg-slate-50">
+                                <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                                <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.calismaBasinci}</td>
+                                <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.olculerABCD}</td>
+                                <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.olculerLLLL}</td>
+                                <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.vidaOlcusu}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </>
           ) : selectedBrand && productName === 'FORKLİFT İÇİN XY SERİSİ' ? (
             <>
