@@ -911,6 +911,69 @@ const HYDROPACK_DILIMLI_KUMANDA_KOLU_CATEGORIES = [
   },
 ]
 
+// HYDROPACK - JOİSTİK VE YÜKLEYİCİ VALF
+const HYDROPACK_JOISTIK_VE_YUKLEYICI_VALF_CATEGORIES = [
+  {
+    name: 'JOİSTİK',
+    tableHeaders: [
+      'MODEL',
+      'BAĞLANTI KİTİ KODU METAL KOVANLI',
+      'BAĞLANTI KİTİ KODU PLASTİK KOVANLI',
+      'ÇALIŞMA ISI ARALIĞI',
+      'KABLO KODU',
+      'MAKS. STROK',
+      'TİPİ',
+    ],
+    products: [
+      {
+        model: 'J ID-3335',
+        baglantiMetalKovanli: 'FK-212123',
+        baglantiPlastikKovanli: 'FK-212082',
+        calismaIsiAraligi: '-30 - +80',
+        kabloKodu: 'IT-731133',
+        maksStrok: '28 MM',
+        tipi: 'EMNİYET KİLİTLİ',
+      },
+      {
+        model: 'J ID-3369',
+        baglantiMetalKovanli: 'FK-212123',
+        baglantiPlastikKovanli: 'FK-212082',
+        calismaIsiAraligi: '-30 - +80',
+        kabloKodu: 'IT-731133',
+        maksStrok: '28 MM',
+        tipi: 'KİLİTLİ, İKİ BUTONLU',
+      },
+      {
+        model: 'J ID-3389',
+        baglantiMetalKovanli: 'FK-212123',
+        baglantiPlastikKovanli: 'FK-212082',
+        calismaIsiAraligi: '-30 +80',
+        kabloKodu: 'IT-731133',
+        maksStrok: '28 MM',
+        tipi: 'KİLİTLİ, TEK DÜĞMELİ',
+      },
+      {
+        model: 'J ID-3390',
+        baglantiMetalKovanli: 'FK-212123',
+        baglantiPlastikKovanli: 'FK-212082',
+        calismaIsiAraligi: '-30 +80',
+        kabloKodu: 'IT-731133',
+        maksStrok: '28 MM',
+        tipi: 'KİLİTLİ, TEK DÜĞMELİ',
+      },
+      {
+        model: 'J IS-3047',
+        baglantiMetalKovanli: 'FK-212123',
+        baglantiPlastikKovanli: 'FK-212082',
+        calismaIsiAraligi: '-30 - +80',
+        kabloKodu: 'IT-731133',
+        maksStrok: '25 MM',
+        tipi: 'STANDART TEKLİ KOL',
+      },
+    ],
+  },
+]
+
 // AKON - DİLİMLİ KUMANDA KOLU
 const AKON_DILIMLI_KUMANDA_KOLU_CATEGORIES = [
   {
@@ -3585,6 +3648,197 @@ function ProductDetail() {
     return data[brandName] || null
   }
 
+  // MONOBLOK KUMANDA KOLU ürün verilerini al
+  const getMonoblokKumandaKoluProductData = (brandName) => {
+    const data = {
+      hydropack: {
+        categories: [
+          {
+            name: '1" MONOBLOK',
+            tableHeaders: ['MODEL', 'DEBİ (LT/DAK.)', 'DİŞ ÖLÇÜSÜ', 'MAKS.BASINÇ', 'MAKS.DÖNÜŞ'],
+            products: [
+              { model: 'BP120-A1-GKZ1', debi: '160', disOlcusu: '1"', maksBasinc: '320', maksDonus: '25' },
+              { model: 'B02P120-A1A1-GKZ1', debi: '160', disOlcusu: '1\'\'', maksBasinc: '320', maksDonus: '25' },
+              { model: 'B03P120-A1A1A1-GKZ1', debi: '160', disOlcusu: '1\'\'', maksBasinc: '320', maksDonus: '25' },
+              { model: 'B04P120-A1A1A1A1-GKZ1', debi: '160', disOlcusu: '1\'\'', maksBasinc: '320', maksDonus: '25' },
+            ],
+          },
+          {
+            name: '3/8 MONOBLOK',
+            tableHeaders: ['MODEL', 'DEBİ (LT/DAK.)', 'DİŞ ÖLÇÜSÜ', 'MAKS.BASINÇ', 'MAKS.DÖNÜŞ'],
+            products: [
+              { model: 'BP35-A1-GKZ1-3/8', debi: '35', disOlcusu: '3/8', maksBasinc: '320', maksDonus: '25' },
+              { model: '09M7635', debi: '40', disOlcusu: '3/8', maksBasinc: '320', maksDonus: '25' },
+              { model: 'BP40-A1-GKZ1', debi: '40', disOlcusu: '3/8', maksBasinc: '320', maksDonus: '25' },
+              { model: '42799', debi: '40', disOlcusu: '3/8', maksBasinc: '320', maksDonus: '25' },
+              { model: 'B03P40-1A1A1A1-GKZ1-3/8', debi: '40', disOlcusu: '3/8', maksBasinc: '320', maksDonus: '25' },
+              { model: 'B04P40-1A1A1A1A1-GKZ-3/8', debi: '40', disOlcusu: '3/8', maksBasinc: '320', maksDonus: '25' },
+              { model: '42802', debi: '40', disOlcusu: '3/8', maksBasinc: '320', maksDonus: '25' },
+              { model: 'B06P40-6*A1-GKZ1', debi: '40', disOlcusu: '3/8', maksBasinc: '320', maksDonus: '25' },
+              { model: '42777', debi: '40', disOlcusu: '3/8', maksBasinc: '320', maksDonus: '25' },
+            ],
+          },
+          {
+            name: '1/2 MONOBLOK',
+            tableHeaders: ['MODEL', 'DEBİ (LT/DAK.)', 'DİŞ ÖLÇÜSÜ', 'MAKS.BASINÇ', 'MAKS.DÖNÜŞ'],
+            products: [
+              { model: 'BP40-A1-GKZ1-1/2', debi: '40', disOlcusu: '1/2', maksBasinc: '320', maksDonus: '25' },
+              { model: 'BP40-A1-GKZ1-E-1/2', debi: '40', disOlcusu: '1/2', maksBasinc: '320', maksDonus: '25' },
+              { model: 'B02P40-A1A1-GKZ1-1/2', debi: '40', disOlcusu: '1/2', maksBasinc: '320', maksDonus: '25' },
+              { model: 'B2P80-1A1A1-GKZ1', debi: '35', disOlcusu: '1/2', maksBasinc: '320', maksDonus: '25' },
+              { model: 'B03P40-1A1A1A1-GKZ1-1/2', debi: '40', disOlcusu: '1/2', maksBasinc: '320', maksDonus: '25' },
+              { model: 'B3P80-1A1A1A1-GKZ1', debi: '35', disOlcusu: '1/2', maksBasinc: '320', maksDonus: '25' },
+              { model: 'B04P40-1A1A1A1A1-GKZ-1/2', debi: '40', disOlcusu: '1/2', maksBasinc: '320', maksDonus: '25' },
+              { model: 'B4P80-1A1A1A1A1-GKZ1', debi: '35', disOlcusu: '1/2', maksBasinc: '320', maksDonus: '25' },
+              { model: 'B05P40-A1A1A1A1A1-GKZ1', debi: '40', disOlcusu: '1/2', maksBasinc: '320', maksDonus: '25' },
+              { model: 'B5P80-1A1A1A1A1A1-GKZ1', debi: '35', disOlcusu: '1/2', maksBasinc: '320', maksDonus: '25' },
+              { model: 'B06P40-6*A1-GKZ1-1/2', debi: '40', disOlcusu: '1/2', maksBasinc: '320', maksDonus: '25' },
+              { model: 'B6P80-A1A1A1A1A1A1-GKZ1', debi: '35', disOlcusu: '1/2', maksBasinc: '320', maksDonus: '25' },
+              { model: 'B07P40-7*A1-GKZ1', debi: '40', disOlcusu: '1/2', maksBasinc: '320', maksDonus: '25' },
+            ],
+          },
+          {
+            name: '3/4 MONOBLOK',
+            tableHeaders: ['MODEL', 'DEBİ (LT/DAK.)', 'DİŞ ÖLÇÜSÜ', 'MAKS.BASINÇ', 'MAKS.DÖNÜŞ'],
+            products: [
+              { model: 'BP80-A1-GKZ1', debi: '80', disOlcusu: '1/2', maksBasinc: '320', maksDonus: '25' },
+            ],
+          },
+        ],
+      },
+      akon: {
+        categories: [
+          {
+            name: '3/8 MONOBLOK',
+            tableHeaders: ['MODEL', 'BAR', 'DEBİ (LT/DAK.)', 'DİŞ ÖLÇÜSÜ'],
+            products: [
+              { model: 'AMV501', bar: '350', debi: '45', disOlcusu: '3/8\'\'' },
+              { model: 'AMV502', bar: '350', debi: '45', disOlcusu: '3/8\'\'' },
+              { model: 'AMV503', bar: '350', debi: '45', disOlcusu: '1/2\'\'' },
+              { model: 'AMV504', bar: '350', debi: '45', disOlcusu: '3/8\'\'' },
+              { model: 'AMV505', bar: '350', debi: '45', disOlcusu: '3/8\'\'' },
+              { model: 'AMV506', bar: '350', debi: '45', disOlcusu: '1/2\'\'' },
+              { model: 'KVM05', bar: '250', debi: '35', disOlcusu: '3/8\'\'' },
+            ],
+          },
+          {
+            name: '1/2 MONOBLOK',
+            tableHeaders: ['MODEL', 'BAR', 'DEBİ (LT/DAK.)', 'DİŞ ÖLÇÜSÜ'],
+            products: [
+              { model: 'AMV701', bar: '350', debi: '70', disOlcusu: '1/2\'\'' },
+              { model: 'AMV702', bar: '350', debi: '70', disOlcusu: '1/2 \'\' ' },
+              { model: 'AMV703', bar: '350', debi: '70', disOlcusu: '1/2 \'\' ' },
+              { model: 'AMV704', bar: '350', debi: '70', disOlcusu: '1/2\'\'' },
+              { model: 'AMV705', bar: '350', debi: '70', disOlcusu: '1/2 \'\' ' },
+              { model: 'AMV706', bar: '350', debi: '70', disOlcusu: '1/2 \'\' ' },
+              { model: 'AMV707', bar: '350', debi: '70', disOlcusu: '1/2"' },
+            ],
+          },
+          {
+            name: '3/4 MONOBLOK',
+            tableHeaders: ['MODEL', 'BASINÇ (BAR)', 'DEBİ (LT/DAK.)', 'DİŞ ÖLÇÜSÜ'],
+            products: [
+              { model: 'KVM162', basinc: '350', debi: '90', disOlcusu: '3/4"' },
+              { model: 'KVM163', basinc: '350', debi: '90', disOlcusu: '3/4"' },
+            ],
+          },
+        ],
+      },
+      galtec: {
+        categories: [
+          {
+            name: '3/8 MONOBLOK',
+            tableHeaders: ['MODEL', 'DEBİ (LT/DAK.)', 'DİŞ ÖLÇÜSÜ', 'MAKS.BASINÇ', 'MAKS.DÖNÜŞ'],
+            products: [
+              { model: '42675', debi: '60', disOlcusu: '1/2"', maksBasinc: '350', maksDonus: '25' },
+              { model: '42677', debi: '60', disOlcusu: '1/2"', maksBasinc: '350', maksDonus: '25' },
+              { model: '42678', debi: '60', disOlcusu: '1/2"', maksBasinc: '320', maksDonus: '25' },
+              { model: '42679', debi: '60', disOlcusu: '1/2"', maksBasinc: '300', maksDonus: '25' },
+              { model: '42680', debi: '60', disOlcusu: '1/2"', maksBasinc: '300', maksDonus: '25' },
+              { model: '42681', debi: '60', disOlcusu: '1/2"', maksBasinc: '300', maksDonus: '25' },
+            ],
+          },
+        ],
+      },
+      walvoil: {
+        categories: [
+          {
+            name: '1" MONOBLOK',
+            tableHeaders: ['MODEL', 'DEBİ (LT/DAK.)', 'DİŞ ÖLÇÜSÜ', 'MAKS.BASINÇ', 'MAKS.DÖNÜŞ'],
+            products: [
+              { model: '42704', debi: '160', disOlcusu: '1\'\'', maksBasinc: '250', maksDonus: '25' },
+              { model: '42705', debi: '160', disOlcusu: '1\'\'', maksBasinc: '250', maksDonus: '25' },
+              { model: '42706', debi: '160', disOlcusu: '1\'\'', maksBasinc: '250', maksDonus: '25' },
+              { model: 'W106413001', debi: '160', disOlcusu: '1\'\'', maksBasinc: '250', maksDonus: '25' },
+            ],
+          },
+          {
+            name: '3/8 MONOBLOK',
+            tableHeaders: ['MODEL', 'DEBİ (LT/DAK.)', 'DİŞ ÖLÇÜSÜ', 'MAKS.BASINÇ', 'MAKS.DÖNÜŞ'],
+            products: [
+              { model: '42754', debi: '45', disOlcusu: '3/8\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: '42755', debi: '25', disOlcusu: '3/8\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: '42756', debi: '25', disOlcusu: '3/8\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: 'W102133001', debi: '50', disOlcusu: '1/2\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: '42569', debi: '50', disOlcusu: '1/2\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: 'WCDH202201099', debi: '50', disOlcusu: '1/2\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: 'WCDH202300883', debi: '50', disOlcusu: '1/2\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: 'WVCDH202400676', debi: '50', disOlcusu: '1/2\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: 'W102513008', debi: '50', disOlcusu: '1/2\'\'', maksBasinc: '315', maksDonus: '25' },
+            ],
+          },
+          {
+            name: '1/2 MONOBLOK',
+            tableHeaders: ['MODEL', 'DEBİ (LT/DAK.)', 'DİŞ ÖLÇÜSÜ', 'MAKS.BASINÇ', 'MAKS.DÖNÜŞ'],
+            products: [
+              { model: 'W104161020', debi: '70', disOlcusu: '1/2\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: 'W104111001', debi: '70', disOlcusu: '1/2\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: 'W104211001', debi: '70', disOlcusu: '1/2\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: '42695', debi: '70', disOlcusu: '1/2"', maksBasinc: '315', maksDonus: '25' },
+              { model: 'W104311001', debi: '70', disOlcusu: '1/2\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: '42696', debi: '75', disOlcusu: '1/2"', maksBasinc: '315', maksDonus: '25' },
+              { model: 'W104411001', debi: '70', disOlcusu: '1/2\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: 'W104511001', debi: '70', disOlcusu: '1/2\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: 'W104611001', debi: '70', disOlcusu: '1/2\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: '42751', debi: '45', disOlcusu: '3/8\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: '42752', debi: '45', disOlcusu: '3/8\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: '42757', debi: '45', disOlcusu: '3/8\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: '42758', debi: '45', disOlcusu: '3/8\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: 'WSDH202400069', debi: '45', disOlcusu: '3/8\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: 'W102511001', debi: '45', disOlcusu: '3/8\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: 'W102611001', debi: '45', disOlcusu: '3/8\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: '42694', debi: '50', disOlcusu: '1/2\'\'', maksBasinc: '315', maksDonus: '25' },
+            ],
+          },
+          {
+            name: '3/4 MONOBLOK',
+            tableHeaders: ['MODEL', 'DEBİ (LT/DAK.)', 'DİŞ ÖLÇÜSÜ', 'MAKS.BASINÇ', 'MAKS.DÖNÜŞ'],
+            products: [
+              { model: '42744', debi: '120', disOlcusu: '3/4\'\'', maksBasinc: '250', maksDonus: '25' },
+              { model: 'WSDH201100169', debi: '45', disOlcusu: '3/8\'\'', maksBasinc: '250', maksDonus: '25' },
+              { model: 'W10A200034', debi: '80', disOlcusu: '3/4\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: 'W10A300021', debi: '80', disOlcusu: '3/4\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: 'W10A400071', debi: '80', disOlcusu: '3/4\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: 'W10A500041', debi: '80', disOlcusu: '3/4\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: 'W10A600022', debi: '80', disOlcusu: '3/4\'\'', maksBasinc: '315', maksDonus: '25' },
+              { model: 'WAP1XSC10073', debi: '80', disOlcusu: '3/4\'\'', maksBasinc: '315', maksDonus: '25' },
+            ],
+          },
+          {
+            name: '1\"1/4 MONOBLOK',
+            tableHeaders: ['MODEL', 'BASINÇ (BAR)', 'DEBİ (LT/DAK.)', 'DİŞ ÖLÇÜSÜ', 'MAKS.DÖNÜŞ'],
+            products: [
+              { model: 'W117500021', basinc: '315', debi: '240', disOlcusu: '1 1/4"', maksDonus: '25' },
+              { model: '42566', basinc: '315', debi: '240', disOlcusu: '1 1/4"', maksDonus: '25' },
+            ],
+          },
+        ],
+      },
+    }
+
+    return data[brandName] || null
+  }
+
   // İÇTEN DİŞLİ POMPALAR ürün verilerini al
   const getIctenDisliPompalarProductData = (brandName) => {
     const data = {
@@ -4087,6 +4341,85 @@ function ProductDetail() {
         ]
       }
     }
+    return data[brandName] || null
+  }
+
+  // ELEKTRİK KONTROLLÜ KUMANDA KOLLARI ürün verilerini al
+  const getElektrikKontrolluKumandaKollariProductData = (brandName) => {
+    const description = 'Hydropack elektrik kontrollü kumanda kolları, farklı debi ve sürgü sayısı seçenekleriyle elektrohidrolik ve on-off kontrol ihtiyaçlarına uygun çözümler sunar.'
+    
+    const data = {
+      hydropack: {
+        description,
+        categories: [
+          {
+            name: '40 LT/DK ELEKTROHİDROLİK KUMANDA KOLLARI',
+            tableHeaders: ['MODEL', 'MAKS.BASINÇ P PORTU BAR', 'NOMİNAL DEBİ (LT/DK)', 'SÜRGÜ SAYISI', 'VOLTAJ'],
+            products: [
+              { model: 'EHO1R40/11-12', maksBasincPPortu: '315', nominalDebi: '40', surguSayisi: '1', voltaj: '12' },
+              { model: 'EHO2R40/21-12', maksBasincPPortu: '315', nominalDebi: '40', surguSayisi: '2', voltaj: '12' },
+              { model: 'EHO3R40/31-12', maksBasincPPortu: '315', nominalDebi: '40', surguSayisi: '3', voltaj: '12' },
+              { model: 'EHO4R40/41-12', maksBasincPPortu: '315', nominalDebi: '40', surguSayisi: '4', voltaj: '12' },
+              { model: 'EHO5R40/11-24', maksBasincPPortu: '315', nominalDebi: '40', surguSayisi: '5', voltaj: '24' },
+              { model: 'EHO6RZ50/61-12', maksBasincPPortu: '315', nominalDebi: '40', surguSayisi: '6', voltaj: '12' },
+              { model: 'EHO7R40/11-12', maksBasincPPortu: '315', nominalDebi: '40', surguSayisi: '7', voltaj: '12' },
+            ],
+          },
+          {
+            name: '80 LT/DK ELEKTROHİDROLİK KUMANDA KOLLARI',
+            tableHeaders: ['MODEL', 'MAKS.BASINÇ P PORTU BAR', 'NOMİNAL DEBİ (LT/DK)', 'SÜRGÜ SAYISI', 'VOLTAJ'],
+            products: [
+              { model: 'EHO1R80/11-12', maksBasincPPortu: '250', nominalDebi: '80', surguSayisi: '1', voltaj: '12' },
+              { model: 'EHO2R80/21-24', maksBasincPPortu: '250', nominalDebi: '80', surguSayisi: '2', voltaj: '24' },
+              { model: 'EHO3R80/31-24', maksBasincPPortu: '250', nominalDebi: '80', surguSayisi: '3', voltaj: '24' },
+              { model: 'EHO4R80/41-24', maksBasincPPortu: '250', nominalDebi: '80', surguSayisi: '4', voltaj: '24' },
+              { model: 'EH04RS70/41-12', maksBasincPPortu: '250', nominalDebi: '80', surguSayisi: '4', voltaj: '12' },
+              { model: 'EHO5R80/51-24', maksBasincPPortu: '250', nominalDebi: '80', surguSayisi: '5', voltaj: '24' },
+              { model: '42184', maksBasincPPortu: '250', nominalDebi: '80', surguSayisi: '6', voltaj: '12/24' },
+            ],
+          },
+          {
+            name: '120 LT/DK ELEKTROHİDROLİK KUMANDA KOLLARI',
+            tableHeaders: ['MODEL', 'MAKS.BASINÇ P PORTU BAR', 'NOMİNAL DEBİ (LT/DK)', 'SÜRGÜ SAYISI'],
+            products: [
+              { model: 'EHO1RS100/11-24', maksBasincPPortu: '250', nominalDebi: '100', surguSayisi: '1' },
+              { model: 'EHO2RS100/21-24', maksBasincPPortu: '250', nominalDebi: '100', surguSayisi: '2' },
+              { model: 'EHO6RS100/61-24', maksBasincPPortu: '250', nominalDebi: '100', surguSayisi: '6' },
+            ],
+          },
+          {
+            name: '50 LT/DK ON-OFF ELEKTROHİDROLİK KUMANDA KOLLARI',
+            tableHeaders: ['MODEL', 'MAKS.BASINÇ', 'NOMİNAL DEBİ (LT/DK)', 'SÜRGÜ SAYISI', 'VOLTAJ'],
+            products: [
+              { model: 'B-Z50-A-ES3-12VDC-G', maksBasinc: '315', nominalDebi: '50', surguSayisi: '1', voltaj: '12' },
+              { model: '42172', maksBasinc: '315', nominalDebi: '50', surguSayisi: '1', voltaj: '12' },
+              { model: 'B-02Z50-AA-ES3-24VDC-G', maksBasinc: '315', nominalDebi: '50', surguSayisi: '1', voltaj: '12' },
+              { model: '42173', maksBasinc: '315', nominalDebi: '50', surguSayisi: '2', voltaj: '12' },
+              { model: 'B-03Z50-AAA-ES3-24VDC-G', maksBasinc: '315', nominalDebi: '50', surguSayisi: '3', voltaj: '24' },
+              { model: 'B-03Z50-A1A1A1-GKZ1', maksBasinc: '315', nominalDebi: '50', surguSayisi: '3', voltaj: '12' },
+              { model: 'B-04Z50-DDAA-ES3-24VDC-G', maksBasinc: '315', nominalDebi: '50', surguSayisi: '4', voltaj: '12' },
+              { model: 'B-04Z50-AAAA-ES3-12VDC-G', maksBasinc: '315', nominalDebi: '50', surguSayisi: '4', voltaj: '12' },
+              { model: 'B-05Z50-5*A1-GKZ1', maksBasinc: '315', nominalDebi: '50', surguSayisi: '5', voltaj: '12/24V' },
+              { model: 'B-06Z50-6*A1-GKZ1-1/2', maksBasinc: '315', nominalDebi: '50', surguSayisi: '6', voltaj: '12/24V' },
+              { model: '7Z50E', maksBasinc: '315', nominalDebi: '50', surguSayisi: '7', voltaj: '12/24V' },
+            ],
+          },
+          {
+            name: '80 LT/DK ON-OFF ELEKTROHİDROLİK KUMANDA KOLLARI',
+            tableHeaders: ['MODEL', 'MAKS.BASINÇ', 'NOMİNAL DEBİ (LT/DK)', 'SÜRGÜ SAYISI', 'VOLTAJ'],
+            products: [
+              { model: 'B-Z80-A-ES3-12VDC-G', maksBasinc: '250', nominalDebi: '80', surguSayisi: '1', voltaj: '12' },
+              { model: 'B-02Z80-AA-ES3-24VDC-G', maksBasinc: '250', nominalDebi: '80', surguSayisi: '2', voltaj: '24' },
+              { model: 'B-03Z80-AAA-ES3-12VDC-G', maksBasinc: '250', nominalDebi: '80', surguSayisi: '3', voltaj: '12' },
+              { model: 'B-04Z80-AAAA-ES3-12VDCG', maksBasinc: '250', nominalDebi: '80', surguSayisi: '4', voltaj: '12' },
+              { model: 'B-05Z80-AAAAA-ES3-12VDCG', maksBasinc: '250', nominalDebi: '80', surguSayisi: '5', voltaj: '12' },
+              { model: 'B-06Z80-AAAAAA-ES3-12VDCG', maksBasinc: '250', nominalDebi: '80', surguSayisi: '6', voltaj: '12' },
+            ],
+          },
+        ],
+      },
+    }
+
     return data[brandName] || null
   }
 
@@ -10254,12 +10587,12 @@ function ProductDetail() {
                     </div>
                   </>
                 ) : (
-                  <div className="space-y-4 text-base leading-relaxed">
-                    <h3 className="text-xl font-bold text-slate-900 mb-4">{selectedDokumGovdeDisliAkisBoluculerCard}</h3>
-                    <p className="text-slate-600">
-                      Bu ürün grubu için detaylı bilgiler yakında eklenecektir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.
-                    </p>
-                  </div>
+                <div className="space-y-4 text-base leading-relaxed">
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">{selectedDokumGovdeDisliAkisBoluculerCard}</h3>
+                  <p className="text-slate-600">
+                    Bu ürün grubu için detaylı bilgiler yakında eklenecektir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.
+                  </p>
+                </div>
                 )}
               </div>
             </>
@@ -12763,7 +13096,314 @@ function ProductDetail() {
                                       if (header === 'DEBİ') return product.debi || ''
 
                                       if (header === 'BASINÇ') return product.basinc || ''
+                                      return ''
+                                    }
 
+                                    return (
+                                      <tr
+                                        key={index}
+                                        className="border-b border-slate-200 last:border-b-0 hover:bg-slate-50"
+                                      >
+                                        {category.tableHeaders.map((header, headerIndex) => (
+                                          <td key={headerIndex} className="px-4 py-3 text-slate-700">
+                                            {headerIndex === 0 ? (
+                                              <span className="font-medium text-slate-900">
+                                                {getCellValue(header)}
+                                              </span>
+                                            ) : (
+                                              getCellValue(header)
+                                            )}
+                                          </td>
+                                        ))}
+                                      </tr>
+                                    )
+                                  })}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedBrand && productName === 'ELEKTRİK KONTROLLÜ KUMANDA KOLLARI' && selectedBrand === 'hydropack' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Hydropack</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Detay Sayfası İçeriği */}
+              {(() => {
+                const productData = getElektrikKontrolluKumandaKollariProductData(selectedBrand)
+                if (!productData) {
+                  return (
+                    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                      <div className="space-y-4 text-base leading-relaxed">
+                        <h1 className="text-2xl font-bold text-slate-900 mb-4">
+                          {productName} - {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}
+                        </h1>
+                        <p className="text-slate-700">
+                          {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)} markasına ait {productName}{' '}
+                          ürünleri hakkında detaylı bilgi için lütfen bizimle iletişime geçin.
+                        </p>
+                        <p className="text-slate-600 text-sm mt-4">
+                          Detaylı teknik özellikler, fiyat bilgisi ve teknik destek için satış ekibimizle görüşebilirsiniz.
+                        </p>
+                      </div>
+                    </div>
+                  )
+                }
+
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <div className="space-y-6">
+                      <div>
+                        <h1 className="text-2xl font-bold text-slate-900 mb-4">
+                          {productName} - {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}
+                        </h1>
+                        {productData.description && (
+                          <div className="space-y-4 text-base leading-relaxed text-slate-700">
+                            <p>{productData.description}</p>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Kategorilere Göre Tablolar */}
+                      <div className="mt-8 space-y-8">
+                        {productData.categories.map((category, catIndex) => (
+                          <div
+                            key={category.name}
+                            className={catIndex > 0 ? 'pt-8 border-t border-slate-200' : ''}
+                          >
+                            <h2 className="text-xl font-bold text-slate-900 mb-4">{category.name}</h2>
+                            <div className="overflow-x-auto rounded-lg border border-slate-200">
+                              <table className="w-full text-sm">
+                                <thead className="bg-slate-50">
+                                  <tr>
+                                    {category.tableHeaders.map((header, index) => (
+                                      <th
+                                        key={index}
+                                        className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200"
+                                      >
+                                        {header}
+                                      </th>
+                                    ))}
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {category.products.map((product, index) => {
+                                    const getCellValue = (header) => {
+                                      if (header === 'MODEL') return product.model
+                                      if (header === 'MAKS.BASINÇ P PORTU BAR') return product.maksBasincPPortu || ''
+                                      if (header === 'MAKS.BASINÇ') return product.maksBasinc || ''
+                                      if (header === 'NOMİNAL DEBİ (LT/DK)') return product.nominalDebi || ''
+                                      if (header === 'SÜRGÜ SAYISI') return product.surguSayisi || ''
+                                      if (header === 'VOLTAJ') return product.voltaj || ''
+                                      return ''
+                                    }
+
+                                    return (
+                                      <tr
+                                        key={index}
+                                        className="border-b border-slate-200 last:border-b-0 hover:bg-slate-50"
+                                      >
+                                        {category.tableHeaders.map((header, headerIndex) => (
+                                          <td key={headerIndex} className="px-4 py-3 text-slate-700">
+                                            {headerIndex === 0 ? (
+                                              <span className="font-medium text-slate-900">
+                                                {getCellValue(header)}
+                                              </span>
+                                            ) : (
+                                              getCellValue(header)
+                                            )}
+                                          </td>
+                                        ))}
+                                      </tr>
+                                    )
+                                  })}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedBrand && productName === 'JOİSTİK VE YÜKLEYİCİ VALF' && currentBrand === 'hydropack' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Hydropack</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* HYDROPACK Joistik ve Yükleyici Valf Tablosu */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                {HYDROPACK_JOISTIK_VE_YUKLEYICI_VALF_CATEGORIES.map((category, catIndex) => (
+                  <div
+                    key={category.name}
+                    className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}
+                  >
+                    <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                    <div className="rounded-lg border border-slate-200 overflow-hidden">
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-xs">
+                          <thead className="bg-slate-50">
+                            <tr>
+                              {category.tableHeaders.map((header, index) => (
+                                <th
+                                  key={index}
+                                  className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap"
+                                >
+                                  {header}
+                                </th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-slate-200">
+                            {category.products.map((row, index) => (
+                              <tr key={row.model || index} className="hover:bg-slate-50">
+                                <td className="px-2 py-2 font-medium text-slate-900 whitespace-nowrap">
+                                  {row.model}
+                                </td>
+                                <td className="px-2 py-2 text-slate-700 whitespace-nowrap">
+                                  {row.baglantiMetalKovanli}
+                                </td>
+                                <td className="px-2 py-2 text-slate-700 whitespace-nowrap">
+                                  {row.baglantiPlastikKovanli}
+                                </td>
+                                <td className="px-2 py-2 text-slate-700 whitespace-nowrap">
+                                  {row.calismaIsiAraligi}
+                                </td>
+                                <td className="px-2 py-2 text-slate-700 whitespace-nowrap">
+                                  {row.kabloKodu}
+                                </td>
+                                <td className="px-2 py-2 text-slate-700 whitespace-nowrap">
+                                  {row.maksStrok}
+                                </td>
+                                <td className="px-2 py-2 text-slate-700 whitespace-nowrap">
+                                  {row.tipi}
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : selectedBrand && productName === 'MONOBLOK KUMANDA KOLU' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">
+                    {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}
+                  </p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Detay Sayfası İçeriği */}
+              {(() => {
+                const productData = getMonoblokKumandaKoluProductData(selectedBrand)
+                if (!productData) {
+                  return (
+                    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                      <div className="space-y-4 text-base leading-relaxed">
+                        <h1 className="text-2xl font-bold text-slate-900 mb-4">
+                          {productName} - {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}
+                        </h1>
+                        <p className="text-slate-700">
+                          {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)} markasına ait {productName}{' '}
+                          ürünleri hakkında detaylı bilgi için lütfen bizimle iletişime geçin.
+                        </p>
+                        <p className="text-slate-600 text-sm mt-4">
+                          Detaylı teknik özellikler, fiyat bilgisi ve teknik destek için satış ekibimizle görüşebilirsiniz.
+                        </p>
+                      </div>
+                    </div>
+                  )
+                }
+
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <div className="space-y-6">
+                      <div>
+                        <h1 className="text-2xl font-bold text-slate-900 mb-4">
+                          {productName} - {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}
+                        </h1>
+                        {productData.description && (
+                          <div className="space-y-4 text-base leading-relaxed text-slate-700">
+                            <p>{productData.description}</p>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Seri Tabloları */}
+                      <div className="mt-8 space-y-8">
+                        {productData.categories.map((category, catIndex) => (
+                          <div
+                            key={category.name}
+                            className={catIndex > 0 ? 'pt-8 border-t border-slate-200' : ''}
+                          >
+                            <h2 className="text-xl font-bold text-slate-900 mb-4">{category.name}</h2>
+                            <div className="overflow-x-auto rounded-lg border border-slate-200">
+                              <table className="w-full text-sm">
+                                <thead className="bg-slate-50">
+                                  <tr>
+                                    {category.tableHeaders.map((header, index) => (
+                                      <th
+                                        key={index}
+                                        className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200"
+                                      >
+                                        {header}
+                                      </th>
+                                    ))}
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {category.products.map((product, index) => {
+                                    const getCellValue = (header) => {
+                                      if (header === 'MODEL') return product.model
+                                      if (header === 'DEBİ (LT/DAK.)') return product.debi || ''
+                                      if (header === 'DİŞ ÖLÇÜSÜ') return product.disOlcusu || ''
+                                      if (header === 'MAKS.BASINÇ') return product.maksBasinc || ''
+                                      if (header === 'MAKS.DÖNÜŞ') return product.maksDonus || ''
+                                      if (header === 'BAR') return product.bar || ''
+                                      if (header === 'BASINÇ (BAR)') return product.basinc || ''
                                       return ''
                                     }
 
