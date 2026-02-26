@@ -1236,6 +1236,7 @@ function ProductDetail() {
   const [selectedDokumGovdeDisliAkisBoluculerCard, setSelectedDokumGovdeDisliAkisBoluculerCard] = useState(null) // Seçilen DÖKÜM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER kartı
   const [selectedEmniyetsizNormalCard, setSelectedEmniyetsizNormalCard] = useState(null) // Seçilen EMNİYETSİZ NORMAL kartı
   const [selectedEmniyetsizAntisokluCard, setSelectedEmniyetsizAntisokluCard] = useState(null) // Seçilen EMNİYETSİZ ANTİŞOKLU kartı
+  const [showTermostatDetail, setShowTermostatDetail] = useState(false) // ISI (SICAKLIK) ÖLÇER - TERMOSTATLAR detay görünümü
   
   // URL parametrelerinden veya query parameter'dan veya state'ten marka bilgisini al
   const brandFromQuery = searchParams.get('brand')
@@ -1377,7 +1378,17 @@ function ProductDetail() {
     if (productName !== 'EMNİYETSİZ ANTİŞOKLU') {
       setSelectedEmniyetsizAntisokluCard(null)
     }
+    if (productName !== 'ISI (SICAKLIK) ÖLÇER') {
+      setShowTermostatDetail(false)
+    }
   }, [productName])
+
+  // selectedBrand değiştiğinde ISI (SICAKLIK) ÖLÇER için TERMOSTATLAR kartını göster (detay değil)
+  useEffect(() => {
+    if (productName === 'ISI (SICAKLIK) ÖLÇER' && selectedBrand) {
+      setShowTermostatDetail(false)
+    }
+  }, [selectedBrand, productName])
 
   // Aktif kategoriye göre ürünleri bul
   const currentItems = useMemo(() => {
@@ -1706,6 +1717,19 @@ function ProductDetail() {
         setSelectedBrand(brandName)
         setSelectedProduct(null)
       }
+    } else if (productName === 'ISI (SICAKLIK) ÖLÇER') {
+      // ISI (SICAKLIK) ÖLÇER için marka bazlı detay sayfasına navigate et (TERMOSTATLAR kartı gösterilecek)
+      if (category && subcategory) {
+        navigate(`/urunler/${category}/${subcategory}/${brandName}`)
+      } else {
+        const productSlug = encodeURIComponent(productName.toLowerCase().replace(/\s+/g, '-'))
+        navigate(`/urun-detay/${productSlug}?brand=${brandName}`, {
+          state: { productName, productImage, productLogo, brand: brandName }
+        })
+      }
+      setSelectedBrand(brandName)
+      setSelectedProduct(null)
+      setShowTermostatDetail(false) // Kart gösterilecek, detay değil
     } else {
       // Diğer ürünler için marka bazlı detay sayfasına navigate et
       if (category && subcategory) {
@@ -2924,7 +2948,7 @@ function ProductDetail() {
           { kod: 'OHP-602', calismaBasinci: '310', calismaSicakligi: '-30 C / +110 C', disNormlari: 'BSP', disOlculeri: '25CC\'DEN 45CC', malzeme: '666 4', sizdirmazlik: 'NITRILE NBR' },
         ]
       }
-  }
+    }
   return data[brandName] || null
   }
 
@@ -11687,6 +11711,212 @@ function ProductDetail() {
                   </div>
                 )
               })()}
+            </>
+          ) : selectedBrand && productName === 'ISI (SICAKLIK) ÖLÇER' && showTermostatDetail && selectedBrand === 'fox' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-slate-900 mb-1">TERMOSTATLAR</h1>
+                  <p className="text-lg font-semibold text-slate-700 mb-1">FOX</p>
+                  <h2 className="text-xl font-semibold text-slate-900">TERMOSTATLAR</h2>
+                </div>
+                <button
+                  onClick={() => setShowTermostatDetail(false)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* FOX TERMOSTATLAR Tablosu */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 mt-6">
+                <h3 className="text-lg font-bold text-slate-900 mb-4">1/2 DİŞ ÖLÇÜLÜ</h3>
+                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead className="bg-slate-50">
+                        <tr>
+                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">DİŞ ÖLÇÜSÜ</th>
+                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">SICAKLIK</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-200">
+                        {[
+                          { model: 'FOXTM46A1', basinc: '200', disOlcusu: "1/2 BSP", sicaklik: '60 °C' },
+                          { model: 'FOXTM64A1', basinc: '200', disOlcusu: "1/2 BSP", sicaklik: '40 °C' },
+                          { model: 'FOXTM65A1', basinc: '200', disOlcusu: "1/2 BSP", sicaklik: '50 °C' },
+                          { model: 'FOXTM66A1', basinc: '200', disOlcusu: "1/2 BSP", sicaklik: '60 °C' },
+                        ].map((row) => (
+                          <tr key={row.model} className="hover:bg-slate-50">
+                            <td className="px-4 py-3 font-medium text-slate-900">{row.model}</td>
+                            <td className="px-4 py-3 text-slate-700">{row.basinc}</td>
+                            <td className="px-4 py-3 text-slate-700">{row.disOlcusu}</td>
+                            <td className="px-4 py-3 text-slate-700">{row.sicaklik}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : selectedBrand && productName === 'ISI (SICAKLIK) ÖLÇER' && showTermostatDetail && selectedBrand === 'pnomek' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-slate-900 mb-1">TERMOSTATLAR</h1>
+                  <p className="text-lg font-semibold text-slate-700 mb-1">PNOMEK</p>
+                  <h2 className="text-xl font-semibold text-slate-900">TERMOSTATLAR</h2>
+                </div>
+                <button
+                  onClick={() => setShowTermostatDetail(false)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 mt-6 space-y-8">
+                {/* 1/2 DİŞ ÖLÇÜLÜ */}
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-4">1/2 DİŞ ÖLÇÜLÜ</h3>
+                  <div className="rounded-lg border border-slate-200 overflow-hidden">
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ALT KONTAK DEĞERİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÜST KONTAK DEĞERİ</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'TC1A540', alt: '25 ±5°C', ust: '40 ±3°C' },
+                            { model: 'TC1A550', alt: '35 ±5°C', ust: '50 ±3°C' },
+                            { model: 'TC1A560', alt: '45 ±5°C', ust: '60 ±3°C' },
+                            { model: 'TC1A570', alt: '55 ±5°C', ust: '70 ±3°C' },
+                            { model: 'TC2A535', alt: '20 ±5°C', ust: '35 ±3°C' },
+                            { model: 'TC2A540', alt: '25 ±5°C', ust: '40 ±3°C' },
+                            { model: 'TC2A550', alt: '35 ±5°C', ust: '50 ±3°C' },
+                            { model: 'TC2A560', alt: '45 ±5°C', ust: '60 ±3°C' },
+                            { model: 'TC2A590', alt: '75 ±5°C', ust: '90 ±3°C' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700">{row.alt}</td>
+                              <td className="px-4 py-3 text-slate-700">{row.ust}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                {/* M22 DİŞ ÖLÇÜLÜ */}
+                <div className="pt-4 border-t border-slate-200">
+                  <h3 className="text-lg font-bold text-slate-900 mb-4">M22 DİŞ ÖLÇÜLÜ</h3>
+                  <div className="rounded-lg border border-slate-200 overflow-hidden">
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ALT KONTAK DEĞERİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÜST KONTAK DEĞERİ</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'TC1B135', alt: '20 ±5°C', ust: '35 ±3°C' },
+                            { model: 'TC1B140', alt: '25 ±5°C', ust: '40 ±3°C' },
+                            { model: 'TC1B150', alt: '35 ±5°C', ust: '50 ±3°C' },
+                            { model: 'TC1B160', alt: '45 ±5°C', ust: '60 ±3°C' },
+                            { model: 'TC1B170', alt: '55 ±5°C', ust: '70 ±3°C' },
+                            { model: 'TC1B180', alt: '65 ±5°C', ust: '80 ±3°C' },
+                            { model: 'TC1B190', alt: '75 ±5°C', ust: '90 ±3°C' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700">{row.alt}</td>
+                              <td className="px-4 py-3 text-slate-700">{row.ust}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : selectedBrand && productName === 'ISI (SICAKLIK) ÖLÇER' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">
+                    {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}
+                  </p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* TERMOSTATLAR Kartı */}
+              <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <div
+                  className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-2xl hover:shadow-[#ff7f00]/10 cursor-pointer"
+                  onClick={() => setShowTermostatDetail(true)}
+                >
+                  {/* Image Container */}
+                  <div className="relative h-64 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50">
+                    <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                    <img
+                      src="/termostatlar.png"
+                      alt="TERMOSTATLAR"
+                      className="h-full w-full object-contain p-6 transition-all duration-500 group-hover:scale-110"
+                      onError={(e) => {
+                        e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent('TERMOSTATLAR')}`
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#ff7f00]/0 via-transparent to-[#1e4294]/0 transition-all duration-500 group-hover:from-[#ff7f00]/5 group-hover:to-[#1e4294]/5" />
+                  </div>
+
+                  {/* Content Section */}
+                  <div className="flex flex-1 flex-col p-6 pt-5">
+                    <h3 className="mb-4 line-clamp-2 min-h-[3.5rem] text-lg font-bold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                      TERMOSTATLAR
+                    </h3>
+                    <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                        Grup Detayı
+                      </span>
+                      <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                        <span className="text-xs font-semibold">İncele</span>
+                        <svg 
+                          className="h-4 w-4" 
+                          fill="none" 
+                          viewBox="0 0 24 24" 
+                          stroke="currentColor"
+                          strokeWidth={2.5}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </>
           ) : selectedBrand && productName === 'BASINÇ ŞALTERLERİ' ? (
             <>
