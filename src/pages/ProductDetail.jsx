@@ -450,6 +450,64 @@ const HEMA_20_GRUP_AKIS_BOLUCULER_ROWS = [
   { model: '1FD400107M', cikis: 'G 1/2"', iletimHacmi: '12,6 CM³', maksBasinç: '250', maksDevir: '3500', portlar: 'G 3/4"' },
 ]
 
+// FOX - MEMBRANLI AKÜLER
+const FOX_MEMBRANLI_AKULER_SECTIONS = [
+  {
+    title: '250 BAR MEMBRANLI AKÜLER',
+    rows: [
+      { model: 'FOXH1000R', hacim: '1', hidrolikGirisPortu: 'M18 X 1,5', maksBasinç: '250' },
+      { model: 'FOXH100R', hacim: '0,15', hidrolikGirisPortu: 'M18 X 1,5', maksBasinç: '250' },
+      { model: 'FOXH1400R', hacim: '1,4', hidrolikGirisPortu: 'M18 X 1,5', maksBasinç: '250' },
+      { model: 'FOXH150R', hacim: '0,15', hidrolikGirisPortu: 'M18 X 1,5', maksBasinç: '250' },
+      { model: 'FOXH2000R', hacim: '2', hidrolikGirisPortu: 'M18 X 1,5', maksBasinç: '250' },
+      { model: 'FOXH350R', hacim: '0,35', hidrolikGirisPortu: 'M18X1,5', maksBasinç: '250' },
+      { model: 'FOXH4000R', hacim: '3,8', hidrolikGirisPortu: 'M18 X 1,5', maksBasinç: '250' },
+      { model: 'FOXH500R', hacim: '0,45', hidrolikGirisPortu: 'M18 X 1,5', maksBasinç: '250' },
+      { model: 'H700R', hacim: '0,70', hidrolikGirisPortu: 'M18 X 1,5', maksBasinç: '250' },
+    ],
+  },
+  {
+    title: '300 BAR MEMBRANLI AKÜLER',
+    rows: [
+      { model: 'HST 0.05', hacim: '0,05', hidrolikGirisPortu: '3/8\'\' BSP', maksBasinç: '300' },
+      { model: 'FOXHST0,12', hacim: '0,12', hidrolikGirisPortu: 'M18 X 1,5', maksBasinç: '300' },
+      { model: 'HST 0.35', hacim: '0,35', hidrolikGirisPortu: 'M18 X 1,5', maksBasinç: '300' },
+      { model: 'HST 0.5', hacim: '0,5', hidrolikGirisPortu: 'M18 X 1,5', maksBasinç: '300' },
+      { model: 'FOXHST0,7', hacim: '0,70', hidrolikGirisPortu: 'M18 X 1,5', maksBasinç: '300' },
+      { model: 'FOXHST0,8', hacim: '0,80', hidrolikGirisPortu: 'M18 X 1,5', maksBasinç: '300' },
+      { model: 'HST 1.3', hacim: '1,30', hidrolikGirisPortu: 'M18 X 1,5', maksBasinç: '300' },
+      { model: 'HST 1.5', hacim: '1,50', hidrolikGirisPortu: 'M18 X 1,5', maksBasinç: '300' },
+      { model: 'FOXHST2,3', hacim: '2,30', hidrolikGirisPortu: 'M18 X 1,5', maksBasinç: '300' },
+    ],
+  },
+]
+
+// SAIP - MEMBRANLI AKÜLER (210 BAR)
+const SAIP_MEMBRANLI_AKULER_ROWS = [
+  { model: 'SAIPL.1.0,35.1.O.M8.L', gazValfiGirisi: 'M28 X 1,5', govdeCinsi: 'KARBON ÇELİĞİ', hacim: '0,35', hidrolikGirisPortu: 'M18 X 1,5', maksBasinç: '210' },
+  { model: 'SAIPWA.2.0,16.1.O.M8.L.250', gazValfiGirisi: 'M28 X 1,5', govdeCinsi: 'KARBON ÇELİĞİ', hacim: '0,16', hidrolikGirisPortu: 'M18 X 1,5', maksBasinç: '210' },
+  { model: 'SAIPWA.2.0,35.1.O.M8.L.250', gazValfiGirisi: 'M28 X 1,5', govdeCinsi: 'KARBON ÇELİĞİ', hacim: '0,35', hidrolikGirisPortu: 'M18 X 1,5', maksBasinç: '210' },
+  { model: 'SAIPWA.2.0,5.1.O.M8.L.210', gazValfiGirisi: 'M28 X 1,5', govdeCinsi: 'KARBON ÇELİĞİ', hacim: '0,50', hidrolikGirisPortu: 'M18 X 1,5', maksBasinç: '210' },
+  { model: 'SAIPWA.2.0,75.1.O.M8.L.210', gazValfiGirisi: 'M28 X 1,5', govdeCinsi: 'KARBON ÇELİĞİ', hacim: '0,75', hidrolikGirisPortu: 'M18 X 1,5', maksBasinç: '210' },
+  { model: 'SAIPWA.2.1,4.1.O.M8.L.250', gazValfiGirisi: 'M28X1,5', govdeCinsi: 'KARBON ÇELİĞİ', hacim: '1,40', hidrolikGirisPortu: 'M18X1,5', maksBasinç: '210' },
+  { model: 'SAIPWA.2.1.1.O.M8.L.210', gazValfiGirisi: 'M28 X 1,5', govdeCinsi: 'KARBON ÇELİĞİ', hacim: '1', hidrolikGirisPortu: 'M18 X 1,5', maksBasinç: '210' },
+]
+
+// HYDAC - MEMBRANLI AKÜLER (210 BAR)
+const HYDAC_MEMBRANLI_AKULER_ROWS = [
+  { model: '3041963', bar: '100', litre: '2' },
+  { model: '3041945', bar: '140', litre: '1.4' },
+  { model: '3041940', bar: '200', litre: '1' },
+  { model: '3991015', bar: '200', litre: '1' },
+  { model: '3041892', bar: '210', litre: '0,16' },
+  { model: '3041895', bar: '210', litre: '0.32' },
+  { model: '3041898', bar: '210', litre: '0.5' },
+  { model: '3940589', bar: '210', litre: '' },
+  { model: '3041589', bar: '210', litre: '' },
+  { model: '3041953', bar: '210', litre: '1.4' },
+  { model: '3041984', bar: '250', litre: '3.5' },
+]
+
 // PALETLİ POMPA için markalara göre kartlar
 const getPaletliPompaBrandCards = (brandName) => {
   const brandCards = {
@@ -1231,20 +1289,8 @@ function ProductDetail() {
       return ['/casappa.png']
     }
 
-    if (productName === 'MEMBRANLI AKÜLER') {
-      return [
-        '/fox.png',
-        '/saip.png',
-        '/hydac.png',
-      ]
-    }
-
-    if (productName === 'BALONLU AKÜLER') {
-      return [
-        '/fox.png',
-        '/saip.png',
-        '/hydac.png',
-      ]
+    if (productName === 'MEMBRANLI AKÜLER' || productName === 'BALONLU AKÜLER') {
+      return ['/fox.png', '/saip.png', '/hydac.png']
     }
 
     // Manometre & Vakummetre alt ürünleri
@@ -7064,6 +7110,154 @@ function ProductDetail() {
                 })}
               </div>
             </>
+          ) : selectedBrand && productName === 'MEMBRANLI AKÜLER' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">
+                    {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)} Membranlı Aküler
+                  </p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* FOX */}
+              {selectedBrand === 'fox' && (
+                <>
+                  <div className="space-y-4 text-base leading-relaxed">
+                    <p>
+                      <strong>FOX</strong>
+                    </p>
+                    <p>
+                      FOX markasına ait 250 ve 300 bar çalışma basıncına sahip membranlı aküler için teknik veriler aşağıdaki tablolarda özetlenmiştir.
+                    </p>
+                  </div>
+
+                  {FOX_MEMBRANLI_AKULER_SECTIONS.map((section) => (
+                    <div key={section.title} className="mt-8 pt-6 border-t border-slate-200">
+                      <h3 className="text-lg font-bold text-slate-900 mb-4">{section.title}</h3>
+                      <div className="rounded-lg border border-slate-200 overflow-hidden">
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-xs">
+                            <thead className="bg-slate-50">
+                              <tr>
+                                <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                                <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">HACİM</th>
+                                <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">HİDROLİK GİRİŞ PORTU</th>
+                                <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.BASINÇ</th>
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-200">
+                              {section.rows.map((row) => (
+                                <tr key={row.model} className="hover:bg-slate-50">
+                                  <td className="px-2 py-2 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                                  <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.hacim}</td>
+                                  <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.hidrolikGirisPortu}</td>
+                                  <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.maksBasinç}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </>
+              )}
+
+              {/* SAIP */}
+              {selectedBrand === 'saip' && (
+                <>
+                  <div className="space-y-4 text-base leading-relaxed">
+                    <p>
+                      <strong>SAIP</strong>
+                    </p>
+                    <p>
+                      SAIP markasına ait 210 bar çalışma basıncına sahip membranlı aküler için teknik veriler aşağıdaki tabloda sunulmuştur.
+                    </p>
+                  </div>
+
+                  <div className="mt-8 pt-6 border-t border-slate-200">
+                    <h3 className="text-lg font-bold text-slate-900 mb-4">210 BAR MEMBRANLI AKÜLER</h3>
+                    <div className="rounded-lg border border-slate-200 overflow-hidden">
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-xs">
+                          <thead className="bg-slate-50">
+                            <tr>
+                              <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                              <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">GAZ VALFİ GİRİŞİ</th>
+                              <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">GÖVDE CİNSİ</th>
+                              <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">HACİM</th>
+                              <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">HİDROLİK GİRİŞ PORTU</th>
+                              <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.BASINÇ</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-slate-200">
+                            {SAIP_MEMBRANLI_AKULER_ROWS.map((row) => (
+                              <tr key={row.model} className="hover:bg-slate-50">
+                                <td className="px-2 py-2 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                                <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.gazValfiGirisi}</td>
+                                <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.govdeCinsi}</td>
+                                <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.hacim}</td>
+                                <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.hidrolikGirisPortu}</td>
+                                <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.maksBasinç}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {/* HYDAC */}
+              {selectedBrand === 'hydac' && (
+                <>
+                  <div className="space-y-4 text-base leading-relaxed">
+                    <p>
+                      <strong>HYDAC</strong>
+                    </p>
+                    <p>
+                      HYDAC markasına ait 210 bar sınıfı membranlı aküler için örnek ürün kodları ve hacim değerleri aşağıdaki tabloda listelenmiştir.
+                    </p>
+                  </div>
+
+                  <div className="mt-8 pt-6 border-t border-slate-200">
+                    <h3 className="text-lg font-bold text-slate-900 mb-4">210 BAR MEMBRANLI AKÜLER</h3>
+                    <div className="rounded-lg border border-slate-200 overflow-hidden">
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-xs">
+                          <thead className="bg-slate-50">
+                            <tr>
+                              <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                              <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">BAR</th>
+                              <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">LİTRE</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-slate-200">
+                            {HYDAC_MEMBRANLI_AKULER_ROWS.map((row) => (
+                              <tr key={row.model} className="hover:bg-slate-50">
+                                <td className="px-2 py-2 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                                <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.bar}</td>
+                                <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.litre}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
+            </>
           ) : selectedBrand && productName === 'PALETLİ POMPA' && !selectedPaletliPompaCard ? (
             <>
               {/* Ürün Başlığı */}
@@ -8917,6 +9111,479 @@ function ProductDetail() {
                   </div>
                 )
               })()}
+            </>
+          ) : selectedBrand && productName === 'BALONLU AKÜLER' && selectedBrand === 'fox' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">FOX</p>
+                  <h2 className="text-xl font-semibold">BALONLU AKÜLER</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 space-y-10">
+                {/* 330 BAR */}
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-4">330 BAR BALONLU AKÜLER</h3>
+                  <div className="overflow-x-auto rounded-lg border border-slate-200">
+                    <table className="w-full text-xs">
+                      <thead className="bg-slate-50">
+                        <tr>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200">HACİM</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">HİDROLİK GİRİŞ PORTU</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.BASINÇ (BAR)</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-200">
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">FOXHB10</td>
+                          <td className="px-3 py-2 text-slate-700">10</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1 1/4'' BSP</td>
+                          <td className="px-3 py-2 text-slate-700">330</td>
+                        </tr>
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">FOXHB2,5</td>
+                          <td className="px-3 py-2 text-slate-700">2,5</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1 1/4'' BSP</td>
+                          <td className="px-3 py-2 text-slate-700">330</td>
+                        </tr>
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">HB 35</td>
+                          <td className="px-3 py-2 text-slate-700">33,50</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">2'' BSP</td>
+                          <td className="px-3 py-2 text-slate-700">330</td>
+                        </tr>
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">HB 4.5</td>
+                          <td className="px-3 py-2 text-slate-700">4,0</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1 1/4'' BSP</td>
+                          <td className="px-3 py-2 text-slate-700">330</td>
+                        </tr>
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">HB 50</td>
+                          <td className="px-3 py-2 text-slate-700">49</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">2'' BSP</td>
+                          <td className="px-3 py-2 text-slate-700">330</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* 250 BAR */}
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-4">250 BAR BALONLU AKÜLER</h3>
+                  <div className="overflow-x-auto rounded-lg border border-slate-200">
+                    <table className="w-full text-xs">
+                      <thead className="bg-slate-50">
+                        <tr>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200">HACİM</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">HİDROLİK GİRİŞ PORTU</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.BASINÇ (BAR)</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-200">
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">HTR 0,7</td>
+                          <td className="px-3 py-2 text-slate-700">0,75</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">M18 X 1,5</td>
+                          <td className="px-3 py-2 text-slate-700">250</td>
+                        </tr>
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">HTR 1,5</td>
+                          <td className="px-3 py-2 text-slate-700">1,5</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">M18 X 1,5</td>
+                          <td className="px-3 py-2 text-slate-700">250</td>
+                        </tr>
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">HTR 2,5</td>
+                          <td className="px-3 py-2 text-slate-700">2,5</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3/4'' BSP</td>
+                          <td className="px-3 py-2 text-slate-700">250</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* 210 BAR */}
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-4">210 BAR BALONLU AKÜLER</h3>
+                  <div className="overflow-x-auto rounded-lg border border-slate-200">
+                    <table className="w-full text-xs">
+                      <thead className="bg-slate-50">
+                        <tr>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200">HACİM</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">HİDROLİK GİRİŞ PORTU</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.BASINÇ (BAR)</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-200">
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">HTR 10</td>
+                          <td className="px-3 py-2 text-slate-700">10</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1 1/4'' BSP</td>
+                          <td className="px-3 py-2 text-slate-700">210</td>
+                        </tr>
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">HTR 4,5</td>
+                          <td className="px-3 py-2 text-slate-700">4,5</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1 1/4'' BSP</td>
+                          <td className="px-3 py-2 text-slate-700">210</td>
+                        </tr>
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">HTR 6,5</td>
+                          <td className="px-3 py-2 text-slate-700">6,5</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1 1/4'' BSP</td>
+                          <td className="px-3 py-2 text-slate-700">210</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* 150 BAR */}
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-4">150 BAR BALONLU AKÜLER</h3>
+                  <div className="overflow-x-auto rounded-lg border border-slate-200">
+                    <table className="w-full text-xs">
+                      <thead className="bg-slate-50">
+                        <tr>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200">HACİM</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">HİDROLİK GİRİŞ PORTU</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.BASINÇ (BAR)</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-200">
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">HTR 20</td>
+                          <td className="px-3 py-2 text-slate-700">19,5</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">2'' BSP</td>
+                          <td className="px-3 py-2 text-slate-700">150</td>
+                        </tr>
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">HTR 35</td>
+                          <td className="px-3 py-2 text-slate-700">35</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">2'' BSP</td>
+                          <td className="px-3 py-2 text-slate-700">150</td>
+                        </tr>
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">HTR 50</td>
+                          <td className="px-3 py-2 text-slate-700">50</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">2'' BSP</td>
+                          <td className="px-3 py-2 text-slate-700">150</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : selectedBrand && productName === 'BALONLU AKÜLER' && selectedBrand === 'saip' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">SAIP</p>
+                  <h2 className="text-xl font-semibold">BALONLU AKÜLER</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 space-y-10">
+                {/* 250 BAR */}
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-4">250 BAR BALONLU AKÜLER</h3>
+                  <div className="overflow-x-auto rounded-lg border border-slate-200">
+                    <table className="w-full text-xs">
+                      <thead className="bg-slate-50">
+                        <tr>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">GAZ VALFİ GİRİŞİ</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">GÖVDE CİNSİ</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200">HACİM</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">HİDROLİK GİRİŞ PORTU</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.BASINÇ (BAR)</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-200">
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">SAIPLA.1.0,75.1.O.M8.L</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">5/8'' UNF</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">KARBON ÇELİĞİ</td>
+                          <td className="px-3 py-2 text-slate-700">0,75</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">M18 X 1,5</td>
+                          <td className="px-3 py-2 text-slate-700">250</td>
+                        </tr>
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">SAIPLA.1.1.1.O.M8.L</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">5/8'' UNF</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">KARBON ÇELİĞİ</td>
+                          <td className="px-3 py-2 text-slate-700">1</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">M18 X 1,5</td>
+                          <td className="px-3 py-2 text-slate-700">250</td>
+                        </tr>
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">SAIPLA.1.1,5.1.O.M8.L</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">5/8'' UNF</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">KARBON ÇELİĞİ</td>
+                          <td className="px-3 py-2 text-slate-700">1,5</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">M18 X 1,5</td>
+                          <td className="px-3 py-2 text-slate-700">250</td>
+                        </tr>
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">31756</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">5/8'' UNF</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">KARBON ÇELİĞİ</td>
+                          <td className="px-3 py-2 text-slate-700">10</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">11/4'' GAS</td>
+                          <td className="px-3 py-2 text-slate-700">250</td>
+                        </tr>
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">SAIPLALS.1.3.1.O.G5.L</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">5/8'' UNF</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">KARBON ÇELİĞİ</td>
+                          <td className="px-3 py-2 text-slate-700">3</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3/4'' GAS</td>
+                          <td className="px-3 py-2 text-slate-700">250</td>
+                        </tr>
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">SAIPLALS.1.4.O.G5.L</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">5/8" UNF</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">KARBON ÇELİĞİ</td>
+                          <td className="px-3 py-2 text-slate-700">4</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3/4" GAS</td>
+                          <td className="px-3 py-2 text-slate-700">250</td>
+                        </tr>
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">SAIPLALS.1.6.1.O.G5.L</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">5/8" UNF</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">KARBON ÇELİĞİ</td>
+                          <td className="px-3 py-2 text-slate-700">6</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3/4" GAS</td>
+                          <td className="px-3 py-2 text-slate-700">250</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* 350 BAR */}
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-4">350 BAR BALONLU AKÜLER</h3>
+                  <div className="overflow-x-auto rounded-lg border border-slate-200">
+                    <table className="w-full text-xs">
+                      <thead className="bg-slate-50">
+                        <tr>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">GAZ VALFİ GİRİŞİ</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">GÖVDE CİNSİ</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200">HACİM</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">HİDROLİK GİRİŞ PORTU</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.BASINÇ (BAR)</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-200">
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">31784</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">5/8'' UNF</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">KARBON ÇELİĞİ</td>
+                          <td className="px-3 py-2 text-slate-700">0,75</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">M18 X 1,5</td>
+                          <td className="px-3 py-2 text-slate-700">250</td>
+                        </tr>
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">SAIPLAS.1.1,5.1.O.M8.L</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">5/8'' UNF</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">KARBON ÇELİĞİ</td>
+                          <td className="px-3 py-2 text-slate-700">1,5</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">M18 X 1,5</td>
+                          <td className="px-3 py-2 text-slate-700">250</td>
+                        </tr>
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">SAIPLAS.1.10.1.O.C7.L</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">5/8'' UNF</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">KARBON ÇELİĞİ</td>
+                          <td className="px-3 py-2 text-slate-700">10</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3/4'' GAS</td>
+                          <td className="px-3 py-2 text-slate-700">250</td>
+                        </tr>
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">SAIPLAS.1.3.1.O.G5.L</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">5/8'' UNF</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">KARBON ÇELİĞİ</td>
+                          <td className="px-3 py-2 text-slate-700">3</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3/4'' GAS</td>
+                          <td className="px-3 py-2 text-slate-700">350</td>
+                        </tr>
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">SAIPLAS.1.4.1.O.G5.L</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">5/8'' UNF</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">KARBON ÇELİĞİ</td>
+                          <td className="px-3 py-2 text-slate-700">4</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3/4'' GAS</td>
+                          <td className="px-3 py-2 text-slate-700">350</td>
+                        </tr>
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">31787</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">5/8'' UNF</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">KARBON ÇELİĞİ</td>
+                          <td className="px-3 py-2 text-slate-700">5</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3/4'' GAS</td>
+                          <td className="px-3 py-2 text-slate-700">350</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* 360 BAR */}
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-4">360 BAR BALONLU AKÜLER</h3>
+                  <div className="overflow-x-auto rounded-lg border border-slate-200">
+                    <table className="w-full text-xs">
+                      <thead className="bg-slate-50">
+                        <tr>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">GAZ VALFİ GİRİŞİ</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">GÖVDE CİNSİ</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200">HACİM</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">HİDROLİK GİRİŞ PORTU</th>
+                          <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.BASINÇ (BAR)</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-200">
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">31788</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">5/8'' UNF</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">KARBON ÇELİĞİ</td>
+                          <td className="px-3 py-2 text-slate-700">0,7</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3/4'' GAS</td>
+                          <td className="px-3 py-2 text-slate-700">360</td>
+                        </tr>
+                        <tr className="hover:bg-slate-50">
+                          <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">31789</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">5/8'' UNF</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">KARBON ÇELİĞİ</td>
+                          <td className="px-3 py-2 text-slate-700">15</td>
+                          <td className="px-3 py-2 text-slate-700 whitespace-nowrap">2'' GAS</td>
+                          <td className="px-3 py-2 text-slate-700">360</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : selectedBrand && productName === 'BALONLU AKÜLER' && selectedBrand === 'hydac' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">HYDAC</p>
+                  <h2 className="text-xl font-semibold">BALONLU AKÜLER</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                <h3 className="text-lg font-bold text-slate-900 mb-4">330 BAR BALONLU AKÜLER</h3>
+                <div className="overflow-x-auto rounded-lg border border-slate-200">
+                  <table className="w-full text-xs">
+                    <thead className="bg-slate-50">
+                      <tr>
+                        <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                        <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                        <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200">LİTRE</th>
+                        <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200">KAVİTE</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-200">
+                      <tr className="hover:bg-slate-50">
+                        <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">3047162</td>
+                        <td className="px-3 py-2 text-slate-700">330</td>
+                        <td className="px-3 py-2 text-slate-700">1</td>
+                        <td className="px-3 py-2 text-slate-700"></td>
+                      </tr>
+                      <tr className="hover:bg-slate-50">
+                        <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">3047172</td>
+                        <td className="px-3 py-2 text-slate-700">330</td>
+                        <td className="px-3 py-2 text-slate-700">5</td>
+                        <td className="px-3 py-2 text-slate-700"></td>
+                      </tr>
+                      <tr className="hover:bg-slate-50">
+                        <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">3047165</td>
+                        <td className="px-3 py-2 text-slate-700">330</td>
+                        <td className="px-3 py-2 text-slate-700">2,5</td>
+                        <td className="px-3 py-2 text-slate-700"></td>
+                      </tr>
+                      <tr className="hover:bg-slate-50">
+                        <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">3047174</td>
+                        <td className="px-3 py-2 text-slate-700">330</td>
+                        <td className="px-3 py-2 text-slate-700">6</td>
+                        <td className="px-3 py-2 text-slate-700"></td>
+                      </tr>
+                      <tr className="hover:bg-slate-50">
+                        <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">3380485</td>
+                        <td className="px-3 py-2 text-slate-700">350</td>
+                        <td className="px-3 py-2 text-slate-700">150</td>
+                        <td className="px-3 py-2 text-slate-700">16--2</td>
+                      </tr>
+                      <tr className="hover:bg-slate-50">
+                        <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">3047176</td>
+                        <td className="px-3 py-2 text-slate-700">330</td>
+                        <td className="px-3 py-2 text-slate-700">10</td>
+                        <td className="px-3 py-2 text-slate-700"></td>
+                      </tr>
+                      <tr className="hover:bg-slate-50">
+                        <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">3047166</td>
+                        <td className="px-3 py-2 text-slate-700">330</td>
+                        <td className="px-3 py-2 text-slate-700"></td>
+                        <td className="px-3 py-2 text-slate-700"></td>
+                      </tr>
+                      <tr className="hover:bg-slate-50">
+                        <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">3047167</td>
+                        <td className="px-3 py-2 text-slate-700">330</td>
+                        <td className="px-3 py-2 text-slate-700">4</td>
+                        <td className="px-3 py-2 text-slate-700"></td>
+                      </tr>
+                      <tr className="hover:bg-slate-50">
+                        <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">3047177</td>
+                        <td className="px-3 py-2 text-slate-700">330</td>
+                        <td className="px-3 py-2 text-slate-700">20</td>
+                        <td className="px-3 py-2 text-slate-700"></td>
+                      </tr>
+                      <tr className="hover:bg-slate-50">
+                        <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">3047168</td>
+                        <td className="px-3 py-2 text-slate-700">330</td>
+                        <td className="px-3 py-2 text-slate-700">5</td>
+                        <td className="px-3 py-2 text-slate-700"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </>
           ) : selectedBrand && productName === 'EL POMPASI' ? (
             <>
