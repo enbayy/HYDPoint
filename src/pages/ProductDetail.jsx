@@ -2387,17 +2387,10 @@ function ProductDetail() {
         ]
       },
       'hema': {
-        description: 'HEMA Emniyetli Normal direksiyon beyinleri, endüstriyel ve mobil uygulamalar için tasarlanmış yüksek kaliteli hidrolik direksiyon sistemleridir. Emniyet valfi basıncı ve şok valf basıncı ile sistem güvenliğini sağlar.',
-        tableHeaders: ['MODEL', 'BASINÇ (BAR)', 'DEBİ (LT/DAK.)', 'EMNİYET VALFİ BASINCI', 'İLETİM HACMİ', 'ŞOK VALF BASINCI', 'T HATTINDAKİ BASINÇ', 'UZUNLUK'],
+        description: 'HEMA Emniyetli Normal direksiyon beyinleri, endüstriyel ve mobil uygulamalar için tasarlanmış yüksek kaliteli hidrolik direksiyon sistemleridir.',
+        tableHeaders: ['MODEL', 'ÇALIŞMA BASINCI', 'ÇALIŞMA DEBİSİ', 'İLETİM HACMİ'],
         products: [
-          { model: 'HHU050ON.4', basinc: '210', debi: '12', emniyetValfiBasinci: '90-95', iletimHacmi: '50 CM³', sokValfBasinci: '150-170', tHattindakiBasinc: '35', uzunluk: '120,7' },
-          { model: 'HHU080ON.4', basinc: '210', debi: '12', emniyetValfiBasinci: '140', iletimHacmi: '80 CM³', sokValfBasinci: '200', tHattindakiBasinc: '35', uzunluk: '124,7' },
-          { model: 'HHU100ON.4', basinc: '210', debi: '12', emniyetValfiBasinci: '90-95', iletimHacmi: '100 CM³', sokValfBasinci: '150-170', tHattindakiBasinc: '35', uzunluk: '127,5' },
-          { model: 'HHU100ON.4M', basinc: '210', debi: '12', emniyetValfiBasinci: '140', iletimHacmi: '100 CM³', sokValfBasinci: '200', tHattindakiBasinc: '35', uzunluk: '127,5' },
-          { model: 'HHU120ON.4', basinc: '210', debi: '16', emniyetValfiBasinci: '140', iletimHacmi: '120 CM³', sokValfBasinci: '200', tHattindakiBasinc: '35', uzunluk: '130,1' },
-          { model: 'HHU160ON.4', basinc: '210', debi: '23', emniyetValfiBasinci: '140', iletimHacmi: '160 CM³', sokValfBasinci: '200', tHattindakiBasinc: '35', uzunluk: '136,2' },
-          { model: 'HHU250ON.4', basinc: '210', debi: '23', emniyetValfiBasinci: '140', iletimHacmi: '260 CM³', sokValfBasinci: '200', tHattindakiBasinc: '35', uzunluk: '149' },
-          { model: 'HHU315ON.4', basinc: '210', debi: '32', emniyetValfiBasinci: '140', iletimHacmi: '315 CM³', sokValfBasinci: '200', tHattindakiBasinc: '20', uzunluk: '154,9' },
+          { model: 'HKUS 400/4-100', calismaBasinci: '170', calismaDebisi: '40', iletimHacmi: '396' },
         ]
       }
     }
@@ -9660,12 +9653,13 @@ function ProductDetail() {
                               {productData.products.map((product, index) => {
                                 // Header'lara göre değerleri sırayla al
                                 const getCellValue = (header) => {
-                                  if (header === 'MODEL KODU') return product.kod
-                                  if (header === 'ÇALIŞMA BASINCI') return product.calismaBasinci || ''
-                                  if (header === 'BASINÇ (BAR)') return product.basinc || ''
+                                  if (header === 'MODEL KODU' || header === 'MODEL') return product.kod || product.model || ''
+                                  if (header === 'ÇALIŞMA BASINCI') return product.calismaBasinci || product.basinc || ''
+                                  if (header === 'BASINÇ (BAR)' || header === 'BASINÇ') return product.basinc || ''
+                                  if (header === 'ÇALIŞMA DEBİSİ' || header === 'DEBİ' || header === 'DEBİ (LT/DAK.)') return product.calismaDebisi || product.debi || ''
                                   if (header === 'FONKSİYON') return product.fonksiyon || ''
                                   if (header === 'İLETİM HACMİ') return product.iletimHacmi || ''
-                                  if (header === 'HACMİ') return product.hacim || ''
+                                  if (header === 'HACMİ' || header === 'HACİM') return product.hacim || ''
                                   if (header === 'YAĞ TANKI MONTAJI') return product.yagTankiMontaji || ''
                                   if (header === 'LİTRE') return product.litre || ''
                                   if (header === 'YAĞ BASINCI') return product.yagBasinci || ''
@@ -9674,6 +9668,10 @@ function ProductDetail() {
                                   if (header === 'DİŞ ÖLÇÜLERİ') return product.disOlculeri || ''
                                   if (header === 'MALZEME') return product.malzeme || ''
                                   if (header === 'SIZDIRMAZLIK') return product.sizdirmazlik || ''
+                                  if (header === 'EMNİYET VALFİ BASINCI') return product.emniyetValfiBasinci || ''
+                                  if (header === 'ŞOK VALF BASINCI') return product.sokValfBasinci || ''
+                                  if (header === 'T HATTINDAKİ BASINÇ') return product.tHattindakiBasinc || ''
+                                  if (header === 'UZUNLUK') return product.uzunluk || ''
                                   return ''
                                 }
 
