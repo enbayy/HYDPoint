@@ -2613,6 +2613,32 @@ function ProductDetail() {
         }
       }
     }
+    
+    // DİŞLİ BAĞLANTI ELEMANLARI için product slug'ını oku
+    if (category === 'hidrolik-baglanti-elemanlari' && subcategory === 'disli-baglanti-elemanlari' && productSlugParam) {
+      const productNameMap = {
+        'somun-ve-yuksukler': 'SOMUN VE YÜKSÜKLER',
+        'dirsekler': 'DİRSEKLER',
+        'kaynakliklar': 'KAYNAKLIKLAR',
+        'nipeller': 'NİPELLER',
+        'te-ler': 'TE LER',
+        'perde-gecisler': 'PERDE GEÇİŞLER',
+        'kor-rekorlar': 'KOR REKORLAR',
+        'kontrali-dirsekler': 'KONTRALI DİRSEKLER',
+        'ters-nipeller': 'TERS NİPELLER',
+        'kortapalar': 'KÖRTAPALAR',
+        'reduksiyonlar': 'REDÜKSİYONLAR',
+        'bsp-alti-kose-masonlar': 'BSP ALTI KÖŞE MAŞONLAR',
+        'kontra-somunlar': 'KONTRA SOMUNLAR',
+      }
+      const decodedProductName = productNameMap[productSlugParam]
+      if (decodedProductName) {
+        setSelectedProduct(decodedProductName)
+        if (brandParam === 'rekorsan') {
+          setSelectedBrand('rekorsan')
+        }
+      }
+    }
   }, [category, subcategory, brandParam, productSlugParam])
   
   // State'ten, URL'den, slug'dan veya seçilen üründen ürün adını al
@@ -16153,6 +16179,104 @@ function ProductDetail() {
                             // URL'yi güncelle
                             const categorySlug = 'hidrolik-baglanti-elemanlari'
                             const subcategorySlug = 'hortum-baglanti-elemanlari'
+                            const productSlug = product.name.toLowerCase()
+                              .replace(/\s+/g, '-')
+                              .replace(/ı/g, 'i')
+                              .replace(/ğ/g, 'g')
+                              .replace(/ü/g, 'u')
+                              .replace(/ş/g, 's')
+                              .replace(/ö/g, 'o')
+                              .replace(/ç/g, 'c')
+                              .replace(/İ/g, 'i')
+                              .replace(/Ğ/g, 'g')
+                              .replace(/Ü/g, 'u')
+                              .replace(/Ş/g, 's')
+                              .replace(/Ö/g, 'o')
+                              .replace(/Ç/g, 'c')
+                            navigate(`/urunler/${categorySlug}/${subcategorySlug}/rekorsan/${productSlug}`)
+                          }}
+                          className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-2xl hover:shadow-[#ff7f00]/10"
+                        >
+                          {/* Image Container */}
+                          <div className="relative h-64 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50">
+                            <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                            <img 
+                              src={product.image} 
+                              alt={product.name} 
+                              className="h-full w-full object-contain p-6 transition-all duration-500 group-hover:scale-110"
+                              onError={(e) => {
+                                e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(product.name)}`
+                              }}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-br from-[#ff7f00]/0 via-transparent to-[#1e4294]/0 transition-all duration-500 group-hover:from-[#ff7f00]/5 group-hover:to-[#1e4294]/5" />
+                          </div>
+                          
+                          {/* Content Section */}
+                          <div className="flex flex-1 flex-col p-6 pt-5">
+                            <h3 className="mb-4 line-clamp-3 min-h-[4.5rem] text-lg font-bold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                              {product.name}
+                            </h3>
+                            <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                                Ürün Detayı
+                              </span>
+                              <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                                <span className="text-xs font-semibold">İncele</span>
+                                <svg 
+                                  className="h-4 w-4" 
+                                  fill="none" 
+                                  viewBox="0 0 24 24" 
+                                  stroke="currentColor"
+                                  strokeWidth={2.5}
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : productName === 'DİŞLİ BAĞLANTI ELEMANLARI' ? (
+                  <div className="space-y-6">
+                    {/* Rekorsan Logo */}
+                    <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-6">
+                      <img 
+                        src="/rekorsan.png" 
+                        alt="Rekorsan" 
+                        className="h-16 w-auto object-contain sm:h-20"
+                        onError={(e) => {
+                          e.target.style.display = 'none'
+                        }}
+                      />
+                    </div>
+                    
+                    {/* Ürün Kartları */}
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                      {[
+                        { name: 'SOMUN VE YÜKSÜKLER', image: '/dislibaglantielemanlari/somunveyuksukler.png' },
+                        { name: 'DİRSEKLER', image: '/dislibaglantielemanlari/dirsekler.png' },
+                        { name: 'KAYNAKLIKLAR', image: '/dislibaglantielemanlari/kaynakliklar.png' },
+                        { name: 'NİPELLER', image: '/dislibaglantielemanlari/nipeller.png' },
+                        { name: 'TE LER', image: '/dislibaglantielemanlari/teler.png' },
+                        { name: 'PERDE GEÇİŞLER', image: '/dislibaglantielemanlari/perdegecisler.png' },
+                        { name: 'KOR REKORLAR', image: '/dislibaglantielemanlari/korrekorlar.png' },
+                        { name: 'KONTRALI DİRSEKLER', image: '/dislibaglantielemanlari/kontralidirsekler.png' },
+                        { name: 'TERS NİPELLER', image: '/dislibaglantielemanlari/tersnipeller.png' },
+                        { name: 'KÖRTAPALAR', image: '/dislibaglantielemanlari/kortapalar.png' },
+                        { name: 'REDÜKSİYONLAR', image: '/dislibaglantielemanlari/reduksiyonlar.png' },
+                        { name: 'BSP ALTI KÖŞE MAŞONLAR', image: '/dislibaglantielemanlari/bspaltikosemasonlar.png' },
+                        { name: 'KONTRA SOMUNLAR', image: '/dislibaglantielemanlari/kontrasomunlar.png' },
+                      ].map((product, index) => (
+                        <div
+                          key={index}
+                          onClick={() => {
+                            setSelectedProduct(product.name)
+                            setSelectedBrand('rekorsan')
+                            // URL'yi güncelle
+                            const categorySlug = 'hidrolik-baglanti-elemanlari'
+                            const subcategorySlug = 'disli-baglanti-elemanlari'
                             const productSlug = product.name.toLowerCase()
                               .replace(/\s+/g, '-')
                               .replace(/ı/g, 'i')
