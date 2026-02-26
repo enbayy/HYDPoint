@@ -1123,14 +1123,24 @@ function Products() {
                       const isHema = logo === '/hema.png'
                       const brandName = logo.replace(/^\//, '').replace(/\.png$/, '')
                       const productSlug = selectedItem ? encodeURIComponent(selectedItem.toLowerCase().replace(/\s+/g, '-')) : ''
-                      const isClickable =
+
+                      // Özel yönlendirme yapılan durumlar
+                      const isSpecialClickable =
                         (selectedItem === 'ALÜMİNYUM GÖVDELİ DİŞLİ POMPALAR' && brandName === 'hema') ||
                         (selectedItem === 'ALÜMİNYUM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER' && ['asc', 'casappa', 'hema'].includes(brandName))
+
+                      // Diğer tüm ürünler için logo tıklanınca detay sayfasına gidilsin
+                      const isGeneralClickable = !!selectedItem
+
+                      const isClickable = isSpecialClickable || isGeneralClickable
                       
                       return (
                         <div
                           key={index}
                           onClick={() => {
+                            if (!selectedItem) return
+
+                            // Özel durumlar
                             if (selectedItem === 'ALÜMİNYUM GÖVDELİ DİŞLİ POMPALAR') {
                               if (brandName === 'hema') {
                                 navigate(`/urunler/pompa/aluminyum-govdeli-disli-pompalar/${brandName}`)
@@ -1143,6 +1153,9 @@ function Products() {
                               }
                               return
                             }
+
+                            // Genel durum: marka bazlı ürün detay sayfasına git
+                            navigate(`/urun-detay/${productSlug}?brand=${brandName}`)
                           }}
                           className={`flex h-20 w-32 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-2 transition hover:border-[#ff7f00] hover:bg-white hover:shadow-md sm:h-24 sm:w-36 sm:p-3 ${
                             isClickable ? 'cursor-pointer' : ''

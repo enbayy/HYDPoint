@@ -13654,7 +13654,7 @@ function ProductDetail() {
                 )
               })()}
             </>
-          ) : selectedProduct || (productName && !activeSection) ? (
+          ) : selectedProduct || currentBrand || (productName && !activeSection) ? (
             <>
               {/* Ürün Başlığı */}
               <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
@@ -13706,6 +13706,80 @@ function ProductDetail() {
                   </div>
                 )}
               </div>
+
+              {/* KROM KAPLI MİLLER - GRIMET Özel İçerik */}
+              {productName === 'KROM KAPLI MİLLER' && currentBrand === 'grimet' && (
+                <div className="mt-6 space-y-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                  <div className="space-y-1">
+                    <h3 className="text-lg font-semibold text-slate-900">Krom Kaplı Mil: Dayanıklılık ve Performansın Mükemmel Birleşimi</h3>
+                    <p className="text-sm leading-relaxed text-slate-700">
+                      Krom kaplı mil, endüstriyel makinelerde ve mekanik sistemlerde dayanıklılığı ve güçlü performansı bir araya getirerek
+                      uzun ömürlü kullanım sağlar. Kromlu mil, özel kaplama sayesinde mükemmel bir aşınma direnci ve korozyon önleme
+                      özelliği sunar.
+                    </p>
+                  </div>
+
+                  <section className="space-y-2">
+                    <h4 className="text-sm font-semibold text-slate-900">Teknoloji ve Dayanıklılık</h4>
+                    <p className="text-sm leading-relaxed text-slate-700">
+                      Krom kaplama, mil yüzeyine eklenen özel bir tabakadır. Bu kaplama, mili aşınmaya, sürtünmeye ve korozyona karşı korur.
+                      Bu sayede mili daha dayanıklı hale getirir ve ömrünü uzatır.
+                    </p>
+                  </section>
+
+                  <section className="space-y-2">
+                    <h4 className="text-sm font-semibold text-slate-900">Yüksek Performans</h4>
+                    <p className="text-sm leading-relaxed text-slate-700">
+                      Krom kaplı mille birlikte mükemmel bir yüzey kalitesi elde edilir. Bu, sürtünmeyi azaltır ve hareketli parçalar
+                      arasındaki sürtünme miktarını minimize eder. Bu da yüksek performans ve daha düşük bakım gereksinimi anlamına gelir.
+                    </p>
+                  </section>
+
+                  <section className="space-y-2">
+                    <h4 className="text-sm font-semibold text-slate-900">Çeşitli Uygulama Alanları</h4>
+                    <p className="text-sm leading-relaxed text-slate-700">
+                      Krom kaplı mille, endüstriyel makinelerden otomotiv sektörüne kadar geniş bir uygulama yelpazesi bulunur. Bu
+                      makinelerde kullanılan parçaların dayanıklılığını artırır ve çalışma verimliliğini artırır.
+                    </p>
+                  </section>
+
+                  <section className="space-y-2">
+                    <h4 className="text-sm font-semibold text-slate-900">Dayanıklılıkta Krom Kaplı Mil</h4>
+                    <p className="text-sm leading-relaxed text-slate-700">
+                      Krom kaplı mil, dayanıklılığı ve uzun ömürlü performansıyla öne çıkar. Kromlu milin yüksek aşınma direnci ve korozyona
+                      karşı dayanıklılığı, uzun vadeli kullanım için ideal bir seçenek sunar.
+                    </p>
+                  </section>
+
+                  <section className="space-y-3">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#ff7f00]">Genel Bilgiler</p>
+                      <h4 className="text-sm font-semibold text-slate-900 mt-1">Krom Kaplı Miller Çap Seçenekleri</h4>
+                    </div>
+                    <ul className="grid gap-1 text-sm text-slate-700 sm:grid-cols-2 md:grid-cols-3">
+                      {[
+                        'Ø 30 MM KROMLU MİL',
+                        'Ø 35 MM KROMLU MİL',
+                        'Ø 40 MM KROMLU MİL',
+                        'Ø 45 MM KROMLU MİL',
+                        'Ø 50 MM KROMLU MİL',
+                        'Ø 55 MM KROMLU MİL',
+                        'Ø 60 MM KROMLU MİL',
+                        'Ø 65 MM KROMLU MİL',
+                        'Ø 70 MM KROMLU MİL',
+                        'Ø 75 MM KROMLU MİL',
+                        'Ø 80 MM KROMLU MİL',
+                        'Ø 85 MM KROMLU MİL',
+                        'Ø 90 MM KROMLU MİL',
+                        'Ø 100 MM KROMLU MİL',
+                        'Ø 110 MM KROMLU MİL',
+                      ].map((item) => (
+                        <li key={item}>• {item}</li>
+                      ))}
+                    </ul>
+                  </section>
+                </div>
+              )}
             </>
           ) : (
             <>
