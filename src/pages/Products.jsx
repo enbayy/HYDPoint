@@ -1130,10 +1130,12 @@ function Products() {
                           onClick={() => {
                             if (isHema && selectedItem === 'ALÜMİNYUM GÖVDELİ DİŞLİ POMPALAR') {
                               navigate(`/urunler/pompa/aluminyum-govdeli-disli-pompalar/hema`)
+                            } else if (isHema && selectedItem === 'ALÜMİNYUM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER') {
+                              navigate(`/urunler/akis-boluculer/aluminyum-govde-disli-akis-boluculer/hema`)
                             }
                           }}
                           className={`flex h-20 w-32 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-2 transition hover:border-[#ff7f00] hover:bg-white hover:shadow-md sm:h-24 sm:w-36 sm:p-3 ${
-                            isHema && selectedItem === 'ALÜMİNYUM GÖVDELİ DİŞLİ POMPALAR' ? 'cursor-pointer' : ''
+                            (isHema && selectedItem === 'ALÜMİNYUM GÖVDELİ DİŞLİ POMPALAR') || (isHema && selectedItem === 'ALÜMİNYUM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER') ? 'cursor-pointer' : ''
                           }`}
                         >
                           <img 

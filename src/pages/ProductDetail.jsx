@@ -181,6 +181,24 @@ const disliMotorAltKategoriler = [
 
 // Markalara göre ALÜMİNYUM GÖVDELİ DİŞLİ POMPALAR grupları
 const getBrandGroups = (brandName, productName = null) => {
+  // ALÜMİNYUM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER için gruplar
+  if (productName === 'ALÜMİNYUM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER') {
+    const akisBoluculerBrandGroups = {
+      'asc': [
+        '10. GRUP AKIŞ BÖLÜCÜLER',
+        '20. GRUP AKIŞ BÖLÜCÜLER',
+      ],
+      'casappa': [
+        '10. GRUP AKIŞ BÖLÜCÜLER',
+        '20. GRUP AKIŞ BÖLÜCÜLER',
+      ],
+      'hema': [
+        '20. GRUP AKIŞ BÖLÜCÜLER',
+      ],
+    }
+    return akisBoluculerBrandGroups[brandName] || []
+  }
+  
   // DÖKÜM GÖVDELİ DİŞLİ POMPALAR için gruplar
   if (productName === 'DÖKÜM GÖVDELİ DİŞLİ POMPALAR') {
     const dokumBrandGroups = {
@@ -297,6 +315,17 @@ const getPaletliPompaBrandCards = (brandName) => {
   return brandCards[brandName] || []
 }
 
+// DÖKÜM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER için markalara göre kartlar
+const getDokumGovdeDisliAkisBoluculerBrandCards = (brandName) => {
+  const brandCards = {
+    'casappa': [
+      '30. GRUP AKIŞ BÖLÜCÜLER',
+      '35. GRUP AKIŞ BÖLÜCÜLER',
+    ],
+  }
+  return brandCards[brandName] || []
+}
+
 // PİSTONLU POMPA için markalara göre kartlar
 const getPistonluPompaBrandCards = (brandName) => {
   const brandCards = {
@@ -379,6 +408,7 @@ function ProductDetail() {
   const [selectedGroupBrand, setSelectedGroupBrand] = useState(null) // Seçilen marka (örn: "hydropack")
   const [selectedPaletliPompaCard, setSelectedPaletliPompaCard] = useState(null) // Seçilen PALETLİ POMPA kartı
   const [selectedPistonluPompaCard, setSelectedPistonluPompaCard] = useState(null) // Seçilen PİSTONLU POMPA kartı
+  const [selectedDokumGovdeDisliAkisBoluculerCard, setSelectedDokumGovdeDisliAkisBoluculerCard] = useState(null) // Seçilen DÖKÜM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER kartı
   
   // URL parametrelerinden veya query parameter'dan veya state'ten marka bilgisini al
   const brandFromQuery = searchParams.get('brand')
@@ -503,6 +533,9 @@ function ProductDetail() {
   useEffect(() => {
     if (productName === 'PALETLİ POMPA') {
       setSelectedPaletliPompaCard(null)
+    }
+    if (productName === 'DÖKÜM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER') {
+      setSelectedDokumGovdeDisliAkisBoluculerCard(null)
     }
   }, [selectedBrand, productName])
 
@@ -674,6 +707,38 @@ function ProductDetail() {
         }
         setSelectedBrand(brandName)
         setSelectedPistonluPompaCard(null) // Kart seçimini temizle
+      }
+    } else if (productName === 'DÖKÜM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER') {
+      // DÖKÜM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER için marka kartlarını göster
+      const cards = getDokumGovdeDisliAkisBoluculerBrandCards(brandName)
+      if (cards.length > 0) {
+        // URL'yi güncelle: /urunler/category/subcategory/brand
+        if (category && subcategory) {
+          navigate(`/urunler/${category}/${subcategory}/${brandName}`)
+        } else {
+          // Eski format için
+          const productSlug = encodeURIComponent(productName.toLowerCase().replace(/\s+/g, '-'))
+          navigate(`/urun-detay/${productSlug}?brand=${brandName}`, {
+            state: { productName, productImage, productLogo, brand: brandName }
+          })
+        }
+        setSelectedBrand(brandName)
+        setSelectedDokumGovdeDisliAkisBoluculerCard(null) // Kart seçimini temizle
+        setSelectedProduct(null) // Ürün seçimini temizle
+        setSelectedGroup(null) // Grup seçimini temizle
+        setSelectedGroupBrand(null) // Grup marka seçimini temizle
+      } else {
+        // Bu marka için kart yoksa, marka bazlı detay sayfasına navigate et
+        if (category && subcategory) {
+          navigate(`/urunler/${category}/${subcategory}/${brandName}`)
+        } else {
+          const productSlug = encodeURIComponent(productName.toLowerCase().replace(/\s+/g, '-'))
+          navigate(`/urun-detay/${productSlug}?brand=${brandName}`, {
+            state: { productName, productImage, productLogo, brand: brandName }
+          })
+        }
+        setSelectedBrand(brandName)
+        setSelectedDokumGovdeDisliAkisBoluculerCard(null) // Kart seçimini temizle
       }
     } else if (productName === 'EL POMPASI') {
       // EL POMPASI için direkt detay sayfasına navigate et (kart yok)
@@ -1146,6 +1211,9 @@ function ProductDetail() {
   // Grup resimlerini al
   const getGroupImage = (groupName) => {
     const imageMap = {
+      // ALÜMİNYUM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER
+      '10. GRUP AKIŞ BÖLÜCÜLER': '/akisboluculer/10-grup-akis-boluculer.png',
+      '20. GRUP AKIŞ BÖLÜCÜLER': '/akisboluculer/20-grup-akis-boluculer.png',
       // ALÜMİNYUM GÖVDELİ DİŞLİ POMPALAR
       '00.GRUP POMPALAR': '/aliminyumgovdelidislipompalar/00grup-pompalar.png',
       '10.GRUP POMPALAR (0.5P SERİSİ)': '/aliminyumgovdelidislipompalar/10grup-pompalar.png',
@@ -1166,6 +1234,9 @@ function ProductDetail() {
       '30.GRUP UNİ POMPALAR': '/dokumgovdelidislipompalar/30grup-uni-pompalar.png',
       '30.GRUP ISO POMPALAR': '/dokumgovdelidislipompalar/30grup-iso-pompalar.png',
       '35.GRUP SAE C KAPAK 14 DİŞ FREZELİ': '/dokumgovdelidislipompalar/35grup-sae-c-kapak-14-dis.png',
+      // DÖKÜM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER
+      '30. GRUP AKIŞ BÖLÜCÜLER': '/akisboluculer/30-grup-akis-boluculer.png',
+      '35. GRUP AKIŞ BÖLÜCÜLER': '/akisboluculer/35-grup-akis-boluculer.png',
       '40.GRUP END.HELİSEL G TİPİ KAPAK 7/8 DÜZ MİLLİ': '/dokumgovdelidislipompalar/40grup-endhelisel-g-tipi-kapak-7-8-duzmilli.png',
       '40.GRUP UNİ POMPALAR': '/dokumgovdelidislipompalar/40grup-uni-pompalar.png',
       '40.GRUP ISO POMPALAR': '/dokumgovdelidislipompalar/40grup-iso-pompalar.png',
@@ -1194,6 +1265,62 @@ function ProductDetail() {
       'DEĞİŞKEN DEBİLİ POMPALAR': '/pistonlupompa/degisken-debili-pompalar.png',
     }
     return imageMap[cardName] || '/pistonlu-pompa.png'
+  }
+
+  const getDokumGovdeDisliAkisBoluculerCardImage = (cardName) => {
+    const imageMap = {
+      '30. GRUP AKIŞ BÖLÜCÜLER': '/akisboluculer/30-grup-akis-boluculer.png',
+      '35. GRUP AKIŞ BÖLÜCÜLER': '/akisboluculer/35-grup-akis-boluculer.png',
+    }
+    return imageMap[cardName] || '/dokum-govde-disli-akis-boluculer.png'
+  }
+
+  // CASAPPA DÖKÜM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER ürün verilerini al
+  const getCasappaDokumGovdeDisliAkisBoluculerProductData = (cardName) => {
+    if (cardName === '35. GRUP AKIŞ BÖLÜCÜLER') {
+      return {
+        title: '35. GRUP AKIŞ BÖLÜCÜLER',
+        categories: [
+          {
+            name: 'İKİLİ AKIŞ BÖLÜCÜ',
+            products: [
+              { kod: '31179', bar: '310-335', debi: '124,81' },
+            ]
+          }
+        ]
+      }
+    }
+    
+    if (cardName === '30. GRUP AKIŞ BÖLÜCÜLER') {
+      return {
+        title: '30. GRUP AKIŞ BÖLÜCÜLER',
+        categories: [
+          {
+            name: 'İKİLİ AKIŞ BÖLÜCÜ',
+            products: [
+              { kod: '31177', bar: '310-335', debi: '34,39' },
+              { kod: 'C03772265', bar: '310-335', debi: '51,59' },
+              { kod: '31178', bar: '310-335', debi: '60,97' },
+            ]
+          },
+          {
+            name: 'ÜÇLÜ AKIŞ BÖLÜCÜ',
+            products: [
+              { kod: '31206', bar: '310-335', debi: '26,58' },
+              { kod: '31207', bar: '310-335', debi: '38,00' },
+            ]
+          },
+          {
+            name: 'DÖRTLÜ AKIŞ BÖLÜCÜ',
+            products: [
+              { kod: '31270', bar: '310-335', debi: '26,58' },
+            ]
+          }
+        ]
+      }
+    }
+    
+    return null
   }
 
   // HEMA PİSTONLU POMPA ürün verilerini al
@@ -5845,6 +5972,77 @@ function ProductDetail() {
                 })}
               </div>
             </>
+          ) : selectedBrand && productName === 'ALÜMİNYUM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">{selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)} Grupları</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Grup Kartları */}
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+                {getBrandGroups(selectedBrand, productName).map((group) => {
+                  const img = getGroupImage(group)
+                  return (
+                    <div
+                      key={group}
+                      onClick={() => {
+                        handleGroupCardClick(group, selectedBrand)
+                      }}
+                      className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-2xl hover:shadow-[#ff7f00]/10"
+                    >
+                      {/* Image Container with Enhanced Design */}
+                      <div className="relative h-64 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50">
+                        <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                        <img 
+                          src={img} 
+                          alt={group} 
+                          className="h-full w-full object-contain p-6 transition-all duration-500 group-hover:scale-110"
+                          onError={(e) => {
+                            e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(group)}`
+                          }}
+                        />
+                        {/* Professional gradient overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#ff7f00]/0 via-transparent to-[#1e4294]/0 transition-all duration-500 group-hover:from-[#ff7f00]/5 group-hover:to-[#1e4294]/5" />
+                      </div>
+                      
+                      {/* Content Section */}
+                      <div className="flex flex-1 flex-col p-6 pt-5">
+                        <h3 className="mb-4 text-lg font-bold leading-snug text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                          {group}
+                        </h3>
+                        <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                          <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                            Grup Detayı
+                          </span>
+                          <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                            <span className="text-xs font-semibold">İncele</span>
+                            <svg 
+                              className="h-4 w-4" 
+                              fill="none" 
+                              viewBox="0 0 24 24" 
+                              stroke="currentColor"
+                              strokeWidth={2.5}
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </>
           ) : selectedBrand && productName === 'DÖKÜM GÖVDELİ DİŞLİ POMPALAR' ? (
             <>
               {/* Ürün Başlığı */}
@@ -6014,6 +6212,77 @@ function ProductDetail() {
                     <div
                       key={card}
                       onClick={() => setSelectedPistonluPompaCard(card)}
+                      className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-2xl hover:shadow-[#ff7f00]/10"
+                    >
+                      {/* Image Container */}
+                      <div className="relative h-64 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50">
+                        <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                        <img 
+                          src={img} 
+                          alt={card} 
+                          className="h-full w-full object-contain p-6 transition-all duration-500 group-hover:scale-110"
+                          onError={(e) => {
+                            e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(card)}`
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#ff7f00]/0 via-transparent to-[#1e4294]/0 transition-all duration-500 group-hover:from-[#ff7f00]/5 group-hover:to-[#1e4294]/5" />
+                      </div>
+                      
+                      {/* Content Section */}
+                      <div className="flex flex-1 flex-col p-6 pt-5">
+                        <h3 className="mb-4 line-clamp-2 min-h-[3.5rem] text-lg font-bold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                          {card}
+                        </h3>
+                        <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                          <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                            Detay
+                          </span>
+                          <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                            <span className="text-xs font-semibold">İncele</span>
+                            <svg 
+                              className="h-4 w-4" 
+                              fill="none" 
+                              viewBox="0 0 24 24" 
+                              stroke="currentColor"
+                              strokeWidth={2.5}
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </>
+          ) : selectedBrand && productName === 'DÖKÜM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER' && !selectedDokumGovdeDisliAkisBoluculerCard ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">{selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)} Ürünleri</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedBrand(null)
+                    setSelectedDokumGovdeDisliAkisBoluculerCard(null)
+                  }}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Kartlar */}
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+                {getDokumGovdeDisliAkisBoluculerBrandCards(selectedBrand).map((card) => {
+                  const img = getDokumGovdeDisliAkisBoluculerCardImage(card)
+                  return (
+                    <div
+                      key={card}
+                      onClick={() => setSelectedDokumGovdeDisliAkisBoluculerCard(card)}
                       className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-2xl hover:shadow-[#ff7f00]/10"
                     >
                       {/* Image Container */}
@@ -7225,6 +7494,65 @@ function ProductDetail() {
                     ))}
                     <div className="mt-6 pt-6 border-t border-slate-200 px-4 py-3 text-xs text-slate-500 bg-slate-50 rounded-lg">
                       <p className="mb-2"><strong>Not:</strong> Bu tablo, KCL {selectedPaletliPompaCard} ürün serisinin teknik özelliklerini içermektedir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.</p>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedDokumGovdeDisliAkisBoluculerCard && selectedBrand === 'casappa' && productName === 'DÖKÜM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">CASAPPA</p>
+                  <h2 className="text-xl font-semibold">{selectedDokumGovdeDisliAkisBoluculerCard}</h2>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedDokumGovdeDisliAkisBoluculerCard(null)
+                  }}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Ürün Tablosu */}
+              {(() => {
+                const productData = getCasappaDokumGovdeDisliAkisBoluculerProductData(selectedDokumGovdeDisliAkisBoluculerCard)
+                if (!productData) return null
+                
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {productData.categories.map((category, catIndex) => (
+                      <div key={catIndex} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL KODU</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAR</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">DEBİ</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((product, prodIndex) => (
+                                  <tr key={prodIndex} className="hover:bg-slate-50">
+                                    <td className="px-4 py-3 font-medium text-slate-900">{product.kod}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.bar}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.debi}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="mt-6 pt-6 border-t border-slate-200 px-4 py-3 text-xs text-slate-500 bg-slate-50 rounded-lg">
+                      <p className="mb-2"><strong>Not:</strong> Bu tablo, CASAPPA {selectedDokumGovdeDisliAkisBoluculerCard} ürün serisinin teknik özelliklerini içermektedir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.</p>
                     </div>
                   </div>
                 )
