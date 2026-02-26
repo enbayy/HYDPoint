@@ -2312,6 +2312,1709 @@ const REKORSAN_KIRICILAR_ICIN_TAKVIYELI_HORTUM_RAKORLARI_CATEGORIES = [
   },
 ]
 
+// REKORSAN SOMUN VE YÜKSÜKLER kategorileri
+const REKORSAN_SOMUN_VE_YUKSUKLER_CATEGORIES = [
+  {
+    name: 'BORU SOMUNLARI',
+    tableHeaders: ['MODEL', 'SOMUN ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0106-BS-L', somunOlcusu: 'M12X1,5 6L' },
+      { model: 'RK-0106-BS-LL', somunOlcusu: 'M10X1 6LL' },
+      { model: 'RK-0108-BS-L', somunOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-0108-BS-LL', somunOlcusu: 'M12X1 8LL' },
+      { model: 'RK-0110-BS-L', somunOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-0112-BS-L', somunOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-0115-BS-L', somunOlcusu: 'M22X1,5 15L' },
+      { model: 'RK-0118-BS-L', somunOlcusu: 'M26X1,5 18L' },
+      { model: 'RK-0122-BS-L', somunOlcusu: 'M30X2 22L' },
+      { model: 'RK-0128-BS-L', somunOlcusu: 'M36X2 28L' },
+      { model: 'RK-0135-BS-L', somunOlcusu: 'M45X2 35L' },
+      { model: 'RK-0142-BS-L', somunOlcusu: 'M52X2 42L' },
+      { model: 'RK-0206-BS-S', somunOlcusu: 'M14X1,5 6S' },
+      { model: 'RK-0208-BS-S', somunOlcusu: 'M16X1,5 8S' },
+      { model: 'RK-0210-BS-S', somunOlcusu: 'M18X1,5 10S' },
+      { model: 'RK-0212-BS-S', somunOlcusu: 'M20X1,5 12S' },
+      { model: 'RK-0216-BS-S', somunOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-0220-BS-S', somunOlcusu: 'M30X2 20S' },
+      { model: 'RK-0225-BS-S', somunOlcusu: 'M36X2 25S' },
+      { model: 'RK-0230-BS-S', somunOlcusu: 'M42X2 30S' },
+      { model: 'RK-0238-BS-S', somunOlcusu: 'M52X2 38S' },
+    ],
+  },
+  {
+    name: 'YÜKSÜKLER (STEINER)',
+    tableHeaders: ['MODEL', 'BORU ÇAPI'],
+    products: [
+      { model: 'RK-0106-ÇY', boruCapi: '6' },
+      { model: 'RK-0106-ÇY-LL', boruCapi: '6LL' },
+      { model: 'RK-0108-ÇY', boruCapi: '8' },
+      { model: 'RK-0108-ÇY-LL', boruCapi: '8LL' },
+      { model: 'RK-0110-ÇY', boruCapi: '10' },
+      { model: 'RK-0112-ÇY', boruCapi: '12' },
+      { model: 'RK-0115-ÇY', boruCapi: '15' },
+      { model: 'RK-0118-ÇY', boruCapi: '18' },
+      { model: 'RK-0122-ÇY', boruCapi: '22' },
+      { model: 'RK-0128-ÇY', boruCapi: '28' },
+      { model: 'RK-0135-ÇY', boruCapi: '35' },
+      { model: 'RK-0142-ÇY', boruCapi: '42' },
+      { model: 'RK-0216-ÇY', boruCapi: '16' },
+      { model: 'RK-0220-ÇY', boruCapi: '20' },
+      { model: 'RK-0225-ÇY', boruCapi: '25' },
+      { model: 'RK-0230-ÇY', boruCapi: '30' },
+      { model: 'RK-0238-ÇY', boruCapi: '38' },
+    ],
+  },
+]
+
+// REKORSAN DİRSEKLER kategorileri
+const REKORSAN_DIRSEKLER_CATEGORIES = [
+  {
+    name: 'METRİK DİRSEKLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0606-MD-L', disOlcusu: 'M12X1,5 6L' },
+      { model: 'RK-0606-MD-S', disOlcusu: 'M14X1,5 6S' },
+      { model: 'RK-0808-MD-L', disOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-0808-MD-S', disOlcusu: 'M16X1,5 8S' },
+      { model: 'RK-1010-MD-L', disOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-1010-MD-S', disOlcusu: 'M18X1,5 10S' },
+      { model: 'RK-1212-MD-L', disOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-1212-MD-S', disOlcusu: 'M20X1,5 12S' },
+      { model: 'RK-1515-MD-L', disOlcusu: 'M22X1,5 15L' },
+      { model: 'RK-1616-MD-S', disOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-1818-MD-L', disOlcusu: 'M26X1,5 18L' },
+      { model: 'RK-2020-MD-S', disOlcusu: 'M30X2 20S' },
+      { model: 'RK-2222-MD-L', disOlcusu: 'M30X2 22L' },
+      { model: 'RK-2525-MD-S', disOlcusu: 'M36X2 25S' },
+      { model: 'RK-2828-MD-L', disOlcusu: 'M36X2 28L' },
+      { model: 'RK-3030-MD-S', disOlcusu: 'M42X2 30S' },
+      { model: 'RK-3535-MD-L', disOlcusu: 'M45X2 35L' },
+      { model: 'RK-3838-MD-S', disOlcusu: 'M52X2 38S' },
+      { model: 'RK-4242-MD-L', disOlcusu: 'M52X2 42L' },
+    ],
+  },
+  {
+    name: 'METRİK TERS DİRSEKLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0606-MTD-L', disOlcusu: 'M12X1,5 6L' },
+      { model: 'RK-0606-MTD-S', disOlcusu: 'M14X1,5 6S' },
+      { model: 'RK-0808-MTD-L', disOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-0808-MTD-S', disOlcusu: 'M16X1,5 8S' },
+      { model: 'RK-1010-MTD-L', disOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-1010-MTD-S', disOlcusu: 'M18X1,5 10S' },
+      { model: 'RK-1212-MTD-L', disOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-1212-MTD-S', disOlcusu: 'M20X1,5 12S' },
+      { model: 'RK-1515-MTD-L', disOlcusu: 'M22X1,5 15L' },
+      { model: 'RK-1616-MTD-S', disOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-1818-MTD-L', disOlcusu: 'M26X1,5 18L' },
+      { model: 'RK-2020-MTD-S', disOlcusu: 'M30X2 20S' },
+      { model: 'RK-2222-MTD-L', disOlcusu: 'M30X2 22L' },
+      { model: 'RK-2525-MTD-S', disOlcusu: 'M36X2 25S' },
+      { model: 'RK-2828-MTD-L', disOlcusu: 'M36X2 28L' },
+      { model: 'RK-3030-MTD-S', disOlcusu: 'M42X2 30S' },
+      { model: 'RK-3535-MTD-L', disOlcusu: 'M45X2 35L' },
+      { model: 'RK-3838-MTD-S', disOlcusu: 'M52X2 38S' },
+      { model: 'RK-4242-MTD-L', disOlcusu: 'M52X2 42L' },
+    ],
+  },
+  {
+    name: 'NPT - METRİK DİRSEKLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ BSPT', 'DİŞ ÖLÇÜSÜ METRİK'],
+    products: [
+      { model: 'RK-1006-NMD-L', disOlcusuBspt: '1/8-28 BSPT', disOlcusuMetrik: 'M12X1,5 6L' },
+      { model: 'RK-1006-NMD-LL', disOlcusuBspt: '1/8-28 BSPT', disOlcusuMetrik: 'M10X1 6LL' },
+      { model: 'RK-1008-NMD-L', disOlcusuBspt: '1/8-28 BSPT', disOlcusuMetrik: 'M14X1,5 8L' },
+      { model: 'RK-1010-NMD-L', disOlcusuBspt: '1/8-28 BSPT', disOlcusuMetrik: 'M16X1,5 10L' },
+      { model: 'RK-1306-NMD-L', disOlcusuBspt: '1/4-19 BSPT', disOlcusuMetrik: 'M12X1,5 6L' },
+      { model: 'RK-1306-NMD-S', disOlcusuBspt: '1/4-19 BSPT', disOlcusuMetrik: 'M14X1,5 6S' },
+      { model: 'RK-1308-NMD-L', disOlcusuBspt: '1/4-19 BSPT', disOlcusuMetrik: 'M14X1,5 8L' },
+      { model: 'RK-1310-NMD-L', disOlcusuBspt: '1/4-19 BSPT', disOlcusuMetrik: 'M16X1,5 10L' },
+      { model: 'RK-1310-NMD-S', disOlcusuBspt: '1/4-19 BSPT', disOlcusuMetrik: 'M18X1,5 10S' },
+      { model: 'RK-1312-NMD-L', disOlcusuBspt: '1/4-19 BSPT', disOlcusuMetrik: 'M18X1,5 12L' },
+      { model: 'RK-1708-NMD-L', disOlcusuBspt: '3/8-19 BSPT', disOlcusuMetrik: 'M14X1,5 8L' },
+      { model: 'RK-1708-NMD-S', disOlcusuBspt: '3/8-19 BSPT', disOlcusuMetrik: 'M16X1,5 8S' },
+      { model: 'RK-1710-NMD-L', disOlcusuBspt: '3/8-19 BSPT', disOlcusuMetrik: 'M16X1,5 10L' },
+      { model: 'RK-1710-NMD-S', disOlcusuBspt: '3/8-19 BSPT', disOlcusuMetrik: 'M18X1,5 10S' },
+      { model: 'RK-1712-NMD-L', disOlcusuBspt: '3/8-19 BSPT', disOlcusuMetrik: 'M18X1,5 12L' },
+      { model: 'RK-1712-NMD-S', disOlcusuBspt: '3/8-19 BSPT', disOlcusuMetrik: 'M20X1,5 12S' },
+      { model: 'RK-1716-NMD-S', disOlcusuBspt: '3/8-19 BSPT', disOlcusuMetrik: 'M24X1,5 16S' },
+      { model: 'RK-2110-NMD-L', disOlcusuBspt: '1/2-14 BSPT', disOlcusuMetrik: 'M16X1,5 10L' },
+      { model: 'RK-2112-NMD-L', disOlcusuBspt: '1/2-14 BSPT', disOlcusuMetrik: 'M18X1,5 12L' },
+      { model: 'RK-2112-NMD-S', disOlcusuBspt: '1/2-14 BSPT', disOlcusuMetrik: 'M20X1,5 12S' },
+      { model: 'RK-2115-NMD-L', disOlcusuBspt: '1/2-14 BSPT', disOlcusuMetrik: 'M22X1,5 15L' },
+      { model: 'RK-2116-NMD-S', disOlcusuBspt: '1/2-14 BSPT', disOlcusuMetrik: 'M24X1,5 16S' },
+      { model: 'RK-2118-NMD-L', disOlcusuBspt: '1/2-14 BSPT', disOlcusuMetrik: 'M26X1,5 18L' },
+      { model: 'RK-2120-NMD-S', disOlcusuBspt: '1/2-14 BSPT', disOlcusuMetrik: 'M30X2 20S' },
+      { model: 'RK-2616-NMD-S', disOlcusuBspt: '3/4-14 BSPT', disOlcusuMetrik: 'M24X1,5 16S' },
+      { model: 'RK-2620-NMD-S', disOlcusuBspt: '3/4-14 BSPT', disOlcusuMetrik: 'M30X2 20S' },
+      { model: 'RK-2622-NMD-L', disOlcusuBspt: '3/4-14 BSPT', disOlcusuMetrik: 'M30X2 22L' },
+      { model: 'RK-2625-NMD-S', disOlcusuBspt: '3/4-14 BSPT', disOlcusuMetrik: 'M36X2 25S' },
+      { model: 'RK-3320-NMD-S', disOlcusuBspt: '1-11 BSPT', disOlcusuMetrik: 'M30X2 20S' },
+      { model: 'RK-3325-NMD-S', disOlcusuBspt: '1-11 BSPT', disOlcusuMetrik: 'M36X2 25S' },
+      { model: 'RK-3325-NMN-S', disOlcusuBspt: '1-11 BSPT', disOlcusuMetrik: 'M36X2 25S' },
+      { model: 'RK-3328-NMD-L', disOlcusuBspt: '1-11 BSPT', disOlcusuMetrik: 'M36X2 28L' },
+      { model: 'RK-3330-NMD-S', disOlcusuBspt: '1-11 BSPT', disOlcusuMetrik: 'M42X2 30S' },
+      { model: 'RK-4230-NMD-S', disOlcusuBspt: '1 1/4-11 BSPT', disOlcusuMetrik: 'M42X2 30S' },
+      { model: 'RK-4235-NMD-L', disOlcusuBspt: '1 1/4-11 BSPT', disOlcusuMetrik: 'M45X2 35L' },
+      { model: 'RK-4838-NMD-S', disOlcusuBspt: '1 1/2-11 BSPT', disOlcusuMetrik: 'M52X2 38S' },
+      { model: 'RK-4842-NMD-L', disOlcusuBspt: '1 1/2-11 BSPT', disOlcusuMetrik: 'M52X2 42L' },
+    ],
+  },
+  {
+    name: 'BSP METRİK DÖNER DİRSEKLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ BSP', 'DİŞ ÖLÇÜSÜ METRİK'],
+    products: [
+      { model: 'RK-1006-RMDD-L', disOlcusuBsp: 'R1/8-28', disOlcusuMetrik: 'M12X1,5 6L' },
+      { model: 'RK-1008-RMDD-L', disOlcusuBsp: 'R1/8-28', disOlcusuMetrik: 'M14X1,5 8L' },
+      { model: 'RK-1306-RMDD-L', disOlcusuBsp: 'R1/4-19', disOlcusuMetrik: 'M12X1,5 6L' },
+      { model: 'RK-1306-RMDD-S', disOlcusuBsp: 'R1/4-19', disOlcusuMetrik: 'M14X1,5 6S' },
+      { model: 'RK-1308-RMDD-L', disOlcusuBsp: 'R1/4-19', disOlcusuMetrik: 'M14X1,5 8L' },
+      { model: 'RK-1308-RMDD-S', disOlcusuBsp: 'R1/4-19', disOlcusuMetrik: 'M16X1,5 8S' },
+      { model: 'RK-1310-RMDD-L', disOlcusuBsp: 'R1/4-19', disOlcusuMetrik: 'M16X1,5 10L' },
+      { model: 'RK-1312-RMDD-L', disOlcusuBsp: 'R1/4-19', disOlcusuMetrik: 'M18X1,5 12L' },
+      { model: 'RK-1706-RMDD-L', disOlcusuBsp: 'R3/8-19', disOlcusuMetrik: 'M12X1,5 6L' },
+      { model: 'RK-1708-RMDD-L', disOlcusuBsp: 'R3/8-19', disOlcusuMetrik: 'M14X1,5 8L' },
+      { model: 'RK-1710-RMDD-L', disOlcusuBsp: 'R3/8-19', disOlcusuMetrik: 'M16X1,5 10L' },
+      { model: 'RK-1712-RMDD-L', disOlcusuBsp: 'R3/8-19', disOlcusuMetrik: 'M18X1,5 12L' },
+      { model: 'RK-1712-RMDD-S', disOlcusuBsp: 'R3/8-19', disOlcusuMetrik: 'M20X1,5 12S' },
+      { model: 'RK-1715-RMDD-L', disOlcusuBsp: 'R3/8-19', disOlcusuMetrik: 'M22X1,5 15L' },
+      { model: 'RK-1716-RMDD-S', disOlcusuBsp: 'R3/8-19', disOlcusuMetrik: 'M24X1,5 16S' },
+      { model: 'RK-2110-RMDD-L', disOlcusuBsp: 'R1/2-14', disOlcusuMetrik: 'M16X1,5 10L' },
+      { model: 'RK-2112-RMDD-L', disOlcusuBsp: 'R1/2-14', disOlcusuMetrik: 'M18X1,5 12L' },
+      { model: 'RK-2112-RMDD-S', disOlcusuBsp: 'R1/2-14', disOlcusuMetrik: 'M20X1,5 12S' },
+      { model: 'RK-2115-RMDD-L', disOlcusuBsp: 'R1/2-14', disOlcusuMetrik: 'M22X1,5 15L' },
+      { model: 'RK-2116-RMDD-S', disOlcusuBsp: 'R1/2-14', disOlcusuMetrik: 'M24X1,5 16S' },
+      { model: 'RK-2118-RMDD-L', disOlcusuBsp: 'R1/2-14', disOlcusuMetrik: 'M26X1,5 18L' },
+      { model: 'RK-2120-RMDD-S', disOlcusuBsp: 'R1/2-14', disOlcusuMetrik: 'M30X2 20S' },
+      { model: 'RK-2616-RMDD-S', disOlcusuBsp: 'R3/4-14', disOlcusuMetrik: 'M24X1,5 16S' },
+      { model: 'RK-2618-RMDD-L', disOlcusuBsp: 'R3/4-14', disOlcusuMetrik: 'M26X1,5 18L' },
+      { model: 'RK-2620-RMDD-S', disOlcusuBsp: 'R3/4-14', disOlcusuMetrik: 'M30X2 20S' },
+      { model: 'RK-2622-RMDD-L', disOlcusuBsp: 'R3/4-14', disOlcusuMetrik: 'M30X2 22L' },
+      { model: 'RK-2625-RMDD-S', disOlcusuBsp: 'R3/4-14', disOlcusuMetrik: 'M36X2 25S' },
+      { model: 'RK-3320-RMDD-S', disOlcusuBsp: 'R1-11', disOlcusuMetrik: 'M30X2 20S' },
+      { model: 'RK-3325-RMDD-S', disOlcusuBsp: 'R1-11', disOlcusuMetrik: 'M36X2 25S' },
+      { model: 'RK-3330-RMDD-S', disOlcusuBsp: 'R1-11', disOlcusuMetrik: 'M42X2 30S' },
+      { model: 'RK-4230-RMDD-S', disOlcusuBsp: 'R1 1/4-11', disOlcusuMetrik: 'M42X2 30S' },
+      { model: 'RK-4235-RMDD-L', disOlcusuBsp: 'R1 1/4-11', disOlcusuMetrik: 'M45X2 35L' },
+      { model: 'RK-4238-RMDD-S', disOlcusuBsp: 'R1 1/4-11', disOlcusuMetrik: 'M52X2 38S' },
+    ],
+  },
+  {
+    name: 'BSP DİŞİ DİRSEKLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1010-DD', disOlcusu: 'R1/8-28' },
+      { model: 'RK-1313-DD', disOlcusu: 'R1/4-19' },
+      { model: 'RK-1717-DD', disOlcusu: 'R3/8-19' },
+      { model: 'RK-2121-DD', disOlcusu: 'R1/2-14' },
+      { model: 'RK-2626-DD', disOlcusu: 'R3/4-14' },
+      { model: 'RK-3333-DD', disOlcusu: 'R1-11' },
+      { model: 'RK-4242-DD', disOlcusu: 'R1 1/4-11' },
+      { model: 'RK-4848-DD', disOlcusu: 'R1 1/2-11' },
+    ],
+  },
+  {
+    name: 'KUYRUKLU DİRSEKLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ BSPT', 'DİŞ ÖLÇÜSÜ DİŞİ BSP'],
+    products: [
+      { model: 'RK-1010-KD', disOlcusuBspt: '1/8-28 BSPT', disOlcusuDisiBsp: 'R1/8-28' },
+      { model: 'RK-1313-KD', disOlcusuBspt: '1/4-19 BSPT', disOlcusuDisiBsp: 'R1/4-19' },
+      { model: 'RK-1717-KD', disOlcusuBspt: '3/8-19 BSPT', disOlcusuDisiBsp: 'R3/8-19' },
+      { model: 'RK-2121-KD', disOlcusuBspt: '1/2-14 BSPT', disOlcusuDisiBsp: 'R1/2-14' },
+      { model: 'RK-2626-KD', disOlcusuBspt: '3/4-14 BSPT', disOlcusuDisiBsp: 'R3/4-14' },
+      { model: 'RK-3333-KD', disOlcusuBspt: '1-11 BSPT', disOlcusuDisiBsp: 'R1-11' },
+      { model: 'RK-4242-KD', disOlcusuBspt: '1 1/4-11 BSPT', disOlcusuDisiBsp: 'R1 1/4-11' },
+      { model: 'RK-4848-KD', disOlcusuBspt: '1 1/2-11 BSPT', disOlcusuDisiBsp: 'R1 1/2-11' },
+    ],
+  },
+  {
+    name: 'NPT - BSP DİRSEKLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ BSP', 'DİŞ ÖLÇÜSÜ BSPT'],
+    products: [
+      { model: 'RK-1010-NRD', disOlcusuBsp: 'R1/8-28', disOlcusuBspt: '1/8-28 BSPT' },
+      { model: 'RK-1313-NRD', disOlcusuBsp: 'R1/4-19', disOlcusuBspt: '1/4-19 BSPT' },
+      { model: 'RK-1717-NRD', disOlcusuBsp: 'R3/8-19', disOlcusuBspt: '3/8-19 BSPT' },
+      { model: 'RK-2121-NRD', disOlcusuBsp: 'R1/2-14', disOlcusuBspt: '1/2-14 BSPT' },
+      { model: 'RK-2626-NRD', disOlcusuBsp: 'R3/4-14', disOlcusuBspt: '3/4-14 BSPT' },
+      { model: 'RK-3333-NRD', disOlcusuBsp: 'R1-11', disOlcusuBspt: '1-11 BSPT' },
+      { model: 'RK-4242-NRD', disOlcusuBsp: 'R1 1/4-11', disOlcusuBspt: '1 1/4-11 BSPT' },
+    ],
+  },
+  {
+    name: 'NPT - BSP TERS DİRSEKLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ BSP', 'DİŞ ÖLÇÜSÜ BSPT'],
+    products: [
+      { model: 'RK-1010-RTD', disOlcusuBsp: 'R1/8-28', disOlcusuBspt: '1/8-28 BSPT' },
+      { model: 'RK-1313-RTD', disOlcusuBsp: 'R1/4-19', disOlcusuBspt: '1/4-19 BSPT' },
+      { model: 'RK-1717-RTD', disOlcusuBsp: 'R3/8-19', disOlcusuBspt: '3/8-19 BSPT' },
+      { model: 'RK-2121-RTD', disOlcusuBsp: 'R1/2-14', disOlcusuBspt: '1/2-14 BSPT' },
+      { model: 'RK-2626-RTD', disOlcusuBsp: 'R3/4-14', disOlcusuBspt: '3/4-14 BSPT' },
+      { model: 'RK-3333-RTD', disOlcusuBsp: 'R1-11', disOlcusuBspt: '1-11 BSPT' },
+      { model: 'RK-4242-RTD', disOlcusuBsp: 'R1 1/4-11', disOlcusuBspt: '1 1/4-11 BSPT' },
+      { model: 'RK-4848-RTD', disOlcusuBsp: 'R1 1/2-11', disOlcusuBspt: '1 1/2-11 BSPT' },
+      { model: 'RK-6060-RTD', disOlcusuBsp: 'R2-11', disOlcusuBspt: '2-11 BSPT' },
+    ],
+  },
+  {
+    name: 'NPT - UNF DİRSEKLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ BSPT', 'DİŞ ÖLÇÜSÜ UNF'],
+    products: [
+      { model: 'RK-1011-NWD', disOlcusuBspt: '1/8-28 BSPT', disOlcusuUnf: '7/16-20 UNF' },
+      { model: 'RK-1311-NWD', disOlcusuBspt: '1/4-19 BSPT', disOlcusuUnf: '7/16-20 UNF' },
+      { model: 'RK-1312-NWD', disOlcusuBspt: '1/4-19 BSPT', disOlcusuUnf: '1/2-20 UNF' },
+      { model: 'RK-1314-NWD', disOlcusuBspt: '1/4-19 BSPT', disOlcusuUnf: '9/16-18 UNF' },
+      { model: 'RK-1316-NWD', disOlcusuBspt: '1/4-19 BSPT', disOlcusuUnf: '5/8-18 UNF' },
+      { model: 'RK-1319-NWD', disOlcusuBspt: '1/4-19 BSPT', disOlcusuUnf: '3/4-16 UNF' },
+      { model: 'RK-1712-NWD', disOlcusuBspt: '3/8-19 BSPT', disOlcusuUnf: '1/2-20 UNF' },
+      { model: 'RK-1714-NWD', disOlcusuBspt: '3/8-19 BSPT', disOlcusuUnf: '9/16-18 UNF' },
+      { model: 'RK-1716-NWD', disOlcusuBspt: '3/8-19 BSPT', disOlcusuUnf: '5/8-18 UNF' },
+      { model: 'RK-1719-NWD', disOlcusuBspt: '3/8-19 BSPT', disOlcusuUnf: '3/4-16 UNF' },
+      { model: 'RK-2114-NWD', disOlcusuBspt: '1/2-14 BSPT', disOlcusuUnf: '9/16-18 UNF' },
+      { model: 'RK-2116-NWD', disOlcusuBspt: '1/2-14 BSPT', disOlcusuUnf: '5/8-18 UNF' },
+      { model: 'RK-2119-NWD', disOlcusuBspt: '1/2-14 BSPT', disOlcusuUnf: '3/4-16 UNF' },
+      { model: 'RK-2122-NWD', disOlcusuBspt: '1/2-14 BSPT', disOlcusuUnf: '7/8-14 UNF' },
+      { model: 'RK-2127-NWD', disOlcusuBspt: '1/2-14 BSPT', disOlcusuUnf: '1 1/16-12 UNF' },
+      { model: 'RK-2619-NWD', disOlcusuBspt: '3/4-14 BSPT', disOlcusuUnf: '3/4-16 UNF' },
+      { model: 'RK-2627-NWD', disOlcusuBspt: '3/4-14 BSPT', disOlcusuUnf: '1 1/16-12 UNF' },
+      { model: 'RK-3327-NWD', disOlcusuBspt: '1-11 BSPT', disOlcusuUnf: '1 1/16-12 UNF' },
+      { model: 'RK-3333-NWD', disOlcusuBspt: '1-11 BSPT', disOlcusuUnf: '1 5/16-12 UNF' },
+    ],
+  },
+  {
+    name: 'UNF DİRSEKLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1111-WD', disOlcusu: '7/16-20' },
+      { model: 'RK-1212-WD', disOlcusu: '1/2-20' },
+      { model: 'RK-1414-WD', disOlcusu: '9/16-18' },
+      { model: 'RK-1616-WD', disOlcusu: '5/8-18' },
+      { model: 'RK-1919-WD', disOlcusu: '3/4-16' },
+      { model: 'RK-2222-WD', disOlcusu: '7/8-14' },
+      { model: 'RK-2727-WD', disOlcusu: '1 1/16-12' },
+      { model: 'RK-3333-WD', disOlcusu: '1 5/16-12' },
+      { model: 'RK-4141-WD', disOlcusu: '1 5/8-12' },
+    ],
+  },
+  {
+    name: 'UNF TERS DİRSEKLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1111-WTD', disOlcusu: '7/16-20' },
+      { model: 'RK-1212-WTD', disOlcusu: '1/2-20' },
+      { model: 'RK-1414-WTD', disOlcusu: '9/16-18' },
+      { model: 'RK-1616-WTD', disOlcusu: '5/8-18' },
+      { model: 'RK-1919-WTD', disOlcusu: '3/4-16' },
+      { model: 'RK-2222-WTD', disOlcusu: '7/8-14' },
+      { model: 'RK-2727-WTD', disOlcusu: '1 1/16-12' },
+      { model: 'RK-3333-WTD', disOlcusu: '1 5/16-12' },
+      { model: 'RK-4141-WTD', disOlcusu: '1 5/8-12' },
+    ],
+  },
+  {
+    name: 'ORFS DİRSEKLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1414-OD', disOlcusu: '9/16-18' },
+      { model: 'RK-1717-OD', disOlcusu: '11/16-16' },
+      { model: 'RK-2121-OD', disOlcusu: '13/16-16' },
+      { model: 'RK-2525-OD', disOlcusu: '1-14' },
+      { model: 'RK-3030-OD', disOlcusu: '1 3/16-12' },
+      { model: 'RK-3737-OD', disOlcusu: '1 7/16-12' },
+      { model: 'RK-4343-OD', disOlcusu: '1 11/16-12' },
+    ],
+  },
+  {
+    name: 'ORFS TERS DİRSEKLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1414-OTD', disOlcusu: '9/16-18' },
+      { model: 'RK-1717-OTD', disOlcusu: '11/16-16' },
+      { model: 'RK-2121-OTD', disOlcusu: '13/16-16' },
+      { model: 'RK-2525-OTD', disOlcusu: '1-14' },
+      { model: 'RK-3030-OTD', disOlcusu: '1 3/16-12' },
+      { model: 'RK-3737-OTD', disOlcusu: '1 7/16-12' },
+      { model: 'RK-4343-OTD', disOlcusu: '1 11/16-12' },
+    ],
+  },
+]
+
+// REKORSAN NİPELLER kategorileri
+const REKORSAN_NIPELLER_CATEGORIES = [
+  {
+    name: 'METRİK ARA NİPELLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0606-MMN-L', disOlcusu: 'M12X1,5 6L' },
+      { model: 'RK-0606-MMN-LL', disOlcusu: 'M10X1 6LL' },
+      { model: 'RK-0606-MMN-S', disOlcusu: 'M14X1,5 6S' },
+      { model: 'RK-0808-MMN-L', disOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-0808-MMN-S', disOlcusu: 'M16X1,5 8S' },
+      { model: 'RK-1010-MMN-L', disOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-1010-MMN-S', disOlcusu: 'M18X1,5 10S' },
+      { model: 'RK-1212-MMN-L', disOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-1212-MMN-S', disOlcusu: 'M20X1,5 12S' },
+      { model: 'RK-1515-MMN-L', disOlcusu: 'M22X1,5 15L' },
+      { model: 'RK-1616-MMN-S', disOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-1818-MMN-L', disOlcusu: 'M26X1,5 18L' },
+      { model: 'RK-2020-MMN-S', disOlcusu: 'M30X2 20S' },
+      { model: 'RK-2222-MMN-L', disOlcusu: 'M30X2 22L' },
+      { model: 'RK-2525-MMN-S', disOlcusu: 'M36X2 25S' },
+      { model: 'RK-2828-MMN-L', disOlcusu: 'M36X2 28L' },
+      { model: 'RK-3030-MMN-S', disOlcusu: 'M42X2 30S' },
+      { model: 'RK-3535-MMN-L', disOlcusu: 'M45X2 35L' },
+      { model: 'RK-3838-MMN-S', disOlcusu: 'M52X2 38S' },
+      { model: 'RK-4242-MMN-L', disOlcusu: 'M52X2 42L' },
+    ],
+  },
+  {
+    name: 'METRİK ORANTI NİPELLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ', 'DİŞ ÖLÇÜSÜ 2'],
+    products: [
+      { model: 'RK-0806-MMON-L', disOlcusu: 'M14X1,5 8L', disOlcusu2: 'M12X1,5 6L' },
+      { model: 'RK-1006-MMON-L', disOlcusu: 'M16X1,5 10L', disOlcusu2: 'M12X1,5 6L' },
+      { model: 'RK-1008-MMON-L', disOlcusu: 'M16X1,5 10L', disOlcusu2: 'M14X1,5 8L' },
+      { model: 'RK-1206-MMON-L', disOlcusu: 'M18X1,5 12L', disOlcusu2: 'M12X1,5 6L' },
+      { model: 'RK-1208-MMON-L', disOlcusu: 'M18X1,5 12L', disOlcusu2: 'M14X1,5 8L' },
+      { model: 'RK-1210-MMON-L', disOlcusu: 'M18X1,5 12L', disOlcusu2: 'M16X1,5 10L' },
+      { model: 'RK-1510-MMON-L', disOlcusu: 'M22X1,5 15L', disOlcusu2: 'M16X1,5 10L' },
+      { model: 'RK-1512-MMON-L', disOlcusu: 'M22X1,5 15L', disOlcusu2: 'M18X1,5 12L' },
+      { model: 'RK-1612-MMON-S', disOlcusu: 'M24X1,5 16S', disOlcusu2: 'M20X1,5 12S' },
+      { model: 'RK-1810-MMON-L', disOlcusu: 'M26X1,5 18L', disOlcusu2: 'M16X1,5 10L' },
+      { model: 'RK-1812-MMON-L', disOlcusu: 'M26X1,5 18L', disOlcusu2: 'M18X1,5 12L' },
+      { model: 'RK-1815-MMON-L', disOlcusu: 'M26X1,5 18L', disOlcusu2: 'M22X1,5 15L' },
+      { model: 'RK-2016-MMON-S', disOlcusu: 'M30X2 20S', disOlcusu2: 'M24X1,5 16S' },
+      { model: 'RK-2215-MMON-L', disOlcusu: 'M30X2 22L', disOlcusu2: 'M22X1,5 15L' },
+      { model: 'RK-2516-MMON-S', disOlcusu: 'M36X2 25S', disOlcusu2: 'M24X1,5 16S' },
+      { model: 'RK-2520-MMON-S', disOlcusu: 'M36X2 25S', disOlcusu2: 'M30X2 20S' },
+      { model: 'RK-3016-MMON-S', disOlcusu: 'M42X2 30S', disOlcusu2: 'M24X1,5 16S' },
+      { model: 'RK-3020-MMON-S', disOlcusu: 'M42X2 30S', disOlcusu2: 'M30X2 20S' },
+      { model: 'RK-3025-MMON-S', disOlcusu: 'M42X2 30S', disOlcusu2: 'M36X2 25S' },
+    ],
+  },
+  {
+    name: 'METRİK BLOK METRİK HAVŞALI NİPELLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ', 'DİŞ ÖLÇÜSÜ 2'],
+    products: [
+      { model: 'RK-1006-MMBN-L', disOlcusu: 'M10X1', disOlcusu2: 'M12X1,5 6L' },
+      { model: 'RK-1206-MMBN-L', disOlcusu: 'M12X1,5', disOlcusu2: 'M12X1,5 6L' },
+      { model: 'RK-1208-MMBN-L', disOlcusu: 'M12X1,5', disOlcusu2: 'M14X1,5 8L' },
+      { model: 'RK-1408-MMBN-L', disOlcusu: 'M14X1,5', disOlcusu2: 'M14X1,5 8L' },
+      { model: 'RK-1408-MMBN-S', disOlcusu: 'M14X1,5', disOlcusu2: 'M16X1,5 8S' },
+      { model: 'RK-1410-MMBN-L', disOlcusu: 'M14X1,5', disOlcusu2: 'M16X1,5 10L' },
+      { model: 'RK-1412-MMBN-L', disOlcusu: 'M14X1,5', disOlcusu2: 'M18X1,5 12L' },
+      { model: 'RK-1608-MMBN-L', disOlcusu: 'M16X1,5', disOlcusu2: 'M14X1,5 8L' },
+      { model: 'RK-1610-MMBN-L', disOlcusu: 'M16X1,5', disOlcusu2: 'M16X1,5 10L' },
+      { model: 'RK-1610-MMBN-S', disOlcusu: 'M16X1,5', disOlcusu2: 'M18X1,5 10S' },
+      { model: 'RK-1612-MMBN-L', disOlcusu: 'M16X1,5', disOlcusu2: 'M18X1,5 12L' },
+      { model: 'RK-1810-MMBN-L', disOlcusu: 'M18X1,5', disOlcusu2: 'M16X1,5 10L' },
+      { model: 'RK-1812-MMBN-L', disOlcusu: 'M18X1,5', disOlcusu2: 'M18X1,5 12L' },
+      { model: 'RK-1812-MMBN-S', disOlcusu: 'M18X1,5', disOlcusu2: 'M20X1,5 12S' },
+      { model: 'RK-1815-MMBN-L', disOlcusu: 'M18X1,5', disOlcusu2: 'M22X1,5 15L' },
+      { model: 'RK-2208-MMBN-L', disOlcusu: 'M22X1,5', disOlcusu2: 'M14X1,5 8L' },
+      { model: 'RK-2210-MMBN-L', disOlcusu: 'M22X1,5', disOlcusu2: 'M16X1,5 10L' },
+      { model: 'RK-2212-MMBN-L', disOlcusu: 'M22X1,5', disOlcusu2: 'M18X1,5 12L' },
+      { model: 'RK-2215-MMBN-L', disOlcusu: 'M22X1,5', disOlcusu2: 'M22X1,5 15L' },
+      { model: 'RK-2216-MMBN-S', disOlcusu: 'M22X1,5', disOlcusu2: 'M24X1,5 16S' },
+      { model: 'RK-2218-MMBN-L', disOlcusu: 'M22X1,5', disOlcusu2: 'M26X1,5 18L' },
+      { model: 'RK-2618-MMBN-L', disOlcusu: 'M26X1,5', disOlcusu2: 'M26X1,5 18L' },
+      { model: 'RK-2622-MMBN-L', disOlcusu: 'M26X1,5', disOlcusu2: 'M30X2 22L' },
+      { model: 'RK-2720-MMBN-S', disOlcusu: 'M27X2', disOlcusu2: 'M30X2 20S' },
+    ],
+  },
+  {
+    name: 'BSP-METRİK NİPELLER (PERFLEXLİ)',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ BSP', 'DİŞ ÖLÇÜSÜ METRİK'],
+    products: [
+      { model: 'RK-1006-RMNP-L', disOlcusuBsp: 'R1/8-28', disOlcusuMetrik: 'M12X1,5 6L' },
+      { model: 'RK-1006-RMNP-LL', disOlcusuBsp: 'R1/8-28', disOlcusuMetrik: 'M10X1 6LL' },
+      { model: 'RK-1006-RMNP-S', disOlcusuBsp: 'R1/8-28', disOlcusuMetrik: 'M14X1,5 6S' },
+      { model: 'RK-1008-RMNP-L', disOlcusuBsp: 'R1/8-28', disOlcusuMetrik: 'M14X1,5 8L' },
+      { model: 'RK-1010-RMNP-L', disOlcusuBsp: 'R1/8-28', disOlcusuMetrik: 'M16X1,5 10L' },
+      { model: 'RK-1306-RMNP-L', disOlcusuBsp: 'R1/4-19', disOlcusuMetrik: 'M12X1,5 6L' },
+      { model: 'RK-1306-RMNP-S', disOlcusuBsp: 'R1/4-19', disOlcusuMetrik: 'M14X1,5 6S' },
+      { model: 'RK-1308-RMNP-L', disOlcusuBsp: 'R1/4-19', disOlcusuMetrik: 'M14X1,5 8L' },
+      { model: 'RK-1308-RMNP-S', disOlcusuBsp: 'R1/4-19', disOlcusuMetrik: 'M16X1,5 8S' },
+      { model: 'RK-1310-RMNP-L', disOlcusuBsp: 'R1/4-19', disOlcusuMetrik: 'M16X1,5 10L' },
+      { model: 'RK-1310-RMNP-S', disOlcusuBsp: 'R1/4-19', disOlcusuMetrik: 'M18X1,5 10S' },
+      { model: 'RK-1312-RMNP-L', disOlcusuBsp: 'R1/4-19', disOlcusuMetrik: 'M18X1,5 12L' },
+      { model: 'RK-1312-RMNP-S', disOlcusuBsp: 'R1/4-19', disOlcusuMetrik: 'M20X1,5 12S' },
+      { model: 'RK-1706-RMNP-L', disOlcusuBsp: 'R3/8-19', disOlcusuMetrik: 'M12X1,5 6L' },
+      { model: 'RK-1708-RMNP-L', disOlcusuBsp: 'R3/8-19', disOlcusuMetrik: 'M14X1,5 8L' },
+      { model: 'RK-1708-RMNP-S', disOlcusuBsp: 'R3/8-19', disOlcusuMetrik: 'M18X1,5 10S' },
+      { model: 'RK-1710-RMNP-L', disOlcusuBsp: 'R3/8-19', disOlcusuMetrik: 'M16X1,5 10L' },
+      { model: 'RK-1712-RMNP-L', disOlcusuBsp: 'R3/8-19', disOlcusuMetrik: 'M18X1,5 12L' },
+      { model: 'RK-1712-RMNP-S', disOlcusuBsp: 'R3/8-19', disOlcusuMetrik: 'M20X1,5 12S' },
+      { model: 'RK-1715-RMNP-L', disOlcusuBsp: 'R3/8-19', disOlcusuMetrik: 'M22X1,5 15L' },
+      { model: 'RK-1716-RMNP-S', disOlcusuBsp: 'R3/8-19', disOlcusuMetrik: 'M24X1,5 16S' },
+      { model: 'RK-1720-RMNP-S', disOlcusuBsp: 'R3/8-19', disOlcusuMetrik: 'M30X2 20S' },
+      { model: 'RK-2106-RMNP-L', disOlcusuBsp: 'R1/2-14', disOlcusuMetrik: 'M12X1,5 6L' },
+      { model: 'RK-2108-RMNP-L', disOlcusuBsp: 'R1/2-14', disOlcusuMetrik: 'M14X1,5 8L' },
+      { model: 'RK-2108-RMNP-S', disOlcusuBsp: 'R1/2-14', disOlcusuMetrik: 'M16X1,5 8S' },
+      { model: 'RK-2110-RMNP-L', disOlcusuBsp: 'R1/2-14', disOlcusuMetrik: 'M16X1,5 10L' },
+      { model: 'RK-2110-RMNP-S', disOlcusuBsp: 'R1/2-14', disOlcusuMetrik: 'M18X1,5 10S' },
+      { model: 'RK-2112-RMNP-L', disOlcusuBsp: 'R1/2-14', disOlcusuMetrik: 'M18X1,5 12L' },
+      { model: 'RK-2112-RMNP-S', disOlcusuBsp: 'R1/2-14', disOlcusuMetrik: 'M20X1,5 12S' },
+      { model: 'RK-2115-RMNP-L', disOlcusuBsp: 'R1/2-14', disOlcusuMetrik: 'M22X1,5 15L' },
+      { model: 'RK-2116-RMNP-S', disOlcusuBsp: 'R1/2-14', disOlcusuMetrik: 'M24X1,5 16S' },
+      { model: 'RK-2118-RMNP-L', disOlcusuBsp: 'R1/2-14', disOlcusuMetrik: 'M26X1,5 18L' },
+      { model: 'RK-2120-RMNP-S', disOlcusuBsp: 'R1/2-14', disOlcusuMetrik: 'M30X2 20S' },
+      { model: 'RK-2122-RMNP-L', disOlcusuBsp: 'R1/2-14', disOlcusuMetrik: 'M30X2 22L' },
+      { model: 'RK-2125-RMNP-S', disOlcusuBsp: 'R1/2-14', disOlcusuMetrik: 'M36X2 25S' },
+      { model: 'RK-2612-RMNP-L', disOlcusuBsp: 'R3/4-14', disOlcusuMetrik: 'M18X1,5 12L' },
+      { model: 'RK-2612-RMNP-S', disOlcusuBsp: 'R3/4-14', disOlcusuMetrik: 'M20X1,5 12S' },
+      { model: 'RK-2615-RMNP-L', disOlcusuBsp: 'R3/4-14', disOlcusuMetrik: 'M22X1,5 15L' },
+      { model: 'RK-2616-RMNP-S', disOlcusuBsp: 'R3/4-14', disOlcusuMetrik: 'M24X1,5 16S' },
+      { model: 'RK-2618-RMNP-L', disOlcusuBsp: 'R3/4-14', disOlcusuMetrik: 'M26X1,5 18L' },
+      { model: 'RK-2620-RMNP-S', disOlcusuBsp: 'R3/4-14', disOlcusuMetrik: 'M30X2 20S' },
+      { model: 'RK-2622-RMNP-L', disOlcusuBsp: 'R3/4-14', disOlcusuMetrik: 'M30X2 22L' },
+      { model: 'RK-2625-RMNP-S', disOlcusuBsp: 'R3/4-14', disOlcusuMetrik: 'M36X2 25S' },
+      { model: 'RK-2628-RMNP-L', disOlcusuBsp: 'R3/4-14', disOlcusuMetrik: 'M36X2 28L' },
+      { model: 'RK-2630-RMNP-S', disOlcusuBsp: 'R3/4-14', disOlcusuMetrik: 'M42X2 30S' },
+      { model: 'RK-3312-RMNP-S', disOlcusuBsp: 'R1-11', disOlcusuMetrik: 'M20X1,5 12S' },
+      { model: 'RK-3316-RMNP-S', disOlcusuBsp: 'R1-11', disOlcusuMetrik: 'M24X1,5 16S' },
+      { model: 'RK-3320-RMNP-S', disOlcusuBsp: 'R1-11', disOlcusuMetrik: 'M30X2 20S' },
+      { model: 'RK-3322-RMNP-L', disOlcusuBsp: 'R1-11', disOlcusuMetrik: 'M30X2 22L' },
+      { model: 'RK-3325-RMNP-S', disOlcusuBsp: 'R1-11', disOlcusuMetrik: 'M36X2 25S' },
+      { model: 'RK-3328-RMNP-L', disOlcusuBsp: 'R1-11', disOlcusuMetrik: 'M36X2 28L' },
+      { model: 'RK-3330-RMNP-S', disOlcusuBsp: 'R1-11', disOlcusuMetrik: 'M42X2 30S' },
+      { model: 'RK-3335-RMNP-L', disOlcusuBsp: 'R1-11', disOlcusuMetrik: 'M45X2 35L' },
+      { model: 'RK-3338-RMNP-S', disOlcusuBsp: 'R1-11', disOlcusuMetrik: 'M52X2 38S' },
+      { model: 'RK-4220-RMNP-S', disOlcusuBsp: 'R1 1/4-11', disOlcusuMetrik: 'M30X2 20S' },
+      { model: 'RK-4225-RMNP-S', disOlcusuBsp: 'R1 1/4-11', disOlcusuMetrik: 'M36X2 25S' },
+      { model: 'RK-4228-RMNP-L', disOlcusuBsp: 'R1 1/4-11', disOlcusuMetrik: 'M36X2 28L' },
+      { model: 'RK-4230-RMNP-S', disOlcusuBsp: 'R1 1/4-11', disOlcusuMetrik: 'M42X2 30S' },
+      { model: 'RK-4235-RMNP-L', disOlcusuBsp: 'R1 1/4-11', disOlcusuMetrik: 'M45X2 35L' },
+      { model: 'RK-4238-RMNP-S', disOlcusuBsp: 'R1 1/4-11', disOlcusuMetrik: 'M52X2 38S' },
+      { model: 'RK-4242-RMNP-L', disOlcusuBsp: 'R1 1/4-11', disOlcusuMetrik: 'M52X2 42L' },
+      { model: 'RK-4825-RMNP-S', disOlcusuBsp: 'R1 1/2-11', disOlcusuMetrik: 'M36X2 25S' },
+      { model: 'RK-4830-RMNP-S', disOlcusuBsp: 'R1 1/2-11', disOlcusuMetrik: 'M42X2 30S' },
+      { model: 'RK-4835-RMNP-L', disOlcusuBsp: 'R1 1/2-11', disOlcusuMetrik: 'M45X2 35L' },
+      { model: 'RK-4838-RMNP-S', disOlcusuBsp: 'R1 1/2-11', disOlcusuMetrik: 'M52X2 38S' },
+      { model: 'RK-4842-RMNP-L', disOlcusuBsp: 'R1 1/2-11', disOlcusuMetrik: 'M52X2 42L' },
+    ],
+  },
+  {
+    name: 'BSP-BSP ARA NİPELLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ BSP'],
+    products: [
+      { model: 'RK-1010-RRN', disOlcusuBsp: 'R1/8-28' },
+      { model: 'RK-1313-RRN', disOlcusuBsp: 'R1/4-19' },
+      { model: 'RK-1717-RRN', disOlcusuBsp: 'R3/8-19' },
+      { model: 'RK-2121-RRN', disOlcusuBsp: 'R1/2-14' },
+      { model: 'RK-2323-RRN', disOlcusuBsp: 'R5/8-14' },
+      { model: 'RK-2626-RRN', disOlcusuBsp: 'R3/4-14' },
+      { model: 'RK-3333-RRN', disOlcusuBsp: 'R1-11' },
+      { model: 'RK-4242-RRN', disOlcusuBsp: 'R1 1/4-11' },
+      { model: 'RK-4848-RRN', disOlcusuBsp: 'R1 1/2-11' },
+      { model: 'RK-6060-RRN', disOlcusuBsp: 'R2-11' },
+      { model: 'RK-7575-RRN', disOlcusuBsp: 'R2 1/2-11' },
+      { model: 'RK-8888-RRN', disOlcusuBsp: 'R3-11' },
+    ],
+  },
+  {
+    name: 'NPT UNF NİPELLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ BSPT', 'DİŞ ÖLÇÜSÜ UNF'],
+    products: [
+      { model: 'RK-1011-NWN', disOlcusuBspt: '1/8-28 BSPT', disOlcusuUnf: '7/16-20' },
+      { model: 'RK-1311-NWN', disOlcusuBspt: '1/4-19 BSPT', disOlcusuUnf: '7/16-20' },
+      { model: 'RK-1314-NWN', disOlcusuBspt: '1/4-19 BSPT', disOlcusuUnf: '9/16-18' },
+      { model: 'RK-1714-NWN', disOlcusuBspt: '3/8-19 BSPT', disOlcusuUnf: '9/16-18' },
+      { model: 'RK-2119-NWN', disOlcusuBspt: '1/2-14 BSPT', disOlcusuUnf: '3/4-16' },
+      { model: 'RK-2122-NWN', disOlcusuBspt: '1/2-14 BSPT', disOlcusuUnf: '7/8-14' },
+      { model: 'RK-2627-NWN', disOlcusuBspt: '3/4-14 BSPT', disOlcusuUnf: '1 1/16-12' },
+    ],
+  },
+  {
+    name: 'BSP-UNF NİPELLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ BSP', 'DİŞ ÖLÇÜSÜ UNF'],
+    products: [
+      { model: 'RK-1011-RWN', disOlcusuBsp: 'R1/8-28', disOlcusuUnf: '7/16-20' },
+      { model: 'RK-1311-RWN', disOlcusuBsp: 'R1/4-19', disOlcusuUnf: '7/16-20' },
+      { model: 'RK-1312-RWN', disOlcusuBsp: 'R1/4-19', disOlcusuUnf: '1/2-20' },
+      { model: 'RK-1314-RWN', disOlcusuBsp: 'R1/4-19', disOlcusuUnf: '9/16-18' },
+      { model: 'RK-1316-RWN', disOlcusuBsp: 'R1/4-19', disOlcusuUnf: '5/8-18' },
+      { model: 'RK-1319-RWN', disOlcusuBsp: 'R1/4-19', disOlcusuUnf: '3/4-16' },
+      { model: 'RK-1711-RWN', disOlcusuBsp: 'R3/8-19', disOlcusuUnf: '7/16-20' },
+      { model: 'RK-1712-RWN', disOlcusuBsp: 'R3/8-19', disOlcusuUnf: '1/2-20' },
+      { model: 'RK-1714-RWN', disOlcusuBsp: 'R3/8-19', disOlcusuUnf: '9/16-18' },
+      { model: 'RK-1716-RWN', disOlcusuBsp: 'R3/8-19', disOlcusuUnf: '5/8-18' },
+      { model: 'RK-1719-RWN', disOlcusuBsp: 'R3/8-19', disOlcusuUnf: '3/4-16' },
+      { model: 'RK-1722-RWN', disOlcusuBsp: 'R3/8-19', disOlcusuUnf: '7/8-14' },
+      { model: 'RK-2112-RWN', disOlcusuBsp: 'R1/2-14', disOlcusuUnf: '1/2-20' },
+      { model: 'RK-2114-RWN', disOlcusuBsp: 'R1/2-14', disOlcusuUnf: '9/16-18' },
+      { model: 'RK-2116-RWN', disOlcusuBsp: 'R1/2-14', disOlcusuUnf: '5/8-18' },
+      { model: 'RK-2119-RWN', disOlcusuBsp: 'R1/2-14', disOlcusuUnf: '3/4-16' },
+      { model: 'RK-2122-RWN', disOlcusuBsp: 'R1/2-14', disOlcusuUnf: '7/8-14' },
+      { model: 'RK-2127-RWN', disOlcusuBsp: 'R1/2-14', disOlcusuUnf: '1 1/16-12' },
+      { model: 'RK-2619-RWN', disOlcusuBsp: 'R3/4-14', disOlcusuUnf: '3/4-16' },
+      { model: 'RK-2622-RWN', disOlcusuBsp: 'R3/4-14', disOlcusuUnf: '7/8-14' },
+      { model: 'RK-2627-RWN', disOlcusuBsp: 'R3/4-14', disOlcusuUnf: '1 1/16-12' },
+      { model: 'RK-2633-RWN', disOlcusuBsp: 'R3/4-14', disOlcusuUnf: '1 5/16-12' },
+      { model: 'RK-3327-RWN', disOlcusuBsp: 'R1-11', disOlcusuUnf: '1 1/16-12' },
+      { model: 'RK-3333-RWN', disOlcusuBsp: 'R1-11', disOlcusuUnf: '1 5/16-12' },
+      { model: 'RK-4233-RWN', disOlcusuBsp: 'R1 1/4-11', disOlcusuUnf: '1 5/16-12' },
+      { model: 'RK-4241-RWN', disOlcusuBsp: 'R1 1/4-11', disOlcusuUnf: '1 5/8-12' },
+      { model: 'RK-4847-RWN', disOlcusuBsp: 'R1 1/2-11', disOlcusuUnf: '1 7/8-12' },
+    ],
+  },
+  {
+    name: 'BSP ORANTILI NİPELLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ BSP', 'DİŞ ÖLÇÜSÜ BSP 2'],
+    products: [
+      { model: 'RK-1013-RRON', disOlcusuBsp: 'R1/8-28', disOlcusuBsp2: 'R1/4-19' },
+      { model: 'RK-1017-RRON', disOlcusuBsp: 'R1/8-28', disOlcusuBsp2: 'R3/8-19' },
+      { model: 'RK-1317-RRON', disOlcusuBsp: 'R1/4-19', disOlcusuBsp2: 'R3/8-19' },
+      { model: 'RK-1321-RRON', disOlcusuBsp: 'R1/4-19', disOlcusuBsp2: 'R1/2-14' },
+      { model: 'RK-1326-RRON', disOlcusuBsp: 'R1/4-19', disOlcusuBsp2: 'R3/4-14' },
+      { model: 'RK-1721-RRON', disOlcusuBsp: 'R3/8-19', disOlcusuBsp2: 'R1/2-14' },
+      { model: 'RK-1726-RRON', disOlcusuBsp: 'R3/8-19', disOlcusuBsp2: 'R3/4-14' },
+      { model: 'RK-2123-RRON', disOlcusuBsp: 'R1/2-14', disOlcusuBsp2: 'R5/8-14' },
+      { model: 'RK-2126-RRON', disOlcusuBsp: 'R1/2-14', disOlcusuBsp2: 'R3/4-14' },
+      { model: 'RK-2133-RRON', disOlcusuBsp: 'R1/2-14', disOlcusuBsp2: 'R1-11' },
+      { model: 'RK-2326-RRON', disOlcusuBsp: 'R5/8-14', disOlcusuBsp2: 'R3/4-14' },
+      { model: 'RK-2633-RRON', disOlcusuBsp: 'R3/4-14', disOlcusuBsp2: 'R1-11' },
+      { model: 'RK-2642-RRON', disOlcusuBsp: 'R3/4-14', disOlcusuBsp2: 'R1 1/4-11' },
+      { model: 'RK-2648-RRON', disOlcusuBsp: 'R3/4-14', disOlcusuBsp2: 'R1 1/2-11' },
+      { model: 'RK-3342-RRON', disOlcusuBsp: 'R1-11', disOlcusuBsp2: 'R1 1/4-11' },
+      { model: 'RK-3348-RRON', disOlcusuBsp: 'R1-11', disOlcusuBsp2: 'R1 1/2-11' },
+      { model: 'RK-3360-RRON', disOlcusuBsp: 'R1-11', disOlcusuBsp2: 'R2-11' },
+      { model: 'RK-4248-RRON', disOlcusuBsp: 'R1 1/4-11', disOlcusuBsp2: 'R1 1/2-11' },
+      { model: 'RK-4260-RRON', disOlcusuBsp: 'R1 1/4-11', disOlcusuBsp2: 'R2-11' },
+      { model: 'RK-4860-RRON', disOlcusuBsp: 'R1 1/2-11', disOlcusuBsp2: 'R2-11' },
+      { model: 'RK-6075-RRON', disOlcusuBsp: 'R2-11', disOlcusuBsp2: 'R2 1/2-11' },
+      { model: 'RK-7588-RRON', disOlcusuBsp: 'R2 1/2-11', disOlcusuBsp2: 'R3-11' },
+    ],
+  },
+  {
+    name: 'METRİK BLOK UNF REKORLAR',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ METRİK', 'DİŞ ÖLÇÜSÜ UNF'],
+    products: [
+      { model: 'RK-1108-WMN-L', disOlcusuMetrik: 'M14X1,5 8L', disOlcusuUnf: '7/16-20' },
+      { model: 'RK-1616-MWN', disOlcusuMetrik: 'M16X1,5', disOlcusuUnf: '5/8-18' },
+      { model: 'RK-1619-MWN', disOlcusuMetrik: 'M16X1,5', disOlcusuUnf: '3/4-16' },
+      { model: 'RK-1819-MWN', disOlcusuMetrik: 'M18X1,5', disOlcusuUnf: '3/4-16' },
+      { model: 'RK-2212-WMN-L', disOlcusuMetrik: 'M18X1,5 12L', disOlcusuUnf: '7/8-14' },
+      { model: 'RK-2216-MWN', disOlcusuMetrik: 'M22X1,5', disOlcusuUnf: '5/8-18' },
+      { model: 'RK-2216-WMN-S', disOlcusuMetrik: 'M24X1,5 16S', disOlcusuUnf: '7/8-14' },
+      { model: 'RK-2219-MWN', disOlcusuMetrik: 'M22X1,5', disOlcusuUnf: '3/4-16' },
+      { model: 'RK-2220-WMN-S', disOlcusuMetrik: 'M30X2 20S', disOlcusuUnf: '7/8-14' },
+    ],
+  },
+  {
+    name: 'UNF-UNF ARA NİPELLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1111-WWN', disOlcusu: '7/16-20' },
+      { model: 'RK-1212-WWN', disOlcusu: '1/2-20' },
+      { model: 'RK-1414-WWN', disOlcusu: '9/16-18' },
+      { model: 'RK-1616-WWN', disOlcusu: '5/8-18' },
+      { model: 'RK-1919-WWN', disOlcusu: '3/4-16' },
+      { model: 'RK-2222-WWN', disOlcusu: '7/8-14' },
+      { model: 'RK-2727-WWN', disOlcusu: '1 1/16-12' },
+      { model: 'RK-3333-WWN', disOlcusu: '1 5/16-12' },
+      { model: 'RK-4141-WWN', disOlcusu: '1 5/8-12' },
+      { model: 'RK-4747-WWN', disOlcusu: '1 7/8-12' },
+    ],
+  },
+  {
+    name: 'METRİK SOMUNLU TERS NİPEL',
+    tableHeaders: ['MODEL', 'BOY ÖLÇÜSÜ [MM]', 'SOMUNLU DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1206-MSTN-L', boyOlcusu: '32', somunluDisOlcusu: 'M12X1,5 6L' },
+      { model: 'RK-1408-MSTN-L', boyOlcusu: '32', somunluDisOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-1610-MSTN-L', boyOlcusu: '33', somunluDisOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-1812-MSTN-L', boyOlcusu: '33', somunluDisOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-2012-MSTN-S', boyOlcusu: '36', somunluDisOlcusu: 'M20X1,5 12S' },
+      { model: 'RK-2215-MSTN-L', boyOlcusu: '38', somunluDisOlcusu: 'M22X1,5 15L' },
+      { model: 'RK-2416-MSTN-S', boyOlcusu: '39', somunluDisOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-2618-MSTN-L', boyOlcusu: '36', somunluDisOlcusu: 'M26X1,5 18L' },
+      { model: 'RK-3020-MSTN-S', boyOlcusu: '44', somunluDisOlcusu: 'M30X2 20S' },
+      { model: 'RK-3022-MSTN-L', boyOlcusu: '42', somunluDisOlcusu: 'M30X2 22L' },
+      { model: 'RK-3625-MSTN-S', boyOlcusu: '46', somunluDisOlcusu: 'M36X2 25S' },
+      { model: 'RK-3628-MSTN-L', boyOlcusu: '46', somunluDisOlcusu: 'M36X2 28L' },
+      { model: 'RK-4230-MSTN-S', boyOlcusu: '52', somunluDisOlcusu: 'M42X2 30S' },
+      { model: 'RK-4535-MSTN-L', boyOlcusu: '48', somunluDisOlcusu: 'M45X2 35L' },
+      { model: 'RK-5238-MSTN-S', boyOlcusu: '52', somunluDisOlcusu: 'M52X2 38S' },
+      { model: 'RK-5242-MSTN-L', boyOlcusu: '52', somunluDisOlcusu: 'M52X2 42L' },
+    ],
+  },
+  {
+    name: 'MANOMETRE ERKEK REKORLAR',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ', 'MANOMETRE ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1306-MER-L', disOlcusu: 'M12X1,5 6L', manometreOlcusu: 'R1/4-19' },
+      { model: 'RK-1306-MER-S', disOlcusu: 'M14X1,5 6S', manometreOlcusu: 'R1/4-19' },
+      { model: 'RK-1308-MER-L', disOlcusu: 'M14X1,5 8L', manometreOlcusu: 'R1/4-19' },
+      { model: 'RK-1310-MER-L', disOlcusu: 'M16X1,5 10L', manometreOlcusu: 'R1/4-19' },
+      { model: 'RK-1312-MER-L', disOlcusu: 'M18X1,5 12L', manometreOlcusu: 'R1/4-19' },
+      { model: 'RK-1312-MER-S', disOlcusu: 'M20X1,5 12S', manometreOlcusu: 'R1/4-19' },
+      { model: 'RK-2106-MER-L', disOlcusu: 'M12X1,5 6L', manometreOlcusu: 'R1/2-14' },
+      { model: 'RK-2110-MER-L', disOlcusu: 'M16X1,5 10L', manometreOlcusu: 'R1/2-14' },
+      { model: 'RK-2110-MER-S', disOlcusu: 'M18X1,5 10S', manometreOlcusu: 'R1/2-14' },
+      { model: 'RK-2112-MER-L', disOlcusu: 'M18X1,5 12L', manometreOlcusu: 'R1/2-14' },
+    ],
+  },
+  {
+    name: 'BSP BOMBELİ - BSP BOMBELİ NİPELLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ BSP', 'DİŞ ÖLÇÜSÜ BSP 2'],
+    products: [
+      { model: 'RK-1313-RBBN', disOlcusuBsp: 'R1/4-19', disOlcusuBsp2: 'R1/4-19' },
+      { model: 'RK-1717-RBBN', disOlcusuBsp: 'R3/8-19', disOlcusuBsp2: 'R3/8-19' },
+      { model: 'RK-2121-RBBN', disOlcusuBsp: 'R1/2-14', disOlcusuBsp2: 'R1/2-14' },
+      { model: 'RK-2626-RBBN', disOlcusuBsp: 'R3/4-14', disOlcusuBsp2: 'R3/4-14' },
+      { model: 'RK-3333-RBBN', disOlcusuBsp: 'R1-11', disOlcusuBsp2: 'R1-11' },
+    ],
+  },
+  {
+    name: 'BSP BLOK - BSP BOMBELİ NİPELLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ BSP', 'DİŞ ÖLÇÜSÜ BSP 2'],
+    products: [
+      { model: 'RK-1313-RRBN', disOlcusuBsp: 'R1/4-19', disOlcusuBsp2: 'R1/4-19' },
+      { model: 'RK-1717-RRBN', disOlcusuBsp: 'R3/8-19', disOlcusuBsp2: 'R3/8-19' },
+      { model: 'RK-2121-RRBN', disOlcusuBsp: 'R1/2-14', disOlcusuBsp2: 'R1/2-14' },
+      { model: 'RK-2626-RRBN', disOlcusuBsp: 'R3/4-14', disOlcusuBsp2: 'R3/4-14' },
+      { model: 'RK-3333-RRBN', disOlcusuBsp: 'R1-11', disOlcusuBsp2: 'R1-11' },
+    ],
+  },
+  {
+    name: 'BSP - ORFS NİPELLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ BSP', 'DİŞ ÖLÇÜSÜ ORFS'],
+    products: [
+      { model: 'RK-1314-RON', disOlcusuBsp: 'R1/4-19', disOlcusuOrfs: '9/16-18' },
+      { model: 'RK-1317-RON', disOlcusuBsp: 'R1/4-19', disOlcusuOrfs: '11/16-16' },
+      { model: 'RK-1717-RON', disOlcusuBsp: 'R3/8-19', disOlcusuOrfs: '11/16-16' },
+      { model: 'RK-1721-RON', disOlcusuBsp: 'R3/8-19', disOlcusuOrfs: '13/16-16' },
+      { model: 'RK-2121-RON', disOlcusuBsp: 'R1/2-14', disOlcusuOrfs: '13/16-16' },
+      { model: 'RK-2125-RON', disOlcusuBsp: 'R1/2-14', disOlcusuOrfs: '1-14' },
+      { model: 'RK-2630-RON', disOlcusuBsp: 'R3/4-14', disOlcusuOrfs: '1 3/16-12' },
+      { model: 'RK-2637-RON', disOlcusuBsp: 'R3/4-14', disOlcusuOrfs: '1 7/16-12' },
+      { model: 'RK-3337-RON', disOlcusuBsp: 'R1-11', disOlcusuOrfs: '1 7/16-12' },
+      { model: 'RK-3343-RON', disOlcusuBsp: 'R1-11', disOlcusuOrfs: '1 11/16-12' },
+      { model: 'RK-4237-RON', disOlcusuBsp: 'R1 1/4-11', disOlcusuOrfs: '1 7/16-12' },
+      { model: 'RK-4243-RON', disOlcusuBsp: 'R1 1/4-11', disOlcusuOrfs: '1 11/16-12' },
+    ],
+  },
+  {
+    name: 'NPT NİPELLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ BSPT', 'DİŞ ÖLÇÜSÜ METRİK'],
+    products: [
+      { model: 'RK-2116-NMN-S', disOlcusuBspt: '1/2-14 BSPT', disOlcusuMetrik: 'M24X1,5 16S' },
+    ],
+  },
+  {
+    name: 'UNF - ORFS NİPELLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ ORFS', 'DİŞ ÖLÇÜSÜ UNF'],
+    products: [
+      { model: 'RK-3330-WON', disOlcusuOrfs: '1 3/16-12', disOlcusuUnf: '1 5/16-12' },
+    ],
+  },
+]
+
+// REKORSAN TE LER kategorileri
+const REKORSAN_TELER_CATEGORIES = [
+  {
+    name: 'METRİK ORTABACAK TE',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0606-MOT-L', disOlcusu: 'M12X1,5 6L' },
+      { model: 'RK-0606-MOT-S', disOlcusu: 'M14X1,5 6S' },
+      { model: 'RK-0808-MOT-L', disOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-0808-MOT-S', disOlcusu: 'M16X1,5 8S' },
+      { model: 'RK-1010-MOT-L', disOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-1010-MOT-S', disOlcusu: 'M18X1,5 10S' },
+      { model: 'RK-1212-MOT-L', disOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-1212-MOT-S', disOlcusu: 'M20X1,5 12S' },
+      { model: 'RK-1515-MOT-L', disOlcusu: 'M22X1,5 15L' },
+      { model: 'RK-1616-MOT-S', disOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-1818-MOT-L', disOlcusu: 'M26X1,5 18L' },
+      { model: 'RK-2020-MOT-S', disOlcusu: 'M30X2 20S' },
+      { model: 'RK-2222-MOT-L', disOlcusu: 'M30X2 22L' },
+      { model: 'RK-2525-MOT-S', disOlcusu: 'M36X2 25S' },
+      { model: 'RK-2828-MOT-L', disOlcusu: 'M36X2 28L' },
+      { model: 'RK-3030-MOT-S', disOlcusu: 'M42X2 30S' },
+      { model: 'RK-3535-MOT-L', disOlcusu: 'M45X2 35L' },
+      { model: 'RK-3838-MOT-S', disOlcusu: 'M52X2 38S' },
+      { model: 'RK-4242-MOT-L', disOlcusu: 'M52X2 42L' },
+    ],
+  },
+  {
+    name: 'METRİK TE',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0606-MT-L', disOlcusu: 'M12X1,5 6L' },
+      { model: 'RK-0606-MT-S', disOlcusu: 'M14X1,5 6S' },
+      { model: 'RK-0808-MT-L', disOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-0808-MT-S', disOlcusu: 'M16X1,5 8S' },
+      { model: 'RK-1010-MT-L', disOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-1010-MT-S', disOlcusu: 'M18X1,5 10S' },
+      { model: 'RK-1212-MT-L', disOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-1212-MT-S', disOlcusu: 'M20X1,5 12S' },
+      { model: 'RK-1515-MT-L', disOlcusu: 'M22X1,5 15L' },
+      { model: 'RK-1616-MT-S', disOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-1818-MT-L', disOlcusu: 'M26X1,5 18L' },
+      { model: 'RK-2020-MT-S', disOlcusu: 'M30X2 20S' },
+      { model: 'RK-2222-MT-L', disOlcusu: 'M30X2 22L' },
+      { model: 'RK-2525-MT-S', disOlcusu: 'M36X2 25S' },
+      { model: 'RK-2828-MT-L', disOlcusu: 'M36X2 28L' },
+      { model: 'RK-3030-MT-S', disOlcusu: 'M42X2 30S' },
+      { model: 'RK-3535-MT-L', disOlcusu: 'M45X2 35L' },
+      { model: 'RK-3838-MT-S', disOlcusu: 'M52X2 38S' },
+      { model: 'RK-4242-MT-L', disOlcusu: 'M52X2 42L' },
+    ],
+  },
+  {
+    name: 'METRİK YANBACAK TE',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0606-MYT-L', disOlcusu: 'M12X1,5 6L' },
+      { model: 'RK-0606-MYT-S', disOlcusu: 'M14X1,5 6S' },
+      { model: 'RK-0808-MYT-L', disOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-0808-MYT-S', disOlcusu: 'M16X1,5 8S' },
+      { model: 'RK-1010-MYT-L', disOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-1010-MYT-S', disOlcusu: 'M18X1,5 10S' },
+      { model: 'RK-1212-MYT-L', disOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-1212-MYT-S', disOlcusu: 'M20X1,5 12S' },
+      { model: 'RK-1515-MYT-L', disOlcusu: 'M22X1,5 15L' },
+      { model: 'RK-1616-MYT-S', disOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-1818-MYT-L', disOlcusu: 'M26X1,5 18L' },
+      { model: 'RK-2020-MYT-S', disOlcusu: 'M30X2 20S' },
+      { model: 'RK-2222-MYT-L', disOlcusu: 'M30X2 22L' },
+      { model: 'RK-2525-MYT-S', disOlcusu: 'M36X2 25S' },
+      { model: 'RK-2828-MYT-L', disOlcusu: 'M36X2 28L' },
+      { model: 'RK-3030-MYT-S', disOlcusu: 'M42X2 30S' },
+      { model: 'RK-3535-MYT-L', disOlcusu: 'M45X2 35L' },
+      { model: 'RK-3838-MYT-S', disOlcusu: 'M52X2 38S' },
+      { model: 'RK-4242-MYT-L', disOlcusu: 'M52X2 42L' },
+    ],
+  },
+  {
+    name: 'BSP DİŞİ TE',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1010-DT', disOlcusu: 'R1/8-28' },
+      { model: 'RK-1313-DT', disOlcusu: 'R1/4-19' },
+      { model: 'RK-1717-DT', disOlcusu: 'R3/8-19' },
+      { model: 'RK-2121-DT', disOlcusu: 'R1/2-14' },
+      { model: 'RK-2626-DT', disOlcusu: 'R3/4-14' },
+      { model: 'RK-3333-DT', disOlcusu: 'R1-11' },
+      { model: 'RK-4242-DT', disOlcusu: 'R1 1/4-11' },
+    ],
+  },
+  {
+    name: 'BSP ERKEK TE',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1010-RTE', disOlcusu: 'R1/8-28' },
+      { model: 'RK-1313-RTE', disOlcusu: 'R1/4-19' },
+      { model: 'RK-1717-RTE', disOlcusu: 'R3/8-19' },
+      { model: 'RK-2121-RTE', disOlcusu: 'R1/2-14' },
+      { model: 'RK-2626-RTE', disOlcusu: 'R3/4-14' },
+      { model: 'RK-3333-RTE', disOlcusu: 'R1-11' },
+      { model: 'RK-4242-RTE', disOlcusu: 'R1 1/4-11' },
+      { model: 'RK-4848-RTE', disOlcusu: 'R1 1/2-11' },
+    ],
+  },
+  {
+    name: 'BSP YAN BACAK TE',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1010-RYT', disOlcusu: 'R1/8-28' },
+      { model: 'RK-1313-RYT', disOlcusu: 'R1/4-19' },
+      { model: 'RK-1717-RYT', disOlcusu: 'R3/8-19' },
+      { model: 'RK-2121-RYT', disOlcusu: 'R1/2-14' },
+      { model: 'RK-2626-RYT', disOlcusu: 'R3/4-14' },
+      { model: 'RK-3333-RYT', disOlcusu: 'R1-11' },
+      { model: 'RK-4242-RYT', disOlcusu: 'R1 1/4-11' },
+      { model: 'RK-4848-RYT', disOlcusu: 'R1 1/2-11' },
+    ],
+  },
+  {
+    name: 'UNF ORTABACAK TE',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1111-WOT', disOlcusu: '7/16-20' },
+      { model: 'RK-1212-WOT', disOlcusu: '1/2-20' },
+      { model: 'RK-1414-WOT', disOlcusu: '9/16-18' },
+      { model: 'RK-1616-WOT', disOlcusu: '5/8-18' },
+      { model: 'RK-1919-WOT', disOlcusu: '3/4-16' },
+      { model: 'RK-2222-WOT', disOlcusu: '7/8-14' },
+      { model: 'RK-2727-WOT', disOlcusu: '1 1/16-12' },
+      { model: 'RK-3333-WOT', disOlcusu: '1 5/16-12' },
+      { model: 'RK-4141-WOT', disOlcusu: '1 5/8-12' },
+    ],
+  },
+  {
+    name: 'UNF TE',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1111-WT', disOlcusu: '7/16-20' },
+      { model: 'RK-1212-WT', disOlcusu: '1/2-20' },
+      { model: 'RK-1414-WT', disOlcusu: '9/16-18' },
+      { model: 'RK-1616-WT', disOlcusu: '5/8-18' },
+      { model: 'RK-1919-WT', disOlcusu: '3/4-16' },
+      { model: 'RK-2222-WT', disOlcusu: '7/8-14' },
+      { model: 'RK-2727-WT', disOlcusu: '1 1/16-12' },
+      { model: 'RK-3333-WT', disOlcusu: '1 5/16-12' },
+      { model: 'RK-4141-WT', disOlcusu: '1 5/8-12' },
+    ],
+  },
+  {
+    name: 'UNF YANBACAK TE',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1111-WYT', disOlcusu: '7/16-20' },
+      { model: 'RK-1212-WYT', disOlcusu: '1/2-20' },
+      { model: 'RK-1414-WYT', disOlcusu: '9/16-18' },
+      { model: 'RK-1616-WYT', disOlcusu: '5/8-18' },
+      { model: 'RK-1919-WYT', disOlcusu: '3/4-16' },
+      { model: 'RK-2222-WYT', disOlcusu: '7/8-14' },
+      { model: 'RK-2727-WYT', disOlcusu: '1 1/16-12' },
+      { model: 'RK-3333-WYT', disOlcusu: '1 5/16-12' },
+      { model: 'RK-4141-WYT', disOlcusu: '1 5/8-12' },
+    ],
+  },
+  {
+    name: 'BSP ORTABACAK TE',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1313-ROT', disOlcusu: 'R1/4-19' },
+      { model: 'RK-1717-ROT', disOlcusu: 'R3/8-19' },
+      { model: 'RK-2121-ROT', disOlcusu: 'R1/2-14' },
+      { model: 'RK-2626-ROT', disOlcusu: 'R3/4-14' },
+      { model: 'RK-3333-ROT', disOlcusu: 'R1-11' },
+      { model: 'RK-4848-ROT', disOlcusu: 'R1 1/2-11' },
+    ],
+  },
+  {
+    name: 'OPSİYONEL ERKEK TE',
+    tableHeaders: ['MODEL', 'DİŞİ BSP ÖLÇÜSÜ', 'ERKEK DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1316-RMEOP', disiBspOlcusu: 'R1/4-19', erkekDisOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-1320-RMEOP', disiBspOlcusu: 'R1/4-19', erkekDisOlcusu: 'M30X2 20S' },
+      { model: 'RK-1716-RMEOP', disiBspOlcusu: 'R3/8-19', erkekDisOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-1720-RMEOP', disiBspOlcusu: 'R3/8-19', erkekDisOlcusu: 'M30X2 20S' },
+    ],
+  },
+  {
+    name: 'ORFS ORTABACAK TE',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1414-OOT', disOlcusu: '9/16-18' },
+      { model: 'RK-1717-OOT', disOlcusu: '11/16-16' },
+      { model: 'RK-2121-OOT', disOlcusu: '13/16-16' },
+      { model: 'RK-2525-OOT', disOlcusu: '1-14' },
+      { model: 'RK-3030-OOT', disOlcusu: '1 3/16-12' },
+      { model: 'RK-3737-OOT', disOlcusu: '1 7/16-12' },
+      { model: 'RK-4343-OOT', disOlcusu: '1 11/16-12' },
+    ],
+  },
+  {
+    name: 'ORFS TE',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1414-OT', disOlcusu: '9/16-18' },
+      { model: 'RK-1717-OT', disOlcusu: '11/16-16' },
+      { model: 'RK-2121-OT', disOlcusu: '13/16-16' },
+      { model: 'RK-2525-OT', disOlcusu: '1-14' },
+      { model: 'RK-3030-OT', disOlcusu: '1 3/16-12' },
+      { model: 'RK-3737-OT', disOlcusu: '1 7/16-12' },
+      { model: 'RK-4343-OT', disOlcusu: '1 11/16-12' },
+    ],
+  },
+  {
+    name: 'ORFS YANBACAK TE',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1414-OYT', disOlcusu: '9/16-18' },
+      { model: 'RK-1717-OYT', disOlcusu: '11/16-16' },
+      { model: 'RK-2121-OYT', disOlcusu: '13/16-16' },
+      { model: 'RK-2525-OYT', disOlcusu: '1-14' },
+      { model: 'RK-3030-OYT', disOlcusu: '1 3/16-12' },
+      { model: 'RK-3737-OYT', disOlcusu: '1 7/16-12' },
+      { model: 'RK-4343-OYT', disOlcusu: '1 11/16-12' },
+    ],
+  },
+  {
+    name: 'OPSİYONEL TERS TE',
+    tableHeaders: ['MODEL', 'DİŞİ BSP ÖLÇÜSÜ', 'ERKEK DİŞ ÖLÇÜSÜ', 'SOMUN DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1316-RMTOP', disiBspOlcusu: 'R1/4-19', erkekDisOlcusu: 'M24X1,5 16S', somunDisOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-1320-RMTOP', disiBspOlcusu: 'R1/4-19', erkekDisOlcusu: 'M30X2 20S', somunDisOlcusu: 'M30X2 20S' },
+      { model: 'RK-1716-RMTOP', disiBspOlcusu: 'R3/8-19', erkekDisOlcusu: 'M24X1,5 16S', somunDisOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-1720-RMTOP', disiBspOlcusu: 'R3/8-19', erkekDisOlcusu: 'M30X2 20S', somunDisOlcusu: 'M30X2 20S' },
+      { model: 'RK-2125-RMTOP', disiBspOlcusu: 'R1/2-21', erkekDisOlcusu: 'M36X2 25S', somunDisOlcusu: 'M36X2 25S' },
+    ],
+  },
+]
+
+// REKORSAN PERDE GEÇİŞLER kategorileri
+const REKORSAN_PERDE_GECISLER_CATEGORIES = [
+  {
+    name: 'METRİK PERDE GEÇİŞ DİRSEĞİ',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0606-MPGD-L', disOlcusu: 'M12X1,5 6L' },
+      { model: 'RK-0606-MPGD-S', disOlcusu: 'M14X1,5 6S' },
+      { model: 'RK-0808-MPGD-L', disOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-0808-MPGD-S', disOlcusu: 'M16X1,5 8S' },
+      { model: 'RK-1010-MPGD-L', disOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-1010-MPGD-S', disOlcusu: 'M18X1,5 10S' },
+      { model: 'RK-1212-MPGD-L', disOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-1212-MPGD-S', disOlcusu: 'M20X1,5 12S' },
+      { model: 'RK-1515-MPGD-L', disOlcusu: 'M22X1,5 15L' },
+      { model: 'RK-1616-MPGD-S', disOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-1818-MPGD-L', disOlcusu: 'M26X1,5 18L' },
+      { model: 'RK-2020-MPGD-S', disOlcusu: 'M30X2 20S' },
+      { model: 'RK-2222-MPGD-L', disOlcusu: 'M30X2 22L' },
+      { model: 'RK-2525-MPGD-S', disOlcusu: 'M36X2 25S' },
+      { model: 'RK-2828-MPGD-L', disOlcusu: 'M36X2 28L' },
+    ],
+  },
+  {
+    name: 'METRİK PERDE GEÇİŞ NİPELİ',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0606-MPGN-L', disOlcusu: 'M12X1,5 6L' },
+      { model: 'RK-0606-MPGN-S', disOlcusu: 'M14X1,5 6S' },
+      { model: 'RK-0808-MKPGN-L', disOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-0808-MPGN-L', disOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-0808-MPGN-S', disOlcusu: 'M16X1,5 8S' },
+      { model: 'RK-1010-MPGN-L', disOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-1010-MPGN-S', disOlcusu: 'M18X1,5 10S' },
+      { model: 'RK-1212-MPGN-L', disOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-1212-MPGN-S', disOlcusu: 'M20X1,5 12S' },
+      { model: 'RK-1515-MPGN-L', disOlcusu: 'M22X1,5 15L' },
+      { model: 'RK-1616-MKPGN-S', disOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-1616-MPGN-S', disOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-1818-MPGN-L', disOlcusu: 'M26X1,5 18L' },
+      { model: 'RK-2020-MPGN-S', disOlcusu: 'M30X2 20S' },
+      { model: 'RK-2222-MPGN-L', disOlcusu: 'M30X2 22L' },
+      { model: 'RK-2525-MKPGN-S', disOlcusu: 'M36X2 25S' },
+      { model: 'RK-2525-MPGN-S', disOlcusu: 'M36X2 25S' },
+      { model: 'RK-2828-MKPGN-L', disOlcusu: 'M36X2 28L' },
+      { model: 'RK-2828-MPGN-L', disOlcusu: 'M36X2 28L' },
+      { model: 'RK-3030-MKPGN-S', disOlcusu: 'M42X2 30S' },
+      { model: 'RK-3030-MPGN-S', disOlcusu: 'M42X2 30S' },
+      { model: 'RK-3535-MPGN-L', disOlcusu: 'M45X2 35L' },
+      { model: 'RK-3838-MKPGN-S', disOlcusu: 'M52X2 38S' },
+      { model: 'RK-3838-MPGN-S', disOlcusu: 'M52X2 38S' },
+      { model: 'RK-4242-MPGN-L', disOlcusu: 'M52X2 42L' },
+    ],
+  },
+]
+
+// REKORSAN KOR REKORLAR kategorileri
+const REKORSAN_KOR_REKORLAR_CATEGORIES = [
+  {
+    name: 'KOR REKORLAR',
+    tableHeaders: ['MODEL', 'ERKEK DİŞ ÖLÇÜSÜ', 'SOMUN DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0806-MMTR-L', erkekDisOlcusu: 'M12X1,5 6L', somunDisOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-1006-MMTR-L', erkekDisOlcusu: 'M12X1,5 6L', somunDisOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-1008-MMTR-L', erkekDisOlcusu: 'M14X1,5 8L', somunDisOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-1206-MMTR-L', erkekDisOlcusu: 'M12X1,5 6L', somunDisOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-1208-MMTR-L', erkekDisOlcusu: 'M14X1,5 8L', somunDisOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-1210-MMTR-L', erkekDisOlcusu: 'M16X1,5 10L', somunDisOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-1512-MMTR-L', erkekDisOlcusu: 'M18X1,5 12L', somunDisOlcusu: 'M22X1,5 15L' },
+      { model: 'RK-1612-MMTR-S', erkekDisOlcusu: 'M20X1,5 12S', somunDisOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-1812-MMTR-L', erkekDisOlcusu: 'M18X1,5 12L', somunDisOlcusu: 'M26X1,5 18L' },
+      { model: 'RK-2012-MMTR-S', erkekDisOlcusu: 'M20X1,5 12S', somunDisOlcusu: 'M30X2 20S' },
+      { model: 'RK-2016-MMTR-S', erkekDisOlcusu: 'M24X1,5 16S', somunDisOlcusu: 'M30X2 20S' },
+      { model: 'RK-2215-MMTR-L', erkekDisOlcusu: 'M22X1,5 15L', somunDisOlcusu: 'M30X2 22L' },
+      { model: 'RK-2218-MMTR-L', erkekDisOlcusu: 'M26X1,5 18L', somunDisOlcusu: 'M30X2 22L' },
+      { model: 'RK-2512-MMTR-S', erkekDisOlcusu: 'M20X1,5 12S', somunDisOlcusu: 'M36X2 25S' },
+      { model: 'RK-2516-MMTR-S', erkekDisOlcusu: 'M24X1,5 16S', somunDisOlcusu: 'M36X2 25S' },
+      { model: 'RK-2520-MMTR-S', erkekDisOlcusu: 'M30X2 20S', somunDisOlcusu: 'M36X2 25S' },
+      { model: 'RK-2812-MMTR-L', erkekDisOlcusu: 'M18X1,5 12L', somunDisOlcusu: 'M36X2 28L' },
+      { model: 'RK-2818-MMTR-L', erkekDisOlcusu: 'M26X1,5 18L', somunDisOlcusu: 'M36X2 28L' },
+      { model: 'RK-2822-MMTR-L', erkekDisOlcusu: 'M30X2 22L', somunDisOlcusu: 'M36X2 28L' },
+      { model: 'RK-3016-MMTR-S', erkekDisOlcusu: 'M24X1,5 16S', somunDisOlcusu: 'M42X2 30S' },
+      { model: 'RK-3020-MMTR-S', erkekDisOlcusu: 'M30X2 20S', somunDisOlcusu: 'M42X2 30S' },
+      { model: 'RK-3025-MMTR-S', erkekDisOlcusu: 'M36X2 25S', somunDisOlcusu: 'M42X2 30S' },
+      { model: 'RK-3522-MMTR-L', erkekDisOlcusu: 'M30X2 22L', somunDisOlcusu: 'M45X2 35L' },
+      { model: 'RK-3528-MMTR-L', erkekDisOlcusu: 'M36X2 28L', somunDisOlcusu: 'M45X2 35L' },
+      { model: 'RK-3816-MMTR-S', erkekDisOlcusu: 'M24X1,5 16S', somunDisOlcusu: 'M52X2 38S' },
+      { model: 'RK-3820-MMTR-S', erkekDisOlcusu: 'M30X2 20S', somunDisOlcusu: 'M52X2 38S' },
+      { model: 'RK-3825-MMTR-S', erkekDisOlcusu: 'M36X2 25S', somunDisOlcusu: 'M52X2 38S' },
+      { model: 'RK-3830-MMTR-S', erkekDisOlcusu: 'M42X2 30S', somunDisOlcusu: 'M52X2 38S' },
+      { model: 'RK-4228-MMTR-L', erkekDisOlcusu: 'M36X2 28L', somunDisOlcusu: 'M52X2 42L' },
+      { model: 'RK-4235-MMTR-L', erkekDisOlcusu: 'M45X2 35L', somunDisOlcusu: 'M52X2 42L' },
+    ],
+  },
+]
+
+// REKORSAN KONTRALI DİRSEKLER kategorileri
+const REKORSAN_KONTRALI_DIRSEKLER_CATEGORIES = [
+  {
+    name: 'BSP - METRİK KONTRALI DİRSEK',
+    tableHeaders: ['MODEL', 'AYARLANABİLİR BSP DİŞ ÖLÇÜSÜ', 'DİŞ ÖLÇÜSÜ METRİK'],
+    products: [
+      { model: 'RK-1006-RMKD-L', ayarlanabilirBspDisOlcusu: 'R1/8-28', disOlcusuMetrik: 'M12X1,5 6L' },
+      { model: 'RK-1306-RMKD-L', ayarlanabilirBspDisOlcusu: 'R1/4-19', disOlcusuMetrik: 'M12X1,5 6L' },
+      { model: 'RK-1308-RMKD-L', ayarlanabilirBspDisOlcusu: 'R1/4-19', disOlcusuMetrik: 'M14X1,5 8L' },
+      { model: 'RK-1310-RMKD-L', ayarlanabilirBspDisOlcusu: 'R1/4-19', disOlcusuMetrik: 'M16X1,5 10L' },
+      { model: 'RK-1312-RMKD-L', ayarlanabilirBspDisOlcusu: 'R1/4-19', disOlcusuMetrik: 'M18X1,5 12L' },
+      { model: 'RK-1710-RMKD-L', ayarlanabilirBspDisOlcusu: 'R3/8-19', disOlcusuMetrik: 'M16X1,5 10L' },
+      { model: 'RK-1712-RMKD-L', ayarlanabilirBspDisOlcusu: 'R3/8-19', disOlcusuMetrik: 'M18X1,5 12L' },
+      { model: 'RK-1712-RMKD-S', ayarlanabilirBspDisOlcusu: 'R3/8-19', disOlcusuMetrik: 'M20X1,5 12S' },
+      { model: 'RK-2112-RMKD-L', ayarlanabilirBspDisOlcusu: 'R1/2-14', disOlcusuMetrik: 'M18X1,5 12L' },
+      { model: 'RK-2112-RMKD-S', ayarlanabilirBspDisOlcusu: 'R1/2-14', disOlcusuMetrik: 'M20X1,5 12S' },
+      { model: 'RK-2115-RMKD-L', ayarlanabilirBspDisOlcusu: 'R1/2-14', disOlcusuMetrik: 'M22X1,5 15L' },
+      { model: 'RK-2116-RMKD-S', ayarlanabilirBspDisOlcusu: 'R1/2-14', disOlcusuMetrik: 'M24X1,5 16S' },
+      { model: 'RK-2118-RMKD-L', ayarlanabilirBspDisOlcusu: 'R1/2-14', disOlcusuMetrik: 'M26X1,5 18L' },
+      { model: 'RK-2120-RMKD-S', ayarlanabilirBspDisOlcusu: 'R1/2-14', disOlcusuMetrik: 'M30X2 20S' },
+      { model: 'RK-2616-RMKD-S', ayarlanabilirBspDisOlcusu: 'R3/4-14', disOlcusuMetrik: 'M24X1,5 16S' },
+      { model: 'RK-2618-RMKD-L', ayarlanabilirBspDisOlcusu: 'R3/4-14', disOlcusuMetrik: 'M26X1,5 18L' },
+      { model: 'RK-2620-RMKD-S', ayarlanabilirBspDisOlcusu: 'R3/4-14', disOlcusuMetrik: 'M30X2 20S' },
+      { model: 'RK-2622-RMKD-L', ayarlanabilirBspDisOlcusu: 'R3/4-14', disOlcusuMetrik: 'M30X2 22L' },
+      { model: 'RK-2625-RMKD-S', ayarlanabilirBspDisOlcusu: 'R3/4-14', disOlcusuMetrik: 'M36X2 25S' },
+      { model: 'RK-3320-RMKD-S', ayarlanabilirBspDisOlcusu: 'R1-11', disOlcusuMetrik: 'M30X2 20S' },
+      { model: 'RK-3325-RMKD-S', ayarlanabilirBspDisOlcusu: 'R1-11', disOlcusuMetrik: 'M36X2 25S' },
+      { model: 'RK-3330-RMKD-S', ayarlanabilirBspDisOlcusu: 'R1-11', disOlcusuMetrik: 'M42X2 30S' },
+      { model: 'RK-4230-RMKD-S', ayarlanabilirBspDisOlcusu: 'R1 1/4-11', disOlcusuMetrik: 'M42X2 30S' },
+      { model: 'RK-4235-RMKD-L', ayarlanabilirBspDisOlcusu: 'R1 1/4-11', disOlcusuMetrik: 'M45X2 35L' },
+      { model: 'RK-4238-RMKD-S', ayarlanabilirBspDisOlcusu: 'R1 1/4-11', disOlcusuMetrik: 'M52X2 38S' },
+    ],
+  },
+  {
+    name: 'BSP-BSP KONTRALI DİRSEKLER',
+    tableHeaders: ['MODEL', 'AYARLANABİLİR BSP DİŞ ÖLÇÜSÜ', 'DİŞ ÖLÇÜSÜ BSP'],
+    products: [
+      { model: 'RK-1010-RRKD', ayarlanabilirBspDisOlcusu: 'R1/8-28', disOlcusuBsp: 'R1/8-28' },
+      { model: 'RK-1313-RRKD', ayarlanabilirBspDisOlcusu: 'R1/4-19', disOlcusuBsp: 'R1/4-19' },
+      { model: 'RK-1717-RRKD', ayarlanabilirBspDisOlcusu: 'R3/8-19', disOlcusuBsp: 'R3/8-19' },
+      { model: 'RK-2121-RRKD', ayarlanabilirBspDisOlcusu: 'R1/2-14', disOlcusuBsp: 'R1/2-14' },
+      { model: 'RK-2626-RRKD', ayarlanabilirBspDisOlcusu: 'R3/4-14', disOlcusuBsp: 'R3/4-14' },
+      { model: 'RK-3333-RRKD', ayarlanabilirBspDisOlcusu: 'R1-11', disOlcusuBsp: 'R1-11' },
+      { model: 'RK-4242-RRKD', ayarlanabilirBspDisOlcusu: 'R1 1/4-11', disOlcusuBsp: 'R1 1/4-11' },
+      { model: 'RK-4848-RRKD', ayarlanabilirBspDisOlcusu: 'R1 1/2-11', disOlcusuBsp: 'R1 1/2-11' },
+    ],
+  },
+  {
+    name: 'BSP-UNF KONTRALI DİRSEKLER',
+    tableHeaders: ['MODEL', 'AYARLANABİLİR BSP DİŞ ÖLÇÜSÜ', 'DİŞ ÖLÇÜSÜ UNF'],
+    products: [
+      { model: 'RK-1011-RWKD', ayarlanabilirBspDisOlcusu: 'R1/8-28', disOlcusuUnf: '7/16-20' },
+      { model: 'RK-1011-RWKD45', ayarlanabilirBspDisOlcusu: 'R1/8-28', disOlcusuUnf: '7/16-20' },
+      { model: 'RK-1311-RWKD', ayarlanabilirBspDisOlcusu: 'R1/4-19', disOlcusuUnf: '7/16-20' },
+      { model: 'RK-1312-RWKD', ayarlanabilirBspDisOlcusu: 'R1/4-19', disOlcusuUnf: '1/2-20' },
+      { model: 'RK-1314-RWKD', ayarlanabilirBspDisOlcusu: 'R1/4-19', disOlcusuUnf: '9/16-18' },
+      { model: 'RK-1714-RWKD', ayarlanabilirBspDisOlcusu: 'R3/8-19', disOlcusuUnf: '9/16-18' },
+      { model: 'RK-1714-RWKD45', ayarlanabilirBspDisOlcusu: 'R3/8-19', disOlcusuUnf: '9/16-18' },
+      { model: 'RK-1716-RWKD', ayarlanabilirBspDisOlcusu: 'R3/8-19', disOlcusuUnf: '5/8-18' },
+      { model: 'RK-1716-RWKD45', ayarlanabilirBspDisOlcusu: 'R3/8-19', disOlcusuUnf: '5/8-18' },
+      { model: 'RK-1719-RWKD', ayarlanabilirBspDisOlcusu: 'R3/8-19', disOlcusuUnf: '3/4-16' },
+      { model: 'RK-1719-RWKD45', ayarlanabilirBspDisOlcusu: 'R3/8-19', disOlcusuUnf: '3/4-16' },
+      { model: 'RK-2114-RWKD', ayarlanabilirBspDisOlcusu: 'R1/2-14', disOlcusuUnf: '9/16-18' },
+      { model: 'RK-2116-RWKD', ayarlanabilirBspDisOlcusu: 'R1/2-14', disOlcusuUnf: '5/8-18' },
+      { model: 'RK-2119-RWKD', ayarlanabilirBspDisOlcusu: 'R1/2-14', disOlcusuUnf: '3/4-16' },
+      { model: 'RK-2119-RWKD45', ayarlanabilirBspDisOlcusu: 'R1/2-14', disOlcusuUnf: '3/4-16' },
+      { model: 'RK-2122-RWKD', ayarlanabilirBspDisOlcusu: 'R1/2-14', disOlcusuUnf: '7/8-14' },
+      { model: 'RK-2127-RWKD', ayarlanabilirBspDisOlcusu: 'R1/2-14', disOlcusuUnf: '1 1/16-12' },
+      { model: 'RK-2622-RWKD', ayarlanabilirBspDisOlcusu: 'R3/4-14', disOlcusuUnf: '7/8-14' },
+      { model: 'RK-2627-RWKD', ayarlanabilirBspDisOlcusu: 'R3/4-14', disOlcusuUnf: '1 1/16-12' },
+      { model: 'RK-2627-RWKD45', ayarlanabilirBspDisOlcusu: 'R3/4-14', disOlcusuUnf: '1 1/16-12' },
+      { model: 'RK-3327-RWKD', ayarlanabilirBspDisOlcusu: 'R1-11', disOlcusuUnf: '1 1/16-12' },
+      { model: 'RK-3327-RWKD45', ayarlanabilirBspDisOlcusu: 'R1-11', disOlcusuUnf: '1 1/16-12' },
+      { model: 'RK-3333-RWKD', ayarlanabilirBspDisOlcusu: 'R1-11', disOlcusuUnf: '1 5/16-12' },
+    ],
+  },
+  {
+    name: 'UNF - UNF KONTRALI DİRSEKLER',
+    tableHeaders: ['MODEL', 'AYARLANABİLİR UNF DİŞ ÖLÇÜSÜ', 'DİŞ ÖLÇÜSÜ UNF'],
+    products: [
+      { model: 'RK-1111-WWKD', ayarlanabilirUnfDisOlcusu: '7/16-20', disOlcusuUnf: '7/16-20' },
+      { model: 'RK-1212-WWKD', ayarlanabilirUnfDisOlcusu: '1/2-20', disOlcusuUnf: '1/2-20' },
+      { model: 'RK-1414-WWKD', ayarlanabilirUnfDisOlcusu: '9/16-18', disOlcusuUnf: '9/16-18' },
+      { model: 'RK-1414-WWKD45', ayarlanabilirUnfDisOlcusu: '9/16-18', disOlcusuUnf: '9/16-18' },
+      { model: 'RK-1616-WWKD', ayarlanabilirUnfDisOlcusu: '5/8-18', disOlcusuUnf: '5/8-18' },
+      { model: 'RK-1919-WWKD', ayarlanabilirUnfDisOlcusu: '3/4-16', disOlcusuUnf: '3/4-16' },
+      { model: 'RK-2222-WWKD', ayarlanabilirUnfDisOlcusu: '7/8-14', disOlcusuUnf: '7/8-14' },
+      { model: 'RK-2727-WWKD', ayarlanabilirUnfDisOlcusu: '1 1/16-12', disOlcusuUnf: '1 1/16-12' },
+    ],
+  },
+  {
+    name: 'METRİK ERKEK TAPA',
+    tableHeaders: ['MODEL', 'ANAHTAR ÖLÇÜSÜ', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1206-MET-L', anahtarOlcusu: '12', disOlcusu: 'M12X1,5 6L' },
+      { model: 'RK-1408-MET-L', anahtarOlcusu: '14', disOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-1608-MET-S', anahtarOlcusu: '17', disOlcusu: 'M16X1,5 8S' },
+      { model: 'RK-1610-MET-L', anahtarOlcusu: '17', disOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-1812-MET-L', anahtarOlcusu: '19', disOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-2012-MET-S', anahtarOlcusu: '22', disOlcusu: 'M20X1,5 12S' },
+      { model: 'RK-2215-MET-L', anahtarOlcusu: '24', disOlcusu: 'M22X1,5 15L' },
+      { model: 'RK-2416-MET-S', anahtarOlcusu: '27', disOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-2618-MET-L', anahtarOlcusu: '27', disOlcusu: 'M26X1,5 18L' },
+      { model: 'RK-3020-MET-S', anahtarOlcusu: '32', disOlcusu: 'M30X2 20S' },
+      { model: 'RK-3022-MET-L', anahtarOlcusu: '32', disOlcusu: 'M30X2 22L' },
+      { model: 'RK-3625-MET-S', anahtarOlcusu: '41', disOlcusu: 'M36X2 25S' },
+      { model: 'RK-3628-MET-L', anahtarOlcusu: '41', disOlcusu: 'M36X2 28L' },
+      { model: 'RK-4230-MET-S', anahtarOlcusu: '46', disOlcusu: 'M42X2 30S' },
+      { model: 'RK-4535-MET-L', anahtarOlcusu: '46', disOlcusu: 'M45X2 35L' },
+      { model: 'RK-5238-MET-S', anahtarOlcusu: '55', disOlcusu: 'M52X2 38S' },
+    ],
+  },
+  {
+    name: 'BSP - ORFS KONTRALI DİRSEKLER',
+    tableHeaders: ['MODEL', 'AYARLANABİLİR BSP DİŞ ÖLÇÜSÜ', 'DİŞ ÖLÇÜSÜ ORFS'],
+    products: [
+      { model: 'RK-1314-ROKD', ayarlanabilirBspDisOlcusu: 'R1/4-19', disOlcusuOrfs: '9/16-18' },
+      { model: 'RK-1317-ROKD', ayarlanabilirBspDisOlcusu: 'R1/4-19', disOlcusuOrfs: '11/16-16' },
+      { model: 'RK-1321-ROKD', ayarlanabilirBspDisOlcusu: 'R1/4-19', disOlcusuOrfs: '13/16-16' },
+      { model: 'RK-1714-ROKD', ayarlanabilirBspDisOlcusu: 'R3/8-19', disOlcusuOrfs: '9/16-18' },
+      { model: 'RK-1717-ROKD', ayarlanabilirBspDisOlcusu: 'R3/8-19', disOlcusuOrfs: '11/16-16' },
+      { model: 'RK-1717-ROKD45', ayarlanabilirBspDisOlcusu: 'R3/8-19', disOlcusuOrfs: '11/16-16' },
+      { model: 'RK-1721-ROKD', ayarlanabilirBspDisOlcusu: 'R3/8-19', disOlcusuOrfs: '13/16-16' },
+      { model: 'RK-2121-ROKD', ayarlanabilirBspDisOlcusu: 'R1/2-14', disOlcusuOrfs: '1 3/16-16' },
+      { model: 'RK-2125-ROKD', ayarlanabilirBspDisOlcusu: 'R1/2-14', disOlcusuOrfs: '1-14' },
+      { model: 'RK-2625-ROKD', ayarlanabilirBspDisOlcusu: 'R3/4-14', disOlcusuOrfs: '1-14' },
+      { model: 'RK-2630-ROKD', ayarlanabilirBspDisOlcusu: 'R3/4-14', disOlcusuOrfs: '1 3/16-12' },
+      { model: 'RK-3330-ROKD', ayarlanabilirBspDisOlcusu: 'R1-11', disOlcusuOrfs: '1 3/16-12' },
+      { model: 'RK-3337-ROKD', ayarlanabilirBspDisOlcusu: 'R1-11', disOlcusuOrfs: '1 7/16-12' },
+    ],
+  },
+  {
+    name: 'UNF - ORFS KONTRALI DİRSEKLER',
+    tableHeaders: ['MODEL', 'AYARLANABİLİR UNF DİŞ ÖLÇÜSÜ', 'DİŞ ÖLÇÜSÜ ORFS'],
+    products: [
+      { model: 'RK-1414-WOKD', ayarlanabilirUnfDisOlcusu: '9/16-18', disOlcusuOrfs: '9/16-18' },
+      { model: 'RK-1417-WOKD', ayarlanabilirUnfDisOlcusu: '9/16-18', disOlcusuOrfs: '11/16-16' },
+      { model: 'RK-1421-WOKD', ayarlanabilirUnfDisOlcusu: '9/16-18', disOlcusuOrfs: '13/16-16' },
+      { model: 'RK-1917-WOKD', ayarlanabilirUnfDisOlcusu: '3/4-16', disOlcusuOrfs: '11/16-16' },
+      { model: 'RK-1917-WOKD45', ayarlanabilirUnfDisOlcusu: '3/4-16', disOlcusuOrfs: '11/16-16' },
+      { model: 'RK-1921-WOKD', ayarlanabilirUnfDisOlcusu: '3/4-16', disOlcusuOrfs: '13/16-16' },
+      { model: 'RK-1921-WOKD45', ayarlanabilirUnfDisOlcusu: '3/4-16', disOlcusuOrfs: '13/16-16' },
+      { model: 'RK-1925-WOKD', ayarlanabilirUnfDisOlcusu: '3/4-16', disOlcusuOrfs: '1-14' },
+      { model: 'RK-2217-WOKD', ayarlanabilirUnfDisOlcusu: '7/8-14', disOlcusuOrfs: '11/16-16' },
+      { model: 'RK-2221-WOKD', ayarlanabilirUnfDisOlcusu: '7/8-14', disOlcusuOrfs: '13/16-16' },
+      { model: 'RK-2225-WOKD', ayarlanabilirUnfDisOlcusu: '7/8-14', disOlcusuOrfs: '1-14' },
+      { model: 'RK-2725-WOKD', ayarlanabilirUnfDisOlcusu: '1 1/16-12', disOlcusuOrfs: '1-14' },
+      { model: 'RK-2730-WOKD', ayarlanabilirUnfDisOlcusu: '1 1/16-12', disOlcusuOrfs: '1 3/16-12' },
+      { model: 'RK-2737-WOKD', ayarlanabilirUnfDisOlcusu: '1 1/16-12', disOlcusuOrfs: '1 7/16-12' },
+      { model: 'RK-3330-WOKD', ayarlanabilirUnfDisOlcusu: '1 5/16-12', disOlcusuOrfs: '1 3/16-12' },
+      { model: 'RK-3337-WOKD', ayarlanabilirUnfDisOlcusu: '1 5/16-12', disOlcusuOrfs: '1 7/16-12' },
+      { model: 'RK-3337-WOKD45', ayarlanabilirUnfDisOlcusu: '1 5/16-12', disOlcusuOrfs: '1 7/16-12' },
+    ],
+  },
+]
+
+// REKORSAN TERS NİPELLER kategorileri
+const REKORSAN_TERS_NIPELLER_CATEGORIES = [
+  {
+    name: 'BSP - METRİK TERS REKORLAR (PERFLEXLİ)',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ BSP', 'SOMUN DİŞ ÖLÇÜSÜ METRİK'],
+    products: [
+      { model: 'RK-1006-RMTR-L', disOlcusuBsp: 'R1/8-28', somunDisOlcusuMetrik: 'M12X1,5 6L' },
+      { model: 'RK-1008-RMTR-L', disOlcusuBsp: 'R1/8-28', somunDisOlcusuMetrik: 'M14X1,5 8L' },
+      { model: 'RK-1306-RMTR-L', disOlcusuBsp: 'R1/4-19', somunDisOlcusuMetrik: 'M12X1,5 6L' },
+      { model: 'RK-1306-RMTR-S', disOlcusuBsp: 'R1/4-19', somunDisOlcusuMetrik: 'M14X1,5 6S' },
+      { model: 'RK-1308-RMTR-L', disOlcusuBsp: 'R1/4-19', somunDisOlcusuMetrik: 'M14X1,5 8L' },
+      { model: 'RK-1308-RMTR-S', disOlcusuBsp: 'R1/4-19', somunDisOlcusuMetrik: 'M16X1,5 8S' },
+      { model: 'RK-1310-RMTR-L', disOlcusuBsp: 'R1/4-19', somunDisOlcusuMetrik: 'M16X1,5 10L' },
+      { model: 'RK-1310-RMTR-S', disOlcusuBsp: 'R1/4-19', somunDisOlcusuMetrik: 'M18X1,5 10S' },
+      { model: 'RK-1312-RMTR-L', disOlcusuBsp: 'R1/4-19', somunDisOlcusuMetrik: 'M18X1,5 12L' },
+      { model: 'RK-1312-RMTR-S', disOlcusuBsp: 'R1/4-19', somunDisOlcusuMetrik: 'M20X1,5 12S' },
+      { model: 'RK-1708-RMTR-L', disOlcusuBsp: 'R3/8-19', somunDisOlcusuMetrik: 'M14X1,5 8L' },
+      { model: 'RK-1708-RMTR-S', disOlcusuBsp: 'R3/8-19', somunDisOlcusuMetrik: 'M16X1,5 8S' },
+      { model: 'RK-1710-RMTR-L', disOlcusuBsp: 'R3/8-19', somunDisOlcusuMetrik: 'M16X1,5 10L' },
+      { model: 'RK-1710-RMTR-S', disOlcusuBsp: 'R3/8-19', somunDisOlcusuMetrik: 'M18X1,5 10S' },
+      { model: 'RK-1712-RMTR-L', disOlcusuBsp: 'R3/8-19', somunDisOlcusuMetrik: 'M18X1,5 12L' },
+      { model: 'RK-1712-RMTR-S', disOlcusuBsp: 'R3/8-19', somunDisOlcusuMetrik: 'M20X1,5 12S' },
+      { model: 'RK-1715-RMTR-L', disOlcusuBsp: 'R3/8-19', somunDisOlcusuMetrik: 'M22X1,5 15L' },
+      { model: 'RK-1716-RMTR-S', disOlcusuBsp: 'R3/8-19', somunDisOlcusuMetrik: 'M24X1,5 16S' },
+      { model: 'RK-2110-RMTR-L', disOlcusuBsp: 'R1/2-14', somunDisOlcusuMetrik: 'M16X1,5 10L' },
+      { model: 'RK-2112-RMTR-L', disOlcusuBsp: 'R1/2-14', somunDisOlcusuMetrik: 'M18X1,5 12L' },
+      { model: 'RK-2112-RMTR-S', disOlcusuBsp: 'R1/2-14', somunDisOlcusuMetrik: 'M20X1,5 12S' },
+      { model: 'RK-2115-RMTR-L', disOlcusuBsp: 'R1/2-14', somunDisOlcusuMetrik: 'M22X1,5 15L' },
+      { model: 'RK-2116-RMTR-S', disOlcusuBsp: 'R1/2-14', somunDisOlcusuMetrik: 'M24X1,5 16S' },
+      { model: 'RK-2118-RMTR-L', disOlcusuBsp: 'R1/2-14', somunDisOlcusuMetrik: 'M26X1,5 18L' },
+      { model: 'RK-2120-RMTR-S', disOlcusuBsp: 'R1/2-14', somunDisOlcusuMetrik: 'M30X2 20S' },
+      { model: 'RK-2122-RMTR-L', disOlcusuBsp: 'R1/2-14', somunDisOlcusuMetrik: 'M30X2 22L' },
+      { model: 'RK-2616-RMTR-S', disOlcusuBsp: 'R3/4-14', somunDisOlcusuMetrik: 'M24X1,5 16S' },
+      { model: 'RK-2618-RMTR-L', disOlcusuBsp: 'R3/4-14', somunDisOlcusuMetrik: 'M26X1,5 18L' },
+      { model: 'RK-2620-RMTR-S', disOlcusuBsp: 'R3/4-14', somunDisOlcusuMetrik: 'M30X2 20S' },
+      { model: 'RK-2622-RMTR-L', disOlcusuBsp: 'R3/4-14', somunDisOlcusuMetrik: 'M30X2 22L' },
+      { model: 'RK-2625-RMTR-S', disOlcusuBsp: 'R3/4-14', somunDisOlcusuMetrik: 'M36X2 25S' },
+      { model: 'RK-2628-RMTR-L', disOlcusuBsp: 'R3/4-14', somunDisOlcusuMetrik: 'M36X2 28L' },
+      { model: 'RK-3320-RMTR-S', disOlcusuBsp: 'R1-11', somunDisOlcusuMetrik: 'M30X2 20S' },
+      { model: 'RK-3322-RMTR-L', disOlcusuBsp: 'R1-11', somunDisOlcusuMetrik: 'M30X2 22L' },
+      { model: 'RK-3325-RMTR-S', disOlcusuBsp: 'R1-11', somunDisOlcusuMetrik: 'M36X2 25S' },
+      { model: 'RK-3328-RMTR-L', disOlcusuBsp: 'R1-11', somunDisOlcusuMetrik: 'M36X2 28L' },
+      { model: 'RK-3330-RMTR-S', disOlcusuBsp: 'R1-11', somunDisOlcusuMetrik: 'M42X2 30S' },
+      { model: 'RK-3335-RMTR-L', disOlcusuBsp: 'R1-11', somunDisOlcusuMetrik: 'M45X2 35L' },
+      { model: 'RK-4225-RMTR-S', disOlcusuBsp: 'R1 1/4-11', somunDisOlcusuMetrik: 'M36X2 25S' },
+      { model: 'RK-4228-RMTR-L', disOlcusuBsp: 'R1 1/4-11', somunDisOlcusuMetrik: 'M36X2 28L' },
+      { model: 'RK-4230-RMTR-S', disOlcusuBsp: 'R1 1/4-11', somunDisOlcusuMetrik: 'M42X2 30S' },
+      { model: 'RK-4235-RMTR-L', disOlcusuBsp: 'R1 1/4-11', somunDisOlcusuMetrik: 'M45X2 35L' },
+      { model: 'RK-4238-RMTR-S', disOlcusuBsp: 'R1 1/4-11', somunDisOlcusuMetrik: 'M52X2 38S' },
+      { model: 'RK-4242-RMTR-L', disOlcusuBsp: 'R1 1/4-11', somunDisOlcusuMetrik: 'M52X2 42L' },
+      { model: 'RK-4838-RMTR-S', disOlcusuBsp: 'R1 1/2-11', somunDisOlcusuMetrik: 'M52X2 38S' },
+      { model: 'RK-4842-RMTR-L', disOlcusuBsp: 'R1 1/2-11', somunDisOlcusuMetrik: 'M52X2 42L' },
+    ],
+  },
+  {
+    name: 'BSP-BSP TERS NİPELLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ BSP', 'SOMUN ÖLÇÜSÜ BSP'],
+    products: [
+      { model: 'RK-1010-RRTN', disOlcusuBsp: 'R1/8-28', somunOlcusuBsp: 'R1/8-28' },
+      { model: 'RK-1313-RRTN', disOlcusuBsp: 'R1/4-19', somunOlcusuBsp: 'R1/4-19' },
+      { model: 'RK-1717-RRTN', disOlcusuBsp: 'R3/8-19', somunOlcusuBsp: 'R3/8-19' },
+      { model: 'RK-2121-RRTN', disOlcusuBsp: 'R1/2-14', somunOlcusuBsp: 'R1/2-14' },
+      { model: 'RK-2626-RRTN', disOlcusuBsp: 'R3/4-14', somunOlcusuBsp: 'R3/4-14' },
+      { model: 'RK-3333-RRTN', disOlcusuBsp: 'R1-11', somunOlcusuBsp: 'R1-11' },
+      { model: 'RK-4242-RRTN', disOlcusuBsp: 'R1 1/4-11', somunOlcusuBsp: 'R1 1/4-11' },
+      { model: 'RK-4848-RRTN', disOlcusuBsp: 'R1 1/2-11', somunOlcusuBsp: 'R1 1/2-11' },
+      { model: 'RK-6060-RRTN', disOlcusuBsp: 'R2-11', somunOlcusuBsp: 'R2-11' },
+    ],
+  },
+  {
+    name: 'BSP-UNF TERS NİPELLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ BSP', 'SOMUN ÖLÇÜSÜ BSP'],
+    products: [
+      { model: 'RK-1011-RWTN', disOlcusuBsp: 'R1/8-28', somunOlcusuBsp: '7/16-20' },
+      { model: 'RK-1311-RWTN', disOlcusuBsp: 'R1/4-19', somunOlcusuBsp: '7/16-20' },
+      { model: 'RK-1312-RWTN', disOlcusuBsp: 'R1/4-19', somunOlcusuBsp: '1/2-20' },
+      { model: 'RK-1314-RWTN', disOlcusuBsp: 'R1/4-19', somunOlcusuBsp: '9/16-18' },
+      { model: 'RK-1714-RWTN', disOlcusuBsp: 'R3/8-19', somunOlcusuBsp: '9/16-18' },
+      { model: 'RK-1716-RWTN', disOlcusuBsp: 'R3/8-19', somunOlcusuBsp: '5/8-18' },
+      { model: 'RK-1719-RWTN', disOlcusuBsp: 'R3/8-19', somunOlcusuBsp: '3/4-16' },
+      { model: 'RK-2114-RWTN', disOlcusuBsp: 'R1/2-14', somunOlcusuBsp: '9/16-18' },
+      { model: 'RK-2116-RWTN', disOlcusuBsp: 'R1/2-14', somunOlcusuBsp: '5/8-18' },
+      { model: 'RK-2119-RWTN', disOlcusuBsp: 'R1/2-14', somunOlcusuBsp: '3/4-16' },
+      { model: 'RK-2122-RWTN', disOlcusuBsp: 'R1/2-14', somunOlcusuBsp: '7/8-14' },
+      { model: 'RK-2622-RWTN', disOlcusuBsp: 'R3/4-14', somunOlcusuBsp: '7/8-14' },
+      { model: 'RK-2627-RWTN', disOlcusuBsp: 'R3/4-14', somunOlcusuBsp: '1 1/16-12' },
+      { model: 'RK-3327-RWTN', disOlcusuBsp: 'R1-11', somunOlcusuBsp: '1 1/16-12' },
+      { model: 'RK-3333-RWTN', disOlcusuBsp: 'R1-11', somunOlcusuBsp: '1 5/16-12' },
+    ],
+  },
+  {
+    name: 'MANOMETRE TERS REKORLAR',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ', 'MANOMETRE ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1306-MTR-L', disOlcusu: 'M12X1,5 6L', manometreOlcusu: 'R1/4-19' },
+      { model: 'RK-1308-MTR-L', disOlcusu: 'M14X1,5 8L', manometreOlcusu: 'R1/4-19' },
+      { model: 'RK-1310-MTR-L', disOlcusu: 'M16X1,5 10L', manometreOlcusu: 'R1/4-19' },
+      { model: 'RK-1310-MTR-S', disOlcusu: 'M18X1,5 10S', manometreOlcusu: 'R1/4-19' },
+      { model: 'RK-1312-MTR-L', disOlcusu: 'M18X1,5 12L', manometreOlcusu: 'R1/4-19' },
+      { model: 'RK-1312-MTR-S', disOlcusu: 'M20X1,5 12S', manometreOlcusu: 'R1/4-19' },
+      { model: 'RK-2106-MTR-L', disOlcusu: 'M12X1,5 6L', manometreOlcusu: 'R1/2-14' },
+      { model: 'RK-2108-MTR-L', disOlcusu: 'M14X1,5 8L', manometreOlcusu: 'R1/2-14' },
+      { model: 'RK-2110-MTR-L', disOlcusu: 'M16X1,5 10L', manometreOlcusu: 'R1/2-14' },
+      { model: 'RK-2112-MTR-L', disOlcusu: 'M18X1,5 12L', manometreOlcusu: 'R1/2-14' },
+    ],
+  },
+  {
+    name: 'BSP-ORFS TERS NİPELLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ BSP', 'SOMUN ÖLÇÜSÜ ORFS'],
+    products: [
+      { model: 'RK-1314-ROTN', disOlcusuBsp: 'R1/4-19', somunOlcusuOrfs: '9/16-18' },
+      { model: 'RK-1317-ROTN', disOlcusuBsp: 'R1/4-19', somunOlcusuOrfs: '11/16-16' },
+      { model: 'RK-1717-ROTN', disOlcusuBsp: 'R3/8-19', somunOlcusuOrfs: '11/16-16' },
+      { model: 'RK-1721-ROTN', disOlcusuBsp: 'R3/8-19', somunOlcusuOrfs: '13/16-16' },
+      { model: 'RK-2121-ROTN', disOlcusuBsp: 'R1/2-14', somunOlcusuOrfs: '13/16-16' },
+      { model: 'RK-2125-ROTN', disOlcusuBsp: 'R1/2-14', somunOlcusuOrfs: '1-14' },
+      { model: 'RK-2630-ROTN', disOlcusuBsp: 'R3/4-14', somunOlcusuOrfs: '1 3/16-12' },
+      { model: 'RK-2637-ROTN', disOlcusuBsp: 'R3/4-14', somunOlcusuOrfs: '1 7/16-12' },
+      { model: 'RK-3337-ROTN', disOlcusuBsp: 'R1-11', somunOlcusuOrfs: '1 7/16-12' },
+      { model: 'RK-4243-ROTN', disOlcusuBsp: 'R1 1/4-11', somunOlcusuOrfs: '1 11/16-12' },
+    ],
+  },
+]
+
+// REKORSAN KÖRTAPALAR kategorileri
+const REKORSAN_KORTAPALAR_CATEGORIES = [
+  {
+    name: 'METRİK ALYAN BAŞLI KÖRTAPALAR',
+    tableHeaders: ['MODEL', 'ALYAN ÖLÇÜSÜ', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1010-MAT', alyanOlcusu: '5', disOlcusu: 'M10X1' },
+      { model: 'RK-1215-MAT', alyanOlcusu: '6', disOlcusu: 'M12X1,5' },
+      { model: 'RK-1415-MAT', alyanOlcusu: '6', disOlcusu: 'M14X1,5' },
+      { model: 'RK-1615-MAT', alyanOlcusu: '8', disOlcusu: 'M16X1,5' },
+      { model: 'RK-1815-MAT', alyanOlcusu: '8', disOlcusu: 'M18X1,5' },
+      { model: 'RK-2015-MAT', alyanOlcusu: '10', disOlcusu: 'M20X1,5' },
+      { model: 'RK-2215-MAT', alyanOlcusu: '10', disOlcusu: 'M22X1,5' },
+      { model: 'RK-2615-MAT', alyanOlcusu: '12', disOlcusu: 'M26X1,5' },
+    ],
+  },
+  {
+    name: 'BSP ALYAN BAŞLI KÖRTAPALAR',
+    tableHeaders: ['MODEL', 'ALYAN ÖLÇÜSÜ', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1028-RAT', alyanOlcusu: '5', disOlcusu: 'R1/8-28' },
+      { model: 'RK-1319-RAT', alyanOlcusu: '6', disOlcusu: 'R1/4-19' },
+      { model: 'RK-1719-RAT', alyanOlcusu: '8', disOlcusu: 'R3/8-19' },
+      { model: 'RK-2114-RAT', alyanOlcusu: '10', disOlcusu: 'R1/2-14' },
+      { model: 'RK-2614-RAT', alyanOlcusu: '12', disOlcusu: 'R3/4-14' },
+      { model: 'RK-3311-RAT', alyanOlcusu: '17', disOlcusu: 'R1-11' },
+      { model: 'RK-4211-RAT', alyanOlcusu: '22', disOlcusu: 'R1/4-11' },
+      { model: 'RK-4811-RAT', alyanOlcusu: '24', disOlcusu: 'R1 1/2-11' },
+      { model: 'RK-6011-RAT', alyanOlcusu: '32', disOlcusu: 'R2-11' },
+    ],
+  },
+  {
+    name: 'BSP ERKEK HAVŞALI TAPA',
+    tableHeaders: ['MODEL', 'ANAHTAR ÖLÇÜSÜ', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1028-RET', anahtarOlcusu: 'AA-10', disOlcusu: 'R1/8-28' },
+      { model: 'RK-1319-RET', anahtarOlcusu: 'AA-14', disOlcusu: 'R1/4-19' },
+      { model: 'RK-1719-RET', anahtarOlcusu: 'AA-17', disOlcusu: 'R3/8-19' },
+      { model: 'RK-2114-RET', anahtarOlcusu: 'AA-22', disOlcusu: 'R1/2-14' },
+      { model: 'RK-2614-RET', anahtarOlcusu: 'AA-27', disOlcusu: 'R3/4-14' },
+      { model: 'RK-3311-RET', anahtarOlcusu: 'AA-36', disOlcusu: 'R1-11' },
+      { model: 'RK-4211-RET', anahtarOlcusu: 'AA-46', disOlcusu: 'R1 1/4-11' },
+      { model: 'RK-4811-RET', anahtarOlcusu: 'AA-50', disOlcusu: 'R1 1/2-11' },
+    ],
+  },
+  {
+    name: 'BSP SOMUNLU DİŞİ TAPA',
+    tableHeaders: ['MODEL', 'ANAHTAR ÖLÇÜSÜ', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1028-RST', anahtarOlcusu: 'AA-14', disOlcusu: 'R1/8-28' },
+      { model: 'RK-1319-RST', anahtarOlcusu: 'AA-17', disOlcusu: 'R1/4-19' },
+      { model: 'RK-1719-RST', anahtarOlcusu: 'AA-22', disOlcusu: 'R3/8-19' },
+      { model: 'RK-2114-RST', anahtarOlcusu: 'AA-27', disOlcusu: 'R1/2-14' },
+      { model: 'RK-2614-RST', anahtarOlcusu: 'AA-32', disOlcusu: 'R3/4-14' },
+      { model: 'RK-3311-RST', anahtarOlcusu: 'AA-41', disOlcusu: 'R1-11' },
+      { model: 'RK-4211-RST', anahtarOlcusu: 'AA-50', disOlcusu: 'R1 1/4-11' },
+      { model: 'RK-4811-RST', anahtarOlcusu: 'AA-55', disOlcusu: 'R1 1/2-11' },
+    ],
+  },
+  {
+    name: 'BSP KÖRTAPALAR',
+    tableHeaders: ['MODEL', 'ANAHTAR ÖLÇÜSÜ', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1028-RT', anahtarOlcusu: '14', disOlcusu: 'R1/8-28' },
+      { model: 'RK-1319-RT', anahtarOlcusu: '19', disOlcusu: 'R1/4-19' },
+      { model: 'RK-1719-RT', anahtarOlcusu: '22', disOlcusu: 'R3/8-19' },
+      { model: 'RK-2114-RT', anahtarOlcusu: '27', disOlcusu: 'R1/2-14' },
+      { model: 'RK-2614-RT', anahtarOlcusu: '32', disOlcusu: 'R3/4-14' },
+      { model: 'RK-3311-RT', anahtarOlcusu: '41', disOlcusu: 'R1-11' },
+      { model: 'RK-4211-RT', anahtarOlcusu: '50', disOlcusu: 'R1 1/4-11' },
+      { model: 'RK-4811-RT', anahtarOlcusu: '55', disOlcusu: 'R1 1/2-11' },
+      { model: 'RK-6011-RT', anahtarOlcusu: '70', disOlcusu: 'R2-11' },
+    ],
+  },
+  {
+    name: 'UNF ERKEK TAPA',
+    tableHeaders: ['MODEL', 'ANAHTAR ÖLÇÜSÜ', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1120-WET', anahtarOlcusu: '12', disOlcusu: '7/16-20' },
+      { model: 'RK-1220-WET', anahtarOlcusu: '14', disOlcusu: '1/2-20' },
+      { model: 'RK-1418-OET', anahtarOlcusu: '17', disOlcusu: '9/16-18' },
+      { model: 'RK-1418-WET', anahtarOlcusu: '17', disOlcusu: '9/16-18' },
+      { model: 'RK-1618-WET', anahtarOlcusu: '17', disOlcusu: '5/8-18' },
+      { model: 'RK-1916-WET', anahtarOlcusu: '19', disOlcusu: '3/4-16' },
+      { model: 'RK-2214-WET', anahtarOlcusu: '24', disOlcusu: '7/8-14' },
+      { model: 'RK-2712-WET', anahtarOlcusu: '27', disOlcusu: '1 1/16-12' },
+      { model: 'RK-3312-WET', anahtarOlcusu: '36', disOlcusu: '1 5/16-12' },
+      { model: 'RK-4112-WET', anahtarOlcusu: '46', disOlcusu: '1 5/8-12' },
+      { model: 'RK-4712-WET', anahtarOlcusu: '50', disOlcusu: '1 7/8-12' },
+    ],
+  },
+  {
+    name: 'UNF SOMUNLU TAPA',
+    tableHeaders: ['MODEL', 'ANAHTAR ÖLÇÜSÜ', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1120-WST', anahtarOlcusu: '14', disOlcusu: '7/16-20' },
+      { model: 'RK-1220-WST', anahtarOlcusu: '17', disOlcusu: '1/2-20' },
+      { model: 'RK-1418-WST', anahtarOlcusu: '19', disOlcusu: '9/16-18' },
+      { model: 'RK-1618-WST', anahtarOlcusu: '21', disOlcusu: '5/8-18' },
+      { model: 'RK-1916-WST', anahtarOlcusu: '22', disOlcusu: '3/4-16' },
+      { model: 'RK-2214-WST', anahtarOlcusu: '27', disOlcusu: '7/8-14' },
+      { model: 'RK-2712-WST', anahtarOlcusu: '32', disOlcusu: '1 1/16-12' },
+      { model: 'RK-3312-WST', anahtarOlcusu: '41', disOlcusu: '1 5/16-12' },
+      { model: 'RK-4112-WST', anahtarOlcusu: '50', disOlcusu: '1 5/8-12' },
+      { model: 'RK-4712-WST', anahtarOlcusu: '60', disOlcusu: '1 7/8-12' },
+    ],
+  },
+  {
+    name: 'SOMUNLU TAPA',
+    tableHeaders: ['MODEL', 'ANAHTAR ÖLÇÜSÜ', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1206-MST-L', anahtarOlcusu: '14', disOlcusu: 'M12X1,5 6L' },
+      { model: 'RK-1408-MST-L', anahtarOlcusu: '17', disOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-1608-MST-S', anahtarOlcusu: '19', disOlcusu: 'M16X1,5 8S' },
+      { model: 'RK-1610-MST-L', anahtarOlcusu: '19', disOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-1812-MST-L', anahtarOlcusu: '22', disOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-2012-MST-S', anahtarOlcusu: '24', disOlcusu: 'M20X1,5 12S' },
+      { model: 'RK-2215-MST-L', anahtarOlcusu: '27', disOlcusu: 'M22X1,5 15L' },
+      { model: 'RK-2416-MST-S', anahtarOlcusu: '30', disOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-2618-MST-L', anahtarOlcusu: '32', disOlcusu: 'M26X1,5 18L' },
+      { model: 'RK-3020-MST-S', anahtarOlcusu: '36', disOlcusu: 'M30X2 20S' },
+      { model: 'RK-3022-MST-L', anahtarOlcusu: '36', disOlcusu: 'M30X2 22L' },
+      { model: 'RK-3625-MST-S', anahtarOlcusu: '46', disOlcusu: 'M36X2 25S' },
+      { model: 'RK-3628-MST-L', anahtarOlcusu: '41', disOlcusu: 'M36X2 28L' },
+      { model: 'RK-4230-MST-S', anahtarOlcusu: '50', disOlcusu: 'M42X2 30S' },
+      { model: 'RK-4535-MST-L', anahtarOlcusu: '50', disOlcusu: 'M45X2 35L' },
+      { model: 'RK-5238-MST-S', anahtarOlcusu: '60', disOlcusu: 'M52X2 38S' },
+      { model: 'RK-5242-MST-L', anahtarOlcusu: '60', disOlcusu: 'M52X2 42L' },
+    ],
+  },
+  {
+    name: 'ORFS SOMUNLU TAPA',
+    tableHeaders: ['MODEL', 'ANAHTAR ÖLÇÜSÜ', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1418-OST', anahtarOlcusu: '19', disOlcusu: '9/16-18' },
+      { model: 'RK-1716-OST', anahtarOlcusu: '22', disOlcusu: '11/16-16' },
+      { model: 'RK-2116-OST', anahtarOlcusu: '24', disOlcusu: '13/16-16' },
+      { model: 'RK-2514-OST', anahtarOlcusu: '30', disOlcusu: '1-14' },
+      { model: 'RK-3012-OST', anahtarOlcusu: '36', disOlcusu: '1 3/16-12' },
+      { model: 'RK-3712-OST', anahtarOlcusu: '41', disOlcusu: '1 7/16-12' },
+      { model: 'RK-4312-OST', anahtarOlcusu: '50', disOlcusu: '1 11/16-12' },
+    ],
+  },
+  {
+    name: 'ORFS ERKEK TAPA',
+    tableHeaders: ['MODEL', 'ANAHTAR ÖLÇÜSÜ', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1716-OET', anahtarOlcusu: '19', disOlcusu: '11/16-16' },
+      { model: 'RK-2116-OET', anahtarOlcusu: '22', disOlcusu: '13/16-16' },
+      { model: 'RK-2514-OET', anahtarOlcusu: '27', disOlcusu: '1-14' },
+      { model: 'RK-3012-OET', anahtarOlcusu: '32', disOlcusu: '1 3/16-12' },
+      { model: 'RK-3712-OET', anahtarOlcusu: '41', disOlcusu: '1 7/16-12' },
+      { model: 'RK-4312-OET', anahtarOlcusu: '46', disOlcusu: '1 11/16-12' },
+    ],
+  },
+]
+
+// REKORSAN REDÜKSİYONLAR kategorileri
+const REKORSAN_REDUKSIYONLAR_CATEGORIES = [
+  {
+    name: 'BSP UZUN TİP REDÜKSİYONLAR',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ DİŞİ', 'ERKEK DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1010-URD', disOlcusuDisi: 'R1/8-28', erkekDisOlcusu: 'R1/8-28' },
+      { model: 'RK-1013-URD', disOlcusuDisi: 'R1/4-19', erkekDisOlcusu: 'R1/8-28' },
+      { model: 'RK-1310-URD', disOlcusuDisi: 'R1/8-28', erkekDisOlcusu: 'R1/4-19' },
+      { model: 'RK-1313-URD', disOlcusuDisi: 'R1/4-19', erkekDisOlcusu: 'R1/4-19' },
+      { model: 'RK-1317-URD', disOlcusuDisi: 'R3/8-19', erkekDisOlcusu: 'R1/4-19' },
+      { model: 'RK-1321-URD', disOlcusuDisi: 'R1/2-14', erkekDisOlcusu: 'R1/4-19' },
+      { model: 'RK-1713-URD', disOlcusuDisi: 'R1/4-19', erkekDisOlcusu: 'R3/8-19' },
+      { model: 'RK-1717-URD', disOlcusuDisi: 'R3/8-19', erkekDisOlcusu: 'R3/8-19' },
+      { model: 'RK-1721-URD', disOlcusuDisi: 'R1/2-14', erkekDisOlcusu: 'R3/8-19' },
+      { model: 'RK-1726-URD', disOlcusuDisi: 'R3/4-14', erkekDisOlcusu: 'R3/8-19' },
+      { model: 'RK-2117-URD', disOlcusuDisi: 'R3/8-19', erkekDisOlcusu: 'R1/2-14' },
+      { model: 'RK-2121-URD', disOlcusuDisi: 'R1/2-14', erkekDisOlcusu: 'R1/2-14' },
+      { model: 'RK-2126-URD', disOlcusuDisi: 'R3/4-14', erkekDisOlcusu: 'R1/2-14' },
+      { model: 'RK-2133-URD', disOlcusuDisi: 'R1-11', erkekDisOlcusu: 'R1/2-14' },
+      { model: 'RK-2621-URD', disOlcusuDisi: 'R1/2-14', erkekDisOlcusu: 'R3/4-14' },
+      { model: 'RK-2626-URD', disOlcusuDisi: 'R3/4-14', erkekDisOlcusu: 'R3/4-14' },
+      { model: 'RK-2633-URD', disOlcusuDisi: 'R1-11', erkekDisOlcusu: 'R3/4-14' },
+      { model: 'RK-2642-URD', disOlcusuDisi: 'R1 1/4-11', erkekDisOlcusu: 'R3/4-14' },
+      { model: 'RK-3326-URD', disOlcusuDisi: 'R3/4-14', erkekDisOlcusu: 'R1-11' },
+      { model: 'RK-3333-URD', disOlcusuDisi: 'R1-11', erkekDisOlcusu: 'R1-11' },
+      { model: 'RK-3342-URD', disOlcusuDisi: 'R1 1/4-11', erkekDisOlcusu: 'R1-11' },
+      { model: 'RK-3348-URD', disOlcusuDisi: 'R1 1/2-11', erkekDisOlcusu: 'R1-11' },
+      { model: 'RK-4233-URD', disOlcusuDisi: 'R1-11', erkekDisOlcusu: 'R1 1/4-11' },
+      { model: 'RK-4242-URD', disOlcusuDisi: 'R1 1/4-11', erkekDisOlcusu: 'R1 1/4-11' },
+      { model: 'RK-4248-URD', disOlcusuDisi: 'R1 1/2-11', erkekDisOlcusu: 'R1 1/4-11' },
+      { model: 'RK-4821-KRD', disOlcusuDisi: 'R1/2-14', erkekDisOlcusu: 'R1 1/2-11' },
+      { model: 'RK-4826-KRD', disOlcusuDisi: 'R3/4-14', erkekDisOlcusu: 'R1 1/2-11' },
+      { model: 'RK-4833-KRD', disOlcusuDisi: 'R1-11', erkekDisOlcusu: 'R1 1/2-11' },
+      { model: 'RK-4842-URD', disOlcusuDisi: 'R1 1/4-11', erkekDisOlcusu: 'R1 1/2-11' },
+    ],
+  },
+  {
+    name: 'BSP KISA TİP REDÜKSİYONLAR',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ DİŞİ', 'ERKEK DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1310-KRD', disOlcusuDisi: 'R1/8-28', erkekDisOlcusu: 'R1/4-19' },
+      { model: 'RK-1710-KRD', disOlcusuDisi: 'R1/8-28', erkekDisOlcusu: 'R3/8-19' },
+      { model: 'RK-1713-KRD', disOlcusuDisi: 'R1/4-19', erkekDisOlcusu: 'R3/8-19' },
+      { model: 'RK-2110-KRD', disOlcusuDisi: 'R1/8-28', erkekDisOlcusu: 'R1/2-14' },
+      { model: 'RK-2113-KRD', disOlcusuDisi: 'R1/4-19', erkekDisOlcusu: 'R1/2-14' },
+      { model: 'RK-2117-KRD', disOlcusuDisi: 'R3/8-19', erkekDisOlcusu: 'R1/2-14' },
+      { model: 'RK-2613-KRD', disOlcusuDisi: 'R1/4-19', erkekDisOlcusu: 'R3/4-14' },
+      { model: 'RK-2617-KRD', disOlcusuDisi: 'R3/8-19', erkekDisOlcusu: 'R3/4-14' },
+      { model: 'RK-2621-KRD', disOlcusuDisi: 'R1/2-14', erkekDisOlcusu: 'R3/4-14' },
+      { model: 'RK-3313-KRD', disOlcusuDisi: 'R1/4-19', erkekDisOlcusu: 'R1-11' },
+      { model: 'RK-3317-KRD', disOlcusuDisi: 'R3/8-19', erkekDisOlcusu: 'R1-11' },
+      { model: 'RK-3321-KRD', disOlcusuDisi: 'R1/2-14', erkekDisOlcusu: 'R1-11' },
+      { model: 'RK-3326-KRD', disOlcusuDisi: 'R3/4-14', erkekDisOlcusu: 'R1-11' },
+      { model: 'RK-4221-KRD', disOlcusuDisi: 'R1/2-14', erkekDisOlcusu: 'R1 1/4-11' },
+      { model: 'RK-4226-KRD', disOlcusuDisi: 'R3/4-14', erkekDisOlcusu: 'R1 1/4-11' },
+      { model: 'RK-4233-KRD', disOlcusuDisi: 'R1-11', erkekDisOlcusu: 'R1 1/4-11' },
+      { model: 'RK-4842-KRD', disOlcusuDisi: 'R1 1/4-11', erkekDisOlcusu: 'R1 1/2-11' },
+      { model: 'RK-6033-KRD', disOlcusuDisi: 'R1-11', erkekDisOlcusu: 'R2-11' },
+      { model: 'RK-6042-KRD', disOlcusuDisi: 'R1 1/4-11', erkekDisOlcusu: 'R2-11' },
+      { model: 'RK-6048-KRD', disOlcusuDisi: 'R1 1/2-11', erkekDisOlcusu: 'R2-11' },
+    ],
+  },
+]
+
+// REKORSAN BSP ALTI KÖŞE MAŞONLAR kategorileri
+const REKORSAN_BSP_ALTI_KOSE_MASONLAR_CATEGORIES = [
+  {
+    name: 'BSP ALTI KÖŞE MAŞONLAR',
+    tableHeaders: ['MODEL', 'ANAHTAR ÖLÇÜSÜ', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1028-RAM', anahtarOlcusu: '14', disOlcusu: 'R1/8-28' },
+      { model: 'RK-1319-RAM', anahtarOlcusu: '17', disOlcusu: 'R1/4-19' },
+      { model: 'RK-1719-RAM', anahtarOlcusu: '22', disOlcusu: 'R3/8-19' },
+      { model: 'RK-2114-RAM', anahtarOlcusu: '27', disOlcusu: 'R1/2-14' },
+      { model: 'RK-2614-RAM', anahtarOlcusu: '32', disOlcusu: 'R3/4-14' },
+      { model: 'RK-3311-RAM', anahtarOlcusu: '41', disOlcusu: 'R1-11' },
+      { model: 'RK-4211-RAM', anahtarOlcusu: '50', disOlcusu: 'R1 1/4-11' },
+      { model: 'RK-4811-RAM', anahtarOlcusu: '55', disOlcusu: 'R1 1/2-11' },
+      { model: 'RK-6011-RAM', anahtarOlcusu: '70', disOlcusu: 'R2-11' },
+    ],
+  },
+]
+
+// REKORSAN KONTRA SOMUNLAR kategorileri
+const REKORSAN_KONTRA_SOMUNLAR_CATEGORIES = [
+  {
+    name: 'BSP KONTRA SOMUNLAR',
+    tableHeaders: ['MODEL', 'ANAHTAR ÖLÇÜSÜ', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1028-RKS', anahtarOlcusu: '14', disOlcusu: 'R1/8-28' },
+      { model: 'RK-1319-RKS', anahtarOlcusu: '19', disOlcusu: 'R1/4-19' },
+      { model: 'RK-1719-RKS', anahtarOlcusu: '22', disOlcusu: 'R3/8-19' },
+      { model: 'RK-2114-RKS', anahtarOlcusu: '27', disOlcusu: 'R1/2-14' },
+      { model: 'RK-2614-RKS', anahtarOlcusu: '32', disOlcusu: 'R3/4-14' },
+      { model: 'RK-3311-RKS', anahtarOlcusu: '41', disOlcusu: 'R1-11' },
+      { model: 'RK-4211-RKS', anahtarOlcusu: '50', disOlcusu: 'R1 1/4-11' },
+      { model: 'RK-4811-RKS', anahtarOlcusu: '55', disOlcusu: 'R1 1/2-11' },
+    ],
+  },
+  {
+    name: 'METRİK KONTRA SOMUNLAR',
+    tableHeaders: ['MODEL', 'ANAHTAR ÖLÇÜSÜ', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1215-MKS', anahtarOlcusu: '17', disOlcusu: 'M12X1,5' },
+      { model: 'RK-1415-MKS', anahtarOlcusu: '19', disOlcusu: 'M14X1,5' },
+      { model: 'RK-1615-MKS', anahtarOlcusu: '22', disOlcusu: 'M16X1,5' },
+      { model: 'RK-1815-MKS', anahtarOlcusu: '24', disOlcusu: 'M18X1,5' },
+      { model: 'RK-2015-MKS', anahtarOlcusu: '27', disOlcusu: 'M20X1,5' },
+      { model: 'RK-2415-MKS', anahtarOlcusu: '32', disOlcusu: 'M24X1,5' },
+      { model: 'RK-2615-MKS', anahtarOlcusu: '36', disOlcusu: 'M26X1,5' },
+      { model: 'RK-3020-MKS', anahtarOlcusu: '41', disOlcusu: 'M30X2' },
+      { model: 'RK-3620-MKS', anahtarOlcusu: '46', disOlcusu: 'M36X2' },
+      { model: 'RK-4220-MKS', anahtarOlcusu: '50', disOlcusu: 'M42X2' },
+      { model: 'RK-4520-MKS', anahtarOlcusu: '55', disOlcusu: 'M45X2' },
+      { model: 'RK-5220-MKS', anahtarOlcusu: '65', disOlcusu: 'M52X2' },
+    ],
+  },
+]
+
+// REKORSAN KAYNAKLIKLAR kategorileri
+const REKORSAN_KAYNAKLIKLAR_CATEGORIES = [
+  {
+    name: 'KUYRUKLU YÜKSÜKLER',
+    tableHeaders: ['MODEL', 'BORU ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-0606-MKY', boruOlcusu: '6 MM KUYRUKLU' },
+      { model: 'RK-0808-MKY', boruOlcusu: '8 MM KUYRUKLU' },
+      { model: 'RK-1010-MKY', boruOlcusu: '10 MM KUYRUKLU' },
+      { model: 'RK-1212-MKY', boruOlcusu: '12 MM KUYRUKLU' },
+      { model: 'RK-1515-MKY', boruOlcusu: '15 MM KUYRUKLU' },
+      { model: 'RK-1616-MKY', boruOlcusu: '16 MM KUYRUKLU' },
+      { model: 'RK-1818-MKY', boruOlcusu: '18 MM KUYRUKLU' },
+      { model: 'RK-2020-MKY', boruOlcusu: '20 MM KUYRUKLU' },
+      { model: 'RK-2222-MKY', boruOlcusu: '22 MM KUYRUKLU' },
+      { model: 'RK-2525-MKY', boruOlcusu: '25 MM KUYRUKLU' },
+      { model: 'RK-2828-MKY', boruOlcusu: '28 MM KUYRUKLU' },
+      { model: 'RK-3030-MKY', boruOlcusu: '30 MM KUYRUKLU' },
+      { model: 'RK-3535-MKY', boruOlcusu: '35 MM KUYRUKLU' },
+      { model: 'RK-3838-MKY', boruOlcusu: '38 MM KUYRUKLU' },
+      { model: 'RK-4242-MKY', boruOlcusu: '42 MM KUYRUKLU' },
+    ],
+  },
+  {
+    name: 'BSP ERKEK KAYNAKLIK NİPELLER',
+    tableHeaders: ['MODEL', 'BOY ÖLÇÜSÜ [MM]', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1028-REK', boyOlcusu: '23', disOlcusu: 'R1/8-28' },
+      { model: 'RK-1319-REK', boyOlcusu: '25', disOlcusu: 'R1/4-19' },
+      { model: 'RK-1719-REK', boyOlcusu: '27', disOlcusu: 'R3/8-19' },
+      { model: 'RK-2114-REK', boyOlcusu: '30', disOlcusu: 'R1/2-14' },
+      { model: 'RK-2614-REK', boyOlcusu: '32', disOlcusu: 'R3/4-14' },
+      { model: 'RK-3311-REK', boyOlcusu: '35', disOlcusu: 'R1-11' },
+      { model: 'RK-4211-REK', boyOlcusu: '40', disOlcusu: 'R1 1/4-11' },
+      { model: 'RK-4811-REK', boyOlcusu: '44', disOlcusu: 'R1 1/2-11' },
+      { model: 'RK-6011-REK', boyOlcusu: '45', disOlcusu: 'R2-11' },
+      { model: 'RK-7511-REK', boyOlcusu: '45', disOlcusu: 'R2 1/2-11' },
+      { model: 'RK-8811-REK', boyOlcusu: '45', disOlcusu: 'R3-11' },
+    ],
+  },
+  {
+    name: 'BSP KAYNAKLIK MAŞONLAR',
+    tableHeaders: ['MODEL', 'BOY ÖLÇÜSÜ [MM]', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1028-RKM', boyOlcusu: '14', disOlcusu: 'R1/8-28' },
+      { model: 'RK-1319-RKM', boyOlcusu: '14', disOlcusu: 'R1/4-19' },
+      { model: 'RK-1719-RKM', boyOlcusu: '14', disOlcusu: 'R3/8-19' },
+      { model: 'RK-2114-RKM', boyOlcusu: '17', disOlcusu: 'R1/2-14' },
+      { model: 'RK-2614-RKM', boyOlcusu: '20', disOlcusu: 'R3/4-14' },
+      { model: 'RK-3311-RKM', boyOlcusu: '23', disOlcusu: 'R1-11' },
+      { model: 'RK-4211-RKM', boyOlcusu: '25', disOlcusu: 'R1 1/4-11' },
+      { model: 'RK-4811-RKM', boyOlcusu: '27', disOlcusu: 'R1 1/2-11' },
+      { model: 'RK-6011-RKM', boyOlcusu: '28', disOlcusu: 'R2-11' },
+    ],
+  },
+  {
+    name: 'METRİK KAYNAKLIK DİRSEKLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1206-MKD-L', disOlcusu: 'M12X1,5 6L' },
+      { model: 'RK-1408-MKD-L', disOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-1610-MKD-L', disOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-1812-MKD-L', disOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-2012-MKD-S', disOlcusu: 'M20X1,5 12S' },
+      { model: 'RK-2215-MKD-L', disOlcusu: 'M22X1,5 15L' },
+      { model: 'RK-2416-MKD-S', disOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-2618-MKD-L', disOlcusu: 'M26X1,5 18L' },
+      { model: 'RK-3020-MKD-S', disOlcusu: 'M30X2 20S' },
+      { model: 'RK-3022-MKD-L', disOlcusu: 'M30X2 22L' },
+      { model: 'RK-3625-MKD-S', disOlcusu: 'M36X2 25S' },
+      { model: 'RK-3628-MKD-L', disOlcusu: 'M36X2 28L' },
+      { model: 'RK-4230-MKD-S', disOlcusu: 'M42X2 30S' },
+      { model: 'RK-4535-MKD-L', disOlcusu: 'M45X2 35L' },
+      { model: 'RK-5238-MKD-S', disOlcusu: 'M52X2 38S' },
+      { model: 'RK-5242-MKD-L', disOlcusu: 'M52X2 42L' },
+    ],
+  },
+  {
+    name: 'METRİK KAYNAKLIK NİPELLER',
+    tableHeaders: ['MODEL', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1206-MKN-L', disOlcusu: 'M12X1,5 6L' },
+      { model: 'RK-1408-MKN-L', disOlcusu: 'M14X1,5 8L' },
+      { model: 'RK-1610-MKN-L', disOlcusu: 'M16X1,5 10L' },
+      { model: 'RK-1812-MKN-L', disOlcusu: 'M18X1,5 12L' },
+      { model: 'RK-2012-MKN-S', disOlcusu: 'M20X1,5 12S' },
+      { model: 'RK-2215-MKN-L', disOlcusu: 'M22X1,5 15L' },
+      { model: 'RK-2416-MKN-S', disOlcusu: 'M24X1,5 16S' },
+      { model: 'RK-2618-MKN-L', disOlcusu: 'M26X1,5 18L' },
+      { model: 'RK-3020-MKN-S', disOlcusu: 'M30X2 20S' },
+      { model: 'RK-3022-MKN-L', disOlcusu: 'M30X2 22L' },
+      { model: 'RK-3625-MKN-S', disOlcusu: 'M36X2 25S' },
+      { model: 'RK-3628-MKN-L', disOlcusu: 'M36X2 28L' },
+      { model: 'RK-4230-MKN-S', disOlcusu: 'M42X2 30S' },
+      { model: 'RK-4535-MKN-L', disOlcusu: 'M45X2 35L' },
+      { model: 'RK-5238-MKN-S', disOlcusu: 'M52X2 38S' },
+      { model: 'RK-5242-MKN-L', disOlcusu: 'M52X2 42L' },
+    ],
+  },
+  {
+    name: 'UNF ERKEK KAYNAKLIK NİPELLER',
+    tableHeaders: ['MODEL', 'BOY ÖLÇÜSÜ [MM]', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'RK-1220-WKN', boyOlcusu: '28.5', disOlcusu: '1/2-20' },
+      { model: 'RK-1418-WKN', boyOlcusu: '33', disOlcusu: '9/16-18' },
+      { model: 'RK-1618-WKN', boyOlcusu: '35', disOlcusu: '5/8-18' },
+      { model: 'RK-1916-WKN', boyOlcusu: '40', disOlcusu: '3/4-16' },
+      { model: 'RK-2214-WKN', boyOlcusu: '40', disOlcusu: '7/8-14' },
+      { model: 'RK-2712-WKN', boyOlcusu: '50', disOlcusu: '1 1/16-12' },
+      { model: 'RK-3312-WKN', boyOlcusu: '55', disOlcusu: '1 5/16-12' },
+    ],
+  },
+]
+
 // PALETLİ POMPA için markalara göre kartlar
 const getPaletliPompaBrandCards = (brandName) => {
   const brandCards = {
@@ -3388,7 +5091,7 @@ function ProductDetail() {
       return ['/rekorsan.png']
     }
 
-    if (productName === 'METRİK HORTUM RAKORLARI' || productName === 'SOKETLER' || productName === 'DN2 HORTUM REKORLARI' || productName === 'DN4 HORTUM REKORLARI' || productName === 'HALKA REKORLAR' || productName === 'HORTUM EKLERİ' || productName === 'BORU UÇLU HORTUM REKORLARI' || productName === 'BSP HORTUM REKORLARI' || productName === 'UNF HORTUM RAKORLARI' || productName === 'ORFS HORTUM REKORLARI' || productName === 'FLANŞLI HORTUM REKORLARI' || productName === 'KIRICILAR İÇİN TAKVİYELİ HORTUM RAKORLARI') {
+    if (productName === 'METRİK HORTUM RAKORLARI' || productName === 'SOKETLER' || productName === 'DN2 HORTUM REKORLARI' || productName === 'DN4 HORTUM REKORLARI' || productName === 'HALKA REKORLAR' || productName === 'HORTUM EKLERİ' || productName === 'BORU UÇLU HORTUM REKORLARI' || productName === 'BSP HORTUM REKORLARI' || productName === 'UNF HORTUM RAKORLARI' || productName === 'ORFS HORTUM REKORLARI' || productName === 'FLANŞLI HORTUM REKORLARI' || productName === 'KIRICILAR İÇİN TAKVİYELİ HORTUM RAKORLARI' || productName === 'SOMUN VE YÜKSÜKLER' || productName === 'DİRSEKLER' || productName === 'KAYNAKLIKLAR' || productName === 'NİPELLER' || productName === 'TE LER' || productName === 'PERDE GEÇİŞLER' || productName === 'KOR REKORLAR' || productName === 'KONTRALI DİRSEKLER' || productName === 'TERS NİPELLER' || productName === 'KÖRTAPALAR' || productName === 'REDÜKSİYONLAR' || productName === 'BSP ALTI KÖŞE MAŞONLAR' || productName === 'KONTRA SOMUNLAR') {
       return ['/rekorsan.png']
     }
 
@@ -17251,6 +18954,929 @@ function ProductDetail() {
                                     if (header === 'MODEL') return row.model
                                     if (header === 'HORTUM ÖLÇÜSÜ') return row.hortumOlcusu || ''
                                     if (header === 'SOMUN ÖLÇÜSÜ') return row.somunOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN SOMUN VE YÜKSÜKLER Detay Sayfası */}
+              {selectedProduct === 'SOMUN VE YÜKSÜKLER' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN SOMUN VE YÜKSÜKLER Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_SOMUN_VE_YUKSUKLER_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'SOMUN ÖLÇÜSÜ') return row.somunOlcusu || ''
+                                    if (header === 'BORU ÇAPI') return row.boruCapi || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN DİRSEKLER Detay Sayfası */}
+              {selectedProduct === 'DİRSEKLER' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN DİRSEKLER Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_DIRSEKLER_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'DİŞ ÖLÇÜSÜ') return row.disOlcusu || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ BSPT') return row.disOlcusuBspt || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ METRİK') return row.disOlcusuMetrik || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ BSP') return row.disOlcusuBsp || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ DİŞİ BSP') return row.disOlcusuDisiBsp || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ UNF') return row.disOlcusuUnf || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN KAYNAKLIKLAR Detay Sayfası */}
+              {selectedProduct === 'KAYNAKLIKLAR' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN KAYNAKLIKLAR Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_KAYNAKLIKLAR_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'BORU ÖLÇÜSÜ') return row.boruOlcusu || ''
+                                    if (header === 'BOY ÖLÇÜSÜ [MM]') return row.boyOlcusu || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ') return row.disOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN NİPELLER Detay Sayfası */}
+              {selectedProduct === 'NİPELLER' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN NİPELLER Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_NIPELLER_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'DİŞ ÖLÇÜSÜ') return row.disOlcusu || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ 2') return row.disOlcusu2 || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ BSP') return row.disOlcusuBsp || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ BSP 2') return row.disOlcusuBsp2 || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ BSPT') return row.disOlcusuBspt || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ METRİK') return row.disOlcusuMetrik || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ UNF') return row.disOlcusuUnf || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ ORFS') return row.disOlcusuOrfs || ''
+                                    if (header === 'BOY ÖLÇÜSÜ [MM]') return row.boyOlcusu || ''
+                                    if (header === 'SOMUNLU DİŞ ÖLÇÜSÜ') return row.somunluDisOlcusu || ''
+                                    if (header === 'MANOMETRE ÖLÇÜSÜ') return row.manometreOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN TE LER Detay Sayfası */}
+              {selectedProduct === 'TE LER' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN TE LER Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_TELER_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'DİŞ ÖLÇÜSÜ') return row.disOlcusu || ''
+                                    if (header === 'DİŞİ BSP ÖLÇÜSÜ') return row.disiBspOlcusu || ''
+                                    if (header === 'ERKEK DİŞ ÖLÇÜSÜ') return row.erkekDisOlcusu || ''
+                                    if (header === 'SOMUN DİŞ ÖLÇÜSÜ') return row.somunDisOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN PERDE GEÇİŞLER Detay Sayfası */}
+              {selectedProduct === 'PERDE GEÇİŞLER' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN PERDE GEÇİŞLER Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_PERDE_GECISLER_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'DİŞ ÖLÇÜSÜ') return row.disOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN KOR REKORLAR Detay Sayfası */}
+              {selectedProduct === 'KOR REKORLAR' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN KOR REKORLAR Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_KOR_REKORLAR_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'ERKEK DİŞ ÖLÇÜSÜ') return row.erkekDisOlcusu || ''
+                                    if (header === 'SOMUN DİŞ ÖLÇÜSÜ') return row.somunDisOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN KONTRALI DİRSEKLER Detay Sayfası */}
+              {selectedProduct === 'KONTRALI DİRSEKLER' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN KONTRALI DİRSEKLER Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_KONTRALI_DIRSEKLER_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'AYARLANABİLİR BSP DİŞ ÖLÇÜSÜ') return row.ayarlanabilirBspDisOlcusu || ''
+                                    if (header === 'AYARLANABİLİR UNF DİŞ ÖLÇÜSÜ') return row.ayarlanabilirUnfDisOlcusu || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ METRİK') return row.disOlcusuMetrik || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ BSP') return row.disOlcusuBsp || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ UNF') return row.disOlcusuUnf || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ ORFS') return row.disOlcusuOrfs || ''
+                                    if (header === 'ANAHTAR ÖLÇÜSÜ') return row.anahtarOlcusu || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ') return row.disOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN TERS NİPELLER Detay Sayfası */}
+              {selectedProduct === 'TERS NİPELLER' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN TERS NİPELLER Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_TERS_NIPELLER_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'DİŞ ÖLÇÜSÜ BSP') return row.disOlcusuBsp || ''
+                                    if (header === 'SOMUN DİŞ ÖLÇÜSÜ METRİK') return row.somunDisOlcusuMetrik || ''
+                                    if (header === 'SOMUN ÖLÇÜSÜ BSP') return row.somunOlcusuBsp || ''
+                                    if (header === 'SOMUN ÖLÇÜSÜ ORFS') return row.somunOlcusuOrfs || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ') return row.disOlcusu || ''
+                                    if (header === 'MANOMETRE ÖLÇÜSÜ') return row.manometreOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN KÖRTAPALAR Detay Sayfası */}
+              {selectedProduct === 'KÖRTAPALAR' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN KÖRTAPALAR Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_KORTAPALAR_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'ALYAN ÖLÇÜSÜ') return row.alyanOlcusu || ''
+                                    if (header === 'ANAHTAR ÖLÇÜSÜ') return row.anahtarOlcusu || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ') return row.disOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN REDÜKSİYONLAR Detay Sayfası */}
+              {selectedProduct === 'REDÜKSİYONLAR' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN REDÜKSİYONLAR Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_REDUKSIYONLAR_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'DİŞ ÖLÇÜSÜ DİŞİ') return row.disOlcusuDisi || ''
+                                    if (header === 'ERKEK DİŞ ÖLÇÜSÜ') return row.erkekDisOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN BSP ALTI KÖŞE MAŞONLAR Detay Sayfası */}
+              {selectedProduct === 'BSP ALTI KÖŞE MAŞONLAR' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN BSP ALTI KÖŞE MAŞONLAR Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_BSP_ALTI_KOSE_MASONLAR_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'ANAHTAR ÖLÇÜSÜ') return row.anahtarOlcusu || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ') return row.disOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* REKORSAN KONTRA SOMUNLAR Detay Sayfası */}
+              {selectedProduct === 'KONTRA SOMUNLAR' && currentBrand === 'rekorsan' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Rekorsan</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* REKORSAN KONTRA SOMUNLAR Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {REKORSAN_KONTRA_SOMUNLAR_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'ANAHTAR ÖLÇÜSÜ') return row.anahtarOlcusu || ''
+                                    if (header === 'DİŞ ÖLÇÜSÜ') return row.disOlcusu || ''
                                     return ''
                                   }
                                   return (
