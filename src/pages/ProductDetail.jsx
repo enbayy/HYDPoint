@@ -367,6 +367,29 @@ const getPistonluPompaBrandCards = (brandName) => {
   return brandCards[brandName] || []
 }
 
+// EMNİYETSİZ NORMAL için markalara göre kartlar
+const getEmniyetsizNormalBrandCards = (brandName) => {
+  const brandCards = {
+    'hydropack': [
+      'HYDROPACK EMNİYETSİZ NORMAL',
+    ],
+    'zhenjiang': [
+      'ZHENJIANG EMNİYETSİZ NORMAL',
+    ],
+  }
+  return brandCards[brandName] || []
+}
+
+// EMNİYETSİZ ANTİŞOKLU için markalara göre kartlar
+const getEmniyetsizAntisokluBrandCards = (brandName) => {
+  const brandCards = {
+    'hydropack': [
+      'HYDROPACK EMNİYETSİZ ANTİŞOKLU',
+    ],
+  }
+  return brandCards[brandName] || []
+}
+
 // Slug'dan ürün adını geri çeviren fonksiyon
 const decodeProductName = (slug, groups) => {
   if (!slug) return null
@@ -409,6 +432,8 @@ function ProductDetail() {
   const [selectedPaletliPompaCard, setSelectedPaletliPompaCard] = useState(null) // Seçilen PALETLİ POMPA kartı
   const [selectedPistonluPompaCard, setSelectedPistonluPompaCard] = useState(null) // Seçilen PİSTONLU POMPA kartı
   const [selectedDokumGovdeDisliAkisBoluculerCard, setSelectedDokumGovdeDisliAkisBoluculerCard] = useState(null) // Seçilen DÖKÜM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER kartı
+  const [selectedEmniyetsizNormalCard, setSelectedEmniyetsizNormalCard] = useState(null) // Seçilen EMNİYETSİZ NORMAL kartı
+  const [selectedEmniyetsizAntisokluCard, setSelectedEmniyetsizAntisokluCard] = useState(null) // Seçilen EMNİYETSİZ ANTİŞOKLU kartı
   
   // URL parametrelerinden veya query parameter'dan veya state'ten marka bilgisini al
   const brandFromQuery = searchParams.get('brand')
@@ -439,6 +464,10 @@ function ProductDetail() {
               // Brand parametresini oku
               if (brandParam) {
                 setSelectedBrand(brandParam)
+                // EMNİYETSİZ ANTİŞOKLU için kart seçimini yap
+                if (decodedSubcategory === 'EMNİYETSİZ ANTİŞOKLU' && brandParam === 'hydropack') {
+                  setSelectedEmniyetsizAntisokluCard('HYDROPACK EMNİYETSİZ ANTİŞOKLU')
+                }
               }
               
               // Group parametresini oku
@@ -486,6 +515,10 @@ function ProductDetail() {
                   // Brand parametresini oku
                   if (brandParam) {
                     setSelectedBrand(brandParam)
+                    // EMNİYETSİZ ANTİŞOKLU için kart seçimini yap
+                    if (item === 'EMNİYETSİZ ANTİŞOKLU' && brandParam === 'hydropack') {
+                      setSelectedEmniyetsizAntisokluCard('HYDROPACK EMNİYETSİZ ANTİŞOKLU')
+                    }
                   }
                   
                   // Group parametresini oku
@@ -537,7 +570,12 @@ function ProductDetail() {
     if (productName === 'DÖKÜM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER') {
       setSelectedDokumGovdeDisliAkisBoluculerCard(null)
     }
-  }, [selectedBrand, productName])
+    // EMNİYETSİZ ANTİŞOKLU için sadece farklı bir ürün seçildiğinde temizle
+    // selectedBrand değiştiğinde temizleme, çünkü URL'den geldiğinde kart seçimi yapılıyor
+    if (productName !== 'EMNİYETSİZ ANTİŞOKLU') {
+      setSelectedEmniyetsizAntisokluCard(null)
+    }
+  }, [productName])
 
   // Aktif kategoriye göre ürünleri bul
   const currentItems = useMemo(() => {
@@ -788,6 +826,84 @@ function ProductDetail() {
       }
       setSelectedBrand(brandName)
       setSelectedProduct(null)
+    } else if (productName === 'EMNİYETLİ ANTİŞOKLU') {
+      // EMNİYETLİ ANTİŞOKLU için direkt detay sayfasına navigate et
+      if (category && subcategory) {
+        navigate(`/urunler/${category}/${subcategory}/${brandName}`)
+      } else {
+        const productSlug = encodeURIComponent(productName.toLowerCase().replace(/\s+/g, '-'))
+        navigate(`/urun-detay/${productSlug}?brand=${brandName}`, {
+          state: { productName, productImage, productLogo, brand: brandName }
+        })
+      }
+      setSelectedBrand(brandName)
+      setSelectedProduct(null)
+    } else if (productName === 'EMNİYETSİZ NORMAL') {
+      // EMNİYETSİZ NORMAL için direkt detay sayfasına navigate et (kartlar gösterilmeden)
+      // Markaya göre ilgili kartı direkt seç
+      const cardName = brandName === 'hydropack' 
+        ? 'HYDROPACK EMNİYETSİZ NORMAL' 
+        : brandName === 'zhenjiang' 
+        ? 'ZHENJIANG EMNİYETSİZ NORMAL' 
+        : null
+      
+      if (cardName) {
+        if (category && subcategory) {
+          navigate(`/urunler/${category}/${subcategory}/${brandName}`)
+        } else {
+          const productSlug = encodeURIComponent(productName.toLowerCase().replace(/\s+/g, '-'))
+          navigate(`/urun-detay/${productSlug}?brand=${brandName}`, {
+            state: { productName, productImage, productLogo, brand: brandName }
+          })
+        }
+        setSelectedBrand(brandName)
+        setSelectedEmniyetsizNormalCard(cardName) // Kartı direkt seç
+        setSelectedProduct(null)
+      } else {
+        // Diğer markalar için normal akış
+        if (category && subcategory) {
+          navigate(`/urunler/${category}/${subcategory}/${brandName}`)
+        } else {
+          const productSlug = encodeURIComponent(productName.toLowerCase().replace(/\s+/g, '-'))
+          navigate(`/urun-detay/${productSlug}?brand=${brandName}`, {
+            state: { productName, productImage, productLogo, brand: brandName }
+          })
+        }
+        setSelectedBrand(brandName)
+        setSelectedProduct(null)
+      }
+    } else if (productName === 'EMNİYETSİZ ANTİŞOKLU') {
+      // EMNİYETSİZ ANTİŞOKLU için direkt detay sayfasına navigate et (kartlar gösterilmeden)
+      // Markaya göre ilgili kartı direkt seç
+      const cardName = brandName === 'hydropack' 
+        ? 'HYDROPACK EMNİYETSİZ ANTİŞOKLU' 
+        : null
+      
+      if (cardName) {
+        if (category && subcategory) {
+          navigate(`/urunler/${category}/${subcategory}/${brandName}`)
+        } else {
+          const productSlug = encodeURIComponent(productName.toLowerCase().replace(/\s+/g, '-'))
+          navigate(`/urun-detay/${productSlug}?brand=${brandName}`, {
+            state: { productName, productImage, productLogo, brand: brandName }
+          })
+        }
+        setSelectedBrand(brandName)
+        setSelectedEmniyetsizAntisokluCard(cardName) // Kartı direkt seç
+        setSelectedProduct(null)
+      } else {
+        // Diğer markalar için normal akış
+        if (category && subcategory) {
+          navigate(`/urunler/${category}/${subcategory}/${brandName}`)
+        } else {
+          const productSlug = encodeURIComponent(productName.toLowerCase().replace(/\s+/g, '-'))
+          navigate(`/urun-detay/${productSlug}?brand=${brandName}`, {
+            state: { productName, productImage, productLogo, brand: brandName }
+          })
+        }
+        setSelectedBrand(brandName)
+        setSelectedProduct(null)
+      }
     } else {
       // Diğer ürünler için marka bazlı detay sayfasına navigate et
       if (category && subcategory) {
@@ -798,6 +914,8 @@ function ProductDetail() {
           state: { productName, productImage, productLogo, brand: brandName }
         })
       }
+      setSelectedBrand(brandName)
+      setSelectedProduct(null)
     }
   }
 
@@ -1234,9 +1352,6 @@ function ProductDetail() {
       '30.GRUP UNİ POMPALAR': '/dokumgovdelidislipompalar/30grup-uni-pompalar.png',
       '30.GRUP ISO POMPALAR': '/dokumgovdelidislipompalar/30grup-iso-pompalar.png',
       '35.GRUP SAE C KAPAK 14 DİŞ FREZELİ': '/dokumgovdelidislipompalar/35grup-sae-c-kapak-14-dis.png',
-      // DÖKÜM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER
-      '30. GRUP AKIŞ BÖLÜCÜLER': '/akisboluculer/30-grup-akis-boluculer.png',
-      '35. GRUP AKIŞ BÖLÜCÜLER': '/akisboluculer/35-grup-akis-boluculer.png',
       '40.GRUP END.HELİSEL G TİPİ KAPAK 7/8 DÜZ MİLLİ': '/dokumgovdelidislipompalar/40grup-endhelisel-g-tipi-kapak-7-8-duzmilli.png',
       '40.GRUP UNİ POMPALAR': '/dokumgovdelidislipompalar/40grup-uni-pompalar.png',
       '40.GRUP ISO POMPALAR': '/dokumgovdelidislipompalar/40grup-iso-pompalar.png',
@@ -1269,57 +1384,97 @@ function ProductDetail() {
 
   const getDokumGovdeDisliAkisBoluculerCardImage = (cardName) => {
     const imageMap = {
-      '30. GRUP AKIŞ BÖLÜCÜLER': '/akisboluculer/30-grup-akis-boluculer.png',
-      '35. GRUP AKIŞ BÖLÜCÜLER': '/akisboluculer/35-grup-akis-boluculer.png',
+      '30. GRUP AKIŞ BÖLÜCÜLER': '/dokum-govde-disli-akis-boluculer.png',
+      '35. GRUP AKIŞ BÖLÜCÜLER': '/dokum-govde-disli-akis-boluculer.png',
     }
     return imageMap[cardName] || '/dokum-govde-disli-akis-boluculer.png'
   }
 
-  // CASAPPA DÖKÜM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER ürün verilerini al
-  const getCasappaDokumGovdeDisliAkisBoluculerProductData = (cardName) => {
-    if (cardName === '35. GRUP AKIŞ BÖLÜCÜLER') {
+  const getEmniyetsizNormalCardImage = (cardName) => {
+    const imageMap = {
+      'HYDROPACK EMNİYETSİZ NORMAL': '/direksiyon-beyinleri.png',
+      'ZHENJIANG EMNİYETSİZ NORMAL': '/direksiyon-beyinleri.png',
+    }
+    return imageMap[cardName] || '/direksiyon-beyinleri.png'
+  }
+
+  const getEmniyetsizAntisokluCardImage = (cardName) => {
+    const imageMap = {
+      'HYDROPACK EMNİYETSİZ ANTİŞOKLU': '/direksiyon-beyinleri.png',
+    }
+    return imageMap[cardName] || '/direksiyon-beyinleri.png'
+  }
+
+  // HYDROPACK EMNİYETSİZ NORMAL ürün verilerini al
+  const getHydropackEmniyetsizNormalProductData = (cardName) => {
+    if (cardName === 'HYDROPACK EMNİYETSİZ NORMAL') {
       return {
-        title: '35. GRUP AKIŞ BÖLÜCÜLER',
+        title: 'HYDROPACK EMNİYETSİZ NORMAL',
         categories: [
           {
-            name: 'İKİLİ AKIŞ BÖLÜCÜ',
+            name: 'HYDROPACK EMNİYETSİZ NORMAL',
             products: [
-              { kod: '31179', bar: '310-335', debi: '124,81' },
+              { kod: 'HKU 100/4', calismaBasinci: '170', calismaDebisi: '10', iletimHacmi: '99 CM³' },
+              { kod: 'HKU 200/4', calismaBasinci: '170', calismaDebisi: '20', iletimHacmi: '198 CM³' },
+              { kod: 'HKU 320/4', calismaBasinci: '170', calismaDebisi: '32', iletimHacmi: '316,8 CM³' },
+              { kod: 'HKU 500/4', calismaBasinci: '170', calismaDebisi: '50', iletimHacmi: '495 CM³' },
+              { kod: 'HKU 630/4', calismaBasinci: '140', calismaDebisi: '63', iletimHacmi: '623,6 CM³' },
+              { kod: 'HKU 80/4I', calismaBasinci: '170', calismaDebisi: '8', iletimHacmi: '79,2 CM³' },
+              { kod: 'HKU 800/4', calismaBasinci: '140', calismaDebisi: '70', iletimHacmi: '793 CM³' },
+              { kod: 'HKU125/4', calismaBasinci: '170', calismaDebisi: '13', iletimHacmi: '123,8 CM³' },
             ]
           }
         ]
       }
     }
-    
-    if (cardName === '30. GRUP AKIŞ BÖLÜCÜLER') {
+    return null
+  }
+
+  // ZHENJIANG EMNİYETSİZ NORMAL ürün verilerini al
+  const getZhenjiangEmniyetsizNormalProductData = (cardName) => {
+    if (cardName === 'ZHENJIANG EMNİYETSİZ NORMAL') {
       return {
-        title: '30. GRUP AKIŞ BÖLÜCÜLER',
+        title: 'ZHENJIANG EMNİYETSİZ NORMAL',
         categories: [
           {
-            name: 'İKİLİ AKIŞ BÖLÜCÜ',
+            name: 'ZHENJIANG EMNİYETSİZ NORMAL',
             products: [
-              { kod: '31177', bar: '310-335', debi: '34,39' },
-              { kod: 'C03772265', bar: '310-335', debi: '51,59' },
-              { kod: '31178', bar: '310-335', debi: '60,97' },
-            ]
-          },
-          {
-            name: 'ÜÇLÜ AKIŞ BÖLÜCÜ',
-            products: [
-              { kod: '31206', bar: '310-335', debi: '26,58' },
-              { kod: '31207', bar: '310-335', debi: '38,00' },
-            ]
-          },
-          {
-            name: 'DÖRTLÜ AKIŞ BÖLÜCÜ',
-            products: [
-              { kod: '31270', bar: '310-335', debi: '26,58' },
+              { kod: 'ZHD101S-1-050-10-E', basinc: '120', disOlcusu: '1/2"', iletimHacmi: '50 CM³', merkez: 'ON' },
+              { kod: 'ZHD101S-1-080-10-E', basinc: '120', disOlcusu: '1/2"', iletimHacmi: '80 CM³', merkez: 'ON' },
+              { kod: 'ZHD101S-1-100-10-E', basinc: '120', disOlcusu: '1/2"', iletimHacmi: '100 CM³', merkez: 'ON' },
+              { kod: 'ZHD101S-1-125-10-E', basinc: '120', disOlcusu: '1/2"', iletimHacmi: '125 CM³', merkez: 'ON' },
+              { kod: 'ZHD101S-1-160-10-E', basinc: '120', disOlcusu: '1/2"', iletimHacmi: '160 CM³', merkez: 'ON' },
+              { kod: 'ZHD101S-1-200-10-E', basinc: '120', disOlcusu: '1/2"', iletimHacmi: '250 CM³', merkez: 'ON' },
+              { kod: 'ZHDBZZ5-E0160B', basinc: '120', disOlcusu: '1/2"', iletimHacmi: '160 CM³', merkez: 'CN-LS' },
+              { kod: 'ZHDBZZ5-E080B', basinc: '120', disOlcusu: '1/2"', iletimHacmi: '80 CM³', merkez: 'CN - LS' },
             ]
           }
         ]
       }
     }
-    
+    return null
+  }
+
+  // HYDROPACK EMNİYETSİZ ANTİŞOKLU ürün verilerini al
+  const getHydropackEmniyetsizAntisokluProductData = (cardName) => {
+    if (cardName === 'HYDROPACK EMNİYETSİZ ANTİŞOKLU') {
+      return {
+        title: 'HYDROPACK EMNİYETSİZ ANTİŞOKLU',
+        categories: [
+          {
+            name: 'HYDROPACK EMNİYETSİZ ANTİŞOKLU',
+            products: [
+              { kod: 'HKU 200/5T', calismaBasinci: '175', calismaDebisi: '17', iletimHacmi: '198 CM³' },
+              { kod: 'HKU 630/5T', calismaBasinci: '175', calismaDebisi: '63', iletimHacmi: '618,7 CM³' },
+              { kod: 'HKU 800/5T', calismaBasinci: '175', calismaDebisi: '80', iletimHacmi: '793 CM³' },
+              { kod: 'HKU100/5T', calismaBasinci: '175', calismaDebisi: '10', iletimHacmi: '99 CM³' },
+              { kod: 'HKU125/5T', calismaBasinci: '175', calismaDebisi: '12', iletimHacmi: '123,8 CM³' },
+              { kod: 'HKU160/5T', calismaBasinci: '175', calismaDebisi: '12', iletimHacmi: '158,4 CM³' },
+            ]
+          }
+        ]
+      }
+    }
     return null
   }
 
@@ -2010,6 +2165,68 @@ function ProductDetail() {
     return data[brandName] || null
   }
 
+  // EMNİYETLİ NORMAL ürün verilerini al
+  const getEmniyetliNormalProductData = (brandName) => {
+    const data = {
+      'hydropack': {
+        description: 'HYDROPACK Emniyetli Normal direksiyon beyinleri, yüksek güvenilirlik ve performans sunan hidrolik direksiyon sistemleridir. Emniyet valfi özelliği ile sistem güvenliğini sağlar ve normal çalışma modunda optimum performans sunar.',
+        tableHeaders: ['MODEL', 'ÇALIŞMA BASINCI', 'ÇALIŞMA DEBİSİ', 'İLETİM HACMİ'],
+        products: [
+          { model: 'HKUS 400/4-100', calismaBasinci: '170', calismaDebisi: '40', iletimHacmi: '396' },
+        ]
+      },
+      'hema': {
+        description: 'HEMA Emniyetli Normal direksiyon beyinleri, endüstriyel ve mobil uygulamalar için tasarlanmış yüksek kaliteli hidrolik direksiyon sistemleridir. Emniyet valfi basıncı ve şok valf basıncı ile sistem güvenliğini sağlar.',
+        tableHeaders: ['MODEL', 'BASINÇ (BAR)', 'DEBİ (LT/DAK.)', 'EMNİYET VALFİ BASINCI', 'İLETİM HACMİ', 'ŞOK VALF BASINCI', 'T HATTINDAKİ BASINÇ', 'UZUNLUK'],
+        products: [
+          { model: 'HHU050ON.4', basinc: '210', debi: '12', emniyetValfiBasinci: '90-95', iletimHacmi: '50 CM³', sokValfBasinci: '150-170', tHattindakiBasinc: '35', uzunluk: '120,7' },
+          { model: 'HHU080ON.4', basinc: '210', debi: '12', emniyetValfiBasinci: '140', iletimHacmi: '80 CM³', sokValfBasinci: '200', tHattindakiBasinc: '35', uzunluk: '124,7' },
+          { model: 'HHU100ON.4', basinc: '210', debi: '12', emniyetValfiBasinci: '90-95', iletimHacmi: '100 CM³', sokValfBasinci: '150-170', tHattindakiBasinc: '35', uzunluk: '127,5' },
+          { model: 'HHU100ON.4M', basinc: '210', debi: '12', emniyetValfiBasinci: '140', iletimHacmi: '100 CM³', sokValfBasinci: '200', tHattindakiBasinc: '35', uzunluk: '127,5' },
+          { model: 'HHU120ON.4', basinc: '210', debi: '16', emniyetValfiBasinci: '140', iletimHacmi: '120 CM³', sokValfBasinci: '200', tHattindakiBasinc: '35', uzunluk: '130,1' },
+          { model: 'HHU160ON.4', basinc: '210', debi: '23', emniyetValfiBasinci: '140', iletimHacmi: '160 CM³', sokValfBasinci: '200', tHattindakiBasinc: '35', uzunluk: '136,2' },
+          { model: 'HHU250ON.4', basinc: '210', debi: '23', emniyetValfiBasinci: '140', iletimHacmi: '260 CM³', sokValfBasinci: '200', tHattindakiBasinc: '35', uzunluk: '149' },
+          { model: 'HHU315ON.4', basinc: '210', debi: '32', emniyetValfiBasinci: '140', iletimHacmi: '315 CM³', sokValfBasinci: '200', tHattindakiBasinc: '20', uzunluk: '154,9' },
+        ]
+      }
+    }
+    return data[brandName] || null
+  }
+
+  // EMNİYETLİ ANTİŞOKLU ürün verilerini al
+  const getEmniyetliAntisokluProductData = (brandName) => {
+    const description = 'EMNİYETLİ ANTİŞOKLU: Güvenli ve Performanslı Direksiyon Sistemleri\n\nEmniyetli antişoklu direksiyon beyinleri, iş makineleri ve tarım araçları için kritik güvenlik özellikleri sunan gelişmiş hidrolik sistemlerdir. Bu sistemler, ani yük değişimlerinde ve şok durumlarında operatör güvenliğini sağlar ve makine ömrünü uzatır.\n\nEmniyetli Antişoklu Sistemlerin Avantajları\n\nBu sistemler, yüksek basınçlı çalışma koşullarında güvenilir performans sunar. Emniyet valfleri ve şok valfleri sayesinde sistem koruması sağlanır ve ani basınç değişimlerinde hasar önlenir.\n\nUygulama Alanları\n\nEmniyetli antişoklu direksiyon beyinleri, forkliftler, yükleyiciler, traktörler ve diğer mobil iş makinelerinde yaygın olarak kullanılır. Özellikle zorlu çalışma koşullarında operatör güvenliği ve makine koruması için tercih edilir.'
+    
+    const data = {
+      'hydropack': {
+        description,
+        tableHeaders: ['MODEL', 'BASINÇ (BAR)', 'ÇALIŞMA DEBİSİ', 'İLETİM HACMİ'],
+        products: [
+          { model: 'HKUS 125/5T-100', basinc: '175', debi: '13', iletimHacmi: '123,8 CM³' },
+          { model: 'HKUS 160/5T-100', basinc: '175', debi: '16', iletimHacmi: '158,4 CM³' },
+          { model: 'HKUS 400/5T-100', basinc: '175', debi: '40', iletimHacmi: '396 CM³' },
+          { model: 'HKUS 80/5T-100', basinc: '175', debi: '8', iletimHacmi: '79,2 CM³' },
+          { model: 'HKUS100/5T-100', basinc: '175', debi: '10', iletimHacmi: '99 CM³' },
+          { model: 'HKUS200/5-100', basinc: '175', debi: '20', iletimHacmi: '198 CM³' },
+          { model: 'HKUS250/5T-175', basinc: '175', debi: '25', iletimHacmi: '247,5 CM³' },
+          { model: '36838', basinc: '175', debi: '8', iletimHacmi: '79,2 CM³' },
+        ]
+      },
+      'hema': {
+        description,
+        tableHeaders: ['MODEL', 'BASINÇ (BAR)', 'DEBİ (LT/DAK.)', 'EMNİYET VALFİ BASINCI', 'İLETİM HACMİ', 'ŞOK VALF BASINCI', 'T HATTINDAKİ BASINÇ', 'UZUNLUK'],
+        products: [
+          { model: 'HHU100LS.4', basinc: '210', debi: '23', emniyetValfi: '140-145', iletimHacmi: '100 CM³', sokValfi: '200', tHatti: '10', uzunluk: '127,5' },
+          { model: 'HHU120LS.4', basinc: '210', debi: '23', emniyetValfi: '175', iletimHacmi: '120 CM³', sokValfi: '240', tHatti: '35', uzunluk: '130,1' },
+          { model: 'HHU160LS.4', basinc: '210', debi: '23', emniyetValfi: '175', iletimHacmi: '160 CM³', sokValfi: '240', tHatti: '35', uzunluk: '136,2' },
+          { model: 'HHU200LS.4', basinc: '210', debi: '23', emniyetValfi: '90-95', iletimHacmi: '200 CM³', sokValfi: '150-170', tHatti: '35', uzunluk: '139,8' },
+          { model: 'HHU250LS.4', basinc: '210', debi: '23', emniyetValfi: '90-95', iletimHacmi: '260 CM³', sokValfi: '150-170', tHatti: '35', uzunluk: '149' },
+        ]
+      }
+    }
+    return data[brandName] || null
+  }
+
   // TANDEM POMPALAR ürün verilerini al
   const getTandemPompalarProductData = (brandName) => {
     const description = 'Tandem Pompalar: Güçlü Hidrolik Performansın Anahtarı\n\nHidrolik sistemlerin temel yapı taşlarından biri olan tandem pompalar, işlevsellikleri ve sağlamlıklarıyla endüstriyel dünyada öne çıkıyor. Hidrolik pompa çeşitleri arasında önemli bir yere sahip olan tandem pompalar, birçok sektörde verimliliği artırmak ve güvenilir bir performans sunmak için tercih ediliyor.\n\nTandem Pompaların Gücü\n\nHidrolik sistemlerde kullanılan bu pompalar, hidrolik akışkanlarını yüksek basınçlar altında ileterek güç sağlar. Dişli pompa teknolojisinin yanı sıra alüminyum gövdeli dişli pompaların sağladığı dayanıklılık, uzun ömür ve yüksek performans, endüstriyel uygulamalarda tercih edilme sebeplerinin başında gelir.\n\nHidrolik Pompa Çeşitleri Arasında Öne Çıkanlar\n\nTandem pompalar, hidrolik sistemlerin ihtiyaçlarına göre farklı kapasitelerde ve özelliklerde tasarlanabilir. Bu, kullanıcılara geniş bir yelpazede seçenek sunar ve farklı endüstriyel gereksinimlere uygun çözümler sunar. Hidrolik dişli pompa modelleri arasında yer alan tandem pompalar, güvenilirlikleri ve esnek yapılarıyla dikkat çeker.\n\nPerformans ve Verimlilikte Tandem Pompaların Rolü\n\nHidrolik pompa fiyatları açısından ekonomik olmaları ve uzun ömürlü yapılarıyla, tandem pompalar uzun vadede maliyet tasarrufu sağlar. Bu pompalar, işletmeler için kesintisiz çalışma ve yüksek verimlilik anlamına gelir. Hidrolik pompası alırken, güvenilirlik, performans ve dayanıklılık gibi unsurlar göz önünde bulundurulmalıdır.\n\nTandem Pompalarla Güvenilir Hidrolik Performans\n\nHidrolik sistemlerdeki başarının anahtarı, güçlü ve dayanıklı parçaların bir araya gelmesiyle oluşur. Tandem pompalar, hidrolik pompa dünyasında bu gereklilikleri karşılayarak, kullanıcılarına güvenilir ve kesintisiz bir performans vadediyor.'
@@ -2209,6 +2426,31 @@ function ProductDetail() {
         products: [
           { model: '27444', maksBasinc: '270/3900', maksHiz: '1400', pompaTipi: 'DP 30-43 T1 UNI' },
           { model: '27541', maksBasinc: '270/3900', maksHiz: '1400', pompaTipi: 'DP 30-43 T1 UNI' },
+        ]
+      }
+    }
+    return data[brandName] || null
+  }
+
+  // FORKLİFT İÇİN XY SERİSİ ürün verilerini al
+  const getForkliftIcinXySerisiProductData = (brandName) => {
+    const description = 'FORKLİFT İÇİN XY SERİSİ direksiyon beyinleri, forklift ve benzeri endüstriyel araçlar için özel olarak tasarlanmış yüksek performanslı hidrolik direksiyon sistemleridir. Bu ürünler, dar alanlarda manevra kabiliyeti ve hassas kontrol gerektiren uygulamalarda tercih edilir. Hydropack markası, geniş ürün yelpazesi ile farklı forklift modellerine uygun çözümler sunmaktadır.'
+    
+    const data = {
+      'hydropack': {
+        description,
+        tableHeaders: ['MODEL', 'ÇALIŞMA BASINCI', 'ÇALIŞMA DEBİSİ', 'İLETİM HACMİ'],
+        products: [
+          { model: 'HKUS 200/4-100', calismaBasinci: '170', calismaDebisi: '20', iletimHacmi: '198 CM³' },
+          { model: 'HKUS 320/4-100', calismaBasinci: '170', calismaDebisi: '32', iletimHacmi: '316,8 CM³' },
+          { model: 'HKUS 50/4-100', calismaBasinci: '140', calismaDebisi: '5', iletimHacmi: '49,5 CM³' },
+          { model: 'HKUS 80/4-100', calismaBasinci: '170', calismaDebisi: '', iletimHacmi: '79,2 CM³' },
+          { model: 'HKUS XY-120/1-0', calismaBasinci: '150', calismaDebisi: '12', iletimHacmi: '120 CM³' },
+          { model: 'HKUS XY-85-0/1', calismaBasinci: '150', calismaDebisi: '9', iletimHacmi: '84 CM³' },
+          { model: 'HKUS100/4-100', calismaBasinci: '170', calismaDebisi: '10', iletimHacmi: '99 CM³' },
+          { model: 'HKUS125/4-100', calismaBasinci: '170', calismaDebisi: '13', iletimHacmi: '123,8 CM³' },
+          { model: 'HKUS160/4-100', calismaBasinci: '170', calismaDebisi: '16', iletimHacmi: '158,4 CM³' },
+          { model: 'HKUS250/4-100', calismaBasinci: '170', calismaDebisi: '25', iletimHacmi: '247,5 CM³' },
         ]
       }
     }
@@ -2515,6 +2757,24 @@ function ProductDetail() {
       }
     }
     return null
+  }
+
+  // EMNİYETSİZ KAPALI MERKEZ ürün verilerini al
+  const getEmniyetsizKapaliMerkezProductData = (brandName) => {
+    const description = 'EMNİYETSİZ KAPALI MERKEZ: Hidrolik direksiyon sistemleri için tasarlanmış yüksek performanslı direksiyon beyinleri. Kapalı merkezli sistemlerde güvenilir ve verimli çalışma sağlar.'
+    
+    const data = {
+      'hydropack': {
+        description,
+        tableHeaders: ['MODEL', 'ÇALIŞMA BASINCI', 'ÇALIŞMA DEBİSİ', 'İLETİM HACMİ'],
+        products: [
+          { model: 'HKU 160/7', calismaBasinci: '175', calismaDebisi: '16', iletimHacmi: '158,4 CM³' },
+          { model: 'HKU100/7', calismaBasinci: '175', calismaDebisi: '10', iletimHacmi: '99 CM³' },
+          { model: 'HKU125/7', calismaBasinci: '175', calismaDebisi: '13', iletimHacmi: '123,8 CM³' },
+        ]
+      }
+    }
+    return data[brandName] || null
   }
 
   // PALETLİ POMPA kartına tıklandığında
@@ -7517,46 +7777,15 @@ function ProductDetail() {
                 </button>
               </div>
 
-              {/* Ürün Tablosu */}
-              {(() => {
-                const productData = getCasappaDokumGovdeDisliAkisBoluculerProductData(selectedDokumGovdeDisliAkisBoluculerCard)
-                if (!productData) return null
-                
-                return (
-                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-                    {productData.categories.map((category, catIndex) => (
-                      <div key={catIndex} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
-                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
-                        <div className="rounded-lg border border-slate-200 overflow-hidden">
-                          <div className="overflow-x-auto">
-                            <table className="w-full text-sm">
-                              <thead className="bg-slate-50">
-                                <tr>
-                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL KODU</th>
-                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAR</th>
-                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">DEBİ</th>
-                                </tr>
-                              </thead>
-                              <tbody className="divide-y divide-slate-200">
-                                {category.products.map((product, prodIndex) => (
-                                  <tr key={prodIndex} className="hover:bg-slate-50">
-                                    <td className="px-4 py-3 font-medium text-slate-900">{product.kod}</td>
-                                    <td className="px-4 py-3 text-slate-700">{product.bar}</td>
-                                    <td className="px-4 py-3 text-slate-700">{product.debi}</td>
-                                  </tr>
-                                ))}
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                    <div className="mt-6 pt-6 border-t border-slate-200 px-4 py-3 text-xs text-slate-500 bg-slate-50 rounded-lg">
-                      <p className="mb-2"><strong>Not:</strong> Bu tablo, CASAPPA {selectedDokumGovdeDisliAkisBoluculerCard} ürün serisinin teknik özelliklerini içermektedir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.</p>
-                    </div>
-                  </div>
-                )
-              })()}
+              {/* İçerik */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                <div className="space-y-4 text-base leading-relaxed">
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">{selectedDokumGovdeDisliAkisBoluculerCard}</h3>
+                  <p className="text-slate-600">
+                    Bu ürün grubu için detaylı bilgiler yakında eklenecektir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.
+                  </p>
+                </div>
+              </div>
             </>
           ) : selectedBrand && productName === 'İŞ MAKİNESİ POMPALARI' && currentBrand === 'david-brown' ? (
             <>
@@ -7969,6 +8198,558 @@ function ProductDetail() {
                 )
               })()}
             </>
+          ) : selectedBrand && productName === 'EMNİYETLİ NORMAL' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">{selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Detay Sayfası İçeriği */}
+              {(() => {
+                const productData = getEmniyetliNormalProductData(selectedBrand)
+                if (!productData) {
+                  return (
+                    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                      <div className="space-y-4 text-base leading-relaxed">
+                        <h1 className="text-2xl font-bold text-slate-900 mb-4">{productName} - {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</h1>
+                        <p className="text-slate-700">
+                          {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)} markasına ait {productName} ürünleri hakkında detaylı bilgi için lütfen bizimle iletişime geçin.
+                        </p>
+                        <p className="text-slate-600 text-sm mt-4">
+                          Detaylı teknik özellikler, fiyat bilgisi ve teknik destek için satış ekibimizle görüşebilirsiniz.
+                        </p>
+                      </div>
+                    </div>
+                  )
+                }
+
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <div className="space-y-6">
+                      <div>
+                        <h1 className="text-2xl font-bold text-slate-900 mb-4">{productName} - {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</h1>
+                        <div className="space-y-4 text-base leading-relaxed text-slate-700">
+                          <p>{productData.description}</p>
+                        </div>
+                      </div>
+
+                      {/* Ürün Tablosu */}
+                      <div className="mt-8">
+                        <h2 className="text-xl font-bold text-slate-900 mb-4">Teknik Özellikler</h2>
+                        <div className="overflow-x-auto rounded-lg border border-slate-200">
+                          <table className="w-full text-sm">
+                            <thead className="bg-slate-50">
+                              <tr>
+                                {productData.tableHeaders.map((header, index) => (
+                                  <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                    {header}
+                                  </th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {productData.products.map((product, index) => {
+                                // Header'lara göre değerleri sırayla al
+                                const getCellValue = (header) => {
+                                  if (header === 'MODEL') return product.model
+                                  if (header === 'ÇALIŞMA BASINCI') return product.calismaBasinci || ''
+                                  if (header === 'ÇALIŞMA DEBİSİ') return product.calismaDebisi || ''
+                                  if (header === 'BASINÇ (BAR)') return product.basinc || ''
+                                  if (header === 'DEBİ (LT/DAK.)') return product.debi || ''
+                                  if (header === 'EMNİYET VALFİ BASINCI') return product.emniyetValfiBasinci || ''
+                                  if (header === 'İLETİM HACMİ') return product.iletimHacmi || ''
+                                  if (header === 'ŞOK VALF BASINCI') return product.sokValfBasinci || ''
+                                  if (header === 'T HATTINDAKİ BASINÇ') return product.tHattindakiBasinc || ''
+                                  if (header === 'UZUNLUK') return product.uzunluk || ''
+                                  return ''
+                                }
+
+                                return (
+                                  <tr key={index} className="border-b border-slate-200 last:border-b-0 hover:bg-slate-50">
+                                    {productData.tableHeaders.map((header, headerIndex) => (
+                                      <td key={headerIndex} className="px-4 py-3 text-slate-700">
+                                        {headerIndex === 0 ? (
+                                          <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                        ) : (
+                                          getCellValue(header)
+                                        )}
+                                      </td>
+                                    ))}
+                                  </tr>
+                                )
+                              })}
+                            </tbody>
+                          </table>
+                        </div>
+                        <p className="mt-4 text-sm text-slate-600">
+                          <strong>Not:</strong> Bu tablo, {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)} markasına ait {productName} ürün serisinin teknik özelliklerini içermektedir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedBrand && productName === 'EMNİYETLİ ANTİŞOKLU' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">{selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Detay Sayfası İçeriği */}
+              {(() => {
+                const productData = getEmniyetliAntisokluProductData(selectedBrand)
+                if (!productData) {
+                  return (
+                    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                      <div className="space-y-4 text-base leading-relaxed">
+                        <h1 className="text-2xl font-bold text-slate-900 mb-4">{productName} - {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</h1>
+                        <p className="text-slate-700">
+                          {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)} markasına ait {productName} ürünleri hakkında detaylı bilgi için lütfen bizimle iletişime geçin.
+                        </p>
+                        <p className="text-slate-600 text-sm mt-4">
+                          Detaylı teknik özellikler, fiyat bilgisi ve teknik destek için satış ekibimizle görüşebilirsiniz.
+                        </p>
+                      </div>
+                    </div>
+                  )
+                }
+
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <div className="space-y-6">
+                      <div>
+                        <h1 className="text-2xl font-bold text-slate-900 mb-4">{productName} - {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</h1>
+                        <div className="space-y-4 text-base leading-relaxed text-slate-700">
+                          <p>{productData.description}</p>
+                        </div>
+                      </div>
+
+                      {/* Ürün Tablosu */}
+                      <div className="mt-8">
+                        <h2 className="text-xl font-bold text-slate-900 mb-4">Teknik Özellikler</h2>
+                        <div className="overflow-x-auto rounded-lg border border-slate-200">
+                          <table className="w-full text-sm">
+                            <thead className="bg-slate-50">
+                              <tr>
+                                {productData.tableHeaders.map((header, index) => (
+                                  <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                    {header}
+                                  </th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {productData.products.map((product, index) => {
+                                // Header'lara göre değerleri sırayla al
+                                const getCellValue = (header) => {
+                                  if (header === 'MODEL') return product.model
+                                  if (header === 'BASINÇ (BAR)') return product.basinc || ''
+                                  if (header === 'ÇALIŞMA DEBİSİ') return product.debi || ''
+                                  if (header === 'DEBİ (LT/DAK.)') return product.debi || ''
+                                  if (header === 'EMNİYET VALFİ BASINCI') return product.emniyetValfi || ''
+                                  if (header === 'İLETİM HACMİ') return product.iletimHacmi || ''
+                                  if (header === 'ŞOK VALF BASINCI') return product.sokValfi || ''
+                                  if (header === 'T HATTINDAKİ BASINÇ') return product.tHatti || ''
+                                  if (header === 'UZUNLUK') return product.uzunluk || ''
+                                  return ''
+                                }
+
+                                return (
+                                  <tr key={index} className="border-b border-slate-200 last:border-b-0 hover:bg-slate-50">
+                                    {productData.tableHeaders.map((header, headerIndex) => (
+                                      <td key={headerIndex} className="px-4 py-3 text-slate-700">
+                                        {headerIndex === 0 ? (
+                                          <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                        ) : (
+                                          getCellValue(header)
+                                        )}
+                                      </td>
+                                    ))}
+                                  </tr>
+                                )
+                              })}
+                            </tbody>
+                          </table>
+                        </div>
+                        <p className="mt-4 text-sm text-slate-600">
+                          <strong>Not:</strong> Bu tablo, {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)} markasına ait {productName} ürün serisinin teknik özelliklerini içermektedir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedEmniyetsizNormalCard && selectedBrand === 'hydropack' && productName === 'EMNİYETSİZ NORMAL' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">HYDROPACK</p>
+                  <h2 className="text-xl font-semibold">{selectedEmniyetsizNormalCard}</h2>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedEmniyetsizNormalCard(null)
+                  }}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Ürün Tablosu */}
+              {(() => {
+                const productData = getHydropackEmniyetsizNormalProductData(selectedEmniyetsizNormalCard)
+                if (!productData) return null
+                
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {productData.categories.map((category, catIndex) => (
+                      <div key={catIndex} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL KODU</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇALIŞMA BASINCI</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇALIŞMA DEBİSİ</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((product, prodIndex) => (
+                                  <tr key={prodIndex} className="hover:bg-slate-50">
+                                    <td className="px-4 py-3 font-medium text-slate-900">{product.kod}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.calismaBasinci}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.calismaDebisi}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.iletimHacmi}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="mt-6 pt-6 border-t border-slate-200 px-4 py-3 text-xs text-slate-500 bg-slate-50 rounded-lg">
+                      <p className="mb-2"><strong>Not:</strong> Bu tablo, HYDROPACK {selectedEmniyetsizNormalCard} ürün serisinin teknik özelliklerini içermektedir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.</p>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedEmniyetsizNormalCard && selectedBrand === 'zhenjiang' && productName === 'EMNİYETSİZ NORMAL' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">ZHENJIANG</p>
+                  <h2 className="text-xl font-semibold">{selectedEmniyetsizNormalCard}</h2>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedEmniyetsizNormalCard(null)
+                    setSelectedBrand(null)
+                  }}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Ürün Tablosu */}
+              {(() => {
+                const productData = getZhenjiangEmniyetsizNormalProductData(selectedEmniyetsizNormalCard)
+                if (!productData) return null
+                
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {productData.categories.map((category, catIndex) => (
+                      <div key={catIndex} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL KODU</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">DİŞ ÖLÇÜSÜ</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MERKEZ</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((product, prodIndex) => (
+                                  <tr key={prodIndex} className="hover:bg-slate-50">
+                                    <td className="px-4 py-3 font-medium text-slate-900">{product.kod}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.basinc}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.disOlcusu}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.iletimHacmi}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.merkez}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="mt-6 pt-6 border-t border-slate-200 px-4 py-3 text-xs text-slate-500 bg-slate-50 rounded-lg">
+                      <p className="mb-2"><strong>Not:</strong> Bu tablo, ZHENJIANG {selectedEmniyetsizNormalCard} ürün serisinin teknik özelliklerini içermektedir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.</p>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedBrand && productName === 'EMNİYETSİZ NORMAL' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">{selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Kartlar */}
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+                {getEmniyetsizNormalBrandCards(selectedBrand).map((card) => {
+                  const img = getEmniyetsizNormalCardImage(card)
+                  return (
+                    <div
+                      key={card}
+                      onClick={() => setSelectedEmniyetsizNormalCard(card)}
+                      className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-2xl hover:shadow-[#ff7f00]/10"
+                    >
+                      {/* Image Container */}
+                      <div className="relative h-64 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50">
+                        <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                        <img 
+                          src={img} 
+                          alt={card} 
+                          className="h-full w-full object-contain p-6 transition-all duration-500 group-hover:scale-110"
+                          onError={(e) => {
+                            e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(card)}`
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#ff7f00]/0 via-transparent to-[#1e4294]/0 transition-all duration-500 group-hover:from-[#ff7f00]/5 group-hover:to-[#1e4294]/5" />
+                      </div>
+                      
+                      {/* Content Section */}
+                      <div className="flex flex-1 flex-col p-6 pt-5">
+                        <h3 className="mb-4 line-clamp-2 min-h-[3.5rem] text-lg font-bold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                          {card}
+                        </h3>
+                        <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                          <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                            Detay
+                          </span>
+                          <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                            <span className="text-xs font-semibold">İncele</span>
+                            <svg 
+                              className="h-4 w-4" 
+                              fill="none" 
+                              viewBox="0 0 24 24" 
+                              stroke="currentColor"
+                              strokeWidth={2.5}
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </>
+          ) : selectedEmniyetsizAntisokluCard && selectedBrand === 'hydropack' && productName === 'EMNİYETSİZ ANTİŞOKLU' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-slate-900 mb-2">EMNİYETSİZ ANTİŞOKLU</h1>
+                  <p className="text-lg font-semibold text-slate-700 mb-1">HYDROPACK</p>
+                  <h2 className="text-xl font-semibold text-slate-900">EMNİYETSİZ ANTİŞOKLU</h2>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedEmniyetsizAntisokluCard(null)
+                    setSelectedBrand(null)
+                  }}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Ürün Tablosu */}
+              {(() => {
+                const productData = getHydropackEmniyetsizAntisokluProductData(selectedEmniyetsizAntisokluCard)
+                if (!productData) return null
+                
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {productData.categories.map((category, catIndex) => (
+                      <div key={catIndex} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">EMNİYETSİZ ANTİŞOKLU</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL KODU</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇALIŞMA BASINCI</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇALIŞMA DEBİSİ</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((product, prodIndex) => (
+                                  <tr key={prodIndex} className="hover:bg-slate-50">
+                                    <td className="px-4 py-3 font-medium text-slate-900">{product.kod}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.calismaBasinci}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.calismaDebisi}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.iletimHacmi}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="mt-6 pt-6 border-t border-slate-200 px-4 py-3 text-xs text-slate-500 bg-slate-50 rounded-lg">
+                      <p className="mb-2"><strong>Not:</strong> Bu tablo, HYDROPACK {selectedEmniyetsizAntisokluCard} ürün serisinin teknik özelliklerini içermektedir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.</p>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedBrand && productName === 'FORKLİFT İÇİN XY SERİSİ' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">{selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Detay Sayfası İçeriği */}
+              {(() => {
+                const productData = getForkliftIcinXySerisiProductData(selectedBrand)
+                if (!productData) {
+                  return (
+                    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                      <div className="space-y-4 text-base leading-relaxed">
+                        <h1 className="text-2xl font-bold text-slate-900 mb-4">{productName} - {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</h1>
+                        <p className="text-slate-700">
+                          {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)} markasına ait {productName} ürünleri hakkında detaylı bilgi için lütfen bizimle iletişime geçin.
+                        </p>
+                        <p className="text-slate-600 text-sm mt-4">
+                          Detaylı teknik özellikler, fiyat bilgisi ve teknik destek için satış ekibimizle görüşebilirsiniz.
+                        </p>
+                      </div>
+                    </div>
+                  )
+                }
+
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <div className="space-y-6">
+                      <div>
+                        <h1 className="text-2xl font-bold text-slate-900 mb-4">{productName} - {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</h1>
+                        <div className="space-y-4 text-base leading-relaxed text-slate-700">
+                          <p>{productData.description}</p>
+                        </div>
+                      </div>
+
+                      {/* Ürün Tablosu */}
+                      <div className="mt-8">
+                        <h2 className="text-xl font-bold text-slate-900 mb-4">{productName}</h2>
+                        <div className="overflow-x-auto rounded-lg border border-slate-200">
+                          <table className="w-full text-sm">
+                            <thead className="bg-slate-50">
+                              <tr>
+                                {productData.tableHeaders.map((header, index) => (
+                                  <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                    {header}
+                                  </th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {productData.products.map((product, index) => {
+                                // Header'lara göre değerleri sırayla al
+                                const getCellValue = (header) => {
+                                  if (header === 'MODEL') return product.model
+                                  if (header === 'ÇALIŞMA BASINCI') return product.calismaBasinci || ''
+                                  if (header === 'ÇALIŞMA DEBİSİ') return product.calismaDebisi || ''
+                                  if (header === 'İLETİM HACMİ') return product.iletimHacmi || ''
+                                  return ''
+                                }
+
+                                return (
+                                  <tr key={index} className="border-b border-slate-200 last:border-b-0 hover:bg-slate-50">
+                                    {productData.tableHeaders.map((header, headerIndex) => (
+                                      <td key={headerIndex} className="px-4 py-3 text-slate-700">
+                                        {headerIndex === 0 ? (
+                                          <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                        ) : (
+                                          getCellValue(header)
+                                        )}
+                                      </td>
+                                    ))}
+                                  </tr>
+                                )
+                              })}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
           ) : selectedBrand && productName === 'İÇTEN DİŞLİ POMPALAR' ? (
             <>
               {/* Ürün Başlığı */}
@@ -8092,6 +8873,99 @@ function ProductDetail() {
                   </p>
                 </div>
               </div>
+            </>
+          ) : selectedBrand && productName === 'EMNİYETSİZ KAPALI MERKEZ' && selectedBrand === 'hydropack' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">{selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Detay Sayfası İçeriği */}
+              {(() => {
+                const productData = getEmniyetsizKapaliMerkezProductData(selectedBrand)
+                if (!productData) {
+                  return (
+                    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                      <div className="space-y-4 text-base leading-relaxed">
+                        <h1 className="text-2xl font-bold text-slate-900 mb-4">{productName} - {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</h1>
+                        <p className="text-slate-700">
+                          {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)} markasına ait {productName} ürünleri hakkında detaylı bilgi için lütfen bizimle iletişime geçin.
+                        </p>
+                        <p className="text-slate-600 text-sm mt-4">
+                          Detaylı teknik özellikler, fiyat bilgisi ve teknik destek için satış ekibimizle görüşebilirsiniz.
+                        </p>
+                      </div>
+                    </div>
+                  )
+                }
+
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <div className="space-y-6">
+                      <div>
+                        <h1 className="text-2xl font-bold text-slate-900 mb-4">{productName} - {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</h1>
+                        <div className="space-y-4 text-base leading-relaxed text-slate-700">
+                          <p>{productData.description}</p>
+                        </div>
+                      </div>
+
+                      {/* Ürün Tablosu */}
+                      <div className="mt-8">
+                        <h2 className="text-xl font-bold text-slate-900 mb-4">{productName}</h2>
+                        <div className="overflow-x-auto rounded-lg border border-slate-200">
+                          <table className="w-full text-sm">
+                            <thead className="bg-slate-50">
+                              <tr>
+                                {productData.tableHeaders.map((header, index) => (
+                                  <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                    {header}
+                                  </th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {productData.products.map((product, index) => {
+                                // Header'lara göre değerleri sırayla al
+                                const getCellValue = (header) => {
+                                  if (header === 'MODEL') return product.model
+                                  if (header === 'ÇALIŞMA BASINCI') return product.calismaBasinci || ''
+                                  if (header === 'ÇALIŞMA DEBİSİ') return product.calismaDebisi || ''
+                                  if (header === 'İLETİM HACMİ') return product.iletimHacmi || ''
+                                  return ''
+                                }
+
+                                return (
+                                  <tr key={index} className="border-b border-slate-200 last:border-b-0 hover:bg-slate-50">
+                                    {productData.tableHeaders.map((header, headerIndex) => (
+                                      <td key={headerIndex} className="px-4 py-3 text-slate-700">
+                                        {headerIndex === 0 ? (
+                                          <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                        ) : (
+                                          getCellValue(header)
+                                        )}
+                                      </td>
+                                    ))}
+                                  </tr>
+                                )
+                              })}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })()}
             </>
           ) : selectedProduct || (productName && !activeSection) ? (
             <>
