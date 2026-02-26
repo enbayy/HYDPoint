@@ -267,6 +267,36 @@ const getBrandGroups = (brandName, productName = null) => {
   return brandGroups[brandName] || []
 }
 
+// PALETLİ POMPA için markalara göre kartlar
+const getPaletliPompaBrandCards = (brandName) => {
+  const brandCards = {
+    'berarma': [
+      'DEĞİŞKEN DEBİLİ PALETLİ POMPALAR',
+    ],
+    'oxim': [
+      'DEĞİŞKEN DEBİLİ PALETLİ POMPALAR',
+      'V10-V20 ENDÜSTRİYEL VE MOBİL POMPALAR',
+    ],
+    'hystar': [
+      'ENDÜSTRİYEL TİP PALETLİ POMPALAR',
+      'DEĞİŞKEN DEBİLİ PALETLİ POMPALAR',
+      'V10-V20 ENDÜSTRİYEL VE MOBİL POMPALAR',
+    ],
+    'hytek': [
+      'ENDÜSTRİYEL TİP PALETLİ POMPALAR',
+      'KATRİÇ',
+      'MOBİL TİP PALETLİ POMPALAR',
+      'DEĞİŞKEN DEBİLİ PALETLİ POMPALAR',
+      'V10-V20 ENDÜSTRİYEL VE MOBİL POMPALAR',
+    ],
+    'kcl': [
+      'ENDÜSTRİYEL TİP PALETLİ POMPALAR',
+      'DEĞİŞKEN DEBİLİ PALETLİ POMPALAR',
+    ],
+  }
+  return brandCards[brandName] || []
+}
+
 // Slug'dan ürün adını geri çeviren fonksiyon
 const decodeProductName = (slug, groups) => {
   if (!slug) return null
@@ -306,6 +336,7 @@ function ProductDetail() {
   const [selectedBrand, setSelectedBrand] = useState(null)
   const [selectedGroup, setSelectedGroup] = useState(null) // Seçilen grup (örn: "00.GRUP POMPALAR")
   const [selectedGroupBrand, setSelectedGroupBrand] = useState(null) // Seçilen marka (örn: "hydropack")
+  const [selectedPaletliPompaCard, setSelectedPaletliPompaCard] = useState(null) // Seçilen PALETLİ POMPA kartı
   
   // URL parametrelerinden veya query parameter'dan veya state'ten marka bilgisini al
   const brandFromQuery = searchParams.get('brand')
@@ -425,6 +456,13 @@ function ProductDetail() {
   
   // State'ten, URL'den, slug'dan veya seçilen üründen ürün adını al
   const productName = selectedProduct || productNameFromUrl || stateProductName || decodeProductName(slug, catalogGroups)
+  
+  // selectedBrand değiştiğinde paletli pompa kart seçimini temizle
+  useEffect(() => {
+    if (productName === 'PALETLİ POMPA') {
+      setSelectedPaletliPompaCard(null)
+    }
+  }, [selectedBrand, productName])
 
   // Aktif kategoriye göre ürünleri bul
   const currentItems = useMemo(() => {
@@ -519,6 +557,86 @@ function ProductDetail() {
           })
         }
       }
+    } else if (productName === 'İŞ MAKİNESİ POMPALARI' && brandName === 'david-brown') {
+      // İŞ MAKİNESİ POMPALARI için David Brown detay sayfasına navigate et
+      if (category && subcategory) {
+        navigate(`/urunler/${category}/${subcategory}/${brandName}`)
+      } else {
+        const productSlug = encodeURIComponent(productName.toLowerCase().replace(/\s+/g, '-'))
+        navigate(`/urun-detay/${productSlug}?brand=${brandName}`, {
+          state: { productName, productImage, productLogo, brand: brandName }
+        })
+      }
+      setSelectedBrand(brandName)
+      setSelectedProduct(null)
+    } else if (productName === 'PALETLİ POMPA') {
+      // PALETLİ POMPA için marka kartlarını göster
+      const cards = getPaletliPompaBrandCards(brandName)
+      if (cards.length > 0) {
+        // URL'yi güncelle: /urunler/category/subcategory/brand
+        if (category && subcategory) {
+          navigate(`/urunler/${category}/${subcategory}/${brandName}`)
+        } else {
+          // Eski format için
+          const productSlug = encodeURIComponent(productName.toLowerCase().replace(/\s+/g, '-'))
+          navigate(`/urun-detay/${productSlug}?brand=${brandName}`, {
+            state: { productName, productImage, productLogo, brand: brandName }
+          })
+        }
+        setSelectedBrand(brandName)
+        setSelectedPaletliPompaCard(null) // Kart seçimini temizle
+        setSelectedProduct(null) // Ürün seçimini temizle
+        setSelectedGroup(null) // Grup seçimini temizle
+        setSelectedGroupBrand(null) // Grup marka seçimini temizle
+      } else {
+        // Bu marka için kart yoksa, marka bazlı detay sayfasına navigate et
+        if (category && subcategory) {
+          navigate(`/urunler/${category}/${subcategory}/${brandName}`)
+        } else {
+          const productSlug = encodeURIComponent(productName.toLowerCase().replace(/\s+/g, '-'))
+          navigate(`/urun-detay/${productSlug}?brand=${brandName}`, {
+            state: { productName, productImage, productLogo, brand: brandName }
+          })
+        }
+        setSelectedBrand(brandName)
+        setSelectedPaletliPompaCard(null) // Kart seçimini temizle
+      }
+    } else if (productName === 'EL POMPASI') {
+      // EL POMPASI için direkt detay sayfasına navigate et (kart yok)
+      if (category && subcategory) {
+        navigate(`/urunler/${category}/${subcategory}/${brandName}`)
+      } else {
+        const productSlug = encodeURIComponent(productName.toLowerCase().replace(/\s+/g, '-'))
+        navigate(`/urun-detay/${productSlug}?brand=${brandName}`, {
+          state: { productName, productImage, productLogo, brand: brandName }
+        })
+      }
+      setSelectedBrand(brandName)
+      setSelectedProduct(null)
+    } else if (productName === 'İÇTEN DİŞLİ POMPALAR') {
+      // İÇTEN DİŞLİ POMPALAR için direkt detay sayfasına navigate et (kart yok)
+      if (category && subcategory) {
+        navigate(`/urunler/${category}/${subcategory}/${brandName}`)
+      } else {
+        const productSlug = encodeURIComponent(productName.toLowerCase().replace(/\s+/g, '-'))
+        navigate(`/urun-detay/${productSlug}?brand=${brandName}`, {
+          state: { productName, productImage, productLogo, brand: brandName }
+        })
+      }
+      setSelectedBrand(brandName)
+      setSelectedProduct(null)
+    } else if (productName === 'İŞ MAKİNESİ POMPALARI') {
+      // İŞ MAKİNESİ POMPALARI için direkt detay sayfasına navigate et (kart yok)
+      if (category && subcategory) {
+        navigate(`/urunler/${category}/${subcategory}/${brandName}`)
+      } else {
+        const productSlug = encodeURIComponent(productName.toLowerCase().replace(/\s+/g, '-'))
+        navigate(`/urun-detay/${productSlug}?brand=${brandName}`, {
+          state: { productName, productImage, productLogo, brand: brandName }
+        })
+      }
+      setSelectedBrand(brandName)
+      setSelectedProduct(null)
     } else {
       // Diğer ürünler için marka bazlı detay sayfasına navigate et
       if (category && subcategory) {
@@ -968,6 +1086,465 @@ function ProductDetail() {
       '40.GRUP MEKANİK VANALI POMPALAR': '/dokumgovdelidislipompalar/40grup-mekanik-vanali-pomp.png',
     }
     return imageMap[groupName] || '/pompa.png'
+  }
+
+  // PALETLİ POMPA kart resimlerini al
+  const getPaletliPompaCardImage = (cardName) => {
+    const imageMap = {
+      'DEĞİŞKEN DEBİLİ PALETLİPOMPALAR': '/paletlipompa/degisken-debili-paletli-po.png',
+      'DEĞİŞKEN DEBİLİ PALETLİ POMPALAR': '/paletlipompa/degisken-debili-paletli-po.png',
+      'ÖN UYARILI BASINÇ REG.DEĞ.DEB. PALETLİ POMPALAR': '/paletlipompa/degisken-debili-paletli-po.png',
+      'ENDÜSTRİYEL TİP PALETLİ POMPALAR': '/paletlipompa/endustriyel-tip-paletli-po.png',
+      'KATRİÇ': '/paletlipompa/katric.png',
+      'MOBİL TİP PALETLİ POMPALAR': '/paletlipompa/mobil-tip-paletli-pompalar.png',
+      'V10-V20 ENDÜSTRİYEL VE MOBİL POMPALAR': '/paletlipompa/v10v20-endustriyel-ve-mobilpompalar.png',
+    }
+    return imageMap[cardName] || '/paletli-pompa.png'
+  }
+
+  // BERARMA ürün verilerini al
+  const getBerarmaProductData = (cardName) => {
+    if (cardName === 'DEĞİŞKEN DEBİLİ PALETLİ POMPALAR') {
+      return {
+        title: 'DEĞİŞKEN DEBİLİ PALETLİ POMPALAR',
+        categories: [
+          {
+            name: 'MEKANİK BASINÇ REG. DEĞ. DEB. PALETLİ POMPALAR',
+            products: [
+              { kod: 'BE2403211010', hacim: '34,5 CM³', kontrol: 'DR', basinc: '30 - 100', hiz: '1800', regülasyon: '' },
+              { kod: 'BE2410011010', hacim: '34,5 CM³', kontrol: 'DR', basinc: '30 - 100', hiz: '1800', regülasyon: '' },
+              { kod: 'BE2601611010', hacim: '3,1 - 16 CM³', kontrol: '', basinc: '20 - 120', hiz: '800/1800', regülasyon: 'BASINÇ REGÜLASYON' },
+              { kod: '26179', hacim: '69 CM³', kontrol: 'DR', basinc: '30 - 80', hiz: '1800', regülasyon: '' },
+              { kod: '26181', hacim: '11 CM³', kontrol: 'DR', basinc: '30 - 100', hiz: '1800', regülasyon: '' },
+              { kod: '26180', hacim: '11 CM³', kontrol: 'DR', basinc: '80 - 150', hiz: '1800', regülasyon: '' },
+              { kod: '26182', hacim: '13,1 CM³', kontrol: 'DR', basinc: '80 - 150', hiz: '1800', regülasyon: '' },
+              { kod: '26183', hacim: '17,9 CM³', kontrol: 'DR', basinc: '30-100', hiz: '1800', regülasyon: '' },
+              { kod: '26184', hacim: '22,1 CM³', kontrol: 'DR', basinc: '30 - 100', hiz: '1800', regülasyon: '' },
+              { kod: '26185', hacim: '26,9 CM³', kontrol: 'DR', basinc: '30 - 100', hiz: '1800', regülasyon: '' },
+              { kod: 'BE2002031100', hacim: '34,5 CM³', kontrol: 'DR', basinc: '30 - 100', hiz: '1800', regülasyon: '' },
+              { kod: '26178', hacim: '42,8 CM³', kontrol: 'DR', basinc: '30 - 100', hiz: '1800', regülasyon: '' },
+            ]
+          }
+        ]
+      }
+    } else if (cardName === 'ÖN UYARILI BASINÇ REG.DEĞ.DEB. PALETLİ POMPALAR') {
+      return {
+        title: 'ÖN UYARILI BASINÇ REG.DEĞ.DEB. PALETLİ POMPALAR',
+        categories: [
+          {
+            name: 'ÖN UYARILI BASINÇ REG.DEĞ.DEB. PALETLİ POMPALAR',
+            products: [
+              { kod: '26211', hacim: '26,9 CM³', kontrol: 'DR', basinc: '30-160', hiz: '1800', regülasyon: '' },
+              { kod: '26212', hacim: '34,5 CM³', kontrol: 'DR', basinc: '30-160', hiz: '1800', regülasyon: '' },
+              { kod: '26213', hacim: '42,8 CM³', kontrol: 'DR', basinc: '30-160', hiz: '1800', regülasyon: '' },
+              { kod: '26210', hacim: '105,5 CM³', kontrol: 'DR', basinc: '30-160', hiz: '1800', regülasyon: '' },
+              { kod: '26214', hacim: '86,2 CM³', kontrol: 'DR', basinc: '30-160', hiz: '1800', regülasyon: '' },
+            ]
+          }
+        ]
+      }
+    }
+    return null
+  }
+
+  // EL POMPASI ürün verilerini al
+  const getElPompasiProductData = (brandName) => {
+    const data = {
+      'hydropack': {
+        description: 'Hidrolik el pompaları, endüstriyel kullanım alanlarında güvenilirlik ve taşınabilirlik arayanlar için ideal çözümler sunar. Bu pompalar, kompakt yapılarıyla dar alanlarda rahatlıkla kullanılabilir. Aracınızın hidrolik sistemlerini kontrol etmekten acil durumlarda kullanıma kadar geniş bir yelpazede işlevsellik sunarlar.',
+        tableHeaders: ['MODEL KODU', 'ÇALIŞMA BASINCI', 'FONKSİYON', 'İLETİM HACMİ', 'YAĞ TANKI MONTAJI'],
+        products: [
+          { kod: 'PRBD12', calismaBasinci: '320', fonksiyon: 'ÇİFT ETKİLİ SİLİNDİR İÇİN HER İKİ YÖNDE BASMA', iletimHacmi: '12 CM³', yagTankiMontaji: 'DİKDÖRTGEN ÇELİK TANK' },
+          { kod: 'PRB25/408', calismaBasinci: '250', fonksiyon: 'TEK ETKİLİ SİLİNDİRLER İÇİN HER İKİ YÖNDE BASMA', iletimHacmi: '25 CM³', yagTankiMontaji: 'DİKDÖRTGEN ÇELİK TANK' },
+          { kod: 'PRB 25 DD', calismaBasinci: '250', fonksiyon: 'ÇİFT ETKİLİ SİLİNDİR İÇİN HER İKİ YÖNDE BASMA', iletimHacmi: '25 CM³', yagTankiMontaji: 'DİKDÖRTGEN ÇELİK TANK' },
+        ]
+      },
+      'omfb': {
+        description: 'Hidrolik el pompaları, endüstriyel kullanım alanlarında güvenilirlik ve taşınabilirlik arayanlar için ideal çözümler sunar. Bu pompalar, kompakt yapılarıyla dar alanlarda rahatlıkla kullanılabilir. Aracınızın hidrolik sistemlerini kontrol etmekten acil durumlarda kullanıma kadar geniş bir yelpazede işlevsellik sunarlar.',
+        tableHeaders: ['MODEL KODU', 'BASINÇ (BAR)', 'İLETİM HACMİ'],
+        products: [
+          { kod: '44937', basinc: '220', iletimHacmi: '45 CM³' },
+          { kod: '44938', basinc: '200', iletimHacmi: '70 CM³' },
+          { kod: '44930', basinc: '250', iletimHacmi: '25 CM³' },
+          { kod: '44939', basinc: '250', iletimHacmi: '25 CM³' },
+          { kod: '44931', basinc: '220', iletimHacmi: '45 CM³' },
+          { kod: 'OMFB10600400010', basinc: '250', iletimHacmi: '25 CM³' },
+          { kod: 'OMFB10601000012', basinc: '350', iletimHacmi: '15 CM³' },
+          { kod: '44932', basinc: '350', iletimHacmi: '15 CM³' },
+          { kod: 'OMFB10603800163', basinc: '3000', iletimHacmi: '16 CM³' },
+          { kod: '44934', basinc: '220', iletimHacmi: '45 CM³' },
+        ]
+      },
+      'cms': {
+        description: 'Hidrolik el pompaları, endüstriyel kullanım alanlarında güvenilirlik ve taşınabilirlik arayanlar için ideal çözümler sunar. Bu pompalar, kompakt yapılarıyla dar alanlarda rahatlıkla kullanılabilir. Aracınızın hidrolik sistemlerini kontrol etmekten acil durumlarda kullanıma kadar geniş bir yelpazede işlevsellik sunarlar.',
+        tableHeaders: ['MODEL KODU', 'HACMİ'],
+        products: [
+          { kod: 'ÇMSEL012', hacim: '12 CC' },
+          { kod: 'ÇMSEL020', hacim: '20 CC' },
+          { kod: 'ÇMSEL025Ç', hacim: '25 CC' },
+          { kod: 'ÇMSEL025', hacim: '25 CC' },
+          { kod: 'ÇMSEL025A', hacim: '25 CC' },
+          { kod: 'ÇMSEL045Ç', hacim: '45 CC' },
+          { kod: 'ÇMSEL045', hacim: '45 CC' },
+        ]
+      },
+      'ferro': {
+        description: 'Hidrolik el pompaları, endüstriyel kullanım alanlarında güvenilirlik ve taşınabilirlik arayanlar için ideal çözümler sunar. Bu pompalar, kompakt yapılarıyla dar alanlarda rahatlıkla kullanılabilir. Aracınızın hidrolik sistemlerini kontrol etmekten acil durumlarda kullanıma kadar geniş bir yelpazede işlevsellik sunarlar.',
+        tableHeaders: ['MODEL KODU', 'BASINÇ (BAR)', 'LİTRE', 'YAĞ BASINCI'],
+        products: [
+          { kod: 'P2C1000-60', basinc: '1000', litre: '2,65 LT', yagBasinci: '18,00 CM³' },
+          { kod: 'P2C700-50', basinc: '700', litre: '2,20 LT.', yagBasinci: '18,00 CM³' },
+          { kod: 'P2C700-60', basinc: '700', litre: '2,65 LT.', yagBasinci: '18,00 CM³' },
+          { kod: 'P2R700-80', basinc: '700', litre: '11 LT.', yagBasinci: '18,00 CM³' },
+        ]
+      },
+      'oleocon': {
+        description: 'Hidrolik el pompaları, endüstriyel kullanım alanlarında güvenilirlik ve taşınabilirlik arayanlar için ideal çözümler sunar. Bu pompalar, kompakt yapılarıyla dar alanlarda rahatlıkla kullanılabilir. Aracınızın hidrolik sistemlerini kontrol etmekten acil durumlarda kullanıma kadar geniş bir yelpazede işlevsellik sunarlar.',
+        tableHeaders: ['MODEL KODU', 'ÇALIŞMA BASINCI', 'ÇALIŞMA SICAKLIĞI', 'DİŞ NORMLARI', 'DİŞ ÖLÇÜLERİ', 'MALZEME', 'SIZDIRMAZLIK'],
+        products: [
+          { kod: 'OHP-501', calismaBasinci: '310', calismaSicakligi: '-30 C / +110 C', disNormlari: 'BSP', disOlculeri: '25CC\'DEN 40CC', malzeme: 'GGG 40', sizdirmazlik: 'NITRILE NBR' },
+          { kod: 'OHP-501T', calismaBasinci: '310', calismaSicakligi: '-30 C / +110 C', disNormlari: 'BSP', disOlculeri: '25CC\'DEN 40CC', malzeme: 'GGG 40', sizdirmazlik: 'NITRILE NBR' },
+          { kod: 'OHP-502', calismaBasinci: '310', calismaSicakligi: '-30 C / +110 C', disNormlari: 'BSP', disOlculeri: '25CC\'DEN 45CC', malzeme: 'GGG 40', sizdirmazlik: 'NITRILE NBR' },
+          { kod: 'OHP-601', calismaBasinci: '310', calismaSicakligi: '-30 C / +110 C', disNormlari: 'BSP', disOlculeri: '25CC\'DEN 40CC', malzeme: 'GGG 40', sizdirmazlik: 'NITRILE NBR' },
+          { kod: 'OHP-602', calismaBasinci: '310', calismaSicakligi: '-30 C / +110 C', disNormlari: 'BSP', disOlculeri: '25CC\'DEN 45CC', malzeme: '666 4', sizdirmazlik: 'NITRILE NBR' },
+        ]
+      }
+    }
+    return data[brandName] || null
+  }
+
+  // İÇTEN DİŞLİ POMPALAR ürün verilerini al
+  const getIctenDisliPompalarProductData = (brandName) => {
+    const data = {
+      'eckerle': {
+        description: 'İçten dişli pompalar, yüksek verimlilik ve güvenilirlik sunan hidrolik sistem çözümleridir. Kompakt tasarımları ve yüksek performansları ile endüstriyel uygulamalarda tercih edilir.',
+        tableHeaders: ['MODEL KODU', 'BASINÇ (BAR)', 'HIZ', 'İLETİM HACMİ', 'POMPA SES ŞİD.', 'VERİM (NV)'],
+        products: [
+          { kod: '45020', basinc: '250', hiz: '100-2500', iletimHacmi: '40,1 CM³', pompaSesSid: '65', verim: '95' },
+          { kod: '45021', basinc: '250', hiz: '100-1800', iletimHacmi: '50,3 CM³', pompaSesSid: '66', verim: '95' },
+          { kod: '45022', basinc: '250', hiz: '400-3000', iletimHacmi: '25,2 CM³', pompaSesSid: '63', verim: '95' },
+          { kod: '45027', basinc: '330', hiz: '400-2800', iletimHacmi: '32,1 CM³', pompaSesSid: '64', verim: '94' },
+          { kod: '45028', basinc: '250', hiz: '400-2200', iletimHacmi: '40,1 CM³', pompaSesSid: '65', verim: '95' },
+          { kod: '45023', basinc: '250', hiz: '400-1800', iletimHacmi: '50,3 CM³', pompaSesSid: '66', verim: '95' },
+          { kod: '45024', basinc: '250', hiz: '200-4000', iletimHacmi: '5,4 CM³', pompaSesSid: '55', verim: '91' },
+          { kod: '45025', basinc: '250', hiz: '200-4000', iletimHacmi: '7,9 CM³', pompaSesSid: '58', verim: '93' },
+          { kod: '45026', basinc: '250', hiz: '200-3600', iletimHacmi: '10,9 CM³', pompaSesSid: '59', verim: '93' },
+          { kod: '45016', basinc: '250', hiz: '200-3600', iletimHacmi: '13,3 CM³', pompaSesSid: '60', verim: '94' },
+          { kod: '45017', basinc: '250', hiz: '200-3600', iletimHacmi: '15,8 CM³', pompaSesSid: '61', verim: '95' },
+          { kod: '45018', basinc: '250', hiz: '100-3000', iletimHacmi: '19,3 CM³', pompaSesSid: '62', verim: '95' },
+          { kod: '45030', basinc: '250', hiz: '100-3000', iletimHacmi: '22,2 CM³', pompaSesSid: '63', verim: '95' },
+          { kod: '45034', basinc: '250', hiz: '100-3000', iletimHacmi: '25,2 CM³', pompaSesSid: '64', verim: '95' },
+        ]
+      }
+    }
+    return data[brandName] || null
+  }
+
+  // HYSTAR ürün verilerini al
+  const getHystarProductData = (cardName) => {
+    if (cardName === 'ENDÜSTRİYEL TİP PALETLİ POMPALAR') {
+      return {
+        title: 'ENDÜSTRİYEL TİP PALETLİ POMPALAR',
+        categories: [
+          {
+            name: 'TEKLİ PALETLİ POMPALAR',
+            products: [
+              { kod: 'HSHQ25026', basinc: '245', hacim: '26,2 CM³', hiz: '950-1800' },
+              { kod: 'HSHQ25032', basinc: '245', hacim: '32,1 CM³', hiz: '950 - 1800' },
+              { kod: 'HSHQ25038', basinc: '245', hacim: '32,1 CM³', hiz: '950 - 1800' },
+              { kod: 'HSHQ25043', basinc: '245', hacim: '43,2 CM³', hiz: '950 - 1800' },
+              { kod: 'HSHQ25047', basinc: '245', hacim: '47,1 CM³', hiz: '950 - 1800' },
+              { kod: 'HSHQ25052', basinc: '245', hacim: '52,3 CM³', hiz: '950 - 1800' },
+              { kod: 'HSHQ25060', basinc: '210', hacim: '60,2 CM³', hiz: '950 - 1800' },
+              { kod: 'HSHQ25065', basinc: '210', hacim: '65,3 CM³', hiz: '950 - 1800' },
+              { kod: 'HSHQ25075', basinc: '175', hacim: '75 CM³', hiz: '950 - 1800' },
+              { kod: 'HSHQ35108', basinc: '210', hacim: '108,2 CM³', hiz: '900 - 1800' },
+              { kod: 'HSHQ350116', basinc: '175', hacim: '116,1 CM³', hiz: '900 - 1800' },
+              { kod: 'HSHQ35060', basinc: '210', hacim: '60,3 CM³', hiz: '900 - 1800' },
+              { kod: 'HSHQ35076', basinc: '210', hacim: '76,3 CM³', hiz: '900 - 1800' },
+              { kod: 'HSHQ35082', basinc: '210', hacim: '82,2 CM³', hiz: '900 - 1800' },
+              { kod: 'HSHQ35088', basinc: '210', hacim: '88,3 CM³', hiz: '900 - 1800' },
+              { kod: 'HSHQ35094', basinc: '210', hacim: '94,5 CM³', hiz: '900 - 1800' },
+            ]
+          }
+        ]
+      }
+    } else if (cardName === 'DEĞİŞKEN DEBİLİ PALETLİ POMPALAR') {
+      return {
+        title: 'DEĞİŞKEN DEBİLİ PALETLİ POMPALAR',
+        categories: [
+          {
+            name: 'MEKANİK BASINÇ REG. DEĞ. DEB. PALETLİ POMPALAR',
+            products: [
+              { kod: 'HSPVF-12-70', hacim: '6,6 CM³', basinc: '15-35', hiz: '800-1800' },
+              { kod: 'HSPVF-20-70', hacim: '11,1 CM³', basinc: '15-35', hiz: '800-1800' },
+              { kod: 'HSPVF-30-70', hacim: '16,6 CM³', basinc: '15-35', hiz: '800-1800' },
+              { kod: 'HSPVF-40-70', hacim: '22,2 CM³', basinc: '15-35', hiz: '800-1800' },
+            ]
+          },
+          {
+            name: 'MEKANİK BASINÇ REG. DEĞ. DEB. PALETLİ TANDEM POMPALAR',
+            products: [
+              { kod: 'HSPVDF-270270-10', basinc: '50-70', hiz: '800-1800', hacim: '11.1+11.1 CM³' },
+              { kod: 'HSPVDF-370370-10', basinc: '50-70', hiz: '800-1800', hacim: '16.6+16.6 CM³' },
+              { kod: 'HSPVDF-470470-10', basinc: '50-70', hiz: '800-1800', hacim: '22.2+22.2 CM³' },
+            ]
+          }
+        ]
+      }
+    } else if (cardName === 'V10-V20 ENDÜSTRİYEL VE MOBİL POMPALAR') {
+      return {
+        title: 'V10-V20 ENDÜSTRİYEL VE MOBİL POMPALAR',
+        categories: [
+          {
+            name: 'V10',
+            products: [
+              { kod: 'HSHQ15011', hacim: '11,02 CM³', basinc: '245', hiz: '950 - 1800' },
+              { kod: 'HSHQ15014', hacim: '14,03 CM³', basinc: '245', hiz: '950 - 1800' },
+              { kod: 'HSHQ15017', hacim: '17,01 CM³', basinc: '245', hiz: '950 - 1800' },
+              { kod: 'HSHQ15019', hacim: '19,02 CM³', basinc: '245', hiz: '950 - 1800' },
+              { kod: 'HSHQ15023', hacim: '23,03 CM³', basinc: '245', hiz: '950 - 1800' },
+              { kod: 'HSHQ15026', hacim: '26,01 CM³', basinc: '245', hiz: '950 - 1800' },
+              { kod: 'HSHQ15031', hacim: '31,01 CM³', basinc: '245', hiz: '950 - 1800' },
+            ]
+          }
+        ]
+      }
+    }
+    return null
+  }
+
+  // KCL ürün verilerini al
+  const getKclProductData = (cardName) => {
+    if (cardName === 'ENDÜSTRİYEL TİP PALETLİ POMPALAR') {
+      return {
+        title: 'ENDÜSTRİYEL TİP PALETLİ POMPALAR',
+        categories: [
+          {
+            name: 'TEKLİ PALETLİ POMPALAR',
+            products: [
+              { kod: '26492', basinc: '240-275', hiz: '600-2800', hacim: '10,8 CM³' },
+              { kod: '26493', basinc: '240-275', hiz: '600-2800', hacim: '17,2 CM³' },
+              { kod: '26494', basinc: '240-275', hiz: '600-2800', hacim: '21,3 CM³' },
+              { kod: '26575', basinc: '240-275', hiz: '600-2800', hacim: '26,4 CM³' },
+              { kod: '26576', basinc: '240-275', hiz: '600-2800', hacim: '34,1 CM³' },
+              { kod: '26577', basinc: '240-275', hiz: '600-2800', hacim: '37,1 CM³' },
+              { kod: '26578', basinc: '240-275', hiz: '600-2800', hacim: '46 CM³' },
+              { kod: '26579', basinc: '240-275', hiz: '600-2800', hacim: '58,3 CM³' },
+              { kod: '26580', basinc: '240-275', hiz: '600-2800', hacim: '68,3 CM³' },
+              { kod: '26581', basinc: '240-275', hiz: '600-2800', hacim: '70,3 CM³' },
+              { kod: '26582', basinc: '240-275', hiz: '600-2500', hacim: '79,3 CM³' },
+              { kod: '26583', basinc: '210-240', hiz: '600-2500', hacim: '88,8 CM³' },
+              { kod: '26584', basinc: '210-240', hiz: '600-2500', hacim: '100 CM³' },
+              { kod: '26585', basinc: '290-320', hiz: '3600', hacim: '9,8 CM³' },
+              { kod: '26586', basinc: '290-320', hiz: '3600', hacim: '15,9 CM³' },
+              { kod: '26587', basinc: '290-320', hiz: '3600', hacim: '19,8 CM³' },
+              { kod: '26588', basinc: '290-320', hiz: '3600', hacim: '28 CM³' },
+              { kod: '26589', basinc: '290-320', hiz: '3600', hacim: '31,8 CM³' },
+              { kod: '26590', basinc: '270-300', hiz: '3600', hacim: '45,1 CM³' },
+            ]
+          }
+        ]
+      }
+    } else if (cardName === 'DEĞİŞKEN DEBİLİ PALETLİ POMPALAR') {
+      return {
+        title: 'DEĞİŞKEN DEBİLİ PALETLİ POMPALAR',
+        categories: [
+          {
+            name: 'MEKANİK BASINÇ REG. DEĞ. DEB. PALETLİ POMPALAR',
+            products: [
+              { kod: '26205', debi: '11,1', basinc: '50-70', hiz: '800-1800' },
+              { kod: '26206', debi: '16,6', basinc: '50-70', hiz: '800-1800' },
+              { kod: '26207', debi: '22,2', basinc: '50-70', hiz: '800-1800' },
+            ]
+          }
+        ]
+      }
+    }
+    return null
+  }
+
+  // HYTEK ürün verilerini al
+  const getHytekProductData = (cardName) => {
+    if (cardName === 'ENDÜSTRİYEL TİP PALETLİ POMPALAR') {
+      return {
+        title: 'ENDÜSTRİYEL TİP PALETLİ POMPALAR',
+        categories: [
+          {
+            name: 'TEKLİ PALETLİ POMPALAR',
+            products: [
+              { kod: 'YHTF3-PC-20V-11-R', basinc: '210', galon: '11', hiz: '1800', seri: '20V', hacim: '' },
+              { kod: 'HTP20V-11A-1C22R', basinc: '210', galon: '11', hiz: '1800', seri: '20V', hacim: '' },
+              { kod: 'HTP20V-08A-1C22R', basinc: '210', galon: '8', hiz: '1800', seri: '20V', hacim: '' },
+              { kod: 'HTP25V-14A-1C22R', basinc: '175', galon: '14', hiz: '1800', seri: '25V', hacim: '' },
+              { kod: 'HTP25V-17A-1C22R', basinc: '175', galon: '17', hiz: '1800', seri: '25V', hacim: '' },
+              { kod: 'HTP25V-19A-1C22R', basinc: '175', galon: '19', hiz: '1800', seri: '25V', hacim: '' },
+              { kod: 'HTP25V-21A-1C22R', basinc: '175', galon: '21', hiz: '1800', seri: '25V', hacim: '' },
+              { kod: 'HTP35V-25A-1C22R', basinc: '175', galon: '25', hiz: '1800', seri: '35V', hacim: '' },
+              { kod: 'HTP35V-30A-1C22R', basinc: '175', galon: '30', hiz: '1800', seri: '35V', hacim: '' },
+              { kod: 'HTP35V-35A-1C22R', basinc: '175', galon: '30', hiz: '1800', seri: '35V', hacim: '' },
+              { kod: 'YHTF3-PC-45V-50-R', basinc: '175', galon: '50', hiz: '1800', seri: '45V', hacim: '' },
+              { kod: 'HTP45V-60A-1C22R', basinc: '175', galon: '60', hiz: '1800', seri: '45V', hacim: '' },
+              { kod: 'HTP45V-75A-1C22R', basinc: '140', galon: '75', hiz: '1800', seri: '45V', hacim: '' },
+              { kod: 'HTPVL2-26-F-2R-U-10', basinc: '210', galon: '', hiz: '600-1800', seri: '', hacim: '26,06 CM³' },
+              { kod: 'PVL2-33-F-2R-U-10SO', basinc: '210', galon: '', hiz: '600-1800', seri: '', hacim: '33,3 CM³' },
+              { kod: 'HTPVL2-41-F-2R-U-10', basinc: '210', galon: '', hiz: '600-1800', seri: '', hacim: '41,3 CM³' },
+              { kod: 'HTPVL2-47-F-2R-U-10', basinc: '210', galon: '', hiz: '600-1800', seri: '', hacim: '47,02 CM³' },
+              { kod: 'HTPVL2-53-F-2R-U-10', basinc: '210', galon: '', hiz: '600-1800', seri: '', hacim: '52,2 CM³' },
+              { kod: 'HTPVL2-59-F-2R-U-10', basinc: '210', galon: '', hiz: '600-1800', seri: '', hacim: '58,2 CM³' },
+              { kod: 'HTPVL2-65-F-2R-U-10', basinc: '210', galon: '', hiz: '600-1800', seri: '', hacim: '64,7 CM³' },
+              { kod: 'HTPVL2-75-F-2R-U-10', basinc: '210', galon: '', hiz: '600-1800', seri: '', hacim: '74,6 CM³' },
+              { kod: 'HTPVL3-116-F-1R-U-10', basinc: '160', galon: '', hiz: '600-1800', seri: '', hacim: '115,6 CM³' },
+              { kod: '26547', basinc: '160', galon: '', hiz: '600-1200', seri: '', hacim: '122,02 CM³' },
+              { kod: 'HTPVL3-66-F-14R-U-10', basinc: '210', galon: '', hiz: '600-1800', seri: '', hacim: '66,03 CM³' },
+              { kod: 'HTPVL3-76-F-1R-U-10', basinc: '210', galon: '', hiz: '600-1800', seri: '', hacim: '76,04 CM³' },
+              { kod: 'HTPVL3-85-F-1R-U-10', basinc: '210', galon: '', hiz: '600-1800', seri: '', hacim: '85 CM³' },
+              { kod: 'HTPVL3-94-F-1R-U-10', basinc: '210', galon: '', hiz: '600-1800', seri: '', hacim: '93,06 CM³' },
+            ]
+          }
+        ]
+      }
+    } else if (cardName === 'KATRİÇ') {
+      return {
+        title: 'KATRİÇ',
+        categories: [
+          {
+            name: 'MOBİL SERİ KATRİÇ',
+            products: [
+              { kod: 'YHTF3-PC-20VQ-11-R', basinc: '140-210', galon: '11', hiz: '2700', seri: '20VQ' },
+              { kod: 'YHTF3-PC-20VQ-14-R', basinc: '140-210', galon: '14', hiz: '2700', seri: '20VQ' },
+              { kod: 'YHTF3-PC-20VQ-09-R', basinc: '140-210', galon: '9', hiz: '2700', seri: '20VQ' },
+              { kod: 'YHTF3-PC-25VQ-12-R', basinc: '210', galon: '12', hiz: '2500', seri: '25VQ' },
+              { kod: 'YHTF3-PC-25VQ-14-R', basinc: '210', galon: '14', hiz: '2700', seri: '25VQ' },
+              { kod: 'YHTF3-PC-25VQ-17-R', basinc: '210', galon: '17', hiz: '2500', seri: '25VQ' },
+              { kod: 'YHTF3-PC-25VQ-19-R', basinc: '210', galon: '19', hiz: '2500', seri: '25VQ' },
+              { kod: 'YHTF3-PC-25VQ-21-R', basinc: '210', galon: '21', hiz: '2500', seri: '25VQ' },
+              { kod: 'YHTF3-PC-35VQ-25-R', basinc: '210', galon: '25', hiz: '2500', seri: '35VQ' },
+              { kod: 'YHTF3-PC-35VQ-35-R', basinc: '210', galon: '35', hiz: '2400', seri: '35VQ' },
+              { kod: 'YHTF3-PC-35VQ-38-R', basinc: '210', galon: '38', hiz: '2400', seri: '35VQ' },
+              { kod: 'YHTF3-PC-45VQ-42-R', basinc: '175', galon: '42', hiz: '2400', seri: '45VQ' },
+              { kod: 'YHTF3-PC-45VQ-50-R', basinc: '175', galon: '50', hiz: '2200', seri: '45VQ' },
+              { kod: 'YHTF3-PC-45VQ-75-R', basinc: '175', galon: '75', hiz: '2200', seri: '45VQ' },
+            ]
+          },
+          {
+            name: 'ENDÜSTRİYEL SERİ KATRİÇ',
+            products: [
+              { kod: 'YHTF3-PC-25V-14-R', basinc: '175', galon: '14', hiz: '1800', seri: '25V' },
+              { kod: 'YHTF3-PC-25V-15-R', basinc: '175', galon: '15', hiz: '1800', seri: '25V' },
+              { kod: 'YHTF3-PC-25V-17-R', basinc: '175', galon: '17', hiz: '1800', seri: '25V' },
+              { kod: 'YHTF3-PC-25V-19-R', basinc: '175', galon: '19', hiz: '1800', seri: '25V' },
+              { kod: 'YHTF3-PC-25V-21-R', basinc: '175', galon: '21', hiz: '1800', seri: '25V' },
+              { kod: 'YHTF3-PC-35V-21-R', basinc: '175', galon: '21', hiz: '1800', seri: '35V' },
+              { kod: 'YHTF3-PC-35V-25-R', basinc: '175', galon: '25', hiz: '1800', seri: '35V' },
+              { kod: 'YHTF3-PC-35V-30-R', basinc: '175', galon: '30', hiz: '1800', seri: '35V' },
+              { kod: 'YHTF3-PC-35V-38-R', basinc: '175', galon: '38', hiz: '1800', seri: '35V' },
+              { kod: 'YHTF3-PC-35V-45-R', basinc: '175', galon: '45', hiz: '1800', seri: '35V' },
+              { kod: 'YHTF3-PC-45V-42-R', basinc: '175', galon: '42', hiz: '1800', seri: '45V' },
+              { kod: 'YHTF3-PC-45V-57-R', basinc: '175', galon: '57', hiz: '1800', seri: '45V' },
+              { kod: 'YHTF3-PC-45V-60-R', basinc: '175', galon: '60', hiz: '1800', seri: '45V' },
+            ]
+          }
+        ]
+      }
+    } else if (cardName === 'MOBİL TİP PALETLİ POMPALAR') {
+      return {
+        title: 'MOBİL TİP PALETLİ POMPALAR',
+        categories: [
+          {
+            name: 'TANDEM PALETLİ POMPALAR',
+            products: [
+              { kod: 'HTPF3-2520VQ-21A05-11AA20R', basinc: '210', galon: '17+14', hiz: '2500', seri: '25VQ' },
+              { kod: 'HTP-2520VQ-21A05-1AA22R', basinc: '210', galon: '17+5', hiz: '2500', seri: '25VQ' },
+              { kod: 'HTPF3-2520VQ-19A11-11AA20R', basinc: '210', galon: '19+11', hiz: '2500', seri: '25VQ' },
+              { kod: 'HTPF3-2520VQ-19A9-11AA20R', basinc: '210', galon: '19+9', hiz: '2500', seri: '25VQ' },
+              { kod: 'HTPF3-2520VQ-21A11-11AA20R', basinc: '210', galon: '21+11', hiz: '2500', seri: '25VQ' },
+              { kod: 'HTPF3-2520VQ-21A14-11AA20R', basinc: '210', galon: '21+14', hiz: '2500', seri: '25VQ' },
+              { kod: 'HTPF3-2520VQ-21A07-11AA20R', basinc: '210', galon: '21+7', hiz: '2500', seri: '25VQ' },
+              { kod: 'HTPF3-3520VQ-21A11-11AA20R', basinc: '210', galon: '21+11', hiz: '2500', seri: '35VQ' },
+              { kod: 'HTPF3-3520VQ-25A8-11AA20R', basinc: '210', galon: '25+08', hiz: '2500', seri: '35VQ' },
+              { kod: 'HTPF3-3520VQ-25A11-11AA20R', basinc: '210', galon: '25+11', hiz: '2500', seri: '35VQ' },
+              { kod: 'HTPF3-3520VQ-30A11-11AA20R', basinc: '210', galon: '30+11', hiz: '2500', seri: '35VQ' },
+              { kod: 'HTPF3-3520VQ-38A11-11AA20R', basinc: '210', galon: '38+11', hiz: '2400', seri: '35VQ' },
+              { kod: 'HTPF3-3525VQ-35A14-11AA20R', basinc: '210', galon: '35+14', hiz: '2400', seri: '35VQ' },
+              { kod: '26661', basinc: '175', galon: '60+21', hiz: '2200', seri: '45VQ' },
+            ]
+          },
+          {
+            name: 'TEKLİ PALETLİ POMPALAR',
+            products: [
+              { kod: 'HTPF3-25VQ17A-11C20R', basinc: '210', galon: '17', hiz: '2500', seri: '25VQ' },
+              { kod: 'YHTF3-PC-45VQ-60-R', basinc: '175', galon: '60', hiz: '2200', seri: '45VQ' },
+            ]
+          }
+        ]
+      }
+    } else if (cardName === 'DEĞİŞKEN DEBİLİ PALETLİ POMPALAR') {
+      return {
+        title: 'DEĞİŞKEN DEBİLİ PALETLİ POMPALAR',
+        categories: [
+          {
+            name: 'MEKANİK BASINÇ REG. DEĞ. DEB. PALETLİ POMPALAR',
+            products: [
+              { kod: 'HTPHA10VSO100DFR/31R-PSC12K04', basinc: '315', hiz: '2000', versiyon: 'BSÇ.DUYARLI-YÜK DUYARLI', tip: 'DFR', hacim: '', maksBasinc: '', minMaxHiz: '' },
+              { kod: 'HTPHA10VSO18DR/31R-PSC12N00', basinc: '315', hiz: '3300', versiyon: 'BSÇ.DUYARLI-YÜK DUYARLI (LOAD SENSİNG)', tip: 'DR - DFR', hacim: '', maksBasinc: '', minMaxHiz: '' },
+              { kod: '26161', basinc: '315', hiz: '3000', versiyon: 'GÜÇ REGÜLASYONLU(5,5 KW)', tip: 'DFLR', hacim: '', maksBasinc: '', minMaxHiz: '' },
+              { kod: 'HTPHA10VSO28DFR/31R-PSC12N00', basinc: '315', hiz: '3000', versiyon: 'BSÇ.DUYARLI-YÜK DUYARLI (LOAD SENSİNG)', tip: 'DFR', hacim: '', maksBasinc: '', minMaxHiz: '' },
+              { kod: 'HTPHA10VSO45DFLR/31R-PSC12N00', basinc: '315', hiz: '2600', versiyon: 'GÜÇ REGÜLASYONLU(11 KW)', tip: 'DFLR', hacim: '', maksBasinc: '', minMaxHiz: '' },
+              { kod: 'HTPHA10VSO71DFLR/31R-PSC12N00', basinc: '315', hiz: '2200', versiyon: 'GÜÇ REGÜLASYONLU (22 KW)', tip: 'DFLR', hacim: '', maksBasinc: '', minMaxHiz: '' },
+              { kod: 'HTPHA10VSO71DFR/31L-PSC12N00', basinc: '315', hiz: '2200', versiyon: 'BSÇ DUYARLI-YÜK DUYARLI', tip: 'DFR', hacim: '', maksBasinc: '', minMaxHiz: '' },
+              { kod: 'HTPVPV1-12-70-10', basinc: '', hiz: '', versiyon: '', tip: '', hacim: '6,7 CM³', maksBasinc: '50-70', minMaxHiz: '800-1800' },
+              { kod: 'HTPVPV1-15-70-10', basinc: '', hiz: '', versiyon: '', tip: '', hacim: '8,3 CM³', maksBasinc: '50-70', minMaxHiz: '800-1800' },
+              { kod: 'HTPVPV1-20-70-10', basinc: '', hiz: '', versiyon: '', tip: '', hacim: '11,1 CM³', maksBasinc: '50-70', minMaxHiz: '800-1800' },
+              { kod: 'HTPVPV2-30-70-20', basinc: '', hiz: '', versiyon: '', tip: '', hacim: '16,7 CM³', maksBasinc: '50-70', minMaxHiz: '800-1800' },
+              { kod: 'HTPVPV2-40-70-20', basinc: '', hiz: '', versiyon: '', tip: '', hacim: '22,2 CM³', maksBasinc: '50-70', minMaxHiz: '800-1800' },
+            ]
+          }
+        ]
+      }
+    } else if (cardName === 'V10-V20 ENDÜSTRİYEL VE MOBİL POMPALAR') {
+      return {
+        title: 'V10-V20 ENDÜSTRİYEL VE MOBİL POMPALAR',
+        categories: [
+          {
+            name: 'V10',
+            products: [
+              { kod: 'HTPVL1-10-F-1R-U-10', basinc: '210', deplasman: '9,04 CM³', hiz: '750-1800', galon: '', seri: '' },
+              { kod: 'HTPVL1-12-F-1R-U-10', basinc: '210', deplasman: '12,02 CM³', hiz: '750-1800', galon: '', seri: '' },
+              { kod: 'HTPVL1-14-F-1R-U-10', basinc: '210', deplasman: '19,07 CM³', hiz: '750-1800', galon: '', seri: '' },
+              { kod: 'HTPVL1-17-F-1R-U-10', basinc: '210', deplasman: '16,06 CM³', hiz: '750-1800', galon: '', seri: '' },
+              { kod: 'HTPVL1-19-F-1R-U-10', basinc: '210', deplasman: '18,06 CM³', hiz: '750-1800', galon: '', seri: '' },
+              { kod: 'HTPVL1-23-F-1R-U-10', basinc: '210', deplasman: '22,07 CM³', hiz: '750-1800', galon: '', seri: '' },
+              { kod: 'HTPVL1-25-F-1R-U-10', basinc: '210', deplasman: '25,03 CM³', hiz: '750-1800', galon: '', seri: '' },
+              { kod: 'HTPVL1-31-F-1R-U-10', basinc: '210', deplasman: '31 CM³', hiz: '750-1800', galon: '', seri: '' },
+              { kod: 'HTPV10-1B2B-1C20R', basinc: '172', deplasman: '', hiz: '4500', galon: '2', seri: 'V10' },
+              { kod: 'HTPV10-1B3B-1C20R', basinc: '172', deplasman: '', hiz: '4000', galon: '3', seri: 'V10' },
+              { kod: 'HTPV10-1B4B-1C20R', basinc: '172', deplasman: '', hiz: '3400', galon: '4', seri: 'V10' },
+              { kod: 'HTPV10-1B5B-1C20R', basinc: '172', deplasman: '', hiz: '3200', galon: '5', seri: 'V10' },
+              { kod: 'HTPV10-1B6B-1C20R', basinc: '152', deplasman: '', hiz: '3000', galon: '6', seri: 'V10' },
+              { kod: 'HTPV10-1B7B-1C20R', basinc: '138', deplasman: '', hiz: '2800', galon: '7', seri: 'V10' },
+            ]
+          },
+          {
+            name: 'V20',
+            products: [
+              { kod: 'HTPV20-1B6B-1C10R', galon: '6', basinc: '172', hiz: '3400', seri: 'V20' },
+              { kod: 'HTPV20-1B7B-1C10R', galon: '7', basinc: '172', hiz: '3000', seri: 'V20' },
+              { kod: 'HTPV20-1B8B-1C10R', galon: '8', basinc: '172', hiz: '2800', seri: 'V20' },
+              { kod: 'HTPV20-1B9B-1A10R', galon: '9', basinc: '172', hiz: '2800', seri: 'V20' },
+              { kod: 'HTPV20-1B11B-1A10R', galon: '11', basinc: '172', hiz: '2500', seri: 'V20' },
+              { kod: 'HTPV20-1B13B-1C10R', galon: '13', basinc: '152', hiz: '2400', seri: 'V20' },
+            ]
+          }
+        ]
+      }
+    }
+    return null
+  }
+
+  // PALETLİ POMPA kartına tıklandığında
+  const handlePaletliPompaCardClick = (cardName, brandName) => {
+    setSelectedPaletliPompaCard(cardName)
   }
 
   // Grup detay sayfasında mıyız?
@@ -3107,6 +3684,1138 @@ function ProductDetail() {
                                 </div>
                               </div>
                             </>
+                          ) : selectedGroup === '20.GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ POMPALAR' && selectedGroupBrand === 'asc' ? (
+                            <>
+                              {/* Açıklama Metni */}
+                              <div className="space-y-4 text-base leading-relaxed">
+                                <h3 className="text-xl font-bold text-slate-900 mb-2">20.GRUP B Tipi Kapak 1/8 Konik Milli Pompalar: Hassas ve Güvenilir Hidrolik Çözümler</h3>
+                                <p>
+                                  Hidrolik pompalar, endüstriyel sektörde kritik bir role sahip olup, mekanik enerjiyi hidrolik enerjiye dönüştüren önemli ekipmanlardır. 20.GRUP B Tipi Kapak 1/8 Konik Milli Pompalar, hassasiyeti ve güvenilirliğiyle öne çıkarak çeşitli işletme ihtiyaçlarına çözüm sunmaktadır.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">B Tipi Kapak 1/8 Konik Milli Pompaların Özellikleri</h4>
+                                <p>
+                                  Bu seri, hassas işler için tasarlanmış ve yüksek performanslı B Tipi Kapak 1/8 Konik Milli Pompalarla donatılmıştır. Hassas işlemlerde güvenilirlik ve hassasiyet sunarak, endüstriyel uygulamalarda önemli bir yer tutar.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Çeşitli Uygulama Alanları</h4>
+                                <p>
+                                  20.GRUP'un B Tipi Kapak 1/8 Konik Milli Pompaları, çeşitli endüstriyel sektörlerde kullanım için optimize edilmiştir. Hassas hidrolik ihtiyaçlarını karşılamak üzere tasarlanmıştır.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Performans ve Güvenilirlik Dengesi</h4>
+                                <p>
+                                  Bu pompa serisi, yüksek performansı güvenilirlikle birleştirerek işletmelere sağlam bir çözüm sunar. Hassas işlemlerde bile istikrarlı bir performans sergiler.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Hidrolik Pompaların Çeşitliliği</h4>
+                                <p>
+                                  Hidrolik pompaların geniş bir yelpazesi bulunur ve her biri farklı gereksinimleri karşılamak üzere tasarlanmıştır. B Tipi Kapak 1/8 Konik Milli Pompalar, özellikle hassas işler için idealdir.
+                                </p>
+                                <p>
+                                  Her işletmenin farklı gereksinimleri olduğundan, hangi hidrolik pompaların en uygun olduğunu belirlemek için uzman danışmanlık almak önemlidir.
+                                </p>
+                              </div>
+
+                              {/* Tablo */}
+                              <div className="mt-8 pt-6 border-t border-slate-200">
+                                <h3 className="text-lg font-bold text-slate-900 mb-4">20.GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ POMPALAR</h3>
+                                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                      <thead className="bg-slate-50">
+                                        <tr>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Model</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">DÖNÜŞ YÖNÜ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETIM HACMİ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">KAPAK</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Min.HIZ</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-slate-200">
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDKP20.040.CAB02SN</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">3,9 CM³</td><td className="px-4 py-3 text-slate-700">B</td><td className="px-4 py-3 text-slate-700">3500</td><td className="px-4 py-3 text-slate-700">650</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDKP20.060.CAB02SN</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">5,9 CM³</td><td className="px-4 py-3 text-slate-700">B</td><td className="px-4 py-3 text-slate-700">3500</td><td className="px-4 py-3 text-slate-700">650</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDKP20.080.CAB02SN</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">8,0 CM³</td><td className="px-4 py-3 text-slate-700">B</td><td className="px-4 py-3 text-slate-700">3500</td><td className="px-4 py-3 text-slate-700">650</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDKP20.095.CAB02SN</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">9,4 CM³</td><td className="px-4 py-3 text-slate-700">B</td><td className="px-4 py-3 text-slate-700">3500</td><td className="px-4 py-3 text-slate-700">600</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDKP20.115.CAB02SN</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">11,4 CM³</td><td className="px-4 py-3 text-slate-700">B</td><td className="px-4 py-3 text-slate-700">3000</td><td className="px-4 py-3 text-slate-700">600</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDKP20.140.CAB02SN</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">13,9 CM³</td><td className="px-4 py-3 text-slate-700">B</td><td className="px-4 py-3 text-slate-700">3000</td><td className="px-4 py-3 text-slate-700">600</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDKP20.160.CAB02SN</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">16,00 CM³</td><td className="px-4 py-3 text-slate-700">B</td><td className="px-4 py-3 text-slate-700">3000</td><td className="px-4 py-3 text-slate-700">600</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDKP20.190.CAB02SN</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">19,2 CM³</td><td className="px-4 py-3 text-slate-700">B</td><td className="px-4 py-3 text-slate-700">3000</td><td className="px-4 py-3 text-slate-700">600</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDKP20.220.CAB02SN</td><td className="px-4 py-3 text-slate-700">240</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">21,9 CM³</td><td className="px-4 py-3 text-slate-700">B</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">600</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDKP20.250.CAB02SN</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">24,8 CM³</td><td className="px-4 py-3 text-slate-700">B</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">600</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDKP20.280.AAB02SN</td><td className="px-4 py-3 text-slate-700">200</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">27,9 CM³</td><td className="px-4 py-3 text-slate-700">B</td><td className="px-4 py-3 text-slate-700">2200</td><td className="px-4 py-3 text-slate-700">600</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDKP20.280.CAB02SN</td><td className="px-4 py-3 text-slate-700">200</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">27,9 CM³</td><td className="px-4 py-3 text-slate-700">B</td><td className="px-4 py-3 text-slate-700">2200</td><td className="px-4 py-3 text-slate-700">600</td></tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          ) : selectedGroup === '20.GRUP G TİPİ KAPAK FREZELİ POMPALAR' && selectedGroupBrand === 'asc' ? (
+                            <>
+                              {/* Açıklama Metni */}
+                              <div className="space-y-4 text-base leading-relaxed">
+                                <h3 className="text-xl font-bold text-slate-900 mb-2">20.GRUP G Tipi Kapak Frezeli Pompalar: Güçlü Performans ve Hassas Çalışma</h3>
+                                <p>
+                                  Hidrolik pompalar, endüstriyel dünyada önemli bir role sahip olan, mekanik enerjiyi hidrolik enerjiye dönüştüren kritik ekipmanlardır. 20.GRUP G Tipi Kapak Frezeli Pompalar, güçlü performansı ve hassas çalışma özellikleriyle endüstriyel ihtiyaçlara cevap vermek için tasarlanmıştır.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">G Tipi Kapak Frezeli Pompaların Özellikleri</h4>
+                                <p>
+                                  Bu seri, güçlü performansı ve hassas çalışma özellikleri ile donatılmıştır. Frezeli yapısı, hassas hidrolik işlemlerde üstün bir performans sunar.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Geniş Uygulama Alanları</h4>
+                                <p>
+                                  20.GRUP'un G Tipi Kapak Frezeli Pompaları, endüstriyel sektörde geniş bir uygulama alanına sahiptir. Hassas işlemler ve yüksek performans gerektiren durumlar için idealdir.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Performans ve Hassasiyet Dengesi</h4>
+                                <p>
+                                  Bu seri, güçlü performansı hassas çalışma ile birleştirerek işletmelere güvenilir bir çözüm sunar. Yüksek performanslı işlemlerde bile hassasiyeti korur.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Hidrolik Pompaların Çeşitliliği</h4>
+                                <p>
+                                  Hidrolik pompaların geniş bir yelpazesi bulunur ve her biri farklı gereksinimleri karşılamak üzere tasarlanmıştır. G Tipi Kapak Frezeli Pompalar, hassas ve güçlü yapısıyla endüstriyel kullanım için idealdir.
+                                </p>
+                                <p>
+                                  Her işletmenin farklı gereksinimleri olduğundan, hangi hidrolik pompaların en uygun olduğunu belirlemek için uzman danışmanlık almak önemlidir.
+                                </p>
+                              </div>
+
+                              {/* Tablo */}
+                              <div className="mt-8 pt-6 border-t border-slate-200">
+                                <h3 className="text-lg font-bold text-slate-900 mb-4">20.GRUP G TİPİ KAPAK FREZELİ POMPALAR</h3>
+                                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                      <thead className="bg-slate-50">
+                                        <tr>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Model</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETIM HACMİ</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-slate-200">
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDKP20.320.ADM5PN</td><td className="px-4 py-3 text-slate-700">32 CM³</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDKP20.320.CDM5PN</td><td className="px-4 py-3 text-slate-700">32 CM³</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDKP20.400.CAD05SON</td><td className="px-4 py-3 text-slate-700">40 CM³</td></tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          ) : selectedGroup === '30.GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ POMPALAR' && selectedGroupBrand === 'asc' ? (
+                            <>
+                              {/* Açıklama Metni */}
+                              <div className="space-y-4 text-base leading-relaxed">
+                                <h3 className="text-xl font-bold text-slate-900 mb-2">30.GRUP B Tipi Kapak 1/8 Konik Milli Pompa: Hidrolik Sistemleriniz İçin Güçlü Çözüm</h3>
+                                <p>
+                                  Hidrolik sistemlerin temel parçalarından biri olan 30.GRUP B Tipi Kapak 1/8 Konik Milli Pompa, güçlü performansı ve geniş uygulama alanlarıyla öne çıkıyor. Bu pompa, hidrolik enerjiyi verimli bir şekilde kullanarak sistemlerinizin sorunsuz çalışmasını sağlar.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Teknoloji ve Fonksiyonellik Bir Arada</h4>
+                                <p>
+                                  30.GRUP'un sunduğu bu dişli pompa, yüksek kaliteli malzemelerden üretilmiştir ve dayanıklılığıyla öne çıkar. Alüminyum gövdeli dişli pompalar arasında yer alan bu ürün, hafif yapısıyla montajı kolaylaştırırken aynı zamanda uzun ömürlü bir performans sunar.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Geniş Uygulama Alanları</h4>
+                                <p>
+                                  Hidrolik pompa çeşitleri arasında bulunan B Tipi Kapak 1/8 Konik Milli Pompa, farklı endüstriyel alanlarda yaygın olarak kullanılır. Yüksek basınç gerektiren sistemlerden daha düşük basınçlı sistemlere kadar geniş bir yelpazede verimli çalışma sağlar.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Performans ve Ekonomik Seçenekler</h4>
+                                <p>
+                                  Hidrolik pompa fiyatları arasında ekonomik bir seçenek sunan bu ürün, yüksek performansıyla maliyet-etkin bir çözüm sunar. Sistemlerinizin gereksinimlerini karşılamak için uygun bir seçenek olarak öne çıkar.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Doğru Seçim İçin Uzman Destek</h4>
+                                <p>
+                                  Hidrolik sistemleriniz için doğru pompa seçimi, performansın ve verimliliğin anahtarıdır. 30.GRUP'un sunduğu uzman desteğiyle, ihtiyaçlarınıza uygun en iyi çözümü belirleyebilirsiniz.
+                                </p>
+                                <p>
+                                  30.GRUP B Tipi Kapak 1/8 Konik Milli Pompa, hidrolik sistemlerinizde güvenilir ve etkili bir performans sunar. Üstün teknoloji ve dayanıklılığıyla, işlerinizi verimli bir şekilde yürütmenize olanak tanır.
+                                </p>
+                              </div>
+
+                              {/* Tablo */}
+                              <div className="mt-8 pt-6 border-t border-slate-200">
+                                <h3 className="text-lg font-bold text-slate-900 mb-4">30.GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ POMPALAR</h3>
+                                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                      <thead className="bg-slate-50">
+                                        <tr>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Model</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETIM HACMİ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-slate-200">
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDKP30.270.CAB02SN</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">27 CM³</td><td className="px-4 py-3 text-slate-700">3000</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDKP30.820.CAB02SN</td><td className="px-4 py-3 text-slate-700">190</td><td className="px-4 py-3 text-slate-700">82 CM³</td><td className="px-4 py-3 text-slate-700">2000</td></tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          ) : selectedGroup === '30.GRUP B TİPİ KAPAK DÜZ MİLLİ POMPALAR' && selectedGroupBrand === 'asc' ? (
+                            <>
+                              {/* Açıklama Metni */}
+                              <div className="space-y-4 text-base leading-relaxed">
+                                <h3 className="text-xl font-bold text-slate-900 mb-2">30.GRUP B Tipi Kapak Düz Milli Pompalar: Hidrolik Sistemleriniz İçin Güçlü Performans</h3>
+                                <p>
+                                  Hidrolik sistemlerde önemli bir yer tutan 30.GRUP'un B Tipi Kapak Düz Milli Pompaları, güvenilirlikleri ve etkili performanslarıyla öne çıkıyor. Bu pompa çeşidi, hidrolik enerjiyi dönüştürerek sistemlerinizin sorunsuz çalışmasını sağlar.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Teknoloji ve Güvenilirlik</h4>
+                                <p>
+                                  Alüminyum gövdeli dişli pompalar kategorisinde yer alan bu ürün, dayanıklı malzemeler kullanılarak tasarlanmıştır. Bu özellik, uzun ömürlü kullanım ve dayanıklılık sağlar. Sistemlerinizin ihtiyaç duyduğu güvenilirlik ve performansı sunar.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Çeşitlilik ve Uygulanabilirlik</h4>
+                                <p>
+                                  Hidrolik dişli pompa çeşitleri arasında yer alan B Tipi Kapak Düz Milli Pompa, farklı hidrolik sistemlerde geniş bir kullanım alanına sahiptir. Yüksek basınçlı sistemlerden düşük basınçlı sistemlere kadar çeşitli uygulamalarda etkin bir şekilde çalışır.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Performans ve Ekonomik Seçenekler</h4>
+                                <p>
+                                  Hidrolik pompa fiyatları arasında rekabetçi bir seçenek olan bu ürün, yüksek performansı ile maliyet-etkin bir çözüm sunar. Bu sayede, işletme maliyetlerinizi optimize ederken kaliteli bir hidrolik sisteme sahip olabilirsiniz.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Uzman Destek ile Doğru Seçim</h4>
+                                <p>
+                                  Hidrolik pompaların doğru seçimi, sisteminizin verimliliği ve dayanıklılığı için kritik öneme sahiptir. 30.GRUP'un uzman ekibi, ihtiyaçlarınıza en uygun çözümü belirlemenizde size yardımcı olabilir.
+                                </p>
+                                <p>
+                                  30.GRUP B Tipi Kapak Düz Milli Pompaları, hidrolik sistemlerinizin temel taşlarından biri olarak güçlü ve güvenilir performans sunar. Endüstri standartlarını karşılayan kalite ve dayanıklılığıyla öne çıkar.
+                                </p>
+                              </div>
+
+                              {/* Tablo */}
+                              <div className="mt-8 pt-6 border-t border-slate-200">
+                                <h3 className="text-lg font-bold text-slate-900 mb-4">30.GRUP B TİPİ KAPAK DÜZ MİLLİ POMPALAR</h3>
+                                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                      <thead className="bg-slate-50">
+                                        <tr>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Model</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETIM HACMİ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-slate-200">
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDKP30.610.AAH05SN</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">61 CM³</td><td className="px-4 py-3 text-slate-700">2500</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDKP30.610.CAH05SN</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">61 CM³</td><td className="px-4 py-3 text-slate-700">2500</td></tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          ) : selectedGroup === '30.GRUP UNİ POMPALAR' && selectedGroupBrand === 'asc' ? (
+                            <>
+                              {/* Tablo */}
+                              <div className="mt-8 pt-6 border-t border-slate-200">
+                                <h3 className="text-lg font-bold text-slate-900 mb-4">30.GRUP UNİ POMPALAR</h3>
+                                <p className="text-sm font-semibold text-slate-700 mb-4">TEK YÖN POMPALAR</p>
+                                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                      <thead className="bg-slate-50">
+                                        <tr>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Model</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETIM HACMİ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">YAĞ ÇIKIŞI</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">YAĞ GİRİŞİ</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-slate-200">
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.017.AST1N</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">17,2 CM³</td><td className="px-4 py-3 text-slate-700">3000</td><td className="px-4 py-3 text-slate-700">G 1/2"</td><td className="px-4 py-3 text-slate-700">G 1/2"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.017.CST1N</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">17,2 CM³</td><td className="px-4 py-3 text-slate-700">3000</td><td className="px-4 py-3 text-slate-700">G 1/2"</td><td className="px-4 py-3 text-slate-700">G 1/2"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.027.AST1N</td><td className="px-4 py-3 text-slate-700">290</td><td className="px-4 py-3 text-slate-700">27,1 CM³</td><td className="px-4 py-3 text-slate-700">3000</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 3/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.027.CST1N</td><td className="px-4 py-3 text-slate-700">290</td><td className="px-4 py-3 text-slate-700">27,1 CM³</td><td className="px-4 py-3 text-slate-700">3000</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 3/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.034.AST1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">34,4 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 3/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.034.CST1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">34,4 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 3/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.043.AST1N</td><td className="px-4 py-3 text-slate-700">270</td><td className="px-4 py-3 text-slate-700">42,9 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 3/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.043.CST1N</td><td className="px-4 py-3 text-slate-700">270</td><td className="px-4 py-3 text-slate-700">42,9 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 3/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.051.AST1N</td><td className="px-4 py-3 text-slate-700">240</td><td className="px-4 py-3 text-slate-700">51,2 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.051.CST1N</td><td className="px-4 py-3 text-slate-700">240</td><td className="px-4 py-3 text-slate-700">51,2 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.061.AST1N</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">60,7 CM³</td><td className="px-4 py-3 text-slate-700">2000</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.061.CST1N</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">60,7 CM³</td><td className="px-4 py-3 text-slate-700">2000</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.073.AST1N</td><td className="px-4 py-3 text-slate-700">200</td><td className="px-4 py-3 text-slate-700">73 CM³</td><td className="px-4 py-3 text-slate-700">1750</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.073.CST1N</td><td className="px-4 py-3 text-slate-700">200</td><td className="px-4 py-3 text-slate-700">73 CM³</td><td className="px-4 py-3 text-slate-700">1750</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.082.AST1N</td><td className="px-4 py-3 text-slate-700">190</td><td className="px-4 py-3 text-slate-700">81,4 CM³</td><td className="px-4 py-3 text-slate-700">1750</td><td className="px-4 py-3 text-slate-700">G 1-1/4"</td><td className="px-4 py-3 text-slate-700">G 1-1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.082.CST1N</td><td className="px-4 py-3 text-slate-700">190</td><td className="px-4 py-3 text-slate-700">81,4 CM³</td><td className="px-4 py-3 text-slate-700">1750</td><td className="px-4 py-3 text-slate-700">G 1-1/4"</td><td className="px-4 py-3 text-slate-700">G 1-1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.100.AST1N</td><td className="px-4 py-3 text-slate-700">180</td><td className="px-4 py-3 text-slate-700">99,7 CM³</td><td className="px-4 py-3 text-slate-700">1750</td><td className="px-4 py-3 text-slate-700">G 1-1/4"</td><td className="px-4 py-3 text-slate-700">G 1-1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.100.CST1N</td><td className="px-4 py-3 text-slate-700">180</td><td className="px-4 py-3 text-slate-700">99,7 CM³</td><td className="px-4 py-3 text-slate-700">1750</td><td className="px-4 py-3 text-slate-700">G 1-1/4"</td><td className="px-4 py-3 text-slate-700">G 1-1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.017.AST1N</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">17,2 CM³</td><td className="px-4 py-3 text-slate-700">3000</td><td className="px-4 py-3 text-slate-700">G 1/2"</td><td className="px-4 py-3 text-slate-700">G 1/2"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.017.CST1N</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">17,2 CM³</td><td className="px-4 py-3 text-slate-700">3000</td><td className="px-4 py-3 text-slate-700">G 1/2"</td><td className="px-4 py-3 text-slate-700">G 1/2"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.027.AST1N</td><td className="px-4 py-3 text-slate-700">290</td><td className="px-4 py-3 text-slate-700">27,1 CM³</td><td className="px-4 py-3 text-slate-700">3000</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 3/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.027.CST1N</td><td className="px-4 py-3 text-slate-700">290</td><td className="px-4 py-3 text-slate-700">27,1 CM³</td><td className="px-4 py-3 text-slate-700">3000</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 3/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.034.AST1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">34,4 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 3/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.034.CST1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">34,4 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 3/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.043.AST1N</td><td className="px-4 py-3 text-slate-700">270</td><td className="px-4 py-3 text-slate-700">42,9 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 3/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.043.CST1N</td><td className="px-4 py-3 text-slate-700">270</td><td className="px-4 py-3 text-slate-700">42,9 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 3/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.051.AST1N</td><td className="px-4 py-3 text-slate-700">240</td><td className="px-4 py-3 text-slate-700">51,2 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.051.CST1N</td><td className="px-4 py-3 text-slate-700">240</td><td className="px-4 py-3 text-slate-700">51,2 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.061.AST1N</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">60,7 CM³</td><td className="px-4 py-3 text-slate-700">2000</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.061.CST1N</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">60,7 CM³</td><td className="px-4 py-3 text-slate-700">2000</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.073.AST1N</td><td className="px-4 py-3 text-slate-700">200</td><td className="px-4 py-3 text-slate-700">73 CM³</td><td className="px-4 py-3 text-slate-700">1750</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.073.CST1N</td><td className="px-4 py-3 text-slate-700">200</td><td className="px-4 py-3 text-slate-700">73 CM³</td><td className="px-4 py-3 text-slate-700">1750</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.082.AST1N</td><td className="px-4 py-3 text-slate-700">190</td><td className="px-4 py-3 text-slate-700">81,4 CM³</td><td className="px-4 py-3 text-slate-700">1750</td><td className="px-4 py-3 text-slate-700">G 1-1/4"</td><td className="px-4 py-3 text-slate-700">G 1-1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.082.CST1N</td><td className="px-4 py-3 text-slate-700">190</td><td className="px-4 py-3 text-slate-700">81,4 CM³</td><td className="px-4 py-3 text-slate-700">1750</td><td className="px-4 py-3 text-slate-700">G 1-1/4"</td><td className="px-4 py-3 text-slate-700">G 1-1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.100.AST1N</td><td className="px-4 py-3 text-slate-700">180</td><td className="px-4 py-3 text-slate-700">99,7 CM³</td><td className="px-4 py-3 text-slate-700">1750</td><td className="px-4 py-3 text-slate-700">G 1-1/4"</td><td className="px-4 py-3 text-slate-700">G 1-1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.100.CST1N</td><td className="px-4 py-3 text-slate-700">180</td><td className="px-4 py-3 text-slate-700">99,7 CM³</td><td className="px-4 py-3 text-slate-700">1750</td><td className="px-4 py-3 text-slate-700">G 1-1/4"</td><td className="px-4 py-3 text-slate-700">G 1-1/4"</td></tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          ) : selectedGroup === '30.GRUP ISO POMPALAR' && selectedGroupBrand === 'hemko' ? (
+                            <>
+                              {/* Açıklama Metni */}
+                              <div className="space-y-4 text-base leading-relaxed">
+                                <p>
+                                  <strong>HEMKO</strong>
+                                </p>
+                                <p>
+                                  30.GRUP ISO POMPALAR: Döküm Gövdeli Dişli Pompalar ile Yüksek Performans
+                                </p>
+                                <p>
+                                  HEMKO 30.GRUP ISO POMPALAR, döküm gövdeli dişli pompa teknolojisiyle üretilmiş, yüksek basınç ve güvenilir performans sunan hidrolik pompalardır. ISO standartlarına uygun olarak tasarlanmış bu pompalar, endüstriyel uygulamalarda geniş bir kullanım alanına sahiptir.
+                                </p>
+                              </div>
+
+                              {/* Tablo */}
+                              <div className="mt-8 pt-6 border-t border-slate-200">
+                                <h3 className="text-lg font-bold text-slate-900 mb-4">30.GRUP ISO POMPALAR</h3>
+                                <p className="text-sm font-semibold text-slate-700 mb-4">ISO TEK YÖN</p>
+                                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                      <thead className="bg-slate-50">
+                                        <tr>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Model</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Min.HIZ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">YAĞ ÇIKIŞI</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">YAĞ GİRİŞİ</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-slate-200">
+                                        <tr className="hover:bg-slate-50">
+                                          <td className="px-4 py-3 font-medium text-slate-900">130 043 2X2</td>
+                                          <td className="px-4 py-3 text-slate-700">250</td>
+                                          <td className="px-4 py-3 text-slate-700">43 CM³</td>
+                                          <td className="px-4 py-3 text-slate-700">2000</td>
+                                          <td className="px-4 py-3 text-slate-700">400</td>
+                                          <td className="px-4 py-3 text-slate-700">R3/4"</td>
+                                          <td className="px-4 py-3 text-slate-700">R1"</td>
+                                        </tr>
+                                        <tr className="hover:bg-slate-50">
+                                          <td className="px-4 py-3 font-medium text-slate-900">130 082 2X2</td>
+                                          <td className="px-4 py-3 text-slate-700">210</td>
+                                          <td className="px-4 py-3 text-slate-700">82 CM³</td>
+                                          <td className="px-4 py-3 text-slate-700">2000</td>
+                                          <td className="px-4 py-3 text-slate-700">400</td>
+                                          <td className="px-4 py-3 text-slate-700">R1"</td>
+                                          <td className="px-4 py-3 text-slate-700">R1" 1/4</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          ) : selectedGroup === '40.GRUP ISO POMPALAR' && selectedGroupBrand === 'hemko' ? (
+                            <>
+                              {/* Açıklama Metni */}
+                              <div className="space-y-4 text-base leading-relaxed">
+                                <p>
+                                  <strong>HEMKO</strong>
+                                </p>
+                                <p>
+                                  40.GRUP ISO POMPALAR: Döküm Gövdeli Dişli Pompalar ile Yüksek Performans
+                                </p>
+                                <p>
+                                  HEMKO 40.GRUP ISO POMPALAR, döküm gövdeli dişli pompa teknolojisiyle üretilmiş, yüksek basınç ve güvenilir performans sunan hidrolik pompalardır. ISO standartlarına uygun olarak tasarlanmış bu pompalar, endüstriyel uygulamalarda geniş bir kullanım alanına sahiptir.
+                                </p>
+                              </div>
+
+                              {/* Tablo */}
+                              <div className="mt-8 pt-6 border-t border-slate-200">
+                                <h3 className="text-lg font-bold text-slate-900 mb-4">40.GRUP ISO POMPALAR</h3>
+                                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                      <thead className="bg-slate-50">
+                                        <tr>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Model</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS. HIZ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MİN. HIZ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">YAĞ ÇIKIŞI</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">YAĞ GİRİŞİ</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-slate-200">
+                                        <tr className="hover:bg-slate-50">
+                                          <td className="px-4 py-3 font-medium text-slate-900">44874</td>
+                                          <td className="px-4 py-3 text-slate-700">440</td>
+                                          <td className="px-4 py-3 text-slate-700">87 CM³</td>
+                                          <td className="px-4 py-3 text-slate-700">2000</td>
+                                          <td className="px-4 py-3 text-slate-700">400</td>
+                                          <td className="px-4 py-3 text-slate-700">R1"</td>
+                                          <td className="px-4 py-3 text-slate-700">R1" 1/4</td>
+                                        </tr>
+                                        <tr className="hover:bg-slate-50">
+                                          <td className="px-4 py-3 font-medium text-slate-900">140 087 2X2</td>
+                                          <td className="px-4 py-3 text-slate-700">440</td>
+                                          <td className="px-4 py-3 text-slate-700">87 CM³</td>
+                                          <td className="px-4 py-3 text-slate-700">2000</td>
+                                          <td className="px-4 py-3 text-slate-700">400</td>
+                                          <td className="px-4 py-3 text-slate-700">R1"</td>
+                                          <td className="px-4 py-3 text-slate-700">R1" 1/4</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          ) : selectedGroup === '40.GRUP UNİ POMPALAR' && selectedGroupBrand === 'hidromas' ? (
+                            <>
+                              {/* Açıklama Metni */}
+                              <div className="space-y-4 text-base leading-relaxed">
+                                <p>
+                                  <strong>HİDROMAS</strong>
+                                </p>
+                                <p>
+                                  40.GRUP UNİ POMPALAR: Döküm Gövdeli Dişli Pompalarla Güçlü ve Dayanıklı Performans
+                                </p>
+                                <p>
+                                  HİDROMAS 40.GRUP UNİ POMPALAR, döküm gövdeli dişli pompa teknolojisiyle üretilmiş, yüksek basınç ve geniş hacim aralığında çalışabilen pompalardır. Tek yön pompa özelliği ile endüstriyel uygulamalarda güvenilir performans sunar.
+                                </p>
+
+                                <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3">Döküm Gövdeli Dişli Pompaların Avantajları</h3>
+                                <p>
+                                  Döküm gövde yapısı sayesinde yüksek dayanıklılık ve uzun ömür sağlar. Yüksek basınç değerlerinde bile güvenilir çalışma performansı gösterir.
+                                </p>
+
+                                <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3">Geniş Uygulama Alanları</h3>
+                                <p>
+                                  40.GRUP UNİ POMPALAR, tarım makineleri, inşaat ekipmanları, endüstriyel makineler ve mobil uygulamalar gibi geniş bir yelpazede kullanılabilir.
+                                </p>
+                              </div>
+
+                              {/* Tablo: 40.GRUP UNİ POMPALAR - TEK YÖN POMPALAR */}
+                              <div className="mt-8 pt-6 border-t border-slate-200">
+                                <h3 className="text-lg font-bold text-slate-900 mb-4">40.GRUP UNİ POMPALAR</h3>
+                                <p className="text-sm font-semibold text-slate-700 mb-4">TEK YÖN POMPALAR</p>
+                                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                      <thead className="bg-slate-50">
+                                        <tr>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Model</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Min.HIZ</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-slate-200">
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">44771</td><td className="px-4 py-3 text-slate-700">250</td><td className="px-4 py-3 text-slate-700">107,60 CM³</td><td className="px-4 py-3 text-slate-700">1500</td><td className="px-4 py-3 text-slate-700">250</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">44788</td><td className="px-4 py-3 text-slate-700">210</td><td className="px-4 py-3 text-slate-700">132,38 CM³</td><td className="px-4 py-3 text-slate-700">1500</td><td className="px-4 py-3 text-slate-700">250</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">44768</td><td className="px-4 py-3 text-slate-700">180</td><td className="px-4 py-3 text-slate-700">148,90 CM³</td><td className="px-4 py-3 text-slate-700">1500</td><td className="px-4 py-3 text-slate-700">250</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">44759</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">60,60 CM³</td><td className="px-4 py-3 text-slate-700">1800</td><td className="px-4 py-3 text-slate-700">300</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">44769</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">71,70 CM³</td><td className="px-4 py-3 text-slate-700">1800</td><td className="px-4 py-3 text-slate-700">300</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">44770</td><td className="px-4 py-3 text-slate-700">250</td><td className="px-4 py-3 text-slate-700">85,50 CM³</td><td className="px-4 py-3 text-slate-700">1500</td><td className="px-4 py-3 text-slate-700">300</td></tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          ) : selectedGroup === '40.GRUP ISO POMPALAR' && selectedGroupBrand === 'hidromas' ? (
+                            <>
+                              {/* Açıklama Metni */}
+                              <div className="space-y-4 text-base leading-relaxed">
+                                <p>
+                                  <strong>HİDROMAS</strong>
+                                </p>
+                                <p>
+                                  40.GRUP ISO POMPALAR: Döküm Gövdeli Dişli Pompalarla Standart Uyumlu Çözümler
+                                </p>
+                                <p>
+                                  HİDROMAS 40.GRUP ISO POMPALAR, ISO standartlarına uygun olarak tasarlanmış döküm gövdeli dişli pompalardır. Yüksek basınç değerlerinde güvenilir çalışma ve geniş hacim seçenekleri sunar.
+                                </p>
+
+                                <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3">ISO Standartlarına Uyum</h3>
+                                <p>
+                                  ISO standartlarına uygun tasarım sayesinde, farklı marka ve modellerle uyumlu çalışabilir. Bu özellik, sistem entegrasyonunu kolaylaştırır.
+                                </p>
+
+                                <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3">Yüksek Performans</h3>
+                                <p>
+                                  Döküm gövde yapısı ve optimize edilmiş dişli tasarımı sayesinde yüksek verimlilik ve uzun ömür sağlar.
+                                </p>
+                              </div>
+
+                              {/* Tablo: 40.GRUP ISO POMPALAR */}
+                              <div className="mt-8 pt-6 border-t border-slate-200">
+                                <h3 className="text-lg font-bold text-slate-900 mb-4">40.GRUP ISO POMPALAR</h3>
+                                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                      <thead className="bg-slate-50">
+                                        <tr>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Model</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Min.HIZ</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-slate-200">
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">44870</td><td className="px-4 py-3 text-slate-700">250</td><td className="px-4 py-3 text-slate-700">107,60 CM³</td><td className="px-4 py-3 text-slate-700">1500</td><td className="px-4 py-3 text-slate-700">250</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">44871</td><td className="px-4 py-3 text-slate-700">210</td><td className="px-4 py-3 text-slate-700">132,38 CM³</td><td className="px-4 py-3 text-slate-700">1500</td><td className="px-4 py-3 text-slate-700">250</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">44872</td><td className="px-4 py-3 text-slate-700">180</td><td className="px-4 py-3 text-slate-700">148,90 CM³</td><td className="px-4 py-3 text-slate-700">1500</td><td className="px-4 py-3 text-slate-700">250</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">44845</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">60,60 CM³</td><td className="px-4 py-3 text-slate-700">1800</td><td className="px-4 py-3 text-slate-700">300</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">44846</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">71,70 CM³</td><td className="px-4 py-3 text-slate-700">1800</td><td className="px-4 py-3 text-slate-700">300</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">44847</td><td className="px-4 py-3 text-slate-700">250</td><td className="px-4 py-3 text-slate-700">85,50 CM³</td><td className="px-4 py-3 text-slate-700">1500</td><td className="px-4 py-3 text-slate-700">300</td></tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          ) : selectedGroup === '40.GRUP MEKANİK VANALI POMPALAR' && selectedGroupBrand === 'hidromas' ? (
+                            <>
+                              {/* Açıklama Metni */}
+                              <div className="space-y-4 text-base leading-relaxed">
+                                <p>
+                                  <strong>HİDROMAS</strong>
+                                </p>
+                                <p>
+                                  40.GRUP MEKANİK VANALI POMPALAR: Döküm Gövdeli Dişli Pompalarla Gelişmiş Kontrol
+                                </p>
+                                <p>
+                                  HİDROMAS 40.GRUP MEKANİK VANALI POMPALAR, mekanik valf kontrolü ile donatılmış döküm gövdeli dişli pompalardır. Yüksek basınç değerlerinde güvenilir çalışma ve hassas kontrol imkanı sunar.
+                                </p>
+
+                                <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3">Mekanik Valf Kontrolü</h3>
+                                <p>
+                                  Mekanik valf sistemi sayesinde pompa performansı ve akış kontrolü optimize edilir. Bu özellik, sistem verimliliğini artırır ve enerji tasarrufu sağlar.
+                                </p>
+
+                                <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3">Yüksek Basınç Kapasitesi</h3>
+                                <p>
+                                  Döküm gövde yapısı sayesinde yüksek basınç değerlerinde bile güvenilir çalışma performansı gösterir. 250-300 bar aralığında çalışabilme özelliği ile zorlu uygulamalarda tercih edilir.
+                                </p>
+
+                                <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3">Uygulama Alanları</h3>
+                                <p>
+                                  Endüstriyel makineler, tarım ekipmanları, inşaat makineleri ve mobil uygulamalar gibi geniş bir yelpazede kullanılabilir.
+                                </p>
+                              </div>
+
+                              {/* Tablo: 40.GRUP MEKANİK VANALI POMPALAR */}
+                              <div className="mt-8 pt-6 border-t border-slate-200">
+                                <h3 className="text-lg font-bold text-slate-900 mb-4">40.GRUP MEKANİK VANALI POMPALAR</h3>
+                                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                      <thead className="bg-slate-50">
+                                        <tr>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Model</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Min.HIZ</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-slate-200">
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">44904</td><td className="px-4 py-3 text-slate-700">250</td><td className="px-4 py-3 text-slate-700">107,60 CM³</td><td className="px-4 py-3 text-slate-700">1500</td><td className="px-4 py-3 text-slate-700">250</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">44905</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">71,70 CM³</td><td className="px-4 py-3 text-slate-700">1800</td><td className="px-4 py-3 text-slate-700">300</td></tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          ) : selectedGroup === '30.GRUP ISO POMPALAR' && selectedGroupBrand === 'asc' ? (
+                            <>
+                              {/* Tablo */}
+                              <div className="mt-8 pt-6 border-t border-slate-200">
+                                <h3 className="text-lg font-bold text-slate-900 mb-4">30.GRUP ISO POMPALAR</h3>
+                                <p className="text-sm font-semibold text-slate-700 mb-4">ISO TEK YÖN</p>
+                                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                      <thead className="bg-slate-50">
+                                        <tr>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Model</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETIM HACMİ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-slate-200">
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.017.ARM1N</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">17,2 CM³</td><td className="px-4 py-3 text-slate-700">3000</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.017.CRM1N</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">17,2 CM³</td><td className="px-4 py-3 text-slate-700">3000</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.027.ARM1N</td><td className="px-4 py-3 text-slate-700">290</td><td className="px-4 py-3 text-slate-700">27,1 CM³</td><td className="px-4 py-3 text-slate-700">3000</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.027.CRM1N</td><td className="px-4 py-3 text-slate-700">290</td><td className="px-4 py-3 text-slate-700">27,1 CM³</td><td className="px-4 py-3 text-slate-700">3000</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.034.ARM1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">34,4 CM³</td><td className="px-4 py-3 text-slate-700">2750</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.034.CRM1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">34,4 CM³</td><td className="px-4 py-3 text-slate-700">2750</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.043.ARM1N</td><td className="px-4 py-3 text-slate-700">270</td><td className="px-4 py-3 text-slate-700">42,9 CM³</td><td className="px-4 py-3 text-slate-700">2500</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.043.CRM1N</td><td className="px-4 py-3 text-slate-700">270</td><td className="px-4 py-3 text-slate-700">42,9 CM³</td><td className="px-4 py-3 text-slate-700">2500</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.051.ARM1N</td><td className="px-4 py-3 text-slate-700">240</td><td className="px-4 py-3 text-slate-700">51,2 CM³</td><td className="px-4 py-3 text-slate-700">2500</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.051.CRM1N</td><td className="px-4 py-3 text-slate-700">240</td><td className="px-4 py-3 text-slate-700">51,2 CM³</td><td className="px-4 py-3 text-slate-700">2500</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.061.ARM1N</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">60,7 CM³</td><td className="px-4 py-3 text-slate-700">2000</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.061.CRM1N</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">60,7 CM³</td><td className="px-4 py-3 text-slate-700">2000</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.073.ARM1N</td><td className="px-4 py-3 text-slate-700">200</td><td className="px-4 py-3 text-slate-700">73 CM³</td><td className="px-4 py-3 text-slate-700">1750</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.073.CRM1N</td><td className="px-4 py-3 text-slate-700">200</td><td className="px-4 py-3 text-slate-700">73 CM³</td><td className="px-4 py-3 text-slate-700">1750</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.082.ARM1N</td><td className="px-4 py-3 text-slate-700">190</td><td className="px-4 py-3 text-slate-700">81,4 CM³</td><td className="px-4 py-3 text-slate-700">1750</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.082.CRM1N</td><td className="px-4 py-3 text-slate-700">190</td><td className="px-4 py-3 text-slate-700">81,4 CM³</td><td className="px-4 py-3 text-slate-700">1750</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.100.ARM1N</td><td className="px-4 py-3 text-slate-700">180</td><td className="px-4 py-3 text-slate-700">99,7 CM³</td><td className="px-4 py-3 text-slate-700">1750</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP30.100.CRM1N</td><td className="px-4 py-3 text-slate-700">180</td><td className="px-4 py-3 text-slate-700">99,7 CM³</td><td className="px-4 py-3 text-slate-700">1750</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.017.ARM1N</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">17,2 CM³</td><td className="px-4 py-3 text-slate-700">3000</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.017.CRM1N</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">17,2 CM³</td><td className="px-4 py-3 text-slate-700">3000</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.027.ARM1N</td><td className="px-4 py-3 text-slate-700">290</td><td className="px-4 py-3 text-slate-700">27,1 CM³</td><td className="px-4 py-3 text-slate-700">3000</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.027.CRM1N</td><td className="px-4 py-3 text-slate-700">290</td><td className="px-4 py-3 text-slate-700">27,1 CM³</td><td className="px-4 py-3 text-slate-700">3000</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.034.ARM1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">34,4 CM³</td><td className="px-4 py-3 text-slate-700">2750</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.034.CRM1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">34,4 CM³</td><td className="px-4 py-3 text-slate-700">2750</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.043.ARM1N</td><td className="px-4 py-3 text-slate-700">270</td><td className="px-4 py-3 text-slate-700">42,9 CM³</td><td className="px-4 py-3 text-slate-700">2500</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.043.CRM1N</td><td className="px-4 py-3 text-slate-700">270</td><td className="px-4 py-3 text-slate-700">42,9 CM³</td><td className="px-4 py-3 text-slate-700">2500</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.051.ARM1N</td><td className="px-4 py-3 text-slate-700">240</td><td className="px-4 py-3 text-slate-700">51,2 CM³</td><td className="px-4 py-3 text-slate-700">2500</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.051.CRM1N</td><td className="px-4 py-3 text-slate-700">240</td><td className="px-4 py-3 text-slate-700">51,2 CM³</td><td className="px-4 py-3 text-slate-700">2500</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.061.ARM1N</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">60,7 CM³</td><td className="px-4 py-3 text-slate-700">2000</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.061.CRM1N</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">60,7 CM³</td><td className="px-4 py-3 text-slate-700">2000</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.073.ARM1N</td><td className="px-4 py-3 text-slate-700">200</td><td className="px-4 py-3 text-slate-700">73 CM³</td><td className="px-4 py-3 text-slate-700">1750</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.073.CRM1N</td><td className="px-4 py-3 text-slate-700">200</td><td className="px-4 py-3 text-slate-700">73 CM³</td><td className="px-4 py-3 text-slate-700">1750</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.082.ARM1N</td><td className="px-4 py-3 text-slate-700">190</td><td className="px-4 py-3 text-slate-700">81,4 CM³</td><td className="px-4 py-3 text-slate-700">1750</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.082.CRM1N</td><td className="px-4 py-3 text-slate-700">190</td><td className="px-4 py-3 text-slate-700">81,4 CM³</td><td className="px-4 py-3 text-slate-700">1750</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.100.ARM1N</td><td className="px-4 py-3 text-slate-700">180</td><td className="px-4 py-3 text-slate-700">99,7 CM³</td><td className="px-4 py-3 text-slate-700">1750</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR30.100.CRM1N</td><td className="px-4 py-3 text-slate-700">180</td><td className="px-4 py-3 text-slate-700">99,7 CM³</td><td className="px-4 py-3 text-slate-700">1750</td></tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          ) : selectedGroup === '40.GRUP UNİ POMPALAR' && selectedGroupBrand === 'asc' ? (
+                            <>
+                              {/* Tablo */}
+                              <div className="mt-8 pt-6 border-t border-slate-200">
+                                <h3 className="text-lg font-bold text-slate-900 mb-4">40.GRUP UNİ POMPALAR</h3>
+                                <p className="text-sm font-semibold text-slate-700 mb-4">TEK YÖN POMPALAR</p>
+                                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                      <thead className="bg-slate-50">
+                                        <tr>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Model</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETIM HACMİ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MİN. HIZ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">YAĞ ÇIKIŞI</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">YAĞ GİRİŞİ</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-slate-200">
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.063.AST1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">63,8 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.063.CST1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">63,8 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.073.AST1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">72,2 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.073.CST1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">72,2 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.087.AST1N</td><td className="px-4 py-3 text-slate-700">260</td><td className="px-4 py-3 text-slate-700">86,1 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.087.CST1N</td><td className="px-4 py-3 text-slate-700">260</td><td className="px-4 py-3 text-slate-700">86,1 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.109.AST1N</td><td className="px-4 py-3 text-slate-700">240</td><td className="px-4 py-3 text-slate-700">107,3 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.109.CST1N</td><td className="px-4 py-3 text-slate-700">240</td><td className="px-4 py-3 text-slate-700">107,3 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.133.AST1N</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">131,6 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/2"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.133.CST1N</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">131,6 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/2"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.151.AST1N</td><td className="px-4 py-3 text-slate-700">180</td><td className="px-4 py-3 text-slate-700">148,3 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/2"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.151.CST1N</td><td className="px-4 py-3 text-slate-700">180</td><td className="px-4 py-3 text-slate-700">148,3 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/2"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.063.AST1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">63,8 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.063.CST1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">63,8 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.073.AST1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">72,2 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.073.CST1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">72,2 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.087.AST1N</td><td className="px-4 py-3 text-slate-700">260</td><td className="px-4 py-3 text-slate-700">86,1 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.087.CST1N</td><td className="px-4 py-3 text-slate-700">260</td><td className="px-4 py-3 text-slate-700">86,1 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.109.AST1N</td><td className="px-4 py-3 text-slate-700">240</td><td className="px-4 py-3 text-slate-700">107,3 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.109.CST1N</td><td className="px-4 py-3 text-slate-700">240</td><td className="px-4 py-3 text-slate-700">107,3 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.133.AST1N</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">131,6 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/2"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.133.CST1N</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">131,6 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/2"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.151.AST1N</td><td className="px-4 py-3 text-slate-700">180</td><td className="px-4 py-3 text-slate-700">148,3 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/2"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.151.CST1N</td><td className="px-4 py-3 text-slate-700">180</td><td className="px-4 py-3 text-slate-700">148,3 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/2"</td></tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          ) : selectedGroup === '20.GRUP G TİPİ KAPAK DÜZ MİLLİ POMPALAR' && selectedGroupBrand === 'david-brown' ? (
+                            <>
+                              {/* Açıklama Metni */}
+                              <div className="space-y-4 text-base leading-relaxed">
+                                <h3 className="text-xl font-bold text-slate-900 mb-2">20.GRUP G Tipi Kapak Düz Milli Pompalar: Dayanıklı ve Yüksek Performanslı Hidrolik Çözümler</h3>
+                                <p>
+                                  Hidrolik pompalar, endüstriyel sektörde önemli bir rol oynayan, mekanik enerjiyi hidrolik enerjiye dönüştüren ekipmanlardır. 20.GRUP G Tipi Kapak Düz Milli Pompalar, dayanıklılığı ve yüksek performansıyla farklı endüstriyel ihtiyaçlara uygun çözümler sunmaktadır.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">G Tipi Kapak Düz Milli Pompaların Özellikleri</h4>
+                                <p>
+                                  Bu seri, dayanıklı ve yüksek performanslı G Tipi Kapak Düz Milli Pompalarla donatılmıştır. Endüstriyel kullanım için tasarlanmış olan bu pompa serisi, sağlam yapısıyla güvenilirlik sunar.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Geniş Uygulama Alanları</h4>
+                                <p>
+                                  20.GRUP'un G Tipi Kapak Düz Milli Pompaları, çeşitli endüstriyel sektörlerde yaygın olarak kullanılır. Güçlü yapısı ve dayanıklılığı, farklı hidrolik ihtiyaçlarını karşılamak için optimize edilmiştir.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Performans ve Dayanıklılık Dengesi</h4>
+                                <p>
+                                  Bu seri, yüksek performansı dayanıklılıkla birleştirerek işletmelere güçlü bir çözüm sunar. Zorlu çalışma koşullarında bile istikrarlı bir performans gösterir.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Hidrolik Pompaların Çeşitliliği</h4>
+                                <p>
+                                  Hidrolik pompaların geniş bir yelpazesi vardır ve her biri farklı gereksinimleri karşılamak üzere tasarlanmıştır. G Tipi Kapak Düz Milli Pompalar, dayanıklı yapılarıyla endüstriyel kullanım için idealdir.
+                                </p>
+                                <p>
+                                  Her işletmenin farklı gereksinimleri olduğundan, hangi hidrolik pompaların en uygun olduğunu belirlemek için uzman danışmanlık almak önemlidir.
+                                </p>
+                              </div>
+
+                              {/* Tablo */}
+                              <div className="mt-8 pt-6 border-t border-slate-200">
+                                <h3 className="text-lg font-bold text-slate-900 mb-4">20.GRUP G TİPİ KAPAK DÜZ MİLLİ POMPALAR</h3>
+                                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                      <thead className="bg-slate-50">
+                                        <tr>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Model</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇIKIŞ PORTU</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">DÖNÜŞ YÖNÜ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">GİRİŞ PORTU</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">KAPAK</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ŞAFT TİPİ</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-slate-200">
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110423M</td><td className="px-4 py-3 text-slate-700">276</td><td className="px-4 py-3 text-slate-700">G 1/2</td><td className="px-4 py-3 text-slate-700">SAĞ</td><td className="px-4 py-3 text-slate-700">G 3/4</td><td className="px-4 py-3 text-slate-700">23 CM³</td><td className="px-4 py-3 text-slate-700">2P1 G</td><td className="px-4 py-3 text-slate-700">7/8 DÜZ</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110521M</td><td className="px-4 py-3 text-slate-700">276</td><td className="px-4 py-3 text-slate-700">G 1/2"</td><td className="px-4 py-3 text-slate-700">SAĞ</td><td className="px-4 py-3 text-slate-700">G 3/4</td><td className="px-4 py-3 text-slate-700">16 CM³</td><td className="px-4 py-3 text-slate-700">2P1 G - SAE B</td><td className="px-4 py-3 text-slate-700">7/8 - PARALEL</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110522M</td><td className="px-4 py-3 text-slate-700">276</td><td className="px-4 py-3 text-slate-700">G 1/2"</td><td className="px-4 py-3 text-slate-700">SAĞ</td><td className="px-4 py-3 text-slate-700">G 3/4</td><td className="px-4 py-3 text-slate-700">19 CM³</td><td className="px-4 py-3 text-slate-700">2P1 G - SAE B</td><td className="px-4 py-3 text-slate-700">7/8 - PARALEL</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110523M</td><td className="px-4 py-3 text-slate-700">276</td><td className="px-4 py-3 text-slate-700">G 3/4</td><td className="px-4 py-3 text-slate-700">SAĞ</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">23 CM³</td><td className="px-4 py-3 text-slate-700">G</td><td className="px-4 py-3 text-slate-700">7/8 - PARALEL</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110525M</td><td className="px-4 py-3 text-slate-700">276</td><td className="px-4 py-3 text-slate-700">G 3/4</td><td className="px-4 py-3 text-slate-700">SAĞ</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">27 CM³</td><td className="px-4 py-3 text-slate-700">2P-G / SAE B</td><td className="px-4 py-3 text-slate-700">7/8 DÜZ</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110527M</td><td className="px-4 py-3 text-slate-700">276</td><td className="px-4 py-3 text-slate-700">G 3/4</td><td className="px-4 py-3 text-slate-700">SAĞ</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">30 CM³</td><td className="px-4 py-3 text-slate-700">2P1 G - SAE B</td><td className="px-4 py-3 text-slate-700">7/8" - PARALEL</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110528M</td><td className="px-4 py-3 text-slate-700">250</td><td className="px-4 py-3 text-slate-700">G 3/4</td><td className="px-4 py-3 text-slate-700">SAĞ</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">33 CM³</td><td className="px-4 py-3 text-slate-700">2P1 - G</td><td className="px-4 py-3 text-slate-700">7/8 DÜZ</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110529M</td><td className="px-4 py-3 text-slate-700">230</td><td className="px-4 py-3 text-slate-700">G 3/4</td><td className="px-4 py-3 text-slate-700">SAĞ</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">35 CM³</td><td className="px-4 py-3 text-slate-700">2P1 G - SAE B</td><td className="px-4 py-3 text-slate-700">7/8" - PARALEL</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110530M</td><td className="px-4 py-3 text-slate-700">180</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">SAĞ</td><td className="px-4 py-3 text-slate-700">G 3/4</td><td className="px-4 py-3 text-slate-700">41 CM³</td><td className="px-4 py-3 text-slate-700">2P1 G - SAE B</td><td className="px-4 py-3 text-slate-700">7/8" - PARALEL</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110531M</td><td className="px-4 py-3 text-slate-700">276</td><td className="px-4 py-3 text-slate-700">G 1/2</td><td className="px-4 py-3 text-slate-700">SOL</td><td className="px-4 py-3 text-slate-700">G 3/4</td><td className="px-4 py-3 text-slate-700">16 CM³</td><td className="px-4 py-3 text-slate-700">2P1 G - SAE B</td><td className="px-4 py-3 text-slate-700">7/8" - PARALEL</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110532M</td><td className="px-4 py-3 text-slate-700">276</td><td className="px-4 py-3 text-slate-700">G 1/2</td><td className="px-4 py-3 text-slate-700">SOL</td><td className="px-4 py-3 text-slate-700">G 3/4</td><td className="px-4 py-3 text-slate-700">19 CM³</td><td className="px-4 py-3 text-slate-700">2P1 G - SAE B</td><td className="px-4 py-3 text-slate-700">7/8" - PARALEL</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110533M</td><td className="px-4 py-3 text-slate-700">276</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">SOL</td><td className="px-4 py-3 text-slate-700">G 3/4</td><td className="px-4 py-3 text-slate-700">23 CM³</td><td className="px-4 py-3 text-slate-700">2P1 G - SAE B</td><td className="px-4 py-3 text-slate-700">7/8" - PARALEL</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110535M</td><td className="px-4 py-3 text-slate-700">276</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">SOL</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">27 CM³</td><td className="px-4 py-3 text-slate-700">2P1 G - SAE B</td><td className="px-4 py-3 text-slate-700">7/8" - PARALEL</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110537M</td><td className="px-4 py-3 text-slate-700">276</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">SOL</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">30 CM³</td><td className="px-4 py-3 text-slate-700">2P1 G - SAE B</td><td className="px-4 py-3 text-slate-700">7/8" - PARALEL</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110538M</td><td className="px-4 py-3 text-slate-700">250</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">SOL</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">33 CM³</td><td className="px-4 py-3 text-slate-700">2P1 G - SAE B</td><td className="px-4 py-3 text-slate-700">7/8" - PARALEL</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110539M</td><td className="px-4 py-3 text-slate-700">230</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">SOL</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">35 CM³</td><td className="px-4 py-3 text-slate-700">2P1 G - SAE B</td><td className="px-4 py-3 text-slate-700">7/8" - PARALEL</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110540M</td><td className="px-4 py-3 text-slate-700">180</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">SOL</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">41 CM³</td><td className="px-4 py-3 text-slate-700">2P1 G - SAE B</td><td className="px-4 py-3 text-slate-700">7/8" - PARALEL</td></tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          ) : selectedGroup === '20.GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ POMPALAR' && selectedGroupBrand === 'david-brown' ? (
+                            <>
+                              {/* Açıklama Metni */}
+                              <div className="space-y-4 text-base leading-relaxed">
+                                <h3 className="text-xl font-bold text-slate-900 mb-2">20.GRUP B Tipi Kapak 1/8 Konik Milli Pompalar: Hassas ve Güvenilir Hidrolik Çözümler</h3>
+                                <p>
+                                  Hidrolik pompalar, endüstriyel sektörde kritik bir role sahip olup, mekanik enerjiyi hidrolik enerjiye dönüştüren önemli ekipmanlardır. 20.GRUP B Tipi Kapak 1/8 Konik Milli Pompalar, hassasiyeti ve güvenilirliğiyle öne çıkarak çeşitli işletme ihtiyaçlarına çözüm sunmaktadır.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">B Tipi Kapak 1/8 Konik Milli Pompaların Özellikleri</h4>
+                                <p>
+                                  Bu seri, hassas işler için tasarlanmış ve yüksek performanslı B Tipi Kapak 1/8 Konik Milli Pompalarla donatılmıştır. Hassas işlemlerde güvenilirlik ve hassasiyet sunarak, endüstriyel uygulamalarda önemli bir yer tutar.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Çeşitli Uygulama Alanları</h4>
+                                <p>
+                                  20.GRUP'un B Tipi Kapak 1/8 Konik Milli Pompaları, çeşitli endüstriyel sektörlerde kullanım için optimize edilmiştir. Hassas hidrolik ihtiyaçlarını karşılamak üzere tasarlanmıştır.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Performans ve Güvenilirlik Dengesi</h4>
+                                <p>
+                                  Bu pompa serisi, yüksek performansı güvenilirlikle birleştirerek işletmelere sağlam bir çözüm sunar. Hassas işlemlerde bile istikrarlı bir performans sergiler.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Hidrolik Pompaların Çeşitliliği</h4>
+                                <p>
+                                  Hidrolik pompaların geniş bir yelpazesi bulunur ve her biri farklı gereksinimleri karşılamak üzere tasarlanmıştır. B Tipi Kapak 1/8 Konik Milli Pompalar, özellikle hassas işler için idealdir.
+                                </p>
+                                <p>
+                                  Her işletmenin farklı gereksinimleri olduğundan, hangi hidrolik pompaların en uygun olduğunu belirlemek için uzman danışmanlık almak önemlidir.
+                                </p>
+                              </div>
+
+                              {/* Tablo */}
+                              <div className="mt-8 pt-6 border-t border-slate-200">
+                                <h3 className="text-lg font-bold text-slate-900 mb-4">20.GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ POMPALAR</h3>
+                                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                      <thead className="bg-slate-50">
+                                        <tr>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Model</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇIKIŞ PORTU</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">DÖNÜŞ YÖNÜ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">GİRİŞ PORTU</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">KAPAK</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ŞAFT TİPİ</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-slate-200">
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110541M</td><td className="px-4 py-3 text-slate-700">276</td><td className="px-4 py-3 text-slate-700">30 - M6*1*13</td><td className="px-4 py-3 text-slate-700">SAĞ</td><td className="px-4 py-3 text-slate-700">40 - M8*1,25*13</td><td className="px-4 py-3 text-slate-700">16 CM³</td><td className="px-4 py-3 text-slate-700">1PN - B KAPAK</td><td className="px-4 py-3 text-slate-700">1PN - 1/8 KONİK</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110542M</td><td className="px-4 py-3 text-slate-700">276</td><td className="px-4 py-3 text-slate-700">30 - M6*1*13</td><td className="px-4 py-3 text-slate-700">SAĞ</td><td className="px-4 py-3 text-slate-700">40 - M8*1,25*13</td><td className="px-4 py-3 text-slate-700">19 CM³</td><td className="px-4 py-3 text-slate-700">1PN - B KAPAK</td><td className="px-4 py-3 text-slate-700">1PN - 1/8 KONİK</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110543M</td><td className="px-4 py-3 text-slate-700">276</td><td className="px-4 py-3 text-slate-700">40 - M8*1,25*13</td><td className="px-4 py-3 text-slate-700">SAĞ</td><td className="px-4 py-3 text-slate-700">51 - M10*1,5*13</td><td className="px-4 py-3 text-slate-700">23 CM³</td><td className="px-4 py-3 text-slate-700">1PN - B KAPAK</td><td className="px-4 py-3 text-slate-700">1PN - 1/8 KONİK</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110545M</td><td className="px-4 py-3 text-slate-700">250</td><td className="px-4 py-3 text-slate-700">40 - M8*1,25*13</td><td className="px-4 py-3 text-slate-700">SAĞ</td><td className="px-4 py-3 text-slate-700">51 - M10*1,5*13</td><td className="px-4 py-3 text-slate-700">27 CM³</td><td className="px-4 py-3 text-slate-700">1PN - B KAPAK</td><td className="px-4 py-3 text-slate-700">1PN - 1/8 KONİK</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110547M</td><td className="px-4 py-3 text-slate-700">230</td><td className="px-4 py-3 text-slate-700">40 - M8*1,25*13</td><td className="px-4 py-3 text-slate-700">SAĞ</td><td className="px-4 py-3 text-slate-700">51 - M10*1,5*13</td><td className="px-4 py-3 text-slate-700">30 CM³</td><td className="px-4 py-3 text-slate-700">1PN - B KAPAK</td><td className="px-4 py-3 text-slate-700">1PN - 1/8 KONİK</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110548M</td><td className="px-4 py-3 text-slate-700">210</td><td className="px-4 py-3 text-slate-700">40 - M8*1,25*13</td><td className="px-4 py-3 text-slate-700">SAĞ</td><td className="px-4 py-3 text-slate-700">51 - M10*1,5*13</td><td className="px-4 py-3 text-slate-700">33 CM³</td><td className="px-4 py-3 text-slate-700">1PN - B KAPAK</td><td className="px-4 py-3 text-slate-700">1PN - 1/8 KONİK</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110549M</td><td className="px-4 py-3 text-slate-700">180</td><td className="px-4 py-3 text-slate-700">40 - M8*1,25*13</td><td className="px-4 py-3 text-slate-700">SAĞ</td><td className="px-4 py-3 text-slate-700">51 - M10*1,5*13</td><td className="px-4 py-3 text-slate-700">35 CM³</td><td className="px-4 py-3 text-slate-700">1PN - B KAPAK</td><td className="px-4 py-3 text-slate-700">1PN - 1/8 KONİK</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110550M</td><td className="px-4 py-3 text-slate-700">150</td><td className="px-4 py-3 text-slate-700">40 - M8*1,25*13</td><td className="px-4 py-3 text-slate-700">SAĞ</td><td className="px-4 py-3 text-slate-700">51 - M10*1,5*13</td><td className="px-4 py-3 text-slate-700">41 CM³</td><td className="px-4 py-3 text-slate-700">1PN - B KAPAK</td><td className="px-4 py-3 text-slate-700">1PN - 1/8 KONİK</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110551M</td><td className="px-4 py-3 text-slate-700">276</td><td className="px-4 py-3 text-slate-700">30 - M6*1*13</td><td className="px-4 py-3 text-slate-700">SOL</td><td className="px-4 py-3 text-slate-700">40 - M8*1,25*13</td><td className="px-4 py-3 text-slate-700">16 CM³</td><td className="px-4 py-3 text-slate-700">1PN - B KAPAK</td><td className="px-4 py-3 text-slate-700">1PN - 1/8 KONİK</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110552M</td><td className="px-4 py-3 text-slate-700">276</td><td className="px-4 py-3 text-slate-700">30 - M6*1*13</td><td className="px-4 py-3 text-slate-700">SOL</td><td className="px-4 py-3 text-slate-700">40 - M8*1,25*13</td><td className="px-4 py-3 text-slate-700">19 CM³</td><td className="px-4 py-3 text-slate-700">1PN - B KAPAK</td><td className="px-4 py-3 text-slate-700">1PN - 1/8 KONİK</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110553M</td><td className="px-4 py-3 text-slate-700">276</td><td className="px-4 py-3 text-slate-700">40 - M8*1,25*13</td><td className="px-4 py-3 text-slate-700">SOL</td><td className="px-4 py-3 text-slate-700">51 - M10*1,5*13</td><td className="px-4 py-3 text-slate-700">23 CM³</td><td className="px-4 py-3 text-slate-700">1PN - B KAPAK</td><td className="px-4 py-3 text-slate-700">1PN - 1/8 KONİK</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110555M</td><td className="px-4 py-3 text-slate-700">250</td><td className="px-4 py-3 text-slate-700">40 - M8*1,25*13</td><td className="px-4 py-3 text-slate-700">SOL</td><td className="px-4 py-3 text-slate-700">51 - M10*1,5*13</td><td className="px-4 py-3 text-slate-700">27 CM³</td><td className="px-4 py-3 text-slate-700">1PN - B</td><td className="px-4 py-3 text-slate-700">1PN - 1/8 KONİK</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110557M</td><td className="px-4 py-3 text-slate-700">230</td><td className="px-4 py-3 text-slate-700">40 - M8*1,25*13</td><td className="px-4 py-3 text-slate-700">SOL</td><td className="px-4 py-3 text-slate-700">51 - M10*1,5*13</td><td className="px-4 py-3 text-slate-700">30 CM³</td><td className="px-4 py-3 text-slate-700">1PN - B KAPAK</td><td className="px-4 py-3 text-slate-700">1PN - 1/8 KONİK</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110558M</td><td className="px-4 py-3 text-slate-700">210</td><td className="px-4 py-3 text-slate-700">40 - M8*1,25*13</td><td className="px-4 py-3 text-slate-700">SOL</td><td className="px-4 py-3 text-slate-700">51 - M10*1,5*13</td><td className="px-4 py-3 text-slate-700">33 CM³</td><td className="px-4 py-3 text-slate-700">1PN - B KAPAK</td><td className="px-4 py-3 text-slate-700">1PN - 1/8 KONİK</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110559M</td><td className="px-4 py-3 text-slate-700">180</td><td className="px-4 py-3 text-slate-700">40 - M8*1,25*13</td><td className="px-4 py-3 text-slate-700">SOL</td><td className="px-4 py-3 text-slate-700">51 - M10*1,5*13</td><td className="px-4 py-3 text-slate-700">35 CM³</td><td className="px-4 py-3 text-slate-700">1PN - B KAPAK</td><td className="px-4 py-3 text-slate-700">1PN - 1/8 KONİK</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110560M</td><td className="px-4 py-3 text-slate-700">150</td><td className="px-4 py-3 text-slate-700">40 - M8*1,25*13</td><td className="px-4 py-3 text-slate-700">SOL</td><td className="px-4 py-3 text-slate-700">51 - M10*1,5*13</td><td className="px-4 py-3 text-slate-700">41 CM³</td><td className="px-4 py-3 text-slate-700">1PN - B KAPAK</td><td className="px-4 py-3 text-slate-700">1PN - 1/8 KONİK</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110563M</td><td className="px-4 py-3 text-slate-700">276</td><td className="px-4 py-3 text-slate-700">40 - M8*1,25*13</td><td className="px-4 py-3 text-slate-700">SAĞ</td><td className="px-4 py-3 text-slate-700">51 - M10*1,5*13</td><td className="px-4 py-3 text-slate-700">23 CM³</td><td className="px-4 py-3 text-slate-700">2P1 - B KAPAK</td><td className="px-4 py-3 text-slate-700">2P1 - 1/8 KONİK</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110565M</td><td className="px-4 py-3 text-slate-700">276</td><td className="px-4 py-3 text-slate-700">40 - M8*1,25*13</td><td className="px-4 py-3 text-slate-700">SAĞ</td><td className="px-4 py-3 text-slate-700">51 - M10*1,5*13</td><td className="px-4 py-3 text-slate-700">27 CM³</td><td className="px-4 py-3 text-slate-700">2P1 - B KAPAK</td><td className="px-4 py-3 text-slate-700">2P1 - 1/8 KONİK</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">1CP110567M</td><td className="px-4 py-3 text-slate-700">276</td><td className="px-4 py-3 text-slate-700">40 - M8*1,25*13</td><td className="px-4 py-3 text-slate-700">SAĞ</td><td className="px-4 py-3 text-slate-700">51 - M10*1,5*13</td><td className="px-4 py-3 text-slate-700">30 CM³</td><td className="px-4 py-3 text-slate-700">2P1 - B KAPAK</td><td className="px-4 py-3 text-slate-700">2P1 - 1/8 KONİK</td></tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          ) : selectedGroup === '40.GRUP END.HELİSEL G TİPİ KAPAK 7/8 DÜZ MİLLİ' && selectedGroupBrand === 'david-brown' ? (
+                            <>
+                              {/* Açıklama Metni */}
+                              <div className="space-y-4 text-base leading-relaxed">
+                                <h3 className="text-xl font-bold text-slate-900 mb-2">40.GRUP END.HELİSEL G TİPİ KAPAK 7/8 DÜZ MİLLİ</h3>
+                                <p>
+                                  Bu seri, endüstriyel hidrolik sistemler için tasarlanmış helisel dişli pompalardır. G Tipi Kapak ve 7/8 Düz Milli özellikleriyle yüksek performans ve güvenilirlik sunar.
+                                </p>
+                              </div>
+
+                              {/* Tablo */}
+                              <div className="mt-8 pt-6 border-t border-slate-200">
+                                <h3 className="text-lg font-bold text-slate-900 mb-4">40.GRUP END.HELİSEL G TİPİ KAPAK 7/8 DÜZ MİLLİ</h3>
+                                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                      <thead className="bg-slate-50">
+                                        <tr>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Model</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">HEMA KODU</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-slate-200">
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">HPS41003</td><td className="px-4 py-3 text-slate-700">S1A4016F3A1D1AC</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">HPS41005</td><td className="px-4 py-3 text-slate-700">S1A4023F21A1D1AC</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">HPS41006</td><td className="px-4 py-3 text-slate-700">S1A4032F21A1F1BC</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">HPS41011</td><td className="px-4 py-3 text-slate-700">S1A4016F21A1D1AC</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">HPS41012</td><td className="px-4 py-3 text-slate-700">S1A4036F21A1D1AC</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">HPS41016</td><td className="px-4 py-3 text-slate-700">S1A4027F21A1F1BC</td></tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          ) : selectedGroup === '30.GRUP G TİPİ KAPAK DÜZ MİLLİ POMPALAR' && selectedGroupBrand === 'david-brown' ? (
+                            <>
+                              {/* Açıklama Metni */}
+                              <div className="space-y-4 text-base leading-relaxed">
+                                <h3 className="text-xl font-bold text-slate-900 mb-2">30.GRUP G Tipi Kapak Düz Milli Pompalar: Hidrolik Sistemlerinizin Güçlü Desteği</h3>
+                                <p>
+                                  30.GRUP'un önde gelen ürünlerinden biri olan G Tipi Kapak Düz Milli Pompalar, hidrolik sistemlerinizde verimli ve güvenilir bir performans sağlamak üzere tasarlanmıştır. Bu pompa çeşidi, endüstri standartlarını aşarak öne çıkan özellikleriyle dikkat çeker.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Teknoloji ve Güvenilirlik</h4>
+                                <p>
+                                  Alüminyum gövdeli dişli pompalar arasında yer alan G Tipi Kapak Düz Milli Pompa, en son teknolojiyle üretilmiş dayanıklı malzemeler kullanılarak tasarlanmıştır. Bu sayede uzun ömürlü ve güvenilir bir performans sunar.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Çeşitli Uygulama Alanları</h4>
+                                <p>
+                                  Bu pompa, geniş bir endüstriyel yelpazede kullanılabilecek şekilde tasarlanmıştır. Yüksek basınçlı sistemlerden daha düşük basınçlı sistemlere kadar çeşitli uygulama alanlarına uyum sağlar.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Performans ve Ekonomik Seçenekler</h4>
+                                <p>
+                                  Hidrolik pompa fiyatları arasında rekabetçi bir seçenek olan G Tipi Kapak Düz Milli Pompa, yüksek performans sunarken maliyet-etkin bir çözüm sunar. Güçlü yapısı ve uzun ömürlü kullanım avantajıyla dikkat çeker.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Uzman Danışmanlık</h4>
+                                <p>
+                                  Hidrolik sistemleriniz için doğru pompa seçimi önemlidir. 30.GRUP'un deneyimli ekibi, ihtiyaçlarınıza uygun en iyi çözümü belirlemenize yardımcı olabilir.
+                                </p>
+                                <p>
+                                  30.GRUP G Tipi Kapak Düz Milli Pompalar, hidrolik sistemlerinizin verimli ve güvenilir çalışmasını sağlar. Endüstri standartlarına uygunluğu ve güçlü performansıyla öne çıkar.
+                                </p>
+                              </div>
+
+                              {/* Tablo */}
+                              <div className="mt-8 pt-6 border-t border-slate-200">
+                                <h3 className="text-lg font-bold text-slate-900 mb-4">30.GRUP G TİPİ KAPAK DÜZ MİLLİ POMPALAR</h3>
+                                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                      <thead className="bg-slate-50">
+                                        <tr>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Model</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">HEMA KODU</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-slate-200">
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">HPS41022</td><td className="px-4 py-3 text-slate-700">S1A4016BF11C (S4 POMPA)</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">HPS41023</td><td className="px-4 py-3 text-slate-700">S1A4023BF11C (S4 POMPA)</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">HPS41025</td><td className="px-4 py-3 text-slate-700">S1A4032BH21A1F1BC (S4 POMPA)</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">HPS41026</td><td className="px-4 py-3 text-slate-700">S1A4037BH21C (S4 POMPA)</td></tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          ) : selectedGroup === '40.GRUP ISO POMPALAR' && selectedGroupBrand === 'asc' ? (
+                            <>
+                              {/* Tablo */}
+                              <div className="mt-8 pt-6 border-t border-slate-200">
+                                <h3 className="text-lg font-bold text-slate-900 mb-4">40.GRUP ISO POMPALAR</h3>
+                                <p className="text-sm font-semibold text-slate-700 mb-4">GP40 ISO</p>
+                                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                      <thead className="bg-slate-50">
+                                        <tr>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Model</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETIM HACMİ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MİN. HIZ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">YAĞ ÇIKIŞI</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">YAĞ GİRİŞİ</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-slate-200">
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.063.ARM1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">63,8 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.063.CRM1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">63,8 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.073.ARM1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">72,2 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.073.CRM1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">72,2 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.087.ARM1N</td><td className="px-4 py-3 text-slate-700">260</td><td className="px-4 py-3 text-slate-700">86,1 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.087.CRM1N</td><td className="px-4 py-3 text-slate-700">260</td><td className="px-4 py-3 text-slate-700">86,1 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.109.ARM1N</td><td className="px-4 py-3 text-slate-700">240</td><td className="px-4 py-3 text-slate-700">107,3 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.109.CRM1N</td><td className="px-4 py-3 text-slate-700">240</td><td className="px-4 py-3 text-slate-700">107,3 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.109.RRM1N</td><td className="px-4 py-3 text-slate-700">240</td><td className="px-4 py-3 text-slate-700">107,3 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.133.ARM1N</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">131,6 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/2"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.133.CRM1N</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">131,6 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/2"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.151.ARM1N</td><td className="px-4 py-3 text-slate-700">180</td><td className="px-4 py-3 text-slate-700">148,3 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/2"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGP40.151.CRM1N</td><td className="px-4 py-3 text-slate-700">180</td><td className="px-4 py-3 text-slate-700">148,3 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/2"</td></tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="mt-8 pt-6 border-t border-slate-200">
+                                <p className="text-sm font-semibold text-slate-700 mb-4">GP40 ARKADAN ÇIKIŞLI</p>
+                                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                      <thead className="bg-slate-50">
+                                        <tr>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Model</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETIM HACMİ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MİN. HIZ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">YAĞ ÇIKIŞI</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">YAĞ GİRİŞİ</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-slate-200">
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.063.ARM1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">63,8 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.063.CRM1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">63,8 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.073.ARM1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">72,2 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.073.CRM1N</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">72,2 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 3/4"</td><td className="px-4 py-3 text-slate-700">G 1"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.087.ARM1N</td><td className="px-4 py-3 text-slate-700">260</td><td className="px-4 py-3 text-slate-700">86,1 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.087.CRM1N</td><td className="px-4 py-3 text-slate-700">260</td><td className="px-4 py-3 text-slate-700">86,1 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.109.ARM1N</td><td className="px-4 py-3 text-slate-700">240</td><td className="px-4 py-3 text-slate-700">107,3 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.109.CRM1N</td><td className="px-4 py-3 text-slate-700">240</td><td className="px-4 py-3 text-slate-700">107,3 CM³</td><td className="px-4 py-3 text-slate-700">2750</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/4"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.133.ARM1N</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">131,6 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/2"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.133.CRM1N</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">131,6 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/2"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.151.ARM1N</td><td className="px-4 py-3 text-slate-700">180</td><td className="px-4 py-3 text-slate-700">148,3 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/2"</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCGPR40.151.CRM1N</td><td className="px-4 py-3 text-slate-700">180</td><td className="px-4 py-3 text-slate-700">148,3 CM³</td><td className="px-4 py-3 text-slate-700">2500</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">G 1"</td><td className="px-4 py-3 text-slate-700">G 1 1/2"</td></tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          ) : selectedGroup === '20.GRUP HELİSEL STANDART POMPALAR' && selectedGroupBrand === 'asc' ? (
+                            <>
+                              {/* Açıklama Metni */}
+                              <div className="space-y-4 text-base leading-relaxed">
+                                <h3 className="text-xl font-bold text-slate-900 mb-2">Hidrolik Pompalar: Yüksek Performans, Çeşitlilik ve Ekonomik Seçenekler</h3>
+                                <p>
+                                  Hidrolik sistemlerin temel yapı taşlarından biri olan hidrolik pompalar, 20.GRUP tarafından sunulan geniş ürün yelpazesiyle ihtiyaçlarınıza yönelik çözümler sunuyor. Bu pompalar, hidrolik enerjiyi mekanik enerjiye dönüştürerek sistemdeki hareketi sağlar. İşte hidrolik pompa çeşitleri ve avantajlarıyla ilgili detaylı bilgi.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Çeşitlilik ve Fonksiyonellik</h4>
+                                <p>
+                                  Hidrolik pompa çeşitleri, farklı sistem gereksinimlerini karşılamak üzere tasarlanmıştır. Hidrolik dişli pompa, sağlamlığı ve verimliliğiyle öne çıkar. Alüminyum gövdeli dişli pompalar ise hafif yapılarıyla dikkat çeker ve farklı uygulama alanları için idealdir.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Performans ve Güvenilirlik</h4>
+                                <p>
+                                  Hidrolik pompalar, dayanıklı malzemelerden üretilerek uzun ömürlü kullanım sağlar. Yüksek performanslarıyla işlerinizi verimli bir şekilde yürütmenizi sağlarlar. Özellikle hidrolik pompa fiyatları ve çeşitleri arasında yapacağınız seçim, işlevselliği ve bütçenizi dengelemenize yardımcı olur.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Hidrolik Pompa Seçiminde Dikkat Edilmesi Gerekenler</h4>
+                                <p>
+                                  Hidrolik pompa seçerken, sistem gereksinimlerinizi dikkate almalısınız. Akış hızı, basınç kapasitesi ve uygulama alanı gibi faktörler, doğru pompa seçiminde önemlidir. Firmamızın sunduğu geniş ürün yelpazesi ile ihtiyaçlarınıza uygun bir çözüm bulabilirsiniz.
+                                </p>
+                                <h4 className="text-lg font-bold text-slate-900 mt-6 mb-3">Hidrolik Pompa Satın Alırken Nelere Dikkat Etmelisiniz?</h4>
+                                <p>
+                                  Hidrolik pompa satın alırken, performans, kalite, garanti süresi ve satış sonrası destek gibi unsurları göz önünde bulundurmalısınız. Hidrolik pompası alırken uzman desteği almak, doğru ürünü seçmenize yardımcı olabilir.
+                                </p>
+                                <p>
+                                  20.GRUP, hidrolik sistemlerinizi güçlendirmek için geniş ürün yelpazesi ve uzman desteğiyle yanınızda. Hidrolik pompa çeşitleri, kalite standartları ve ekonomik seçenekleriyle size özel çözümler sunmak için burada!
+                                </p>
+                              </div>
+
+                              {/* Tablo */}
+                              <div className="mt-8 pt-6 border-t border-slate-200">
+                                <h3 className="text-lg font-bold text-slate-900 mb-4">20.GRUP HELİSEL STANDART POMPALAR</h3>
+                                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                      <thead className="bg-slate-50">
+                                        <tr>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Model</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">DÖNÜŞ YÖNÜ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETIM HACMİ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">KAPAK</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Min.HIZ</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-slate-200">
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDPH20.080.CAB01SN</td><td className="px-4 py-3 text-slate-700">320</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">8 CM³</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">3500</td><td className="px-4 py-3 text-slate-700">650</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">44408</td><td className="px-4 py-3 text-slate-700">320</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">11.5 CM³</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">3000</td><td className="px-4 py-3 text-slate-700">600</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDPH20.140.CAB02SN</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">14 CM³</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">3000</td><td className="px-4 py-3 text-slate-700">600</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDPH20.160.CAB02SN</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">16 CM³</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">3000</td><td className="px-4 py-3 text-slate-700">600</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDPH20.190.CAB01SN</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">19 CM³</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">3000</td><td className="px-4 py-3 text-slate-700">600</td></tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          ) : selectedGroup === '30.GRUP HELİSEL STANDART POMPALAR' && selectedGroupBrand === 'asc' ? (
+                            <>
+                              {/* Tablo */}
+                              <div className="mt-8 pt-6 border-t border-slate-200">
+                                <h3 className="text-lg font-bold text-slate-900 mb-4">30.GRUP HELİSEL STANDART POMPALAR</h3>
+                                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                      <thead className="bg-slate-50">
+                                        <tr>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Model</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETIM HACMİ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-slate-200">
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDPH30.220.CAB02SN</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">22 CM³</td><td className="px-4 py-3 text-slate-700">3000</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDPH30.270.CAB02SN</td><td className="px-4 py-3 text-slate-700">300</td><td className="px-4 py-3 text-slate-700">27 CM³</td><td className="px-4 py-3 text-slate-700">3000</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">ASCDPH30.340.CAB02SN</td><td className="px-4 py-3 text-slate-700">280</td><td className="px-4 py-3 text-slate-700">34 CM³</td><td className="px-4 py-3 text-slate-700">3000</td></tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          ) : selectedGroup === '20.GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ POMPALAR' && selectedGroupBrand === 'casappa' ? (
+                            <>
+                              {/* Açıklama Metni */}
+                              <div className="space-y-4 text-base leading-relaxed">
+                                <p>
+                                  <strong>CASAPPA</strong>
+                                </p>
+                                <p>
+                                  20.GRUP B Tipi Kapak 1/8 Konik Milli Pompalar: Hassas ve Güvenilir Hidrolik Çözümler
+                                </p>
+                                <p>
+                                  Hidrolik pompalar, endüstriyel sektörde kritik bir role sahip olup, mekanik enerjiyi hidrolik enerjiye dönüştüren önemli ekipmanlardır. 20.GRUP B Tipi Kapak 1/8 Konik Milli Pompalar, hassasiyeti ve güvenilirliğiyle öne çıkarak çeşitli işletme ihtiyaçlarına çözüm sunmaktadır.
+                                </p>
+
+                                <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3">B Tipi Kapak 1/8 Konik Milli Pompaların Özellikleri</h3>
+                                <p>
+                                  Bu seri, hassas işler için tasarlanmış ve yüksek performanslı B Tipi Kapak 1/8 Konik Milli Pompalarla donatılmıştır. Hassas işlemlerde güvenilirlik ve hassasiyet sunarak, endüstriyel uygulamalarda önemli bir yer tutar.
+                                </p>
+
+                                <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3">Çeşitli Uygulama Alanları</h3>
+                                <p>
+                                  20.GRUP'un B Tipi Kapak 1/8 Konik Milli Pompaları, çeşitli endüstriyel sektörlerde kullanım için optimize edilmiştir. Hassas hidrolik ihtiyaçlarını karşılamak üzere tasarlanmıştır.
+                                </p>
+
+                                <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3">Performans ve Güvenilirlik Dengesi</h3>
+                                <p>
+                                  Bu pompa serisi, yüksek performansı güvenilirlikle birleştirerek işletmelere sağlam bir çözüm sunar. Hassas işlemlerde bile istikrarlı bir performans sergiler.
+                                </p>
+
+                                <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3">Hidrolik Pompaların Çeşitliliği</h3>
+                                <p>
+                                  Hidrolik pompaların geniş bir yelpazesi bulunur ve her biri farklı gereksinimleri karşılamak üzere tasarlanmıştır. B Tipi Kapak 1/8 Konik Milli Pompalar, özellikle hassas işler için idealdir.
+                                </p>
+                                <p>
+                                  Her işletmenin farklı gereksinimleri olduğundan, hangi hidrolik pompaların en uygun olduğunu belirlemek için uzman danışmanlık almak önemlidir.
+                                </p>
+                              </div>
+
+                              {/* Tablo */}
+                              <div className="mt-8 pt-6 border-t border-slate-200">
+                                <h3 className="text-lg font-bold text-slate-900 mb-4">20.GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ POMPALAR</h3>
+                                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                      <thead className="bg-slate-50">
+                                        <tr>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">Model</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">KAPAK</th>
+                                          <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ŞAFT TİPİ</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-slate-200">
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">C03564120</td><td className="px-4 py-3 text-slate-700">320</td><td className="px-4 py-3 text-slate-700">14.53 CM³</td><td className="px-4 py-3 text-slate-700">E2</td><td className="px-4 py-3 text-slate-700">82</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">C03564140</td><td className="px-4 py-3 text-slate-700">320</td><td className="px-4 py-3 text-slate-700">16.85 CM³</td><td className="px-4 py-3 text-slate-700">E2</td><td className="px-4 py-3 text-slate-700">82</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">C03564160</td><td className="px-4 py-3 text-slate-700">250</td><td className="px-4 py-3 text-slate-700">21.14 CM³</td><td className="px-4 py-3 text-slate-700">E2</td><td className="px-4 py-3 text-slate-700">82</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">C03564180</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">26.42 CM³</td><td className="px-4 py-3 text-slate-700">E2</td><td className="px-4 py-3 text-slate-700">82</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">C03564200</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">33.03 CM³</td><td className="px-4 py-3 text-slate-700">E2</td><td className="px-4 py-3 text-slate-700">82</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">C03564020</td><td className="px-4 py-3 text-slate-700">330</td><td className="px-4 py-3 text-slate-700">6.61 CM³</td><td className="px-4 py-3 text-slate-700">E2</td><td className="px-4 py-3 text-slate-700">82</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">C03564040</td><td className="px-4 py-3 text-slate-700">330</td><td className="px-4 py-3 text-slate-700">8.26 CM³</td><td className="px-4 py-3 text-slate-700">E2</td><td className="px-4 py-3 text-slate-700">82</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">C03564080</td><td className="px-4 py-3 text-slate-700">320</td><td className="px-4 py-3 text-slate-700">11.23 CM³</td><td className="px-4 py-3 text-slate-700">E2</td><td className="px-4 py-3 text-slate-700">82</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">44345</td><td className="px-4 py-3 text-slate-700">320</td><td className="px-4 py-3 text-slate-700">11.23 CM³</td><td className="px-4 py-3 text-slate-700">E2</td><td className="px-4 py-3 text-slate-700">82</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">C03563980</td><td className="px-4 py-3 text-slate-700">330</td><td className="px-4 py-3 text-slate-700">4.95 CM³</td><td className="px-4 py-3 text-slate-700">E2</td><td className="px-4 py-3 text-slate-700">82</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">BE2402011010</td><td className="px-4 py-3 text-slate-700">270</td><td className="px-4 py-3 text-slate-700">39,27 CM³</td><td className="px-4 py-3 text-slate-700">E3</td><td className="px-4 py-3 text-slate-700">83</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">C01980978</td><td className="px-4 py-3 text-slate-700">260</td><td className="px-4 py-3 text-slate-700">25 CM³</td><td className="px-4 py-3 text-slate-700">E2</td><td className="px-4 py-3 text-slate-700">82</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">CÖ020000N3</td><td className="px-4 py-3 text-slate-700">270</td><td className="px-4 py-3 text-slate-700">39,27 CM³</td><td className="px-4 py-3 text-slate-700">E3</td><td className="px-4 py-3 text-slate-700">83</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">C01980982</td><td className="px-4 py-3 text-slate-700">270</td><td className="px-4 py-3 text-slate-700">39,27 CM³</td><td className="px-4 py-3 text-slate-700">E3</td><td className="px-4 py-3 text-slate-700">83</td></tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
                           ) : (
                             <div className="rounded-lg border border-dashed border-slate-300 bg-slate-50 p-8 text-center">
                               <p className="text-sm text-slate-500 italic">İçerik eklenecek...</p>
@@ -3259,6 +4968,976 @@ function ProductDetail() {
                     </div>
                   )
                 })}
+              </div>
+            </>
+          ) : selectedBrand && productName === 'PALETLİ POMPA' && !selectedPaletliPompaCard ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">{selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)} Ürünleri</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedBrand(null)
+                    setSelectedPaletliPompaCard(null)
+                  }}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Kartlar */}
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+                {getPaletliPompaBrandCards(selectedBrand).map((card) => {
+                  const img = getPaletliPompaCardImage(card)
+                  return (
+                    <div
+                      key={card}
+                      onClick={() => setSelectedPaletliPompaCard(card)}
+                      className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-2xl hover:shadow-[#ff7f00]/10"
+                    >
+                      {/* Image Container */}
+                      <div className="relative h-64 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50">
+                        <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                        <img 
+                          src={img} 
+                          alt={card} 
+                          className="h-full w-full object-contain p-6 transition-all duration-500 group-hover:scale-110"
+                          onError={(e) => {
+                            e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(card)}`
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#ff7f00]/0 via-transparent to-[#1e4294]/0 transition-all duration-500 group-hover:from-[#ff7f00]/5 group-hover:to-[#1e4294]/5" />
+                      </div>
+                      
+                      {/* Content Section */}
+                      <div className="flex flex-1 flex-col p-6 pt-5">
+                        <h3 className="mb-4 line-clamp-2 min-h-[3.5rem] text-lg font-bold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                          {card}
+                        </h3>
+                        <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                          <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                            Detay
+                          </span>
+                          <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                            <span className="text-xs font-semibold">İncele</span>
+                            <svg 
+                              className="h-4 w-4" 
+                              fill="none" 
+                              viewBox="0 0 24 24" 
+                              stroke="currentColor"
+                              strokeWidth={2.5}
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </>
+          ) : selectedPaletliPompaCard && selectedBrand === 'berarma' && productName === 'PALETLİ POMPA' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">BERARMA</p>
+                  <h2 className="text-xl font-semibold">{selectedPaletliPompaCard}</h2>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedPaletliPompaCard(null)
+                  }}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Ürün Tablosu */}
+              {(() => {
+                const productData = getBerarmaProductData(selectedPaletliPompaCard)
+                if (!productData) return null
+                
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {productData.categories.map((category, catIndex) => (
+                      <div key={catIndex} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL KODU</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">KONTROL TİPİ</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.BASINÇ (BAR)</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                  {category.products.some(p => p.regülasyon) && (
+                                    <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">REGÜLASYON TİPİ</th>
+                                  )}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((product, prodIndex) => (
+                                  <tr key={prodIndex} className="hover:bg-slate-50">
+                                    <td className="px-4 py-3 font-medium text-slate-900">{product.kod}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.hacim}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.kontrol || '-'}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.basinc || '-'}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.hiz || '-'}</td>
+                                    {category.products.some(p => p.regülasyon) && (
+                                      <td className="px-4 py-3 text-slate-700">{product.regülasyon || '-'}</td>
+                                    )}
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="mt-6 pt-6 border-t border-slate-200 px-4 py-3 text-xs text-slate-500 bg-slate-50 rounded-lg">
+                      <p className="mb-2"><strong>Not:</strong> Bu tablo, BERARMA {selectedPaletliPompaCard} ürün serisinin teknik özelliklerini içermektedir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.</p>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedPaletliPompaCard && selectedBrand === 'hystar' && productName === 'PALETLİ POMPA' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">HYSTAR</p>
+                  <h2 className="text-xl font-semibold">{selectedPaletliPompaCard}</h2>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedPaletliPompaCard(null)
+                  }}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Ürün Tablosu */}
+              {(() => {
+                const productData = getHystarProductData(selectedPaletliPompaCard)
+                if (!productData) return null
+                
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {productData.categories.map((category, catIndex) => (
+                      <div key={catIndex} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                                  {category.products[0].basinc && (
+                                    <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                  )}
+                                  {category.products[0].hacim && (
+                                    <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {selectedPaletliPompaCard === 'DEĞİŞKEN DEBİLİ PALETLİ POMPALAR' && category.name.includes('TANDEM') ? 'İLETİM HACMİ' : category.name.includes('TANDEM') ? 'İLETİM HACMİ' : selectedPaletliPompaCard === 'V10-V20 ENDÜSTRİYEL VE MOBİL POMPALAR' ? 'DEPLASMAN(CC/DEV)' : 'İLETİM HACMİ'}
+                                    </th>
+                                  )}
+                                  {category.products[0].hiz && (
+                                    <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {category.name.includes('TANDEM') ? 'DEV/DAK' : selectedPaletliPompaCard === 'DEĞİŞKEN DEBİLİ PALETLİ POMPALAR' ? 'MİN-MAX HIZ (D/DK)' : 'MAKS.HIZ'}
+                                    </th>
+                                  )}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((product, prodIndex) => (
+                                  <tr key={prodIndex} className="hover:bg-slate-50">
+                                    <td className="px-4 py-3 font-medium text-slate-900">{product.kod}</td>
+                                    {product.basinc && (
+                                      <td className="px-4 py-3 text-slate-700">{product.basinc}</td>
+                                    )}
+                                    {product.hacim && (
+                                      <td className="px-4 py-3 text-slate-700">{product.hacim}</td>
+                                    )}
+                                    {product.hiz && (
+                                      <td className="px-4 py-3 text-slate-700">{product.hiz}</td>
+                                    )}
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="mt-6 pt-6 border-t border-slate-200 px-4 py-3 text-xs text-slate-500 bg-slate-50 rounded-lg">
+                      <p className="mb-2"><strong>Not:</strong> Bu tablo, HYSTAR {selectedPaletliPompaCard} ürün serisinin teknik özelliklerini içermektedir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.</p>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedPaletliPompaCard && selectedBrand === 'hytek' && productName === 'PALETLİ POMPA' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">HYTEK</p>
+                  <h2 className="text-xl font-semibold">{selectedPaletliPompaCard}</h2>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedPaletliPompaCard(null)
+                  }}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Ürün Tablosu */}
+              {(() => {
+                const productData = getHytekProductData(selectedPaletliPompaCard)
+                if (!productData) return null
+                
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {productData.categories.map((category, catIndex) => (
+                      <div key={catIndex} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL KODU</th>
+                                  {category.products.some(p => p.basinc || p.maksBasinc) && (
+                                    <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {selectedPaletliPompaCard === 'DEĞİŞKEN DEBİLİ PALETLİ POMPALAR' ? 'BASINÇ (BAR)' : 'BASINÇ (BAR)'}
+                                    </th>
+                                  )}
+                                  {category.products.some(p => p.galon || p.hacim || p.deplasman) && (
+                                    <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {selectedPaletliPompaCard === 'V10-V20 ENDÜSTRİYEL VE MOBİL POMPALAR' ? (category.name === 'V10' ? 'DEPLASMAN(CC/DEV)' : 'GALON') : 
+                                       category.products.some(p => p.galon) ? 'GALON' : 
+                                       category.products.some(p => p.deplasman) ? 'DEPLASMAN(CC/DEV)' : 
+                                       'İLETİM HACMİ'}
+                                    </th>
+                                  )}
+                                  {category.products.some(p => p.hiz || p.minMaxHiz) && (
+                                    <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {selectedPaletliPompaCard === 'DEĞİŞKEN DEBİLİ PALETLİ POMPALAR' ? 'MİN-MAX HIZ (D/DK)' : 'MAKS.HIZ'}
+                                    </th>
+                                  )}
+                                  {category.products.some(p => p.seri) && (
+                                    <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">SERİ</th>
+                                  )}
+                                  {category.products.some(p => p.versiyon) && (
+                                    <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">POMPA VERSİYON</th>
+                                  )}
+                                  {category.products.some(p => p.tip) && (
+                                    <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">TİPİ</th>
+                                  )}
+                                  {category.products.some(p => p.maksBasinc && !p.basinc) && (
+                                    <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.BASINÇ (BAR)</th>
+                                  )}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((product, prodIndex) => {
+                                  const hasBasinc = category.products.some(p => p.basinc || p.maksBasinc)
+                                  const hasGalonHacim = category.products.some(p => p.galon || p.hacim || p.deplasman)
+                                  const hasHiz = category.products.some(p => p.hiz || p.minMaxHiz)
+                                  const hasSeri = category.products.some(p => p.seri)
+                                  const hasVersiyon = category.products.some(p => p.versiyon)
+                                  const hasTip = category.products.some(p => p.tip)
+                                  const hasMaksBasinc = category.products.some(p => p.maksBasinc && !p.basinc)
+                                  
+                                  return (
+                                    <tr key={prodIndex} className="hover:bg-slate-50">
+                                      <td className="px-4 py-3 font-medium text-slate-900">{product.kod}</td>
+                                      {hasBasinc && (
+                                        <td className="px-4 py-3 text-slate-700">{product.basinc || product.maksBasinc || '-'}</td>
+                                      )}
+                                      {hasGalonHacim && (
+                                        <td className="px-4 py-3 text-slate-700">{product.galon || product.hacim || product.deplasman || '-'}</td>
+                                      )}
+                                      {hasHiz && (
+                                        <td className="px-4 py-3 text-slate-700">{product.hiz || product.minMaxHiz || '-'}</td>
+                                      )}
+                                      {hasSeri && (
+                                        <td className="px-4 py-3 text-slate-700">{product.seri || '-'}</td>
+                                      )}
+                                      {hasVersiyon && (
+                                        <td className="px-4 py-3 text-slate-700">{product.versiyon || '-'}</td>
+                                      )}
+                                      {hasTip && (
+                                        <td className="px-4 py-3 text-slate-700">{product.tip || '-'}</td>
+                                      )}
+                                      {hasMaksBasinc && (
+                                        <td className="px-4 py-3 text-slate-700">{product.maksBasinc || '-'}</td>
+                                      )}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="mt-6 pt-6 border-t border-slate-200 px-4 py-3 text-xs text-slate-500 bg-slate-50 rounded-lg">
+                      <p className="mb-2"><strong>Not:</strong> Bu tablo, HYTEK {selectedPaletliPompaCard} ürün serisinin teknik özelliklerini içermektedir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.</p>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedPaletliPompaCard && selectedBrand === 'oxim' && productName === 'PALETLİ POMPA' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">OXIM</p>
+                  <h2 className="text-xl font-semibold">{selectedPaletliPompaCard}</h2>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedPaletliPompaCard(null)
+                  }}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* İçerik */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                {selectedPaletliPompaCard === 'DEĞİŞKEN DEBİLİ PALETLİ POMPALAR' ? (
+                  <>
+                    <div className="mb-6">
+                      <h3 className="text-lg font-semibold text-slate-900 mb-2">DEĞİŞKEN DEBİLİ PALETLİ POMPALAR</h3>
+                      <p className="text-sm text-slate-600 mb-4">MEKANİK BASINÇ REG. DEĞ. DEB. PALETLİ POMPALAR</p>
+                    </div>
+                    <div className="overflow-x-auto">
+                      <table className="w-full border-collapse">
+                        <thead>
+                          <tr className="bg-gradient-to-r from-[#1e4294] to-[#1e4294]/90 text-white">
+                            <th className="border border-slate-300 px-4 py-3 text-left font-semibold">İLETİM HACMİ</th>
+                            <th className="border border-slate-300 px-4 py-3 text-left font-semibold">MAKS.BASINÇ (BAR)</th>
+                            <th className="border border-slate-300 px-4 py-3 text-left font-semibold">MAKS.HIZ</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="hover:bg-slate-50 transition-colors">
+                            <td className="border border-slate-300 px-4 py-3 font-medium text-slate-900">VPV1-08-70</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">5,3 CM³</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">70</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">800-1800</td>
+                          </tr>
+                          <tr className="hover:bg-slate-50 transition-colors">
+                            <td className="border border-slate-300 px-4 py-3 font-medium text-slate-900">VPV1-12-70</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">6,6 CM³</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">70</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">800-1800</td>
+                          </tr>
+                          <tr className="hover:bg-slate-50 transition-colors">
+                            <td className="border border-slate-300 px-4 py-3 font-medium text-slate-900">VPV1-15-70</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">8,3 CM³</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">70</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">800-1800</td>
+                          </tr>
+                          <tr className="hover:bg-slate-50 transition-colors">
+                            <td className="border border-slate-300 px-4 py-3 font-medium text-slate-900">VPV1-20-70</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">11,10 CM³</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">50-70</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">800-1800</td>
+                          </tr>
+                          <tr className="hover:bg-slate-50 transition-colors">
+                            <td className="border border-slate-300 px-4 py-3 font-medium text-slate-900">VPV2-30-70</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">16,70 CM³</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">50-70</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">800-1800</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </>
+                ) : selectedPaletliPompaCard === 'V10-V20 ENDÜSTRİYEL VE MOBİL POMPALAR' ? (
+                  <>
+                    <div className="mb-6">
+                      <h3 className="text-lg font-semibold text-slate-900 mb-2">V10-V20 ENDÜSTRİYEL VE MOBİL POMPALAR</h3>
+                      <p className="text-sm text-slate-600 mb-4">V10</p>
+                    </div>
+                    <div className="overflow-x-auto">
+                      <table className="w-full border-collapse">
+                        <thead>
+                          <tr className="bg-gradient-to-r from-[#1e4294] to-[#1e4294]/90 text-white">
+                            <th className="border border-slate-300 px-4 py-3 text-left font-semibold">DEPLASMAN(CC/DEV)</th>
+                            <th className="border border-slate-300 px-4 py-3 text-left font-semibold">MAKS.BASINÇ (BAR)</th>
+                            <th className="border border-slate-300 px-4 py-3 text-left font-semibold">MAKS.HIZ</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="hover:bg-slate-50 transition-colors">
+                            <td className="border border-slate-300 px-4 py-3 font-medium text-slate-900">PVL1-10-F-1R-U-10</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">9,04 CM³</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">210</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">750-1800</td>
+                          </tr>
+                          <tr className="hover:bg-slate-50 transition-colors">
+                            <td className="border border-slate-300 px-4 py-3 font-medium text-slate-900">PVL1-12-F-1R-U-10</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">12,02 CM³</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">210</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">750-1800</td>
+                          </tr>
+                          <tr className="hover:bg-slate-50 transition-colors">
+                            <td className="border border-slate-300 px-4 py-3 font-medium text-slate-900">PVL1-14-F-1R-U-10</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">13,07 CM³</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">210</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">750-1800</td>
+                          </tr>
+                          <tr className="hover:bg-slate-50 transition-colors">
+                            <td className="border border-slate-300 px-4 py-3 font-medium text-slate-900">PVL1-23-F-1R-U-10</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">22,07 CM³</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">210</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">750-1800</td>
+                          </tr>
+                          <tr className="hover:bg-slate-50 transition-colors">
+                            <td className="border border-slate-300 px-4 py-3 font-medium text-slate-900">PVL1-25-F-1R-U-10</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">25,03 CM³</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">210</td>
+                            <td className="border border-slate-300 px-4 py-3 text-slate-700">750-1800</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </>
+                ) : null}
+              </div>
+            </>
+          ) : selectedPaletliPompaCard && selectedBrand === 'kcl' && productName === 'PALETLİ POMPA' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">KCL</p>
+                  <h2 className="text-xl font-semibold">{selectedPaletliPompaCard}</h2>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedPaletliPompaCard(null)
+                  }}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Ürün Tablosu */}
+              {(() => {
+                const productData = getKclProductData(selectedPaletliPompaCard)
+                if (!productData) return null
+                
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {productData.categories.map((category, catIndex) => (
+                      <div key={catIndex} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL KODU</th>
+                                  {category.products[0].debi && (
+                                    <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">DEBİ</th>
+                                  )}
+                                  {category.products[0].basinc && (
+                                    <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {selectedPaletliPompaCard === 'DEĞİŞKEN DEBİLİ PALETLİ POMPALAR' ? 'MAKS.BASINÇ (BAR)' : 'BASINÇ (BAR)'}
+                                    </th>
+                                  )}
+                                  {category.products[0].hiz && (
+                                    <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {selectedPaletliPompaCard === 'DEĞİŞKEN DEBİLİ PALETLİ POMPALAR' ? 'MİN-MAX HIZ (D/DK)' : 'DEV/DAK'}
+                                    </th>
+                                  )}
+                                  {category.products[0].hacim && (
+                                    <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                  )}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((product, prodIndex) => (
+                                  <tr key={prodIndex} className="hover:bg-slate-50">
+                                    <td className="px-4 py-3 font-medium text-slate-900">{product.kod}</td>
+                                    {product.debi && (
+                                      <td className="px-4 py-3 text-slate-700">{product.debi}</td>
+                                    )}
+                                    {product.basinc && (
+                                      <td className="px-4 py-3 text-slate-700">{product.basinc}</td>
+                                    )}
+                                    {product.hiz && (
+                                      <td className="px-4 py-3 text-slate-700">{product.hiz}</td>
+                                    )}
+                                    {product.hacim && (
+                                      <td className="px-4 py-3 text-slate-700">{product.hacim}</td>
+                                    )}
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="mt-6 pt-6 border-t border-slate-200 px-4 py-3 text-xs text-slate-500 bg-slate-50 rounded-lg">
+                      <p className="mb-2"><strong>Not:</strong> Bu tablo, KCL {selectedPaletliPompaCard} ürün serisinin teknik özelliklerini içermektedir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.</p>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedBrand && productName === 'İŞ MAKİNESİ POMPALARI' && currentBrand === 'david-brown' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">DAVID BROWN</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedBrand(null)
+                    navigate(`/urunler/pompa/is-makinesi-pompalari`)
+                  }}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* İçerik */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                {/* Açıklama Metni */}
+                <div className="space-y-4 text-base leading-relaxed mb-8">
+                  <h1 className="text-2xl font-bold text-slate-900 mb-4">İş Makinelerinde Hidrolik Pompalar: Verimliliğin Anahtarı</h1>
+                  <p>
+                    Hidrolik pompalar, iş makinelerinin güç kaynağıdır. David Brown ve Hema gibi öncü markaların ürettiği çeşitleriyle, iş makinelerinin performansını artırmak ve güvenilirlik sağlamak için vazgeçilmezdir.
+                  </p>
+
+                  <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3">Hidrolik İş Makinası Pompalarının Çeşitleri</h3>
+                  <p>
+                    Alüminyum gövdeli dişli pompalar, sağlamlık ve hafiflikleriyle öne çıkar. Diğer çeşitler ise farklı basınç ve debi ihtiyaçlarını karşılamak üzere özel olarak tasarlanmıştır. Her iş makinesi için en uygun hidrolik pompa, güç, dayanıklılık ve performans açısından en iyi sonucu verir.
+                  </p>
+
+                  <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3">Hidrolik İş Makinası Pompalarının Özellikleri</h3>
+                  <p>
+                    Bu pompaların dayanıklı yapıları ve yüksek performansı, iş makinelerinde kesintisiz bir çalışma sağlar. Alüminyum gövdeli dişli pompalar, uzun ömürleri ve düşük bakım gereksinimleriyle maliyet-etkin bir seçenek sunar. David Brown ve Hema'nın ürünleri, sektörde kalite ve güvenilirlik standartlarını belirler.
+                  </p>
+
+                  <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3">Hidrolik İş Makinası Pompaları Fiyatları</h3>
+                  <p>
+                    Fiyatlar, pompaların özellikleri ve markalarına göre değişir. Alüminyum gövdeli dişli pompalar, genellikle ekonomik bir seçenek sunar. Ancak, özel fonksiyonlara sahip veya yüksek performans gerektiren iş makineleri için tasarlanmış modeller daha yüksek maliyetlere sahip olabilir.
+                  </p>
+
+                  <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3">İş Makinelerinde Hidrolik Pompaların Önemi</h3>
+                  <p>
+                    Hidrolik pompalar, iş makinelerinin gücünü ve verimliliğini belirler. Her iş makinesi, doğru pompa seçimiyle performansını artırabilir ve uzun vadede işletme maliyetlerini azaltabilir. David Brown ve Hema gibi lider markalar, sektördeki en iyi hidrolik pompaları sunarak iş makinelerinin güvenilirliğini ve verimliliğini artırır.
+                  </p>
+
+                  <p className="mt-6 text-slate-600">
+                    Bu ürün sayfası, iş makinelerinde kritik bir rol oynayan hidrolik pompaların çeşitliliği, özellikleri ve fiyatları hakkında bilgi sunmaktadır. İş makineleri sahipleri, işletmecileri ve endüstri profesyonelleri için doğru seçimi yapmalarına yardımcı olacak temel bilgileri içermektedir.
+                  </p>
+                </div>
+
+                {/* Ürün Tablosu */}
+                <div className="mt-8 pt-6 border-t border-slate-200">
+                  <h3 className="text-lg font-bold text-slate-900 mb-4">İŞ MAKİNESİ POMPALARI - ÜRÜN LİSTESİ</h3>
+                  <div className="rounded-lg border border-slate-200 overflow-hidden">
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">PARTİ KODU</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">DÖNÜŞ YÖNÜ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">HACİM</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKİNE TİPLERİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ORİJİNAL KODU</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">001101</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">160</td><td className="px-4 py-3 text-slate-700">KOMATSU HD785-5 ( 785-3-2 )</td><td className="px-4 py-3 text-slate-700">705-22-44020</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">002602</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">53+53</td><td className="px-4 py-3 text-slate-700">KOMATSU HANOMAG WA270-3</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">002608</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">53</td><td className="px-4 py-3 text-slate-700">KOMATSU HANOMAG WA270</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">002610</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">53+53</td><td className="px-4 py-3 text-slate-700">KOMATSU HANOMAG WA270</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">002611</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">53+32</td><td className="px-4 py-3 text-slate-700">KOMATSU HANOMAG WA270 PT</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">002616</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">41+29</td><td className="px-4 py-3 text-slate-700">CUMITAS 885,888</td><td className="px-4 py-3 text-slate-700">CUKUROVA 885</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">003702</td><td className="px-4 py-3 text-slate-700">SET</td><td className="px-4 py-3 text-slate-700">SET</td><td className="px-4 py-3 text-slate-700">SANKO BHL MEC.SET- OLD</td><td className="px-4 py-3 text-slate-700">MST422,442,444</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">003704</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">37+36</td><td className="px-4 py-3 text-slate-700">FERMEC 960 NEW 2002 VE ÖNCESİ</td><td className="px-4 py-3 text-slate-700">6102161M91</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">003901</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">85</td><td className="px-4 py-3 text-slate-700">KOMATSU 420/FRONT PUMP</td><td className="px-4 py-3 text-slate-700">LOADER</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">004101</td><td className="px-4 py-3 text-slate-700">D</td><td className="px-4 py-3 text-slate-700">24.3</td><td className="px-4 py-3 text-slate-700">TAMROCK T35D/T40D</td><td className="px-4 py-3 text-slate-700">04702910</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">004202</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">70.1</td><td className="px-4 py-3 text-slate-700">JCB 416/430 Z</td><td className="px-4 py-3 text-slate-700">919/74700</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">006101</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">58.7</td><td className="px-4 py-3 text-slate-700">LANSING LINDE - 356 F/L TRUCK</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">006201</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">45+63</td><td className="px-4 py-3 text-slate-700">KOM.420 DZ-3</td><td className="px-4 py-3 text-slate-700">705-52-30560 - 58</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">006601</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">85+73</td><td className="px-4 py-3 text-slate-700">LINDE 356 TRUCK - C360/C400 KO</td><td className="px-4 py-3 text-slate-700">H729933-(3563001000)</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">006602</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">73+53</td><td className="px-4 py-3 text-slate-700">LINDE 356 TRUCK - C360/C400 KO</td><td className="px-4 py-3 text-slate-700">H729755-(3563001001)</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">006901</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">65.86</td><td className="px-4 py-3 text-slate-700">MF 60H,60NX</td><td className="px-4 py-3 text-slate-700">147143M92</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">007201</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">70.1</td><td className="px-4 py-3 text-slate-700">KOMATSU WA 320-1/380-1/400-1/4</td><td className="px-4 py-3 text-slate-700">705-11-35010</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">007701</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">85+23</td><td className="px-4 py-3 text-slate-700">KOMATSU HD325-7R / HD405-7</td><td className="px-4 py-3 text-slate-700">705-52-31250</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">008801</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">85+85</td><td className="px-4 py-3 text-slate-700">TEREX EQUIPMENT LIMITED</td><td className="px-4 py-3 text-slate-700">15259248</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">009001</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">-</td><td className="px-4 py-3 text-slate-700">MINE SCOOP UNATRAC</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">009302</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">45+45+45</td><td className="px-4 py-3 text-slate-700">CVS CONTAINER CRANE</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">009501</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">70,1+58,7+58,7</td><td className="px-4 py-3 text-slate-700">GROVE COLES CRANE</td><td className="px-4 py-3 text-slate-700">919/24700</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">010105</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">-</td><td className="px-4 py-3 text-slate-700">DRESSER RAND GAS TURBINE</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">010704</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">-</td><td className="px-4 py-3 text-slate-700">POWERSCREEN-ROCK SCREEN</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">010708</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">27+27+27</td><td className="px-4 py-3 text-slate-700">POWERSCREEN</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">010709</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">27</td><td className="px-4 py-3 text-slate-700">POWERSCREEN</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">011104</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">160</td><td className="px-4 py-3 text-slate-700">TEREX</td><td className="px-4 py-3 text-slate-700">15247491</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">011106</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">137</td><td className="px-4 py-3 text-slate-700">KALMAR CONTAINER FORKLIFT</td><td className="px-4 py-3 text-slate-700">FORKLIFT</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">011109</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">220+19</td><td className="px-4 py-3 text-slate-700">TEREX</td><td className="px-4 py-3 text-slate-700">15255604</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">012001</td><td className="px-4 py-3 text-slate-700">D</td><td className="px-4 py-3 text-slate-700">70.1</td><td className="px-4 py-3 text-slate-700">GROVE COLES CRANE RT620 KİTS</td><td className="px-4 py-3 text-slate-700">7722990146</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">012101</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">85,7+51,8</td><td className="px-4 py-3 text-slate-700">LINDE LANSING</td><td className="px-4 py-3 text-slate-700">H760023000</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">015502</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">85,7+24,3</td><td className="px-4 py-3 text-slate-700">BOSS</td><td className="px-4 py-3 text-slate-700">9740374</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">015701</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">32</td><td className="px-4 py-3 text-slate-700">MARINE CRANE HYDRALIFT</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">015702</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">45</td><td className="px-4 py-3 text-slate-700">MARINE CRANE HYDRALIFT</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">015704</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">27</td><td className="px-4 py-3 text-slate-700">MARINE CRANE HYDRALIFT</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">015705</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">38</td><td className="px-4 py-3 text-slate-700">MARINE CRANE HYDRALIFT</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">015711</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">53+23</td><td className="px-4 py-3 text-slate-700">HIDROMEK- BEFORE 2003</td><td className="px-4 py-3 text-slate-700">HMK100</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">015801</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">239.8</td><td className="px-4 py-3 text-slate-700">UMOE SCHAT-FOR EMERGENCY BOAT</td><td className="px-4 py-3 text-slate-700">VİNÇ</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">015802</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">220</td><td className="px-4 py-3 text-slate-700">UMOE SCHAT</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">015810</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">239.8</td><td className="px-4 py-3 text-slate-700">UMOE SCHAT-FOR EMERGENCY BOAT</td><td className="px-4 py-3 text-slate-700">VİNÇ</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">016201</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">53+19</td><td className="px-4 py-3 text-slate-700">CASE 580SL</td><td className="px-4 py-3 text-slate-700">3239529099</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">016202</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">187</td><td className="px-4 py-3 text-slate-700">KOM.D155A DOZER</td><td className="px-4 py-3 text-slate-700">07446-66104</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">016203</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">130</td><td className="px-4 py-3 text-slate-700">HL 780-3 LOADER</td><td className="px-4 py-3 text-slate-700">31L6-01400</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">016205</td><td className="px-4 py-3 text-slate-700">-</td><td className="px-4 py-3 text-slate-700">-</td><td className="px-4 py-3 text-slate-700">KOMATSU HD785-5 (785-3-2)</td><td className="px-4 py-3 text-slate-700">705-22-44020</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">016301</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">70.1</td><td className="px-4 py-3 text-slate-700">BOSS</td><td className="px-4 py-3 text-slate-700">7583189</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">016702</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">31.6</td><td className="px-4 py-3 text-slate-700">TOYOTA FORKLIFT</td><td className="px-4 py-3 text-slate-700">FORKLIFT</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">017202</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">63</td><td className="px-4 py-3 text-slate-700">MOXY - MT36 DUMPER</td><td className="px-4 py-3 text-slate-700">55692</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">017203</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">36+26</td><td className="px-4 py-3 text-slate-700">CUMITAS 883,885,888 -2010</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">020101</td><td className="px-4 py-3 text-slate-700">SET</td><td className="px-4 py-3 text-slate-700">SET</td><td className="px-4 py-3 text-slate-700">SANKO BHL MEC.SET- 2008</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">020303</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">101.1</td><td className="px-4 py-3 text-slate-700">GROVE COLES CRANE</td><td className="px-4 py-3 text-slate-700">8871297</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">020501</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">85,7+41,5</td><td className="px-4 py-3 text-slate-700">JCB 428</td><td className="px-4 py-3 text-slate-700">919/72700</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">021817</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">149.9</td><td className="px-4 py-3 text-slate-700">SAMSUNG W/LOADER LX473</td><td className="px-4 py-3 text-slate-700">P2045-02310</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">021818</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">67,7+16</td><td className="px-4 py-3 text-slate-700">SAMSUNG LX473 WHEELED LOADER</td><td className="px-4 py-3 text-slate-700">P2042-07730</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">021824</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">67,7+16</td><td className="px-4 py-3 text-slate-700">SAMSUNG W/LOADER LX473</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">021827</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">155</td><td className="px-4 py-3 text-slate-700">SAMSUNG W/LOADER LX473 - B</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">021903</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">100+100</td><td className="px-4 py-3 text-slate-700">HYUNDAI HL 770-3</td><td className="px-4 py-3 text-slate-700">21903</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">022101</td><td className="px-4 py-3 text-slate-700">-</td><td className="px-4 py-3 text-slate-700">58.7</td><td className="px-4 py-3 text-slate-700">HYUNDAI - HL770-4</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">022505</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">85+73</td><td className="px-4 py-3 text-slate-700">MOXY - MT40 B HAULER</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">023101</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">41.3</td><td className="px-4 py-3 text-slate-700">MOXY - MT40 B + COLES AT633/RT</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">024001</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">85,7+70,1</td><td className="px-4 py-3 text-slate-700">MOXY - MT40 B HAULER</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">024002</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">70.1</td><td className="px-4 py-3 text-slate-700">MOXY - MT40 B HAULER</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">025604</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">-</td><td className="px-4 py-3 text-slate-700">LANSING LINDE - 357 REACH TRUC</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">025605</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">73+45</td><td className="px-4 py-3 text-slate-700">LANSING LINDE- 357 REACH TRUCK</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">025701</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">85,7+31,6</td><td className="px-4 py-3 text-slate-700">GROVE COLES CRANE</td><td className="px-4 py-3 text-slate-700">7722990148</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">026301</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">73+53</td><td className="px-4 py-3 text-slate-700">TAMROCK</td><td className="px-4 py-3 text-slate-700">DRILL.MAC.</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">026701</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">70,1+41,5+41,5</td><td className="px-4 py-3 text-slate-700">GROVE COLES CRANE</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">027302</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">85+32</td><td className="px-4 py-3 text-slate-700">CLARK FORKLIFT TRUCK OME GA 16</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">027303</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">70+70</td><td className="px-4 py-3 text-slate-700">CLARK FORKLIFT TRUCK</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">028711</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">70,1+51,8</td><td className="px-4 py-3 text-slate-700">KAWASAKI 80Z</td><td className="px-4 py-3 text-slate-700">LOADER</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">030011</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">53+53</td><td className="px-4 py-3 text-slate-700">HYDALIFT MARINE CRANE</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">030014</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">117</td><td className="px-4 py-3 text-slate-700">UMOE SCHAT</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">030801</td><td className="px-4 py-3 text-slate-700">-</td><td className="px-4 py-3 text-slate-700">70,1+29,5</td><td className="px-4 py-3 text-slate-700">TIGER CAT</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">032113</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">187+137</td><td className="px-4 py-3 text-slate-700">VALMET GEAR</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">032116</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">42+23</td><td className="px-4 py-3 text-slate-700">VALMET GEAR</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">032136</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">42+42</td><td className="px-4 py-3 text-slate-700">VALMET GEAR</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">032137</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">42+42</td><td className="px-4 py-3 text-slate-700">VALMET GEAR</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">032145</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">239,8+109,3</td><td className="px-4 py-3 text-slate-700">VALMET GEAR</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">032704</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">117</td><td className="px-4 py-3 text-slate-700">TAMROCK TORO DUMPER T35D/T40D</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">035703</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">51.8+14.6+19.4</td><td className="px-4 py-3 text-slate-700">TAMROCK 400-500</td><td className="px-4 py-3 text-slate-700">81491389</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">035806</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">100+16</td><td className="px-4 py-3 text-slate-700">HYUNDAI HL 780-3 LOADER</td><td className="px-4 py-3 text-slate-700">31L6-01380</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">035809</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">16</td><td className="px-4 py-3 text-slate-700">HYUNDAI HL 780-3 LOADER</td><td className="px-4 py-3 text-slate-700">31L6-01380</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">036003</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">63+63</td><td className="px-4 py-3 text-slate-700">HYUNDAI HL 760 WHEELED LOADER</td><td className="px-4 py-3 text-slate-700">34L4-01670</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">036006</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">63+63</td><td className="px-4 py-3 text-slate-700">HYUNDAI</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">036009</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">63+63</td><td className="px-4 py-3 text-slate-700">HYUNDAI HL 760 WHEEL LOADER</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">036901</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">38</td><td className="px-4 py-3 text-slate-700">POCLAIN P90 EXCAVATOR 1984</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">037101</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">117+117</td><td className="px-4 py-3 text-slate-700">TAMROCK TORO LOADER</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">037102</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">117</td><td className="px-4 py-3 text-slate-700">TAMROCK TORO LOADER</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">037501</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">110,8+85,7</td><td className="px-4 py-3 text-slate-700">TEREX</td><td className="px-4 py-3 text-slate-700">15255603</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">037702</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">51,8+24</td><td className="px-4 py-3 text-slate-700">VOLVO BM 4200 LOADER</td><td className="px-4 py-3 text-slate-700">286-1764-1468</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">038001</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">120</td><td className="px-4 py-3 text-slate-700">KAELBLE DUMP TRUCK</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">039402</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">73+45</td><td className="px-4 py-3 text-slate-700">DEMAG H 185 EXCAVATOR</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">039404</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">73+45</td><td className="px-4 py-3 text-slate-700">DEMAG</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">039801</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">41,5+28</td><td className="px-4 py-3 text-slate-700">JCB 4CX-P8</td><td className="px-4 py-3 text-slate-700">919/71900,68700</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">039901</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">85.7</td><td className="px-4 py-3 text-slate-700">FRUKAWA</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">040101</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">41.5</td><td className="px-4 py-3 text-slate-700">SANDERSON TELEPORTER</td><td className="px-4 py-3 text-slate-700">1002959-1002566</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">040301</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">100+100+63</td><td className="px-4 py-3 text-slate-700">BOSS</td><td className="px-4 py-3 text-slate-700">9782072</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">040302</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">100+100+63</td><td className="px-4 py-3 text-slate-700">BOSS</td><td className="px-4 py-3 text-slate-700">9704146</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">040402</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">63</td><td className="px-4 py-3 text-slate-700">CVS CONTAINER FORKLIFT 2812 3</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">041001</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">85,7+51,8</td><td className="px-4 py-3 text-slate-700">LANSING LINDE HERMES 28 T</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">041101</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">120+100</td><td className="px-4 py-3 text-slate-700">KALMAR FORKLIFT TRUCK</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">041501</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">14.6</td><td className="px-4 py-3 text-slate-700">CVS CONTAINER FORKLIFT</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">042606</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">41</td><td className="px-4 py-3 text-slate-700">SCHAEFF SKL 863 LOADER</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">043501</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">73+63</td><td className="px-4 py-3 text-slate-700">C.V.S. FL 4212 FLT</td><td className="px-4 py-3 text-slate-700">LOADER</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">043502</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">85</td><td className="px-4 py-3 text-slate-700">CVS CONTAINER CRANE</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">043504</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">85+14</td><td className="px-4 py-3 text-slate-700">CVS CONT.STACKER 42 TON</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">044501</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">53+19</td><td className="px-4 py-3 text-slate-700">MAXEIM FORKLIFT TRUCK</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">044701</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">187</td><td className="px-4 py-3 text-slate-700">TEREX 40 TON DUMP TRUCK 4066C</td><td className="px-4 py-3 text-slate-700">15257085</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">044702</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">187</td><td className="px-4 py-3 text-slate-700">-</td><td className="px-4 py-3 text-slate-700">15257085</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">045002</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">160</td><td className="px-4 py-3 text-slate-700">AVELING BARFORD LOADER</td><td className="px-4 py-3 text-slate-700">-</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">045401</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">52</td><td className="px-4 py-3 text-slate-700">MF 860-960</td><td className="px-4 py-3 text-slate-700">1471430M92</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">045601</td><td className="px-4 py-3 text-slate-700">C</td><td className="px-4 py-3 text-slate-700">85.7</td><td className="px-4 py-3 text-slate-700">KOMATSU HANOMAG D600C DOZER</td><td className="px-4 py-3 text-slate-700">3086252M91</td></tr>
+                          <tr className="hover:bg-slate-50"><td className="px-4 py-3 font-medium text-slate-900">045702</td><td className="px-4 py-3 text-slate-700">A</td><td className="px-4 py-3 text-slate-700">85.7</td><td className="px-4 py-3 text-slate-700">KAWASAKI Z80-Z70B-1</td><td className="px-4 py-3 text-slate-700">YT22PL220004</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div className="px-4 py-3 text-xs text-slate-500 bg-slate-50 border-t border-slate-200">
+                      <p className="mb-2"><strong>Not:</strong> Bu tablo, İŞ MAKİNESİ POMPALARI ürün serisinin örneklerini içermektedir. Tabloda yüzlerce ürün kodu bulunmaktadır. Tüm ürünler için detaylı bilgi, teknik özellikler ve fiyat bilgisi almak için lütfen bizimle iletişime geçin.</p>
+                      <p>Daha fazla ürün kodu ve detaylı teknik bilgiler için kataloğumuzu inceleyebilir veya satış ekibimizle görüşebilirsiniz.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : selectedBrand && productName === 'EL POMPASI' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">{selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Detay Sayfası İçeriği */}
+              {(() => {
+                const productData = getElPompasiProductData(selectedBrand)
+                if (!productData) {
+                  return (
+                    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                      <div className="space-y-4 text-base leading-relaxed">
+                        <h1 className="text-2xl font-bold text-slate-900 mb-4">{productName} - {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</h1>
+                        <p className="text-slate-700">
+                          {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)} markasına ait {productName} ürünleri hakkında detaylı bilgi için lütfen bizimle iletişime geçin.
+                        </p>
+                        <p className="text-slate-600 text-sm mt-4">
+                          Detaylı teknik özellikler, fiyat bilgisi ve teknik destek için satış ekibimizle görüşebilirsiniz.
+                        </p>
+                      </div>
+                    </div>
+                  )
+                }
+
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <div className="space-y-6">
+                      <div>
+                        <h1 className="text-2xl font-bold text-slate-900 mb-4">{productName} - {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</h1>
+                        <div className="space-y-4 text-base leading-relaxed text-slate-700">
+                          <p>{productData.description}</p>
+                          <div className="mt-6">
+                            <h2 className="text-lg font-semibold text-slate-900 mb-2">Fiyat ve Performans Dengesi</h2>
+                            <p>Hidrolik el pompası fiyatı, sağladığı özelliklerle doğrudan ilişkilidir. Piyasada farklı modeller ve markalar bulunmakta; daha düşük fiyatlı pompalar temel ihtiyaçları karşılarken, daha yüksek fiyatlı olanlar genellikle daha gelişmiş özellikler ve dayanıklılık sunarlar.</p>
+                          </div>
+                          <div className="mt-4">
+                            <h2 className="text-lg font-semibold text-slate-900 mb-2">Kullanım Kolaylığı ve Güvenilirlik</h2>
+                            <p>Bu pompaların en büyük avantajlarından biri kullanım kolaylığıdır. Genellikle taşınabilir sistemlerde, acil durumlarda veya dar alanlarda kullanılmak üzere tasarlanmışlardır. Dayanıklı yapılarıyla uzun ömürlü ve güvenilir bir performans sunarlar.</p>
+                          </div>
+                          <div className="mt-4">
+                            <h2 className="text-lg font-semibold text-slate-900 mb-2">Hidrolik El Pompalarıyla İşlerinizi Kolaylaştırın</h2>
+                            <p>Hidrolik el pompaları, güvenilirlik, taşınabilirlik ve performans açısından geniş bir yelpazede kullanıcı ihtiyaçlarına yanıt verir. Uygun fiyatlı modelleriyle temel ihtiyaçları karşılamaktan, daha gelişmiş özelliklere sahip olanlarla profesyonel kullanım için ideal bir seçenek sunarlar.</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Ürün Tablosu */}
+                      <div className="mt-8">
+                        <h2 className="text-xl font-bold text-slate-900 mb-4">{productName}</h2>
+                        <div className="overflow-x-auto rounded-lg border border-slate-200">
+                          <table className="w-full text-sm">
+                            <thead className="bg-slate-50">
+                              <tr>
+                                {productData.tableHeaders.map((header, index) => (
+                                  <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                    {header}
+                                  </th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {productData.products.map((product, index) => {
+                                // Header'lara göre değerleri sırayla al
+                                const getCellValue = (header) => {
+                                  if (header === 'MODEL KODU') return product.kod
+                                  if (header === 'ÇALIŞMA BASINCI') return product.calismaBasinci || ''
+                                  if (header === 'BASINÇ (BAR)') return product.basinc || ''
+                                  if (header === 'FONKSİYON') return product.fonksiyon || ''
+                                  if (header === 'İLETİM HACMİ') return product.iletimHacmi || ''
+                                  if (header === 'HACMİ') return product.hacim || ''
+                                  if (header === 'YAĞ TANKI MONTAJI') return product.yagTankiMontaji || ''
+                                  if (header === 'LİTRE') return product.litre || ''
+                                  if (header === 'YAĞ BASINCI') return product.yagBasinci || ''
+                                  if (header === 'ÇALIŞMA SICAKLIĞI') return product.calismaSicakligi || ''
+                                  if (header === 'DİŞ NORMLARI') return product.disNormlari || ''
+                                  if (header === 'DİŞ ÖLÇÜLERİ') return product.disOlculeri || ''
+                                  if (header === 'MALZEME') return product.malzeme || ''
+                                  if (header === 'SIZDIRMAZLIK') return product.sizdirmazlik || ''
+                                  return ''
+                                }
+
+                                return (
+                                  <tr key={index} className="border-b border-slate-200 last:border-b-0 hover:bg-slate-50">
+                                    {productData.tableHeaders.map((header, headerIndex) => (
+                                      <td key={headerIndex} className="px-4 py-3 text-slate-700">
+                                        {headerIndex === 0 ? (
+                                          <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                        ) : (
+                                          getCellValue(header)
+                                        )}
+                                      </td>
+                                    ))}
+                                  </tr>
+                                )
+                              })}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedBrand && productName === 'İÇTEN DİŞLİ POMPALAR' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">{selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Detay Sayfası İçeriği */}
+              {(() => {
+                const productData = getIctenDisliPompalarProductData(selectedBrand)
+                if (!productData) {
+                  return (
+                    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                      <div className="space-y-4 text-base leading-relaxed">
+                        <h1 className="text-2xl font-bold text-slate-900 mb-4">{productName} - {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</h1>
+                        <p className="text-slate-700">
+                          {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)} markasına ait {productName} ürünleri hakkında detaylı bilgi için lütfen bizimle iletişime geçin.
+                        </p>
+                        <p className="text-slate-600 text-sm mt-4">
+                          Detaylı teknik özellikler, fiyat bilgisi ve teknik destek için satış ekibimizle görüşebilirsiniz.
+                        </p>
+                      </div>
+                    </div>
+                  )
+                }
+
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <div className="space-y-6">
+                      <div>
+                        <h1 className="text-2xl font-bold text-slate-900 mb-4">{productName} - {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</h1>
+                        <div className="space-y-4 text-base leading-relaxed text-slate-700">
+                          <p>{productData.description}</p>
+                        </div>
+                      </div>
+
+                      {/* Ürün Tablosu */}
+                      <div className="mt-8">
+                        <h2 className="text-xl font-bold text-slate-900 mb-4">{productName}</h2>
+                        <div className="overflow-x-auto rounded-lg border border-slate-200">
+                          <table className="w-full text-sm">
+                            <thead className="bg-slate-50">
+                              <tr>
+                                {productData.tableHeaders.map((header, index) => (
+                                  <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                    {header}
+                                  </th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {productData.products.map((product, index) => {
+                                // Header'lara göre değerleri sırayla al
+                                const getCellValue = (header) => {
+                                  if (header === 'MODEL KODU') return product.kod
+                                  if (header === 'BASINÇ (BAR)') return product.basinc || ''
+                                  if (header === 'HIZ') return product.hiz || ''
+                                  if (header === 'İLETİM HACMİ') return product.iletimHacmi || ''
+                                  if (header === 'POMPA SES ŞİD.') return product.pompaSesSid || ''
+                                  if (header === 'VERİM (NV)') return product.verim || ''
+                                  return ''
+                                }
+
+                                return (
+                                  <tr key={index} className="border-b border-slate-200 last:border-b-0 hover:bg-slate-50">
+                                    {productData.tableHeaders.map((header, headerIndex) => (
+                                      <td key={headerIndex} className="px-4 py-3 text-slate-700">
+                                        {headerIndex === 0 ? (
+                                          <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                        ) : (
+                                          getCellValue(header)
+                                        )}
+                                      </td>
+                                    ))}
+                                  </tr>
+                                )
+                              })}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedBrand && productName === 'İŞ MAKİNESİ POMPALARI' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">{selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Detay Sayfası İçeriği */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                <div className="space-y-4 text-base leading-relaxed">
+                  <h1 className="text-2xl font-bold text-slate-900 mb-4">{productName} - {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</h1>
+                  <p className="text-slate-700">
+                    {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)} markasına ait {productName} ürünleri hakkında detaylı bilgi için lütfen bizimle iletişime geçin.
+                  </p>
+                  <p className="text-slate-600 text-sm mt-4">
+                    Detaylı teknik özellikler, fiyat bilgisi ve teknik destek için satış ekibimizle görüşebilirsiniz.
+                  </p>
+                </div>
               </div>
             </>
           ) : selectedProduct || (productName && !activeSection) ? (
