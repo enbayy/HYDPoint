@@ -1090,6 +1090,520 @@ const HYDROPACK_DILIMLI_KUMANDA_KOLU_CATEGORIES = [
   },
 ]
 
+// SEL - PVC ÇELİK TELLİ HORTUMLAR
+const SEL_PVC_CELIK_TELLI_HORTUMLAR_CATEGORIES = [
+  {
+    name: 'TELLİ ŞEFFAF HORTUMLAR',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'İÇ ÇAP (INCH)', 'PATLAMA BASINCI (BAR)', 'VAKUM'],
+    products: [
+      { model: '36668', agirlik: '520', icCap: '25', patlamaBasinci: '30', vakum: '9' },
+      { model: '36684', agirlik: '800', icCap: '38', patlamaBasinci: '27', vakum: '9' },
+      { model: '36672', agirlik: '660', icCap: '32', patlamaBasinci: '27', vakum: '9' },
+      { model: '36669', agirlik: '190', icCap: '12', patlamaBasinci: '36', vakum: '9' },
+      { model: '36673', agirlik: '295', icCap: '18', patlamaBasinci: '33', vakum: '9' },
+      { model: '36666', agirlik: '1330', icCap: '51', patlamaBasinci: '21', vakum: '9' },
+      { model: '36676', agirlik: '2000', icCap: '63', patlamaBasinci: '18', vakum: '9' },
+      { model: '36675', agirlik: '1850', icCap: '60', patlamaBasinci: '18', vakum: '9' },
+      { model: '36659', agirlik: '2600', icCap: '76', patlamaBasinci: '13', vakum: '9' },
+      { model: '36660', agirlik: '340', icCap: '20', patlamaBasinci: '30', vakum: '9' },
+      { model: '36677', agirlik: '3700', icCap: '102', patlamaBasinci: '9', vakum: '9' },
+      { model: '36687', agirlik: '950', icCap: '40', patlamaBasinci: '27', vakum: '9' },
+      { model: '36671', agirlik: '1150', icCap: '45', patlamaBasinci: '27', vakum: '9' },
+      { model: '36670', agirlik: '260', icCap: '16', patlamaBasinci: '36', vakum: '9' },
+      { model: '36674', agirlik: '2750', icCap: '80', patlamaBasinci: '12', vakum: '9' },
+      { model: '36685', agirlik: '3100', icCap: '90', patlamaBasinci: '12', vakum: '9' },
+    ],
+  },
+  {
+    name: 'SPİRAL TELLİ HORTUMLAR',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'KIVRILMA YARI ÇAPI (MM)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36570', agirlik: '755', calismaBasinci: '850', disCap: '21,3', icCap: '9,5', kivrilmaYariCapi: '150', patlamaBasinci: '2125' },
+    ],
+  },
+]
+
+// SEL - PULVERİZATÖR (İLAÇLAMA) HORTUMU
+const SEL_PULVERIZATOR_ILACLAMA_HORTUMU_CATEGORIES = [
+  {
+    name: 'PULVERİZATÖR (İLAÇLAMA) HORTUMU',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36690', agirlik: '320', calismaBasinci: '100', disCap: '21', icCap: '12,7', patlamaBasinci: '300' },
+      { model: '36691', agirlik: '310', calismaBasinci: '80', disCap: '18', icCap: '9,5', patlamaBasinci: '240' },
+      { model: '36692', agirlik: '185', calismaBasinci: '100', disCap: '15', icCap: '8', patlamaBasinci: '300' },
+    ],
+  },
+]
+
+// SEL - PVC SU HORTUMLARI
+const SEL_PVC_SU_HORTUMLARI_CATEGORIES = [
+  {
+    name: 'PVC SU HORTUMLARI',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36707', agirlik: '115', calismaBasinci: '5', disCap: '16', icCap: '12,7', patlamaBasinci: '15' },
+      { model: '36706', agirlik: '155', calismaBasinci: '20', disCap: '16', icCap: '9,5', patlamaBasinci: '60' },
+      { model: '36711', agirlik: '225', calismaBasinci: '16', disCap: '22', icCap: '16', patlamaBasinci: '48' },
+      { model: '36710', agirlik: '265', calismaBasinci: '7', disCap: '22', icCap: '16', patlamaBasinci: '21' },
+    ],
+  },
+]
+
+// SEL - PVC HAVA HORTUMLARI
+const SEL_PVC_HAVA_HORTUMLARI_CATEGORIES = [
+  {
+    name: 'PVC HAVA HORTUMLARI',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36696', agirlik: '230', calismaBasinci: '20', disCap: '17', icCap: '10', patlamaBasinci: '60' },
+      { model: '36693', agirlik: '125', calismaBasinci: '20', disCap: '12', icCap: '6', patlamaBasinci: '60' },
+      { model: '36694', agirlik: '155', calismaBasinci: '20', disCap: '14', icCap: '8', patlamaBasinci: '60' },
+    ],
+  },
+]
+
+// SEL - TELLİ HORTUMLAR
+const SEL_TELLI_HORTUMLAR_CATEGORIES = [
+  {
+    name: '4SH HORTUMLAR',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'KIVRILMA YARI ÇAPI (MM)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36518', agirlik: '2035', calismaBasinci: '380', disCap: '38,4', icCap: '25,4', kivrilmaYariCapi: '340', patlamaBasinci: '1520' },
+      { model: '36521', agirlik: '3185', calismaBasinci: '290', disCap: '53', icCap: '38,1', kivrilmaYariCapi: '560', patlamaBasinci: '1160' },
+      { model: '36520', agirlik: '2385', calismaBasinci: '350', disCap: '45,2', icCap: '31,8', kivrilmaYariCapi: '460', patlamaBasinci: '1400' },
+      { model: '36519', agirlik: '1465', calismaBasinci: '420', disCap: '32', icCap: '19', kivrilmaYariCapi: '280', patlamaBasinci: '1680' },
+    ],
+  },
+  {
+    name: '4SP HORTUMLAR',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'KIVRILMA YARI ÇAPI (MM)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36544', agirlik: '1900', calismaBasinci: '280', disCap: '39,1', icCap: '15,4', kivrilmaYariCapi: '340', patlamaBasinci: '1120' },
+      { model: '36545', agirlik: '865', calismaBasinci: '415', disCap: '24,4', icCap: '12,7', kivrilmaYariCapi: '230', patlamaBasinci: '1660' },
+      { model: '36540', agirlik: '1485', calismaBasinci: '350', disCap: '32', icCap: '19', kivrilmaYariCapi: '300', patlamaBasinci: '1400' },
+      { model: '36541', agirlik: '730', calismaBasinci: '445', disCap: '21,2', icCap: '9,5', kivrilmaYariCapi: '180', patlamaBasinci: '1780' },
+      { model: '36542', agirlik: '1035', calismaBasinci: '350', disCap: '28', icCap: '16', kivrilmaYariCapi: '250', patlamaBasinci: '1400' },
+    ],
+  },
+  {
+    name: 'R15 - R12 - R13 HORTUMLAR',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'KIVRILMA YARI ÇAPI (MM)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '46078', agirlik: '4770', calismaBasinci: '345', disCap: '57,3', icCap: '38,1', kivrilmaYariCapi: '500', patlamaBasinci: '1380' },
+      { model: '36343', agirlik: '6310', calismaBasinci: '345', disCap: '71,6', icCap: '50,8', kivrilmaYariCapi: '630', patlamaBasinci: '1380' },
+    ],
+  },
+  {
+    name: 'R1 STANDART HORTUMLAR',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'KIVRILMA YARI ÇAPI (MM)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36412', agirlik: '1400', calismaBasinci: '50', disCap: '50', icCap: '38,1', kivrilmaYariCapi: '500', patlamaBasinci: '260' },
+      { model: '36432', agirlik: '1205', calismaBasinci: '63', disCap: '43,5', icCap: '31,8', kivrilmaYariCapi: '420', patlamaBasinci: '280' },
+      { model: '36404', agirlik: '870', calismaBasinci: '88', disCap: '35,4', icCap: '25,4', kivrilmaYariCapi: '300', patlamaBasinci: '375' },
+      { model: '36433', agirlik: '410', calismaBasinci: '160', disCap: '20,4', icCap: '12,7', kivrilmaYariCapi: '180', patlamaBasinci: '700' },
+      { model: '36434', agirlik: '220', calismaBasinci: '225', disCap: '13,2', icCap: '6,4', kivrilmaYariCapi: '100', patlamaBasinci: '1030' },
+      { model: '36447', agirlik: '2535', calismaBasinci: '40', disCap: '76,5', icCap: '63,5', kivrilmaYariCapi: '762', patlamaBasinci: '200' },
+      { model: '36449', agirlik: '1910', calismaBasinci: '40', disCap: '63,6', icCap: '50,8', kivrilmaYariCapi: '630', patlamaBasinci: '250' },
+      { model: '36446', agirlik: '2710', calismaBasinci: '35', disCap: '88,5', icCap: '76,2', kivrilmaYariCapi: '900', patlamaBasinci: '160' },
+      { model: '36435', agirlik: '330', calismaBasinci: '180', disCap: '17,2', icCap: '9,5', kivrilmaYariCapi: '130', patlamaBasinci: '820' },
+      { model: '36436', agirlik: '260', calismaBasinci: '215', disCap: '14,8', icCap: '8', kivrilmaYariCapi: '115', patlamaBasinci: '970' },
+      { model: '36437', agirlik: '470', calismaBasinci: '130', disCap: '23,5', icCap: '16', kivrilmaYariCapi: '200', patlamaBasinci: '600' },
+    ],
+  },
+  {
+    name: 'R2 HORTUMLAR',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'KIVRILMA YARI ÇAPI (MM)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36462', agirlik: '2380', calismaBasinci: '90', disCap: '56,2', icCap: '38,1', kivrilmaYariCapi: '500', patlamaBasinci: '520' },
+      { model: '36463', agirlik: '2120', calismaBasinci: '125', disCap: '49,8', icCap: '31,8', kivrilmaYariCapi: '420', patlamaBasinci: '620' },
+      { model: '36461', agirlik: '1430', calismaBasinci: '165', disCap: '39', icCap: '25,4', kivrilmaYariCapi: '300', patlamaBasinci: '690' },
+      { model: '54299', agirlik: '1390', calismaBasinci: '165', disCap: '37,2', icCap: '25,4', kivrilmaYariCapi: '300', patlamaBasinci: '690' },
+      { model: '36464', agirlik: '640', calismaBasinci: '275', disCap: '22,2', icCap: '12,7', kivrilmaYariCapi: '180', patlamaBasinci: '1300' },
+      { model: '36491', agirlik: '1185', calismaBasinci: '275', disCap: '21X21', icCap: '12,7X12,7', kivrilmaYariCapi: '80', patlamaBasinci: '1270' },
+      { model: '36465', agirlik: '375', calismaBasinci: '400', disCap: '15', icCap: '6,4', kivrilmaYariCapi: '100', patlamaBasinci: '1700' },
+      { model: '49537', agirlik: '285', calismaBasinci: '400', disCap: '13,2', icCap: '6,4', kivrilmaYariCapi: '45', patlamaBasinci: '1850' },
+      { model: '36487', agirlik: '3810', calismaBasinci: '69', disCap: '79,8', icCap: '63,5', kivrilmaYariCapi: '760', patlamaBasinci: '300' },
+      { model: '36486', agirlik: '2760', calismaBasinci: '78', disCap: '66,7', icCap: '50,8', kivrilmaYariCapi: '630', patlamaBasinci: '420' },
+      { model: '36488', agirlik: '4040', calismaBasinci: '50', disCap: '91,9', icCap: '76,2', kivrilmaYariCapi: '900', patlamaBasinci: '240' },
+      { model: '36257', agirlik: '540', calismaBasinci: '330', disCap: '18,9', icCap: '9,5', kivrilmaYariCapi: '130', patlamaBasinci: '1450' },
+      { model: '49538', agirlik: '410', calismaBasinci: '330', disCap: '17,1', icCap: '9,5', kivrilmaYariCapi: '65', patlamaBasinci: '1550' },
+      { model: '36258', agirlik: '430', calismaBasinci: '350', disCap: '16,5', icCap: '8', kivrilmaYariCapi: '115', patlamaBasinci: '1550' },
+      { model: '49539', agirlik: '330', calismaBasinci: '350', disCap: '15', icCap: '8', kivrilmaYariCapi: '55', patlamaBasinci: '1700' },
+      { model: '36244', agirlik: '750', calismaBasinci: '250', disCap: '25,2', icCap: '16', kivrilmaYariCapi: '200', patlamaBasinci: '1050' },
+    ],
+  },
+  {
+    name: 'R1 ISIYA DAYANIKLI HORTUMLAR',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'KIVRILMA YARI ÇAPI (MM)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36379', agirlik: '1310', calismaBasinci: '63', disCap: '43,5', icCap: '31,8', kivrilmaYariCapi: '420', patlamaBasinci: '280' },
+      { model: '36377', agirlik: '935', calismaBasinci: '88', disCap: '35,4', icCap: '25,4', kivrilmaYariCapi: '300', patlamaBasinci: '375' },
+      { model: '36380', agirlik: '435', calismaBasinci: '160', disCap: '20,4', icCap: '12,7', kivrilmaYariCapi: '180', patlamaBasinci: '700' },
+      { model: '36392', agirlik: '235', calismaBasinci: '225', disCap: '13,2', icCap: '6,4', kivrilmaYariCapi: '100', patlamaBasinci: '1030' },
+      { model: '36378', agirlik: '1485', calismaBasinci: '50', disCap: '50', icCap: '38,1', kivrilmaYariCapi: '500', patlamaBasinci: '260' },
+      { model: '36381', agirlik: '2020', calismaBasinci: '40', disCap: '63,6', icCap: '50,8', kivrilmaYariCapi: '630', patlamaBasinci: '250' },
+      { model: '56619', agirlik: '2865', calismaBasinci: '35', disCap: '88,5', icCap: '76,2', kivrilmaYariCapi: '900', patlamaBasinci: '160' },
+      { model: '36363', agirlik: '180', calismaBasinci: '250', disCap: '11,6', icCap: '4,8', kivrilmaYariCapi: '90', patlamaBasinci: '1100' },
+      { model: '36364', agirlik: '585', calismaBasinci: '105', disCap: '27,5', icCap: '19', kivrilmaYariCapi: '240', patlamaBasinci: '500' },
+      { model: '36382', agirlik: '635', calismaBasinci: '105', disCap: '27,5', icCap: '19', kivrilmaYariCapi: '240', patlamaBasinci: '500' },
+      { model: '36383', agirlik: '350', calismaBasinci: '180', disCap: '17,2', icCap: '9,5', kivrilmaYariCapi: '130', patlamaBasinci: '820' },
+      { model: '49811', agirlik: '275', calismaBasinci: '215', disCap: '14,8', icCap: '8', kivrilmaYariCapi: '115', patlamaBasinci: '970' },
+      { model: '36384', agirlik: '500', calismaBasinci: '130', disCap: '23,5', icCap: '16', kivrilmaYariCapi: '200', patlamaBasinci: '600' },
+    ],
+  },
+  {
+    name: 'R5 HORTUMLAR',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'KIVRILMA YARI ÇAPI (MM)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36499', agirlik: '910', calismaBasinci: '43', disCap: '37,6', icCap: '28', kivrilmaYariCapi: '230', patlamaBasinci: '300' },
+      { model: '36498', agirlik: '1370', calismaBasinci: '24', disCap: '56,4', icCap: '45', kivrilmaYariCapi: '335', patlamaBasinci: '200' },
+      { model: '36385', agirlik: '1420', calismaBasinci: '24', disCap: '56,4', icCap: '45', kivrilmaYariCapi: '335', patlamaBasinci: '200' },
+      { model: '36502', agirlik: '1135', calismaBasinci: '35', disCap: '44,5', icCap: '30', kivrilmaYariCapi: '265', patlamaBasinci: '250' },
+      { model: '36500', agirlik: '560', calismaBasinci: '122', disCap: '22,9', icCap: '12,7', kivrilmaYariCapi: '140', patlamaBasinci: '600' },
+      { model: '36503', agirlik: '285', calismaBasinci: '210', disCap: '14,5', icCap: '6,4', kivrilmaYariCapi: '85', patlamaBasinci: '1000' },
+      { model: '36504', agirlik: '405', calismaBasinci: '140', disCap: '19,1', icCap: '35', kivrilmaYariCapi: '115', patlamaBasinci: '700' },
+      { model: '36510', agirlik: '430', calismaBasinci: '140', disCap: '19,1', icCap: '35', kivrilmaYariCapi: '115', patlamaBasinci: '700' },
+      { model: '36501', agirlik: '2270', calismaBasinci: '24', disCap: '73', icCap: '60', kivrilmaYariCapi: '610', patlamaBasinci: '150' },
+      { model: '36505', agirlik: '350', calismaBasinci: '157', disCap: '16,8', icCap: '8', kivrilmaYariCapi: '100', patlamaBasinci: '800' },
+      { model: '36506', agirlik: '695', calismaBasinci: '105', disCap: '27,1', icCap: '16', kivrilmaYariCapi: '165', patlamaBasinci: '520' },
+      { model: '36507', agirlik: '690', calismaBasinci: '56', disCap: '30,8', icCap: '22', kivrilmaYariCapi: '185', patlamaBasinci: '380' },
+    ],
+  },
+  {
+    name: 'TEKLİ SC HORTUMLAR',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'KIVRILMA YARI ÇAPI (MM)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '55904', agirlik: '1215', calismaBasinci: '200', disCap: '35,6', icCap: '25,4', kivrilmaYariCapi: '210', patlamaBasinci: '900' },
+      { model: '36559', agirlik: '565', calismaBasinci: '345', disCap: '20,3', icCap: '12,7', kivrilmaYariCapi: '90', patlamaBasinci: '1400' },
+      { model: '49812', agirlik: '835', calismaBasinci: '280', disCap: '27,7', icCap: '19', kivrilmaYariCapi: '160', patlamaBasinci: '1200' },
+      { model: '36560', agirlik: '260', calismaBasinci: '180', disCap: '15,5', icCap: '9,4', kivrilmaYariCapi: '60', patlamaBasinci: '900' },
+      { model: '49813', agirlik: '440', calismaBasinci: '385', disCap: '17,1', icCap: '9,5', kivrilmaYariCapi: '70', patlamaBasinci: '1650' },
+      { model: '36561', agirlik: '200', calismaBasinci: '215', disCap: '13,6', icCap: '8', kivrilmaYariCapi: '55', patlamaBasinci: '1000' },
+    ],
+  },
+  {
+    name: 'ULTRA YÜKSEK BASINÇ HORTUMLAR',
+    tableHeaders: ['MODEL', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)'],
+    products: [
+      { model: '36568', calismaBasinci: '700', disCap: '15', icCap: '6,4' },
+    ],
+  },
+  {
+    name: 'İKİZ SC HORTUMLAR',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'KIVRILMA YARI ÇAPI (MM)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36555', agirlik: '720', calismaBasinci: '160', disCap: '19,3X19,3', icCap: '12,7X12,7', kivrilmaYariCapi: '70', patlamaBasinci: '800' },
+      { model: '36556', agirlik: '380', calismaBasinci: '225', disCap: '12,5X12,5', icCap: '6,4X6,4', kivrilmaYariCapi: '50', patlamaBasinci: '1100' },
+      { model: '36557', agirlik: '540', calismaBasinci: '180', disCap: '15,8X15,8', icCap: '9,5X9,5', kivrilmaYariCapi: '60', patlamaBasinci: '900' },
+      { model: '36558', agirlik: '430', calismaBasinci: '215', disCap: '13,9X13,9', icCap: '8X8', kivrilmaYariCapi: '55', patlamaBasinci: '1000' },
+      { model: '36551', agirlik: '1185', calismaBasinci: '275', disCap: '21X21', icCap: '12,7X12,7', kivrilmaYariCapi: '80', patlamaBasinci: '1270' },
+      { model: '36552', agirlik: '600', calismaBasinci: '400', disCap: '13,5X13,5', icCap: '6,4X6,4', kivrilmaYariCapi: '45', patlamaBasinci: '1850' },
+      { model: '36553', agirlik: '855', calismaBasinci: '330', disCap: '17,4X17,4', icCap: '9,5X9,5', kivrilmaYariCapi: '65', patlamaBasinci: '1550' },
+      { model: '36554', agirlik: '690', calismaBasinci: '350', disCap: '15,3X15,3', icCap: '8X8', kivrilmaYariCapi: '55', patlamaBasinci: '1700' },
+    ],
+  },
+  {
+    name: 'R1 HORTUMLAR',
+    tableHeaders: ['MODEL', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)'],
+    products: [
+      { model: '36344', calismaBasinci: '180', disCap: '17,2', icCap: '9,5' },
+    ],
+  },
+]
+
+// SEL - YAKIT HORTUMLARI
+const SEL_YAKIT_HORTUMLARI_CATEGORIES = [
+  {
+    name: 'AKARYAKIT HORTUMLARI',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36317', agirlik: '1192', calismaBasinci: '16', disCap: '51', icCap: '38,1', patlamaBasinci: '48' },
+      { model: '36325', agirlik: '740', calismaBasinci: '16', disCap: '38', icCap: '25,4', patlamaBasinci: '48' },
+      { model: '36316', agirlik: '730', calismaBasinci: '16', disCap: '37', icCap: '25,4', patlamaBasinci: '48' },
+      { model: '36323', agirlik: '342', calismaBasinci: '16', disCap: '21,5', icCap: '12,7', patlamaBasinci: '48' },
+      { model: '36329', agirlik: '265', calismaBasinci: '10', disCap: '20', icCap: '12,7', patlamaBasinci: '30' },
+      { model: '36330', agirlik: '115', calismaBasinci: '10', disCap: '12', icCap: '6,4', patlamaBasinci: '30' },
+      { model: '36318', agirlik: '1960', calismaBasinci: '16', disCap: '67', icCap: '50,8', patlamaBasinci: '48' },
+      { model: '36319', agirlik: '2727', calismaBasinci: '16', disCap: '92', icCap: '76,2', patlamaBasinci: '48' },
+      { model: '49634', agirlik: '106', calismaBasinci: '10', disCap: '10,5', icCap: '4,8', patlamaBasinci: '30' },
+      { model: '36321', agirlik: '475', calismaBasinci: '16', disCap: '29', icCap: '19', patlamaBasinci: '48' },
+      { model: '36324', agirlik: '530', calismaBasinci: '16', disCap: '30', icCap: '19', patlamaBasinci: '48' },
+      { model: '36320', agirlik: '625', calismaBasinci: '16', disCap: '31', icCap: '19', patlamaBasinci: '48' },
+      { model: '36328', agirlik: '170', calismaBasinci: '10', disCap: '16', icCap: '9,5', patlamaBasinci: '30' },
+      { model: '36331', agirlik: '3710', calismaBasinci: '16', disCap: '118', icCap: '96', patlamaBasinci: '48' },
+      { model: '36332', agirlik: '145', calismaBasinci: '10', disCap: '14', icCap: '8', patlamaBasinci: '30' },
+      { model: '36322', agirlik: '480', calismaBasinci: '16', disCap: '26', icCap: '16', patlamaBasinci: '48' },
+    ],
+  },
+  {
+    name: 'LPG HORTUMLARI',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36337', agirlik: '190', calismaBasinci: '20', disCap: '15', icCap: '8', patlamaBasinci: '60' },
+    ],
+  },
+]
+
+// SEL - BUHAR VE SICAK SU HORTUMLARI
+const SEL_BUHAR_VE_SICAK_SU_HORTUMLARI_CATEGORIES = [
+  {
+    name: 'ÇELİK TELLİ BUHAR HORTUMU',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36104', agirlik: '1775', calismaBasinci: '18', disCap: '54', icCap: '38,1', patlamaBasinci: '180' },
+      { model: '36098', agirlik: '1410', calismaBasinci: '18', disCap: '48', icCap: '31,8', patlamaBasinci: '180' },
+      { model: '36097', agirlik: '1265', calismaBasinci: '17', disCap: '38,5', icCap: '25,4', patlamaBasinci: '170' },
+      { model: '36105', agirlik: '1025', calismaBasinci: '18', disCap: '40', icCap: '25,4', patlamaBasinci: '180' },
+      { model: '36099', agirlik: '485', calismaBasinci: '17', disCap: '24', icCap: '12,7', patlamaBasinci: '170' },
+      { model: '36101', agirlik: '530', calismaBasinci: '18', disCap: '25', icCap: '12,7', patlamaBasinci: '180' },
+      { model: '36103', agirlik: '2580', calismaBasinci: '18', disCap: '69', icCap: '50,8', patlamaBasinci: '180' },
+      { model: '36100', agirlik: '720', calismaBasinci: '17', disCap: '32', icCap: '19', patlamaBasinci: '170' },
+      { model: '36102', agirlik: '780', calismaBasinci: '18', disCap: '33', icCap: '19', patlamaBasinci: '180' },
+    ],
+  },
+  {
+    name: 'BEZLİ BUHAR HORTUMU',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36092', agirlik: '811', calismaBasinci: '6', disCap: '40', icCap: '25,4', patlamaBasinci: '60' },
+      { model: '36093', agirlik: '630', calismaBasinci: '6', disCap: '33', icCap: '19', patlamaBasinci: '60' },
+    ],
+  },
+]
+
+// SEL - HAVA HORTUMLARI
+const SEL_HAVA_HORTUMLARI_CATEGORIES = [
+  {
+    name: 'KOMPRESÖR VE HAVA HORTUMLARI',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36123', agirlik: '1341', calismaBasinci: '10', disCap: '51', icCap: '38,1', patlamaBasinci: '40' },
+      { model: '36169', agirlik: '1177', calismaBasinci: '16', disCap: '51', icCap: '38,1', patlamaBasinci: '64' },
+      { model: '36148', agirlik: '950', calismaBasinci: '25', disCap: '44', icCap: '38,1', patlamaBasinci: '100' },
+      { model: '36124', agirlik: '1051', calismaBasinci: '10', disCap: '44', icCap: '31,8', patlamaBasinci: '40' },
+      { model: '36167', agirlik: '955', calismaBasinci: '16', disCap: '44', icCap: '31,8', patlamaBasinci: '64' },
+      { model: '36152', agirlik: '1426', calismaBasinci: '10', disCap: '57', icCap: '35', patlamaBasinci: '40' },
+      { model: '36180', agirlik: '720', calismaBasinci: '25', disCap: '37', icCap: '25,4', patlamaBasinci: '100' },
+      { model: '36122', agirlik: '661', calismaBasinci: '10', disCap: '36', icCap: '25,4', patlamaBasinci: '40' },
+      { model: '36118', agirlik: '1890', calismaBasinci: '20', disCap: '37', icCap: '25,4', patlamaBasinci: '60' },
+      { model: '36178', agirlik: '670', calismaBasinci: '16', disCap: '36', icCap: '25,4', patlamaBasinci: '64' },
+      { model: '36171', agirlik: '710', calismaBasinci: '10', disCap: '35', icCap: '25,4', patlamaBasinci: '40' },
+      { model: '36155', agirlik: '790', calismaBasinci: '20', disCap: '36', icCap: '25,4', patlamaBasinci: '60' },
+      { model: '36125', agirlik: '400', calismaBasinci: '10', disCap: '22', icCap: '12,7', patlamaBasinci: '40' },
+      { model: '36119', agirlik: '395', calismaBasinci: '20', disCap: '22', icCap: '12,7', patlamaBasinci: '60' },
+      { model: '36188', agirlik: '332', calismaBasinci: '16', disCap: '22', icCap: '12,7', patlamaBasinci: '64' },
+      { model: '36179', agirlik: '190', calismaBasinci: '10', disCap: '19', icCap: '12,7', patlamaBasinci: '40' },
+      { model: '36166', agirlik: '335', calismaBasinci: '20', disCap: '21', icCap: '12,5', patlamaBasinci: '60' },
+      { model: '36162', agirlik: '220', calismaBasinci: '20', disCap: '17', icCap: '10', patlamaBasinci: '60' },
+      { model: '36150', agirlik: '250', calismaBasinci: '20', disCap: '17,5', icCap: '10', patlamaBasinci: '60' },
+      { model: '36128', agirlik: '2368', calismaBasinci: '10', disCap: '78', icCap: '63,5', patlamaBasinci: '40' },
+      { model: '36156', agirlik: '2450', calismaBasinci: '16', disCap: '80', icCap: '63,5', patlamaBasinci: '64' },
+      { model: '36129', agirlik: '2519', calismaBasinci: '10', disCap: '84', icCap: '60', patlamaBasinci: '40' },
+      { model: '36127', agirlik: '1825', calismaBasinci: '25', disCap: '66', icCap: '50,8', patlamaBasinci: '100' },
+      { model: '36126', agirlik: '1619', calismaBasinci: '10', disCap: '63', icCap: '50,8', patlamaBasinci: '40' },
+      { model: '36153', agirlik: '1655', calismaBasinci: '16', disCap: '65', icCap: '50,8', patlamaBasinci: '64' },
+      { model: '36130', agirlik: '3074', calismaBasinci: '10', disCap: '92', icCap: '76,2', patlamaBasinci: '40' },
+      { model: '36117', agirlik: '2650', calismaBasinci: '16', disCap: '92', icCap: '76,2', patlamaBasinci: '64' },
+      { model: '36113', agirlik: '570', calismaBasinci: '25', disCap: '30', icCap: '19', patlamaBasinci: '100' },
+      { model: '36112', agirlik: '564', calismaBasinci: '10', disCap: '29', icCap: '19', patlamaBasinci: '40' },
+      { model: '36165', agirlik: '504', calismaBasinci: '16', disCap: '29', icCap: '19', patlamaBasinci: '64' },
+      { model: '36170', agirlik: '440', calismaBasinci: '10', disCap: '27', icCap: '19', patlamaBasinci: '40' },
+      { model: '36151', agirlik: '585', calismaBasinci: '20', disCap: '29', icCap: '19', patlamaBasinci: '60' },
+      { model: '36120', agirlik: '270', calismaBasinci: '20', disCap: '18', icCap: '9,5', patlamaBasinci: '60' },
+      { model: '36177', agirlik: '6771', calismaBasinci: '40', disCap: '122', icCap: '96', patlamaBasinci: '160' },
+      { model: '36121', agirlik: '195', calismaBasinci: '20', disCap: '15', icCap: '8', patlamaBasinci: '60' },
+      { model: '36114', agirlik: '444', calismaBasinci: '10', disCap: '25', icCap: '16', patlamaBasinci: '40' },
+      { model: '49630', agirlik: '380', calismaBasinci: '10', disCap: '24', icCap: '16', patlamaBasinci: '40' },
+      { model: '36163', agirlik: '195', calismaBasinci: '20', disCap: '15', icCap: '8', patlamaBasinci: '60' },
+    ],
+  },
+]
+
+// SEL - AŞINDIRICI MADDE HORTUMLARI
+const SEL_ASINDIRICI_MADDE_HORTUMLARI_CATEGORIES = [
+  {
+    name: 'AŞINDIRICI MADDE HORTUMLARI',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36089', agirlik: '1820', calismaBasinci: '12', disCap: '63', icCap: '35', patlamaBasinci: '36' },
+      { model: '36091', agirlik: '813', calismaBasinci: '12', disCap: '39', icCap: '25,4', patlamaBasinci: '36' },
+    ],
+  },
+]
+
+// SEL - GIDA HORTUMLARI
+const SEL_GIDA_HORTUMLARI_CATEGORIES = [
+  {
+    name: 'GIDA HORTUMLARI',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '48732', agirlik: '955', calismaBasinci: '10', disCap: '38', icCap: '25,4', patlamaBasinci: '30' },
+      { model: '36110', agirlik: '373', calismaBasinci: '10', disCap: '22', icCap: '12,7', patlamaBasinci: '30' },
+      { model: '36107', agirlik: '1314', calismaBasinci: '10', disCap: '51', icCap: '38,1', patlamaBasinci: '30' },
+      { model: '36108', agirlik: '1835', calismaBasinci: '10', disCap: '65', icCap: '50,8', patlamaBasinci: '30' },
+      { model: '36109', agirlik: '613', calismaBasinci: '10', disCap: '30', icCap: '19', patlamaBasinci: '30' },
+    ],
+  },
+]
+
+// SEL - SU HORTUMLARI
+const SEL_SU_HORTUMLARI_CATEGORIES = [
+  {
+    name: 'BEZLİ SU HORTUMLARI',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'KIVRILMA YARI ÇAPI (MM)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36245', agirlik: '780', calismaBasinci: '250', disCap: '39,3', icCap: '25,4', kivrilmaYariCapi: '100', patlamaBasinci: '625' },
+      { model: '55809', agirlik: '260', calismaBasinci: '4', disCap: '20', icCap: '12,7', kivrilmaYariCapi: '', patlamaBasinci: '12' },
+      { model: '36274', agirlik: '440', calismaBasinci: '250', disCap: '25', icCap: '12,7', kivrilmaYariCapi: '65', patlamaBasinci: '625' },
+      { model: '49635', agirlik: '390', calismaBasinci: '4', disCap: '27', icCap: '19', kivrilmaYariCapi: '', patlamaBasinci: '12' },
+      { model: '36293', agirlik: '440', calismaBasinci: '10', disCap: '27', icCap: '19', kivrilmaYariCapi: '', patlamaBasinci: '30' },
+      { model: '36246', agirlik: '555', calismaBasinci: '250', disCap: '31,6', icCap: '19', kivrilmaYariCapi: '90', patlamaBasinci: '625' },
+      { model: '36256', agirlik: '925', calismaBasinci: '215', disCap: '29,2', icCap: '19', kivrilmaYariCapi: '240', patlamaBasinci: '920' },
+      { model: '36260', agirlik: '290', calismaBasinci: '4', disCap: '23', icCap: '16', kivrilmaYariCapi: '', patlamaBasinci: '12' },
+    ],
+  },
+  {
+    name: 'TELLİ SU HORTUMLARI',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'KIVRILMA YARI ÇAPI (MM)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36309', agirlik: '430', calismaBasinci: '350', disCap: '16,5', icCap: '8', kivrilmaYariCapi: '115', patlamaBasinci: '1550' },
+    ],
+  },
+]
+
+// SEL - TERMOPLASTİK HİDROLİK HORTUMLAR
+const SEL_TERMOPLASTIK_HIDROLIK_HORTUMLAR_CATEGORIES = [
+  {
+    name: 'İKİZ TERMOPLASTİK HİDROLİK HORTUMLAR',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'KIVRILMA YARI ÇAPI (MM)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36775', agirlik: '286', calismaBasinci: '185', disCap: '18,7', icCap: '12,7', kivrilmaYariCapi: '180', patlamaBasinci: '740' },
+      { model: '36772', agirlik: '476', calismaBasinci: '250', disCap: '20', icCap: '12,7', kivrilmaYariCapi: '180', patlamaBasinci: '100' },
+      { model: '36774', agirlik: '952', calismaBasinci: '250', disCap: '20', icCap: '12,7', kivrilmaYariCapi: '180', patlamaBasinci: '100' },
+      { model: '36778', agirlik: '428', calismaBasinci: '140', disCap: '20', icCap: '12,7', kivrilmaYariCapi: '180', patlamaBasinci: '600' },
+      { model: '36773', agirlik: '572', calismaBasinci: '185', disCap: '18,7', icCap: '12,7', kivrilmaYariCapi: '180', patlamaBasinci: '740' },
+      { model: '36780', agirlik: '170', calismaBasinci: '287', disCap: '12', icCap: '6,4', kivrilmaYariCapi: '100', patlamaBasinci: '1148' },
+      { model: '36776', agirlik: '340', calismaBasinci: '287', disCap: '12', icCap: '6,4X6,4', kivrilmaYariCapi: '100', patlamaBasinci: '1148' },
+      { model: '59155', agirlik: '625', calismaBasinci: '180', disCap: '28', icCap: '19', kivrilmaYariCapi: '240', patlamaBasinci: '720' },
+      { model: '36777', agirlik: '240', calismaBasinci: '212', disCap: '15,5', icCap: '9,5', kivrilmaYariCapi: '125', patlamaBasinci: '848' },
+      { model: '56395', agirlik: '433', calismaBasinci: '315', disCap: '17', icCap: '9,5', kivrilmaYariCapi: '125', patlamaBasinci: '1180' },
+      { model: '36771', agirlik: '866', calismaBasinci: '315', disCap: '17', icCap: '9,5', kivrilmaYariCapi: '125', patlamaBasinci: '1180' },
+      { model: '36779', agirlik: '308', calismaBasinci: '175', disCap: '16,2', icCap: '9,5', kivrilmaYariCapi: '125', patlamaBasinci: '700' },
+      { model: '36770', agirlik: '480', calismaBasinci: '212', disCap: '15,5', icCap: '9,5', kivrilmaYariCapi: '125', patlamaBasinci: '848' },
+      { model: '55995', agirlik: '590', calismaBasinci: '195', disCap: '23,5', icCap: '16', kivrilmaYariCapi: '205', patlamaBasinci: '780' },
+    ],
+  },
+  {
+    name: 'TEKLİ TERMOPLASTİK HİDROLİK HORTUMLAR',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'KIVRILMA YARI ÇAPI (MM)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36781', agirlik: '214', calismaBasinci: '140', disCap: '20', icCap: '12,7', kivrilmaYariCapi: '180', patlamaBasinci: '600' },
+      { model: '36782', agirlik: '89', calismaBasinci: '200', disCap: '11,8', icCap: '6,4', kivrilmaYariCapi: '100', patlamaBasinci: '800' },
+      { model: '36796', agirlik: '178', calismaBasinci: '200', disCap: '11,8', icCap: '6,4', kivrilmaYariCapi: '100', patlamaBasinci: '800' },
+      { model: '36783', agirlik: '64', calismaBasinci: '230', disCap: '9,5', icCap: '4,8', kivrilmaYariCapi: '90', patlamaBasinci: '920' },
+      { model: '36784', agirlik: '408', calismaBasinci: '87', disCap: '27,5', icCap: '19', kivrilmaYariCapi: '240', patlamaBasinci: '348' },
+      { model: '36785', agirlik: '154', calismaBasinci: '175', disCap: '16,2', icCap: '9,5', kivrilmaYariCapi: '125', patlamaBasinci: '700' },
+      { model: '36788', agirlik: '144', calismaBasinci: '275', disCap: '15,5', icCap: '9,5', kivrilmaYariCapi: '125', patlamaBasinci: '1100' },
+      { model: '36794', agirlik: '167', calismaBasinci: '240', disCap: '13', icCap: '8', kivrilmaYariCapi: '115', patlamaBasinci: '960' },
+      { model: '36787', agirlik: '121', calismaBasinci: '190', disCap: '14', icCap: '8', kivrilmaYariCapi: '115', patlamaBasinci: '760' },
+      { model: '36789', agirlik: '117', calismaBasinci: '300', disCap: '12,5', icCap: '8', kivrilmaYariCapi: '115', patlamaBasinci: '1200' },
+      { model: '55955', agirlik: '271', calismaBasinci: '150', disCap: '22,6', icCap: '16', kivrilmaYariCapi: '205', patlamaBasinci: '800' },
+    ],
+  },
+]
+
+// SEL - BOYA VE SOLVENT HORTUMLARI
+const SEL_BOYA_VE_SOLVENT_HORTUMLARI_CATEGORIES = [
+  {
+    name: 'TEKLİ BOYA VE SOLVENT HORTUMLARI',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'KIVRILMA YARI ÇAPI (MM)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36729', agirlik: '231', calismaBasinci: '212', disCap: '15,5', icCap: '9,5', kivrilmaYariCapi: '125', patlamaBasinci: '848' },
+      { model: '36730', agirlik: '162', calismaBasinci: '240', disCap: '13', icCap: '8', kivrilmaYariCapi: '115', patlamaBasinci: '960' },
+    ],
+  },
+]
+
+// SEL - DN 2 - DN 4 HORTUMLAR
+const SEL_DN_2_DN_4_HORTUMLAR_CATEGORIES = [
+  {
+    name: 'DN 2 - DN 4 HORTUMLAR',
+    tableHeaders: ['MODEL', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)'],
+    products: [
+      { model: '36751', calismaBasinci: '630', disCap: '4', icCap: '2' },
+      { model: '36750', calismaBasinci: '400', disCap: '8', icCap: '4' },
+    ],
+  },
+]
+
+// SEL - SPİRAL POLİETİLEN KORUYUCU
+const SEL_SPIRAL_POLIETILEN_KORUYUCU_CATEGORIES = [
+  {
+    name: 'SPİRAL POLİETİLEN KORUYUCU',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'KUTU MİKTARI'],
+    products: [
+      { model: '36628', agirlik: '64', disCap: '16', icCap: '13', kutuMiktari: '150' },
+      { model: '36629', agirlik: '106', disCap: '20', icCap: '16', kutuMiktari: '100' },
+      { model: '36630', agirlik: '166', disCap: '25', icCap: '20', kutuMiktari: '60' },
+      { model: '36631', agirlik: '196', disCap: '29', icCap: '24', kutuMiktari: '50' },
+      { model: '36632', agirlik: '217', disCap: '32', icCap: '27', kutuMiktari: '40' },
+      { model: '36633', agirlik: '239', disCap: '35', icCap: '30', kutuMiktari: '30' },
+      { model: '36634', agirlik: '276', disCap: '40', icCap: '35', kutuMiktari: '25' },
+      { model: '36635', agirlik: '415', disCap: '50', icCap: '44', kutuMiktari: '15' },
+      { model: '36637', agirlik: '810', disCap: '60', icCap: '50', kutuMiktari: '10' },
+      { model: '36636', agirlik: '958', disCap: '70', icCap: '60', kutuMiktari: '8' },
+      { model: '36626', agirlik: '32', disCap: '10', icCap: '7,5', kutuMiktari: '400' },
+      { model: '36627', agirlik: '39', disCap: '12', icCap: '9,5', kutuMiktari: '300' },
+    ],
+  },
+]
+
+// SEL - TEKSTİL ÖRGÜLÜ HORTUMLAR
+const SEL_TEKSTIL_ORGULU_HORTUMLAR_CATEGORIES = [
+  {
+    name: 'R4 HORTUMLAR',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'KIVRILMA YARI ÇAPI (MM)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36573', agirlik: '1075', calismaBasinci: '10', disCap: '49', icCap: '38,1', kivrilmaYariCapi: '95', patlamaBasinci: '40' },
+      { model: '36574', agirlik: '825', calismaBasinci: '14', disCap: '42', icCap: '31,8', kivrilmaYariCapi: '85', patlamaBasinci: '56' },
+      { model: '36583', agirlik: '1396', calismaBasinci: '10', disCap: '56', icCap: '45', kivrilmaYariCapi: '110', patlamaBasinci: '40' },
+      { model: '36585', agirlik: '1295', calismaBasinci: '10', disCap: '53', icCap: '42', kivrilmaYariCapi: '120', patlamaBasinci: '40' },
+      { model: '36572', agirlik: '638', calismaBasinci: '17', disCap: '35', icCap: '25,4', kivrilmaYariCapi: '65', patlamaBasinci: '68' },
+      { model: '36576', agirlik: '2018', calismaBasinci: '4', disCap: '75,5', icCap: '63,5', kivrilmaYariCapi: '180', patlamaBasinci: '16' },
+      { model: '36584', agirlik: '1995', calismaBasinci: '4', disCap: '71,8', icCap: '60', kivrilmaYariCapi: '195', patlamaBasinci: '16' },
+      { model: '36575', agirlik: '1544', calismaBasinci: '7', disCap: '62', icCap: '50,8', kivrilmaYariCapi: '135', patlamaBasinci: '28' },
+      { model: '36578', agirlik: '3162', calismaBasinci: '3', disCap: '103', icCap: '88,7', kivrilmaYariCapi: '270', patlamaBasinci: '12' },
+      { model: '36577', agirlik: '2505', calismaBasinci: '4', disCap: '88', icCap: '76,2', kivrilmaYariCapi: '225', patlamaBasinci: '16' },
+      { model: '36579', agirlik: '522', calismaBasinci: '21', disCap: '29', icCap: '19', kivrilmaYariCapi: '50', patlamaBasinci: '84' },
+    ],
+  },
+  {
+    name: 'R6 HORTUMLAR',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'KIVRILMA YARI ÇAPI (MM)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36586', agirlik: '470', calismaBasinci: '20', disCap: '33,2', icCap: '25,4', kivrilmaYariCapi: '150', patlamaBasinci: '100' },
+      { model: '36587', agirlik: '225', calismaBasinci: '28', disCap: '19,5', icCap: '12,7', kivrilmaYariCapi: '90', patlamaBasinci: '200' },
+      { model: '36588', agirlik: '105', calismaBasinci: '28', disCap: '12,3', icCap: '6,4', kivrilmaYariCapi: '45', patlamaBasinci: '200' },
+      { model: '36589', agirlik: '90', calismaBasinci: '34', disCap: '10,7', icCap: '4,8', kivrilmaYariCapi: '35', patlamaBasinci: '250' },
+      { model: '36590', agirlik: '315', calismaBasinci: '21', disCap: '25,8', icCap: '19', kivrilmaYariCapi: '140', patlamaBasinci: '130' },
+      { model: '36595', agirlik: '195', calismaBasinci: '63', disCap: '16,5', icCap: '9,5', kivrilmaYariCapi: '60', patlamaBasinci: '310' },
+      { model: '36591', agirlik: '150', calismaBasinci: '28', disCap: '15,5', icCap: '9,5', kivrilmaYariCapi: '75', patlamaBasinci: '200' },
+      { model: '36592', agirlik: '125', calismaBasinci: '28', disCap: '13,9', icCap: '8', kivrilmaYariCapi: '65', patlamaBasinci: '200' },
+      { model: '36593', agirlik: '260', calismaBasinci: '24', disCap: '22,6', icCap: '16', kivrilmaYariCapi: '115', patlamaBasinci: '140' },
+      { model: '36594', agirlik: '280', calismaBasinci: '20', disCap: '32', icCap: '22', kivrilmaYariCapi: '125', patlamaBasinci: '120' },
+    ],
+  },
+  {
+    name: 'R3 HORTUMLAR',
+    tableHeaders: ['MODEL', 'AĞIRLIK (GR/M)', 'ÇALIŞMA BASINCI', 'DIŞ ÇAP (MM)', 'İÇ ÇAP (INCH)', 'KIVRILMA YARI ÇAPI (MM)', 'PATLAMA BASINCI (BAR)'],
+    products: [
+      { model: '36571', agirlik: '885', calismaBasinci: '800', disCap: '24,6', icCap: '12,7', kivrilmaYariCapi: '180', patlamaBasinci: '2000' },
+      { model: '36569', agirlik: '300', calismaBasinci: '78', disCap: '19,1', icCap: '9,5', kivrilmaYariCapi: '100', patlamaBasinci: '340' },
+    ],
+  },
+]
+
 // HYDROPACK - JOİSTİK VE YÜKLEYİCİ VALF
 const HYDROPACK_JOISTIK_VE_YUKLEYICI_VALF_CATEGORIES = [
   {
@@ -4339,6 +4853,35 @@ function ProductDetail() {
         setSelectedProduct(decodedProductName)
         if (brandParam === 'rekorsan') {
           setSelectedBrand('rekorsan')
+        }
+      }
+    }
+    
+    // HORTUMLAR için product slug'ını oku
+    if (category === 'hidrolik-baglanti-elemanlari' && subcategory === 'hortumlar' && productSlugParam) {
+      const productNameMap = {
+        'pvc-celik-telli-hortumlar': 'PVC ÇELİK TELLİ HORTUMLAR',
+        'pulverizator-ilaclama-hortumu': 'PULVERİZATÖR (İLAÇLAMA) HORTUMU',
+        'pvc-su-hortumlari': 'PVC SU HORTUMLARI',
+        'pvc-hava-hortumlari': 'PVC HAVA HORTUMLARI',
+        'telli-hortumlar': 'TELLİ HORTUMLAR',
+        'tekstil-orgulu-hortumlar': 'TEKSTİL ÖRGÜLÜ HORTUMLAR',
+        'yakit-hortumlari': 'YAKIT HORTUMLARI',
+        'buhar-ve-sicak-su-hortumlari': 'BUHAR VE SICAK SU HORTUMLARI',
+        'hava-hortumlari': 'HAVA HORTUMLARI',
+        'asindirici-madde-hortumlari': 'AŞINDIRICI MADDE HORTUMLARI',
+        'gida-hortumlari': 'GIDA HORTUMLARI',
+        'su-hortumlari': 'SU HORTUMLARI',
+        'termoplastik-hidrolik-hortumlar': 'TERMOPLASTİK HİDROLİK HORTUMLAR',
+        'boya-ve-solvent-hortumlari': 'BOYA VE SOLVENT HORTUMLARI',
+        'dn-2-dn-4-hortumlar': 'DN 2 - DN 4 HORTUMLAR',
+        'spiral-polietilen-koruyucu': 'SPİRAL POLİETİLEN KORUYUCU',
+      }
+      const decodedProductName = productNameMap[productSlugParam]
+      if (decodedProductName) {
+        setSelectedProduct(decodedProductName)
+        if (brandParam === 'sel') {
+          setSelectedBrand('sel')
         }
       }
     }
@@ -17824,6 +18367,7 @@ function ProductDetail() {
           ) : selectedProduct || currentBrand || (productName && !activeSection) ? (
             <>
               {/* Ürün Başlığı */}
+              {!['PVC ÇELİK TELLİ HORTUMLAR', 'PULVERİZATÖR (İLAÇLAMA) HORTUMU', 'PVC SU HORTUMLARI', 'PVC HAVA HORTUMLARI', 'TELLİ HORTUMLAR', 'TEKSTİL ÖRGÜLÜ HORTUMLAR', 'YAKIT HORTUMLARI', 'BUHAR VE SICAK SU HORTUMLARI', 'HAVA HORTUMLARI', 'AŞINDIRICI MADDE HORTUMLARI', 'GIDA HORTUMLARI', 'SU HORTUMLARI', 'TERMOPLASTİK HİDROLİK HORTUMLAR', 'BOYA VE SOLVENT HORTUMLARI', 'DN 2 - DN 4 HORTUMLAR', 'SPİRAL POLİETİLEN KORUYUCU'].includes(selectedProduct) && (
               <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Ürün Detayı</p>
@@ -17837,8 +18381,10 @@ function ProductDetail() {
                   </h2>
                 </div>
               </div>
+              )}
 
               {/* Marka Logoları */}
+              {!['PVC ÇELİK TELLİ HORTUMLAR', 'PULVERİZATÖR (İLAÇLAMA) HORTUMU', 'PVC SU HORTUMLARI', 'PVC HAVA HORTUMLARI', 'TELLİ HORTUMLAR', 'TEKSTİL ÖRGÜLÜ HORTUMLAR', 'YAKIT HORTUMLARI', 'BUHAR VE SICAK SU HORTUMLARI', 'HAVA HORTUMLARI', 'AŞINDIRICI MADDE HORTUMLARI', 'GIDA HORTUMLARI', 'SU HORTUMLARI', 'TERMOPLASTİK HİDROLİK HORTUMLAR', 'BOYA VE SOLVENT HORTUMLARI', 'DN 2 - DN 4 HORTUMLAR', 'SPİRAL POLİETİLEN KORUYUCU'].includes(selectedProduct) && (
               <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 md:p-8">
                 {allBrandLogos.length === 0 ? (
                   <div className="py-12 text-center text-slate-500">
@@ -18039,6 +18585,379 @@ function ProductDetail() {
                       ))}
                     </div>
                   </div>
+                ) : productName === 'PVC HORTUMLAR' ? (
+                  <div className="space-y-6">
+                    {/* SEL Logo */}
+                    <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-6">
+                      <img 
+                        src="/sel.png" 
+                        alt="SEL" 
+                        className="h-16 w-auto object-contain sm:h-20"
+                        onError={(e) => {
+                          e.target.style.display = 'none'
+                        }}
+                      />
+                    </div>
+                    
+                    {/* Ürün Kartları */}
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                      {[
+                        { name: 'PVC ÇELİK TELLİ HORTUMLAR' },
+                        { name: 'PULVERİZATÖR (İLAÇLAMA) HORTUMU' },
+                        { name: 'PVC SU HORTUMLARI' },
+                        { name: 'PVC HAVA HORTUMLARI' },
+                      ].map((product, index) => (
+                        <div
+                          key={index}
+                          onClick={() => {
+                            setSelectedProduct(product.name)
+                            setSelectedBrand('sel')
+                            // URL'yi güncelle
+                            const categorySlug = 'hidrolik-baglanti-elemanlari'
+                            const subcategorySlug = 'hortumlar'
+                            const productSlug = product.name.toLowerCase()
+                              .replace(/\s+/g, '-')
+                              .replace(/ı/g, 'i')
+                              .replace(/ğ/g, 'g')
+                              .replace(/ü/g, 'u')
+                              .replace(/ş/g, 's')
+                              .replace(/ö/g, 'o')
+                              .replace(/ç/g, 'c')
+                              .replace(/İ/g, 'i')
+                              .replace(/Ğ/g, 'g')
+                              .replace(/Ü/g, 'u')
+                              .replace(/Ş/g, 's')
+                              .replace(/Ö/g, 'o')
+                              .replace(/Ç/g, 'c')
+                              .replace(/\(/g, '')
+                              .replace(/\)/g, '')
+                            navigate(`/urunler/${categorySlug}/${subcategorySlug}/sel/${productSlug}`)
+                          }}
+                          className="group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-lg"
+                        >
+                          {/* Content Section */}
+                          <div className="flex flex-1 flex-col p-6">
+                            <h3 className="mb-4 text-left text-lg font-semibold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                              {product.name}
+                            </h3>
+                            <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                                Ürün Detayı
+                              </span>
+                              <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                                <span className="text-xs font-semibold">İncele</span>
+                                <svg 
+                                  className="h-4 w-4" 
+                                  fill="none" 
+                                  viewBox="0 0 24 24" 
+                                  stroke="currentColor"
+                                  strokeWidth={2.5}
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : productName === 'HİDROLİK HORTUMLAR' ? (
+                  <div className="space-y-6">
+                    {/* SEL Logo */}
+                    <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-6">
+                      <img 
+                        src="/sel.png" 
+                        alt="SEL" 
+                        className="h-16 w-auto object-contain sm:h-20"
+                        onError={(e) => {
+                          e.target.style.display = 'none'
+                        }}
+                      />
+                    </div>
+                    
+                    {/* Ürün Kartları */}
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                      {[
+                        { name: 'TELLİ HORTUMLAR' },
+                        { name: 'TEKSTİL ÖRGÜLÜ HORTUMLAR' },
+                      ].map((product, index) => (
+                        <div
+                          key={index}
+                          onClick={() => {
+                            setSelectedProduct(product.name)
+                            setSelectedBrand('sel')
+                            // URL'yi güncelle
+                            const categorySlug = 'hidrolik-baglanti-elemanlari'
+                            const subcategorySlug = 'hortumlar'
+                            const productSlug = product.name.toLowerCase()
+                              .replace(/\s+/g, '-')
+                              .replace(/ı/g, 'i')
+                              .replace(/ğ/g, 'g')
+                              .replace(/ü/g, 'u')
+                              .replace(/ş/g, 's')
+                              .replace(/ö/g, 'o')
+                              .replace(/ç/g, 'c')
+                              .replace(/İ/g, 'i')
+                              .replace(/Ğ/g, 'g')
+                              .replace(/Ü/g, 'u')
+                              .replace(/Ş/g, 's')
+                              .replace(/Ö/g, 'o')
+                              .replace(/Ç/g, 'c')
+                            navigate(`/urunler/${categorySlug}/${subcategorySlug}/sel/${productSlug}`)
+                          }}
+                          className="group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-lg"
+                        >
+                          {/* Content Section */}
+                          <div className="flex flex-1 flex-col p-6">
+                            <h3 className="mb-4 text-left text-lg font-semibold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                              {product.name}
+                            </h3>
+                            <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                                Ürün Detayı
+                              </span>
+                              <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                                <span className="text-xs font-semibold">İncele</span>
+                                <svg 
+                                  className="h-4 w-4" 
+                                  fill="none" 
+                                  viewBox="0 0 24 24" 
+                                  stroke="currentColor"
+                                  strokeWidth={2.5}
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : productName === 'ENDÜSTRİYEL HORTUMLAR' ? (
+                  <div className="space-y-6">
+                    {/* SEL Logo */}
+                    <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-6">
+                      <img 
+                        src="/sel.png" 
+                        alt="SEL" 
+                        className="h-16 w-auto object-contain sm:h-20"
+                        onError={(e) => {
+                          e.target.style.display = 'none'
+                        }}
+                      />
+                    </div>
+                    
+                    {/* Ürün Kartları */}
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                      {[
+                        { name: 'YAKIT HORTUMLARI' },
+                        { name: 'BUHAR VE SICAK SU HORTUMLARI' },
+                        { name: 'HAVA HORTUMLARI' },
+                        { name: 'AŞINDIRICI MADDE HORTUMLARI' },
+                        { name: 'GIDA HORTUMLARI' },
+                        { name: 'SU HORTUMLARI' },
+                      ].map((product, index) => (
+                        <div
+                          key={index}
+                          onClick={() => {
+                            setSelectedProduct(product.name)
+                            setSelectedBrand('sel')
+                            // URL'yi güncelle
+                            const categorySlug = 'hidrolik-baglanti-elemanlari'
+                            const subcategorySlug = 'hortumlar'
+                            const productSlug = product.name.toLowerCase()
+                              .replace(/\s+/g, '-')
+                              .replace(/ı/g, 'i')
+                              .replace(/ğ/g, 'g')
+                              .replace(/ü/g, 'u')
+                              .replace(/ş/g, 's')
+                              .replace(/ö/g, 'o')
+                              .replace(/ç/g, 'c')
+                              .replace(/İ/g, 'i')
+                              .replace(/Ğ/g, 'g')
+                              .replace(/Ü/g, 'u')
+                              .replace(/Ş/g, 's')
+                              .replace(/Ö/g, 'o')
+                              .replace(/Ç/g, 'c')
+                            navigate(`/urunler/${categorySlug}/${subcategorySlug}/sel/${productSlug}`)
+                          }}
+                          className="group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-lg"
+                        >
+                          {/* Content Section */}
+                          <div className="flex flex-1 flex-col p-6">
+                            <h3 className="mb-4 text-left text-lg font-semibold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                              {product.name}
+                            </h3>
+                            <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                                Ürün Detayı
+                              </span>
+                              <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                                <span className="text-xs font-semibold">İncele</span>
+                                <svg 
+                                  className="h-4 w-4" 
+                                  fill="none" 
+                                  viewBox="0 0 24 24" 
+                                  stroke="currentColor"
+                                  strokeWidth={2.5}
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : productName === 'TERMOPLASTİK HORTUMLAR' ? (
+                  <div className="space-y-6">
+                    {/* SEL Logo */}
+                    <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-6">
+                      <img 
+                        src="/sel.png" 
+                        alt="SEL" 
+                        className="h-16 w-auto object-contain sm:h-20"
+                        onError={(e) => {
+                          e.target.style.display = 'none'
+                        }}
+                      />
+                    </div>
+                    
+                    {/* Ürün Kartları */}
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                      {[
+                        { name: 'TERMOPLASTİK HİDROLİK HORTUMLAR' },
+                        { name: 'BOYA VE SOLVENT HORTUMLARI' },
+                        { name: 'DN 2 - DN 4 HORTUMLAR' },
+                      ].map((product, index) => (
+                        <div
+                          key={index}
+                          onClick={() => {
+                            setSelectedProduct(product.name)
+                            setSelectedBrand('sel')
+                            // URL'yi güncelle
+                            const categorySlug = 'hidrolik-baglanti-elemanlari'
+                            const subcategorySlug = 'hortumlar'
+                            const productSlug = product.name.toLowerCase()
+                              .replace(/\s+/g, '-')
+                              .replace(/ı/g, 'i')
+                              .replace(/ğ/g, 'g')
+                              .replace(/ü/g, 'u')
+                              .replace(/ş/g, 's')
+                              .replace(/ö/g, 'o')
+                              .replace(/ç/g, 'c')
+                              .replace(/İ/g, 'i')
+                              .replace(/Ğ/g, 'g')
+                              .replace(/Ü/g, 'u')
+                              .replace(/Ş/g, 's')
+                              .replace(/Ö/g, 'o')
+                              .replace(/Ç/g, 'c')
+                            navigate(`/urunler/${categorySlug}/${subcategorySlug}/sel/${productSlug}`)
+                          }}
+                          className="group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-lg"
+                        >
+                          {/* Content Section */}
+                          <div className="flex flex-1 flex-col p-6">
+                            <h3 className="mb-4 text-left text-lg font-semibold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                              {product.name}
+                            </h3>
+                            <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                                Ürün Detayı
+                              </span>
+                              <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                                <span className="text-xs font-semibold">İncele</span>
+                                <svg 
+                                  className="h-4 w-4" 
+                                  fill="none" 
+                                  viewBox="0 0 24 24" 
+                                  stroke="currentColor"
+                                  strokeWidth={2.5}
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : productName === 'HORTUM KORUYUCULAR' ? (
+                  <div className="space-y-6">
+                    {/* SEL Logo */}
+                    <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-6">
+                      <img 
+                        src="/sel.png" 
+                        alt="SEL" 
+                        className="h-16 w-auto object-contain sm:h-20"
+                        onError={(e) => {
+                          e.target.style.display = 'none'
+                        }}
+                      />
+                    </div>
+                    
+                    {/* Ürün Kartları */}
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                      {[
+                        { name: 'SPİRAL POLİETİLEN KORUYUCU' },
+                      ].map((product, index) => (
+                        <div
+                          key={index}
+                          onClick={() => {
+                            setSelectedProduct(product.name)
+                            setSelectedBrand('sel')
+                            // URL'yi güncelle
+                            const categorySlug = 'hidrolik-baglanti-elemanlari'
+                            const subcategorySlug = 'hortumlar'
+                            const productSlug = product.name.toLowerCase()
+                              .replace(/\s+/g, '-')
+                              .replace(/ı/g, 'i')
+                              .replace(/ğ/g, 'g')
+                              .replace(/ü/g, 'u')
+                              .replace(/ş/g, 's')
+                              .replace(/ö/g, 'o')
+                              .replace(/ç/g, 'c')
+                              .replace(/İ/g, 'i')
+                              .replace(/Ğ/g, 'g')
+                              .replace(/Ü/g, 'u')
+                              .replace(/Ş/g, 's')
+                              .replace(/Ö/g, 'o')
+                              .replace(/Ç/g, 'c')
+                            navigate(`/urunler/${categorySlug}/${subcategorySlug}/sel/${productSlug}`)
+                          }}
+                          className="group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-lg"
+                        >
+                          {/* Content Section */}
+                          <div className="flex flex-1 flex-col p-6">
+                            <h3 className="mb-4 text-left text-lg font-semibold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                              {product.name}
+                            </h3>
+                            <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                                Ürün Detayı
+                              </span>
+                              <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                                <span className="text-xs font-semibold">İncele</span>
+                                <svg 
+                                  className="h-4 w-4" 
+                                  fill="none" 
+                                  viewBox="0 0 24 24" 
+                                  stroke="currentColor"
+                                  strokeWidth={2.5}
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 ) : productName === 'ALÜMİNYUM GÖVDELİ DİŞLİ HİDROMOTORLAR' ? (
                   <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {allBrandLogos.map((logo, index) => {
@@ -18146,6 +19065,7 @@ function ProductDetail() {
                   </div>
                 )}
               </div>
+              )}
 
               {/* REKORSAN METRİK HORTUM RAKORLARI Detay Sayfası */}
               {selectedProduct === 'METRİK HORTUM RAKORLARI' && currentBrand === 'rekorsan' && (
@@ -19877,6 +20797,1082 @@ function ProductDetail() {
                                     if (header === 'MODEL') return row.model
                                     if (header === 'ANAHTAR ÖLÇÜSÜ') return row.anahtarOlcusu || ''
                                     if (header === 'DİŞ ÖLÇÜSÜ') return row.disOlcusu || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* SEL - PVC ÇELİK TELLİ HORTUMLAR Detay Sayfası */}
+              {selectedProduct === 'PVC ÇELİK TELLİ HORTUMLAR' && currentBrand === 'sel' && (
+                <>
+                  {/* SEL Logo */}
+                  <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-6">
+                    <img 
+                      src="/sel.png" 
+                      alt="SEL" 
+                      className="h-16 w-auto object-contain sm:h-20"
+                      onError={(e) => {
+                        e.target.style.display = 'none'
+                      }}
+                    />
+                  </div>
+
+                  {/* SEL PVC ÇELİK TELLİ HORTUMLAR Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {SEL_PVC_CELIK_TELLI_HORTUMLAR_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'AĞIRLIK (GR/M)') return row.agirlik || ''
+                                    if (header === 'İÇ ÇAP (INCH)') return row.icCap || ''
+                                    if (header === 'PATLAMA BASINCI (BAR)') return row.patlamaBasinci || ''
+                                    if (header === 'VAKUM') return row.vakum || ''
+                                    if (header === 'ÇALIŞMA BASINCI') return row.calismaBasinci || ''
+                                    if (header === 'DIŞ ÇAP (MM)') return row.disCap || ''
+                                    if (header === 'KIVRILMA YARI ÇAPI (MM)') return row.kivrilmaYariCapi || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* SEL - PULVERİZATÖR (İLAÇLAMA) HORTUMU Detay Sayfası */}
+              {selectedProduct === 'PULVERİZATÖR (İLAÇLAMA) HORTUMU' && currentBrand === 'sel' && (
+                <>
+                  {/* SEL Logo */}
+                  <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-6">
+                    <img 
+                      src="/sel.png" 
+                      alt="SEL" 
+                      className="h-16 w-auto object-contain sm:h-20"
+                      onError={(e) => {
+                        e.target.style.display = 'none'
+                      }}
+                    />
+                  </div>
+
+                  {/* SEL PULVERİZATÖR (İLAÇLAMA) HORTUMU Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {SEL_PULVERIZATOR_ILACLAMA_HORTUMU_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'AĞIRLIK (GR/M)') return row.agirlik || ''
+                                    if (header === 'ÇALIŞMA BASINCI') return row.calismaBasinci || ''
+                                    if (header === 'DIŞ ÇAP (MM)') return row.disCap || ''
+                                    if (header === 'İÇ ÇAP (INCH)') return row.icCap || ''
+                                    if (header === 'PATLAMA BASINCI (BAR)') return row.patlamaBasinci || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* SEL - PVC SU HORTUMLARI Detay Sayfası */}
+              {selectedProduct === 'PVC SU HORTUMLARI' && currentBrand === 'sel' && (
+                <>
+                  {/* SEL Logo */}
+                  <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-6">
+                    <img 
+                      src="/sel.png" 
+                      alt="SEL" 
+                      className="h-16 w-auto object-contain sm:h-20"
+                      onError={(e) => {
+                        e.target.style.display = 'none'
+                      }}
+                    />
+                  </div>
+
+                  {/* SEL PVC SU HORTUMLARI Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {SEL_PVC_SU_HORTUMLARI_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'AĞIRLIK (GR/M)') return row.agirlik || ''
+                                    if (header === 'ÇALIŞMA BASINCI') return row.calismaBasinci || ''
+                                    if (header === 'DIŞ ÇAP (MM)') return row.disCap || ''
+                                    if (header === 'İÇ ÇAP (INCH)') return row.icCap || ''
+                                    if (header === 'PATLAMA BASINCI (BAR)') return row.patlamaBasinci || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* SEL - PVC HAVA HORTUMLARI Detay Sayfası */}
+              {selectedProduct === 'PVC HAVA HORTUMLARI' && currentBrand === 'sel' && (
+                <>
+                  {/* SEL Logo */}
+                  <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-6">
+                    <img 
+                      src="/sel.png" 
+                      alt="SEL" 
+                      className="h-16 w-auto object-contain sm:h-20"
+                      onError={(e) => {
+                        e.target.style.display = 'none'
+                      }}
+                    />
+                  </div>
+
+                  {/* SEL PVC HAVA HORTUMLARI Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {SEL_PVC_HAVA_HORTUMLARI_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'AĞIRLIK (GR/M)') return row.agirlik || ''
+                                    if (header === 'ÇALIŞMA BASINCI') return row.calismaBasinci || ''
+                                    if (header === 'DIŞ ÇAP (MM)') return row.disCap || ''
+                                    if (header === 'İÇ ÇAP (INCH)') return row.icCap || ''
+                                    if (header === 'PATLAMA BASINCI (BAR)') return row.patlamaBasinci || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* SEL - TELLİ HORTUMLAR Detay Sayfası */}
+              {selectedProduct === 'TELLİ HORTUMLAR' && currentBrand === 'sel' && (
+                <>
+                  {/* SEL Logo */}
+                  <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-6">
+                    <img 
+                      src="/sel.png" 
+                      alt="SEL" 
+                      className="h-16 w-auto object-contain sm:h-20"
+                      onError={(e) => {
+                        e.target.style.display = 'none'
+                      }}
+                    />
+                  </div>
+
+                  {/* SEL TELLİ HORTUMLAR Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {SEL_TELLI_HORTUMLAR_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'AĞIRLIK (GR/M)') return row.agirlik || ''
+                                    if (header === 'ÇALIŞMA BASINCI') return row.calismaBasinci || ''
+                                    if (header === 'DIŞ ÇAP (MM)') return row.disCap || ''
+                                    if (header === 'İÇ ÇAP (INCH)') return row.icCap || ''
+                                    if (header === 'KIVRILMA YARI ÇAPI (MM)') return row.kivrilmaYariCapi || ''
+                                    if (header === 'PATLAMA BASINCI (BAR)') return row.patlamaBasinci || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* SEL - TEKSTİL ÖRGÜLÜ HORTUMLAR Detay Sayfası */}
+              {selectedProduct === 'TEKSTİL ÖRGÜLÜ HORTUMLAR' && currentBrand === 'sel' && (
+                <>
+                  {/* SEL Logo */}
+                  <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-6">
+                    <img 
+                      src="/sel.png" 
+                      alt="SEL" 
+                      className="h-16 w-auto object-contain sm:h-20"
+                      onError={(e) => {
+                        e.target.style.display = 'none'
+                      }}
+                    />
+                  </div>
+
+                  {/* SEL TEKSTİL ÖRGÜLÜ HORTUMLAR Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {SEL_TEKSTIL_ORGULU_HORTUMLAR_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'AĞIRLIK (GR/M)') return row.agirlik || ''
+                                    if (header === 'ÇALIŞMA BASINCI') return row.calismaBasinci || ''
+                                    if (header === 'DIŞ ÇAP (MM)') return row.disCap || ''
+                                    if (header === 'İÇ ÇAP (INCH)') return row.icCap || ''
+                                    if (header === 'KIVRILMA YARI ÇAPI (MM)') return row.kivrilmaYariCapi || ''
+                                    if (header === 'PATLAMA BASINCI (BAR)') return row.patlamaBasinci || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* SEL - YAKIT HORTUMLARI Detay Sayfası */}
+              {selectedProduct === 'YAKIT HORTUMLARI' && currentBrand === 'sel' && (
+                <>
+                  {/* SEL Logo */}
+                  <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-6">
+                    <img 
+                      src="/sel.png" 
+                      alt="SEL" 
+                      className="h-16 w-auto object-contain sm:h-20"
+                      onError={(e) => {
+                        e.target.style.display = 'none'
+                      }}
+                    />
+                  </div>
+
+                  {/* SEL YAKIT HORTUMLARI Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {SEL_YAKIT_HORTUMLARI_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'AĞIRLIK (GR/M)') return row.agirlik || ''
+                                    if (header === 'ÇALIŞMA BASINCI') return row.calismaBasinci || ''
+                                    if (header === 'DIŞ ÇAP (MM)') return row.disCap || ''
+                                    if (header === 'İÇ ÇAP (INCH)') return row.icCap || ''
+                                    if (header === 'PATLAMA BASINCI (BAR)') return row.patlamaBasinci || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* SEL - BUHAR VE SICAK SU HORTUMLARI Detay Sayfası */}
+              {selectedProduct === 'BUHAR VE SICAK SU HORTUMLARI' && currentBrand === 'sel' && (
+                <>
+                  {/* SEL Logo */}
+                  <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-6">
+                    <img 
+                      src="/sel.png" 
+                      alt="SEL" 
+                      className="h-16 w-auto object-contain sm:h-20"
+                      onError={(e) => {
+                        e.target.style.display = 'none'
+                      }}
+                    />
+                  </div>
+
+                  {/* SEL BUHAR VE SICAK SU HORTUMLARI Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {SEL_BUHAR_VE_SICAK_SU_HORTUMLARI_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'AĞIRLIK (GR/M)') return row.agirlik || ''
+                                    if (header === 'ÇALIŞMA BASINCI') return row.calismaBasinci || ''
+                                    if (header === 'DIŞ ÇAP (MM)') return row.disCap || ''
+                                    if (header === 'İÇ ÇAP (INCH)') return row.icCap || ''
+                                    if (header === 'PATLAMA BASINCI (BAR)') return row.patlamaBasinci || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* SEL - HAVA HORTUMLARI Detay Sayfası */}
+              {selectedProduct === 'HAVA HORTUMLARI' && currentBrand === 'sel' && (
+                <>
+                  {/* SEL Logo */}
+                  <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-6">
+                    <img 
+                      src="/sel.png" 
+                      alt="SEL" 
+                      className="h-16 w-auto object-contain sm:h-20"
+                      onError={(e) => {
+                        e.target.style.display = 'none'
+                      }}
+                    />
+                  </div>
+
+                  {/* SEL HAVA HORTUMLARI Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {SEL_HAVA_HORTUMLARI_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'AĞIRLIK (GR/M)') return row.agirlik || ''
+                                    if (header === 'ÇALIŞMA BASINCI') return row.calismaBasinci || ''
+                                    if (header === 'DIŞ ÇAP (MM)') return row.disCap || ''
+                                    if (header === 'İÇ ÇAP (INCH)') return row.icCap || ''
+                                    if (header === 'PATLAMA BASINCI (BAR)') return row.patlamaBasinci || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* SEL - AŞINDIRICI MADDE HORTUMLARI Detay Sayfası */}
+              {selectedProduct === 'AŞINDIRICI MADDE HORTUMLARI' && currentBrand === 'sel' && (
+                <>
+                  {/* SEL Logo */}
+                  <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-6">
+                    <img 
+                      src="/sel.png" 
+                      alt="SEL" 
+                      className="h-16 w-auto object-contain sm:h-20"
+                      onError={(e) => {
+                        e.target.style.display = 'none'
+                      }}
+                    />
+                  </div>
+
+                  {/* SEL AŞINDIRICI MADDE HORTUMLARI Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {SEL_ASINDIRICI_MADDE_HORTUMLARI_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'AĞIRLIK (GR/M)') return row.agirlik || ''
+                                    if (header === 'ÇALIŞMA BASINCI') return row.calismaBasinci || ''
+                                    if (header === 'DIŞ ÇAP (MM)') return row.disCap || ''
+                                    if (header === 'İÇ ÇAP (INCH)') return row.icCap || ''
+                                    if (header === 'PATLAMA BASINCI (BAR)') return row.patlamaBasinci || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* SEL - GIDA HORTUMLARI Detay Sayfası */}
+              {selectedProduct === 'GIDA HORTUMLARI' && currentBrand === 'sel' && (
+                <>
+                  {/* SEL Logo */}
+                  <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-6">
+                    <img 
+                      src="/sel.png" 
+                      alt="SEL" 
+                      className="h-16 w-auto object-contain sm:h-20"
+                      onError={(e) => {
+                        e.target.style.display = 'none'
+                      }}
+                    />
+                  </div>
+
+                  {/* SEL GIDA HORTUMLARI Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {SEL_GIDA_HORTUMLARI_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'AĞIRLIK (GR/M)') return row.agirlik || ''
+                                    if (header === 'ÇALIŞMA BASINCI') return row.calismaBasinci || ''
+                                    if (header === 'DIŞ ÇAP (MM)') return row.disCap || ''
+                                    if (header === 'İÇ ÇAP (INCH)') return row.icCap || ''
+                                    if (header === 'PATLAMA BASINCI (BAR)') return row.patlamaBasinci || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* SEL - SU HORTUMLARI Detay Sayfası */}
+              {selectedProduct === 'SU HORTUMLARI' && currentBrand === 'sel' && (
+                <>
+                  {/* SEL Logo */}
+                  <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-6">
+                    <img 
+                      src="/sel.png" 
+                      alt="SEL" 
+                      className="h-16 w-auto object-contain sm:h-20"
+                      onError={(e) => {
+                        e.target.style.display = 'none'
+                      }}
+                    />
+                  </div>
+
+                  {/* SEL SU HORTUMLARI Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {SEL_SU_HORTUMLARI_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'AĞIRLIK (GR/M)') return row.agirlik || ''
+                                    if (header === 'ÇALIŞMA BASINCI') return row.calismaBasinci || ''
+                                    if (header === 'DIŞ ÇAP (MM)') return row.disCap || ''
+                                    if (header === 'İÇ ÇAP (INCH)') return row.icCap || ''
+                                    if (header === 'KIVRILMA YARI ÇAPI (MM)') return row.kivrilmaYariCapi || ''
+                                    if (header === 'PATLAMA BASINCI (BAR)') return row.patlamaBasinci || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* SEL - TERMOPLASTİK HİDROLİK HORTUMLAR Detay Sayfası */}
+              {selectedProduct === 'TERMOPLASTİK HİDROLİK HORTUMLAR' && currentBrand === 'sel' && (
+                <>
+                  {/* SEL Logo */}
+                  <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-6">
+                    <img 
+                      src="/sel.png" 
+                      alt="SEL" 
+                      className="h-16 w-auto object-contain sm:h-20"
+                      onError={(e) => {
+                        e.target.style.display = 'none'
+                      }}
+                    />
+                  </div>
+
+                  {/* SEL TERMOPLASTİK HİDROLİK HORTUMLAR Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {SEL_TERMOPLASTIK_HIDROLIK_HORTUMLAR_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'AĞIRLIK (GR/M)') return row.agirlik || ''
+                                    if (header === 'ÇALIŞMA BASINCI') return row.calismaBasinci || ''
+                                    if (header === 'DIŞ ÇAP (MM)') return row.disCap || ''
+                                    if (header === 'İÇ ÇAP (INCH)') return row.icCap || ''
+                                    if (header === 'KIVRILMA YARI ÇAPI (MM)') return row.kivrilmaYariCapi || ''
+                                    if (header === 'PATLAMA BASINCI (BAR)') return row.patlamaBasinci || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* SEL - BOYA VE SOLVENT HORTUMLARI Detay Sayfası */}
+              {selectedProduct === 'BOYA VE SOLVENT HORTUMLARI' && currentBrand === 'sel' && (
+                <>
+                  {/* SEL Logo */}
+                  <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-6">
+                    <img 
+                      src="/sel.png" 
+                      alt="SEL" 
+                      className="h-16 w-auto object-contain sm:h-20"
+                      onError={(e) => {
+                        e.target.style.display = 'none'
+                      }}
+                    />
+                  </div>
+
+                  {/* SEL BOYA VE SOLVENT HORTUMLARI Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {SEL_BOYA_VE_SOLVENT_HORTUMLARI_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'AĞIRLIK (GR/M)') return row.agirlik || ''
+                                    if (header === 'ÇALIŞMA BASINCI') return row.calismaBasinci || ''
+                                    if (header === 'DIŞ ÇAP (MM)') return row.disCap || ''
+                                    if (header === 'İÇ ÇAP (INCH)') return row.icCap || ''
+                                    if (header === 'KIVRILMA YARI ÇAPI (MM)') return row.kivrilmaYariCapi || ''
+                                    if (header === 'PATLAMA BASINCI (BAR)') return row.patlamaBasinci || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* SEL - DN 2 - DN 4 HORTUMLAR Detay Sayfası */}
+              {selectedProduct === 'DN 2 - DN 4 HORTUMLAR' && currentBrand === 'sel' && (
+                <>
+                  {/* SEL Logo */}
+                  <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-6">
+                    <img 
+                      src="/sel.png" 
+                      alt="SEL" 
+                      className="h-16 w-auto object-contain sm:h-20"
+                      onError={(e) => {
+                        e.target.style.display = 'none'
+                      }}
+                    />
+                  </div>
+
+                  {/* SEL DN 2 - DN 4 HORTUMLAR Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {SEL_DN_2_DN_4_HORTUMLAR_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'ÇALIŞMA BASINCI') return row.calismaBasinci || ''
+                                    if (header === 'DIŞ ÇAP (MM)') return row.disCap || ''
+                                    if (header === 'İÇ ÇAP (INCH)') return row.icCap || ''
+                                    return ''
+                                  }
+                                  return (
+                                    <tr key={row.model} className="hover:bg-slate-50">
+                                      {category.tableHeaders.map((header, headerIndex) => (
+                                        <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                          {headerIndex === 0 ? (
+                                            <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                          ) : (
+                                            getCellValue(header)
+                                          )}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  )
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* SEL - SPİRAL POLİETİLEN KORUYUCU Detay Sayfası */}
+              {selectedProduct === 'SPİRAL POLİETİLEN KORUYUCU' && currentBrand === 'sel' && (
+                <>
+                  {/* SEL Logo */}
+                  <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-6">
+                    <img 
+                      src="/sel.png" 
+                      alt="SEL" 
+                      className="h-16 w-auto object-contain sm:h-20"
+                      onError={(e) => {
+                        e.target.style.display = 'none'
+                      }}
+                    />
+                  </div>
+
+                  {/* SEL SPİRAL POLİETİLEN KORUYUCU Tabloları */}
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {SEL_SPIRAL_POLIETILEN_KORUYUCU_CATEGORIES.map((category, catIndex) => (
+                      <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  {category.tableHeaders.map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((row) => {
+                                  const getCellValue = (header) => {
+                                    if (header === 'MODEL') return row.model
+                                    if (header === 'AĞIRLIK (GR/M)') return row.agirlik || ''
+                                    if (header === 'DIŞ ÇAP (MM)') return row.disCap || ''
+                                    if (header === 'İÇ ÇAP (INCH)') return row.icCap || ''
+                                    if (header === 'KUTU MİKTARI') return row.kutuMiktari || ''
                                     return ''
                                   }
                                   return (
