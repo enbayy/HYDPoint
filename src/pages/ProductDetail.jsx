@@ -285,6 +285,171 @@ const getBrandGroups = (brandName, productName = null) => {
   return brandGroups[brandName] || []
 }
 
+// ASC - 20. GRUP AKIŞ BÖLÜCÜLER (ALÜMİNYUM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER)
+const ASC_20_GRUP_AKIS_BOLUCULER_SECTIONS = [
+  {
+    title: 'İKİLİ AKIŞ BÖLÜCÜ',
+    rows: [
+      { model: '31149', bar: '50', iletimHacmi: '11,4 CM³', maksBasinç: '250', maksHiz: '2750', maxAkis: '36,3', minAkis: '13,8', minHiz: '1200' },
+      { model: '31150', bar: '40', iletimHacmi: '13,9 CM³', maksBasinç: '230', maksHiz: '2750', maxAkis: '36,3', minAkis: '16,6', minHiz: '1200' },
+      { model: '31151', bar: '40', iletimHacmi: '16,0 CM³', maksBasinç: '230', maksHiz: '2500', maxAkis: '38,0', minAkis: '19,2', minHiz: '1200' },
+      { model: '31152', bar: '40', iletimHacmi: '19,2 CM³', maksBasinç: '210', maksHiz: '2500', maxAkis: '46,0', minAkis: '22,0', minHiz: '1100' },
+      { model: '31153', bar: '30', iletimHacmi: '24,8 CM³', maksBasinç: '170', maksHiz: '2000', maxAkis: '47,8', minAkis: '25,2', minHiz: '1100' },
+      { model: '31155', bar: '30', iletimHacmi: '24,8 CM³', maksBasinç: '170', maksHiz: '2500', maxAkis: '46,0', minAkis: '28,5', minHiz: '1100' },
+      { model: '31165', bar: '30', iletimHacmi: '27,9 CM³', maksBasinç: '160', maksHiz: '2000', maxAkis: '54,7', minAkis: '32,0', minHiz: '1100' },
+      { model: '31166', bar: '50', iletimHacmi: '3,9 CM³', maksBasinç: '250', maksHiz: '3000', maxAkis: '11,2', minAkis: '4,8', minHiz: '1250' },
+      { model: '31167', bar: '50', iletimHacmi: '5,9 CM³', maksBasinç: '250', maksHiz: '3000', maxAkis: '16,8', minAkis: '7,3', minHiz: '1250' },
+      { model: '31168', bar: '50', iletimHacmi: '8,0 CM³', maksBasinç: '250', maksHiz: '3000', maxAkis: '22,8', minAkis: '10,0', minHiz: '1250' },
+      { model: '31154', bar: '50', iletimHacmi: '9,4 CM³', maksBasinç: '250', maksHiz: '2750', maxAkis: '24,6', minAkis: '11,2', minHiz: '1200' },
+      { model: '31143', bar: '60', iletimHacmi: '47 CM³', maksBasinç: '230-260', maksHiz: '2500', maxAkis: '117,5', minAkis: '47,0', minHiz: '1000' },
+      { model: '31144', bar: '60', iletimHacmi: '51 CM³', maksBasinç: '210-240', maksHiz: '2500', maxAkis: '127,5', minAkis: '51,0', minHiz: '1000' },
+    ],
+  },
+  {
+    title: 'DÖRTLÜ AKIŞ BÖLÜCÜ',
+    rows: [
+      { model: '31240', bar: '30', iletimHacmi: '24,8 CM³', maksBasinç: '170', maksHiz: '2000', maxAkis: '47,8', minAkis: '25,2', minHiz: '1100' },
+      { model: '31253', bar: '50', iletimHacmi: '11,4 CM³', maksBasinç: '250', maksHiz: '2750', maxAkis: '29,8', minAkis: '13,8', minHiz: '1200' },
+      { model: '31252', bar: '50', iletimHacmi: '11,4 CM³', maksBasinç: '250', maksHiz: '2750', maxAkis: '29,8', minAkis: '13,8', minHiz: '1200' },
+      { model: '31250', bar: '40', iletimHacmi: '13,9 CM³', maksBasinç: '230', maksHiz: '2750', maxAkis: '36,3', minAkis: '16,6', minHiz: '1200' },
+      { model: '31261', bar: '40', iletimHacmi: '16,0 CM³', maksBasinç: '230', maksHiz: '2750', maxAkis: '36,3', minAkis: '16,6', minHiz: '1200' },
+      { model: '31262', bar: '40', iletimHacmi: '19,2 CM³', maksBasinç: '210', maksHiz: '2500', maxAkis: '46,0', minAkis: '22,0', minHiz: '1100' },
+      { model: '31263', bar: '30', iletimHacmi: '24,8 CM³', maksBasinç: '170', maksHiz: '2000', maxAkis: '47,8', minAkis: '25,2', minHiz: '1100' },
+      { model: '31254', bar: '30', iletimHacmi: '24,8 CM³', maksBasinç: '170', maksHiz: '2000', maxAkis: '49,6', minAkis: '27,3', minHiz: '1100' },
+      { model: '31264', bar: '30', iletimHacmi: '27,9 CM³', maksBasinç: '160', maksHiz: '2000', maxAkis: '54,7', minAkis: '32,0', minHiz: '1100' },
+      { model: '31265', bar: '50', iletimHacmi: '3,9 CM³', maksBasinç: '250', maksHiz: '3000', maxAkis: '11,2', minAkis: '4,8', minHiz: '1250' },
+      { model: '31266', bar: '50', iletimHacmi: '5,9 CM³', maksBasinç: '280', maksHiz: '3000', maxAkis: '16,8', minAkis: '7,3', minHiz: '1250' },
+      { model: '31241', bar: '50', iletimHacmi: '5,9 CM³', maksBasinç: '250', maksHiz: '3000', maxAkis: '16,8', minAkis: '7,3', minHiz: '1250' },
+      { model: '31267', bar: '50', iletimHacmi: '8,0 CM³', maksBasinç: '280', maksHiz: '3000', maxAkis: '22,8', minAkis: '10,0', minHiz: '1250' },
+      { model: '31251', bar: '50', iletimHacmi: '9,4 CM³', maksBasinç: '280', maksHiz: '2750', maxAkis: '24,6', minAkis: '1200', minHiz: '1200' },
+    ],
+  },
+  {
+    title: 'ÜÇLÜ AKIŞ BÖLÜCÜ',
+    rows: [
+      { model: '31187', bar: '50', iletimHacmi: '11,4 CM³', maksBasinç: '250', maksHiz: '2750', maxAkis: '29,8', minAkis: '13,8', minHiz: '1200' },
+      { model: '31188', bar: '40', iletimHacmi: '13,9 CM³', maksBasinç: '230', maksHiz: '2750', maxAkis: '36,3', minAkis: '16,6', minHiz: '2750' },
+      { model: '31189', bar: '40', iletimHacmi: '16,0 CM³', maksBasinç: '230', maksHiz: '2500', maxAkis: '38,0', minAkis: '19,2', minHiz: '1200' },
+      { model: '31190', bar: '40', iletimHacmi: '19,2 CM³', maksBasinç: '210', maksHiz: '2500', maxAkis: '46,0', minAkis: '22,0', minHiz: '1100' },
+      { model: '31195', bar: '30', iletimHacmi: '24,8 CM³', maksBasinç: '170', maksHiz: '2000', maxAkis: '47,8', minAkis: '25,2', minHiz: '1100' },
+      { model: '31196', bar: '30', iletimHacmi: '24,8 CM³', maksBasinç: '170', maksHiz: '2000', maxAkis: '49,6', minAkis: '27,3', minHiz: '1100' },
+      { model: '31197', bar: '30', iletimHacmi: '27,9 CM³', maksBasinç: '160', maksHiz: '2000', maxAkis: '54,7', minAkis: '32,0', minHiz: '1100' },
+      { model: '31198', bar: '50', iletimHacmi: '3,9 CM³', maksBasinç: '250', maksHiz: '3000', maxAkis: '11,2', minAkis: '4,8', minHiz: '1250' },
+      { model: '31199', bar: '50', iletimHacmi: '5,9 CM³', maksBasinç: '250', maksHiz: '3000', maxAkis: '16,8', minAkis: '4,8', minHiz: '1250' },
+      { model: '31200', bar: '50', iletimHacmi: '8,0 CM³', maksBasinç: '250', maksHiz: '3000', maxAkis: '22,8', minAkis: '10,0', minHiz: '1250' },
+      { model: '31201', bar: '30', iletimHacmi: '9,4 CM³', maksBasinç: '160', maksHiz: '2000', maxAkis: '54,7', minAkis: '32,0', minHiz: '1100' },
+    ],
+  },
+  {
+    title: 'BEŞLİ AKIŞ BÖLÜCÜ',
+    rows: [
+      { model: '31232', bar: '30', iletimHacmi: '27,9 CM³', maksBasinç: '160', maksHiz: '2000', maxAkis: '54,7', minAkis: '32,0', minHiz: '1100' },
+      { model: '31233', bar: '50', iletimHacmi: '5,9 CM³', maksBasinç: '250', maksHiz: '3000', maxAkis: '16,8', minAkis: '7,3', minHiz: '1250' },
+      { model: '31231', bar: '50', iletimHacmi: '8,0 CM³', maksBasinç: '250', maksHiz: '3000', maxAkis: '22,8', minAkis: '10,0', minHiz: '1250' },
+    ],
+  },
+  {
+    title: 'ALTILI AKIŞ BÖLÜCÜ',
+    rows: [
+      { model: '31228', bar: '50', iletimHacmi: '3,9 CM³', maksBasinç: '250', maksHiz: '3000', maxAkis: '11,2', minAkis: '4,8', minHiz: '1250' },
+      { model: '31223', bar: '50', iletimHacmi: '5,9 CM³', maksBasinç: '250', maksHiz: '3000', maxAkis: '16,8', minAkis: '7,3', minHiz: '1250' },
+      { model: '31226', bar: '50', iletimHacmi: '8,0 CM³', maksBasinç: '250', maksHiz: '3000', maxAkis: '22,8', minAkis: '10,0', minHiz: '1250' },
+      { model: '31227', bar: '50', iletimHacmi: '9,4 CM³', maksBasinç: '250', maksHiz: '2750', maxAkis: '24,6', minAkis: '11,2', minHiz: '1200' },
+    ],
+  },
+]
+
+// CASAPPA - 10. GRUP AKIŞ BÖLÜCÜLER (ALÜMİNYUM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER)
+const CASAPPA_10_GRUP_AKIS_BOLUCULER_SECTIONS = [
+  {
+    title: 'İKİLİ AKIŞ BÖLÜCÜ',
+    rows: [
+      { model: '31183', debi: '2,0' },
+      { model: '31126', debi: '3,1' },
+      { model: '31127', debi: '3,1' },
+      { model: '31147', debi: '4,0' },
+      { model: '31128', debi: '4,0' },
+      { model: '31129', debi: '4,9' },
+    ],
+  },
+  {
+    title: 'ÜÇLÜ AKIŞ BÖLÜCÜ',
+    rows: [
+      { model: '31184', debi: '3,1' },
+      { model: '31185', debi: '4,0' },
+    ],
+  },
+  {
+    title: 'DÖRTLÜ AKIŞ BÖLÜCÜ',
+    rows: [
+      { model: '31239', debi: '2,0' },
+      { model: '31236', debi: '2,0' },
+      { model: 'C00395096', debi: '3,1' },
+      { model: 'C00395098', debi: '4,0' },
+    ],
+  },
+]
+
+// CASAPPA - 20. GRUP AKIŞ BÖLÜCÜLER (ALÜMİNYUM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER)
+const CASAPPA_20_GRUP_AKIS_BOLUCULER_SECTIONS = [
+  {
+    title: 'İKİLİ AKIŞ BÖLÜCÜ',
+    rows: [
+      { model: '31134', debi: '11,1' },
+      { model: '31135', debi: '11,1' },
+      { model: 'C02014704', debi: '14,4' },
+      { model: '31137', debi: '14,4' },
+      { model: 'C02014709', debi: '16,6' },
+      { model: '31139', debi: '16,6' },
+      { model: '31140', debi: '20,8' },
+      { model: '31141', debi: '20,8' },
+      { model: '31142', debi: '26,0' },
+      { model: 'C02014698', debi: '6,5' },
+      { model: 'C020154C9', debi: '6,5' },
+      { model: 'C02014700', debi: '8,3' },
+      { model: '31133', debi: '8,3' },
+    ],
+  },
+  {
+    title: 'DÖRTLÜ AKIŞ BÖLÜCÜ',
+    rows: [
+      { model: '31275', debi: '8,3' },
+      { model: 'C0201502H', debi: '14,4' },
+      { model: '31273', debi: '4,8' },
+      { model: 'C0201502E', debi: '6,5' },
+    ],
+  },
+  {
+    title: 'ÜÇLÜ AKIŞ BÖLÜCÜ',
+    rows: [
+      { model: 'C02014712', debi: '14,4' },
+      { model: '31213', debi: '16,6' },
+      { model: '31214', debi: '26,0' },
+      { model: '31209', debi: '4,8' },
+      { model: '31210', debi: '6,5' },
+      { model: '31211', debi: '8,3' },
+      { model: '31217', debi: '11,1' },
+      { model: '31218', debi: '14,4' },
+      { model: '31219', debi: '16,6' },
+      { model: '31220', debi: '20,8' },
+      { model: '31221', debi: '26,6' },
+      { model: '31215', debi: '6,5' },
+      { model: '31216', debi: '8,3' },
+      { model: 'CGEÇ00038', debi: '8,3' },
+    ],
+  },
+]
+
+// HEMA - 20. GRUP AKIŞ BÖLÜCÜLER (ALÜMİNYUM GÖVDE DİŞLİ AKIŞ BÖLÜCÜLER)
+const HEMA_20_GRUP_AKIS_BOLUCULER_ROWS = [
+  { model: '1FD400102M', cikis: 'G 3/8"', iletimHacmi: '6,1 CM³', maksBasinç: '250', maksDevir: '3500', portlar: 'G 3/4"' },
+  { model: '1FD400103M', cikis: 'G 3/8"', iletimHacmi: '8,2 CM³', maksBasinç: '250', maksDevir: '3500', portlar: 'G 3/4"' },
+  { model: '1FD400104M', cikis: 'G 1/2"', iletimHacmi: '9,5 CM³', maksBasinç: '250', maksDevir: '3500', portlar: 'G 3/4"' },
+  { model: '1FD400105M', cikis: 'G 1/2"', iletimHacmi: '10,5 CM³', maksBasinç: '250', maksDevir: '3500', portlar: 'G 3/4"' },
+  { model: '1FD400106M', cikis: 'G 1/2"', iletimHacmi: '11,9 CM³', maksBasinç: '250', maksDevir: '3500', portlar: 'G 3/4"' },
+  { model: '1FD400107M', cikis: 'G 1/2"', iletimHacmi: '12,6 CM³', maksBasinç: '250', maksDevir: '3500', portlar: 'G 3/4"' },
+]
+
 // PALETLİ POMPA için markalara göre kartlar
 const getPaletliPompaBrandCards = (brandName) => {
   const brandCards = {
@@ -1384,8 +1549,8 @@ function ProductDetail() {
 
   const getDokumGovdeDisliAkisBoluculerCardImage = (cardName) => {
     const imageMap = {
-      '30. GRUP AKIŞ BÖLÜCÜLER': '/dokum-govde-disli-akis-boluculer.png',
-      '35. GRUP AKIŞ BÖLÜCÜLER': '/dokum-govde-disli-akis-boluculer.png',
+      '30. GRUP AKIŞ BÖLÜCÜLER': '/akisboluculer/30-grup-akis-boluculer.png',
+      '35. GRUP AKIŞ BÖLÜCÜLER': '/akisboluculer/35-grup-akis-boluculer.png',
     }
     return imageMap[cardName] || '/dokum-govde-disli-akis-boluculer.png'
   }
@@ -3297,6 +3462,531 @@ function ProductDetail() {
                                   </div>
                                 </div>
                               </div>
+                            </>
+                          ) : selectedGroup === '10. GRUP AKIŞ BÖLÜCÜLER' && selectedGroupBrand === 'asc' ? (
+                            <>
+                              <div className="space-y-4 text-base leading-relaxed">
+                                <p>
+                                  <strong>ASC</strong>
+                                </p>
+                                <p>
+                                  <strong>10. GRUP AKIŞ BÖLÜCÜLER</strong>
+                                </p>
+                              </div>
+
+                              <div className="space-y-8">
+                                {/* İKİLİ AKIŞ BÖLÜCÜ */}
+                                <div>
+                                  <h3 className="text-lg font-bold text-slate-900 mb-4">İKİLİ AKIŞ BÖLÜCÜ</h3>
+                                  <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                    <div className="overflow-x-auto">
+                                      <table className="w-full text-xs">
+                                        <thead className="bg-slate-50">
+                                          <tr>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">İLETİM HACMİ</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.BASINÇ</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.HIZ</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAX. AKIŞ HIZI (L/MİN)</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MİN. AKIŞ HIZI (L/MİN)</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MİN. HIZ</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-slate-200">
+                                          <tr className="hover:bg-slate-50">
+                                            <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">31158</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1,2 CM³</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">220</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3500</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">4,2</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1,5</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1200</td>
+                                          </tr>
+                                          <tr className="hover:bg-slate-50">
+                                            <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">AFD10.2-2,3N</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">2,3 CM³</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">220</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3500</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">8,0</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">2,8</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1200</td>
+                                          </tr>
+                                          <tr className="hover:bg-slate-50">
+                                            <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">31176</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">2,7 CM³</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">220</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3500</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">9,5</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3,2</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1200</td>
+                                          </tr>
+                                          <tr className="hover:bg-slate-50">
+                                            <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">31157</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">5,0 CM³</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">220</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3000</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">15,0</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">6,0</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1200</td>
+                                          </tr>
+                                          <tr className="hover:bg-slate-50">
+                                            <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">AFD10.2-7,8N</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">7,8 CM³</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">210</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3000</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">23,4</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">9,4</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1200</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* ALTILI AKIŞ BÖLÜCÜ */}
+                                <div>
+                                  <h3 className="text-lg font-bold text-slate-900 mb-4">ALTILI AKIŞ BÖLÜCÜ</h3>
+                                  <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                    <div className="overflow-x-auto">
+                                      <table className="w-full text-xs">
+                                        <thead className="bg-slate-50">
+                                          <tr>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">BAR</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">İLETİM HACMİ</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.BASINÇ</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.HIZ</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAX. AKIŞ HIZI (L/MİN)</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MİN. AKIŞ HIZI (L/MİN)</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MİN.HIZ</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-slate-200">
+                                          <tr className="hover:bg-slate-50">
+                                            <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">AFD10.2-3,2N</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">40</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">2,3 CM³</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">220</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3500</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">8,0</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">2,8</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1200</td>
+                                          </tr>
+                                          <tr className="hover:bg-slate-50">
+                                            <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">AFD10,6-2,7N</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">40</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">6,2 CM³</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">210</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3000</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">18,9</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">7,6</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1200</td>
+                                          </tr>
+                                          <tr className="hover:bg-slate-50">
+                                            <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">AFD10,6-3,2N</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">40</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">6,3 CM³</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">210</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3000</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">18,9</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">7,6</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1200</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* ÜÇLÜ AKIŞ BÖLÜCÜ */}
+                                <div>
+                                  <h3 className="text-lg font-bold text-slate-900 mb-4">ÜÇLÜ AKIŞ BÖLÜCÜ</h3>
+                                  <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                    <div className="overflow-x-auto">
+                                      <table className="w-full text-xs">
+                                        <thead className="bg-slate-50">
+                                          <tr>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">İLETİM HACMİ</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.BASINÇ</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.HIZ</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAX. AKIŞ HIZI (L/MİN)</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MİN. AKIŞ HIZI (L/MİN)</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MİN. HIZ</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-slate-200">
+                                          <tr className="hover:bg-slate-50">
+                                            <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">31208</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1,2 CM³</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">220</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3500</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">4,2</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1,5</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1200</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* DÖRTLÜ AKIŞ BÖLÜCÜ */}
+                                <div>
+                                  <h3 className="text-lg font-bold text-slate-900 mb-4">DÖRTLÜ AKIŞ BÖLÜCÜ</h3>
+                                  <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                    <div className="overflow-x-auto">
+                                      <table className="w-full text-xs">
+                                        <thead className="bg-slate-50">
+                                          <tr>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">BAR</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">İLETİM HACMİ</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.BASINÇ</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.HIZ</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAX. AKIŞ HIZI (L/MİN)</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MİN. AKIŞ HIZI (L/MİN)</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MİN.HIZ</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-slate-200">
+                                          <tr className="hover:bg-slate-50">
+                                            <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">31242</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">40</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1,2 CM³</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">220</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3500</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">4,2</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1,5</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1200</td>
+                                          </tr>
+                                          <tr className="hover:bg-slate-50">
+                                            <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">31258</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">40</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1,7 CM³</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">220</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3500</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">6,0</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">2,0</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1200</td>
+                                          </tr>
+                                          <tr className="hover:bg-slate-50">
+                                            <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">AFD10.4-2,3N</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">40</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">2,3 CM³</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">220</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3500</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">8,0</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">2,8</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1200</td>
+                                          </tr>
+                                          <tr className="hover:bg-slate-50">
+                                            <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">31256</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">40</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">2,7 CM³</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">220</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3500</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">9,5</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3,2</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1200</td>
+                                          </tr>
+                                          <tr className="hover:bg-slate-50">
+                                            <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">AFD10.4-3,2N</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">40</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3,2 CM³</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">220</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3500</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">10,8</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3,8</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1200</td>
+                                          </tr>
+                                          <tr className="hover:bg-slate-50">
+                                            <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">31260</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">40</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3,8 CM³</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">220</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3000</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">11,4</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">4,6</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1200</td>
+                                          </tr>
+                                          <tr className="hover:bg-slate-50">
+                                            <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">AFD10.4-4,3N</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">40</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">4,3 CM³</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3000</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3000</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">12,9</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">5,2</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1200</td>
+                                          </tr>
+                                          <tr className="hover:bg-slate-50">
+                                            <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">AFD10.4-5N</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">40</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">5,0 CM³</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">220</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3000</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">15,0</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">6,0</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1200</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* BEŞLİ AKIŞ BÖLÜCÜ */}
+                                <div>
+                                  <h3 className="text-lg font-bold text-slate-900 mb-4">BEŞLİ AKIŞ BÖLÜCÜ</h3>
+                                  <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                    <div className="overflow-x-auto">
+                                      <table className="w-full text-xs">
+                                        <thead className="bg-slate-50">
+                                          <tr>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">BAR</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">İLETİM HACMİ</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS. BASINÇ FARKI</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.HIZ</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAX. AKIŞ HIZI (L/MİN)</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MİN. AKIŞ HIZI (L/MİN)</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MİN.HIZ</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-slate-200">
+                                          <tr className="hover:bg-slate-50">
+                                            <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">31230</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">40</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">5,0 CM³</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">220</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3000</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">15,0</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">6,0</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1200</td>
+                                          </tr>
+                                          <tr className="hover:bg-slate-50">
+                                            <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">AFD10.5-2,3N</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">40</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">2,3 CM³</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">220</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3500</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">8,0</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">2,8</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1200</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* SEKİZLİ AKIŞ BÖLÜCÜ */}
+                                <div>
+                                  <h3 className="text-lg font-bold text-slate-900 mb-4">SEKİZLİ AKIŞ BÖLÜCÜ</h3>
+                                  <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                    <div className="overflow-x-auto">
+                                      <table className="w-full text-xs">
+                                        <thead className="bg-slate-50">
+                                          <tr>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">BAR</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">İLETİM HACMİ</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.BASINÇ</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.HIZ</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAX. AKIŞ HIZI (L/MİN)</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MİN. AKIŞ HIZI (L/MİN)</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MİN.HIZ</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-slate-200">
+                                          <tr className="hover:bg-slate-50">
+                                            <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">31222</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">40</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">2,7 CM³</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">220</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3500</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">9,5</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">3,2</td>
+                                            <td className="px-3 py-2 text-slate-700 whitespace-nowrap">1200</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          ) : selectedGroup === '20. GRUP AKIŞ BÖLÜCÜLER' && selectedGroupBrand === 'asc' ? (
+                            <>
+                              {/* Açıklama Metni */}
+                              <div className="space-y-4 text-base leading-relaxed">
+                                <p>
+                                  <strong>ASC</strong>
+                                </p>
+                                <p>
+                                  20. grup alüminyum gövde dişli akış bölücüler için teknik veriler aşağıdaki tablolarda sunulmuştur.
+                                </p>
+                              </div>
+
+                              {/* Tablolar */}
+                              {ASC_20_GRUP_AKIS_BOLUCULER_SECTIONS.map((section) => (
+                                <div key={section.title} className="mt-8 pt-6 border-t border-slate-200">
+                                  <h3 className="text-lg font-bold text-slate-900 mb-4">{section.title}</h3>
+                                  <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                    <div className="overflow-x-auto">
+                                      <table className="w-full text-xs">
+                                        <thead className="bg-slate-50">
+                                          <tr>
+                                            <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                                            <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">BAR</th>
+                                            <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">İLETİM HACMİ</th>
+                                            <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.BASINÇ</th>
+                                            <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.HIZ</th>
+                                            <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAX. AKIŞ HIZI (L/MİN)</th>
+                                            <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MİN. AKIŞ HIZI (L/MİN)</th>
+                                            <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MİN.HIZ</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-slate-200">
+                                          {section.rows.map((row) => (
+                                            <tr key={row.model} className="hover:bg-slate-50">
+                                              <td className="px-2 py-2 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                                              <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.bar}</td>
+                                              <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.iletimHacmi}</td>
+                                              <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.maksBasinç}</td>
+                                              <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.maksHiz}</td>
+                                              <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.maxAkis}</td>
+                                              <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.minAkis}</td>
+                                              <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.minHiz}</td>
+                                            </tr>
+                                          ))}
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+                              ))}
+                            </>
+                          ) : selectedGroup === '20. GRUP AKIŞ BÖLÜCÜLER' && selectedGroupBrand === 'hema' ? (
+                            <>
+                              {/* Açıklama Metni */}
+                              <div className="space-y-4 text-base leading-relaxed">
+                                <p>
+                                  <strong>HEMA</strong>
+                                </p>
+                                <p>
+                                  20. grup alüminyum gövde dişli akış bölücüler için HEMA markasına ait dört çıkışlı akış bölücüler aşağıdaki tabloda sunulmuştur.
+                                </p>
+                              </div>
+
+                              {/* DÖRTLÜ AKIŞ BÖLÜCÜ Tablosu */}
+                              <div className="mt-8 pt-6 border-t border-slate-200">
+                                <h3 className="text-lg font-bold text-slate-900 mb-4">DÖRTLÜ AKIŞ BÖLÜCÜ</h3>
+                                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-xs">
+                                      <thead className="bg-slate-50">
+                                        <tr>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">ÇIKIŞ</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">İLETİM HACMİ</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.BASINÇ</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.DEVİR</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">PORTLAR</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-slate-200">
+                                        {HEMA_20_GRUP_AKIS_BOLUCULER_ROWS.map((row) => (
+                                          <tr key={row.model} className="hover:bg-slate-50">
+                                            <td className="px-2 py-2 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.cikis}</td>
+                                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.iletimHacmi}</td>
+                                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.maksBasinç}</td>
+                                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.maksDevir}</td>
+                                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.portlar}</td>
+                                          </tr>
+                                        ))}
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          ) : selectedGroup === '10. GRUP AKIŞ BÖLÜCÜLER' && selectedGroupBrand === 'casappa' ? (
+                            <>
+                              <div className="space-y-4 text-base leading-relaxed">
+                                <p>
+                                  <strong>CASAPPA</strong>
+                                </p>
+                                <p>
+                                  <strong>10. GRUP AKIŞ BÖLÜCÜLER</strong>
+                                </p>
+                              </div>
+
+                              {CASAPPA_10_GRUP_AKIS_BOLUCULER_SECTIONS.map((section) => (
+                                <div key={section.title} className="mt-8 pt-6 border-t border-slate-200">
+                                  <h3 className="text-lg font-bold text-slate-900 mb-4">{section.title}</h3>
+                                  <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                    <div className="overflow-x-auto">
+                                      <table className="w-full text-xs">
+                                        <thead className="bg-slate-50">
+                                          <tr>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">DEBİ</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-slate-200">
+                                          {section.rows.map((row) => (
+                                            <tr key={row.model} className="hover:bg-slate-50">
+                                              <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                                              <td className="px-3 py-2 text-slate-700 whitespace-nowrap">{row.debi}</td>
+                                            </tr>
+                                          ))}
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+                              ))}
+                            </>
+                          ) : selectedGroup === '20. GRUP AKIŞ BÖLÜCÜLER' && selectedGroupBrand === 'casappa' ? (
+                            <>
+                              <div className="space-y-4 text-base leading-relaxed">
+                                <p>
+                                  <strong>CASAPPA</strong>
+                                </p>
+                                <p>
+                                  20. grup alüminyum gövde dişli akış bölücüler için teknik veriler aşağıdaki tablolarda sunulmuştur.
+                                </p>
+                              </div>
+
+                              {CASAPPA_20_GRUP_AKIS_BOLUCULER_SECTIONS.map((section) => (
+                                <div key={section.title} className="mt-8 pt-6 border-t border-slate-200">
+                                  <h3 className="text-lg font-bold text-slate-900 mb-4">{section.title}</h3>
+                                  <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                    <div className="overflow-x-auto">
+                                      <table className="w-full text-xs">
+                                        <thead className="bg-slate-50">
+                                          <tr>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                                            <th className="px-3 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">DEBİ</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-slate-200">
+                                          {section.rows.map((row) => (
+                                            <tr key={row.model} className="hover:bg-slate-50">
+                                              <td className="px-3 py-2 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                                              <td className="px-3 py-2 text-slate-700 whitespace-nowrap">{row.debi}</td>
+                                            </tr>
+                                          ))}
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+                              ))}
                             </>
                           ) : selectedGroup === '10.GRUP POMPALAR (0.5P SERİSİ)' && selectedGroupBrand === 'asc' ? (
                             <>
@@ -7779,12 +8469,157 @@ function ProductDetail() {
 
               {/* İçerik */}
               <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-                <div className="space-y-4 text-base leading-relaxed">
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">{selectedDokumGovdeDisliAkisBoluculerCard}</h3>
-                  <p className="text-slate-600">
-                    Bu ürün grubu için detaylı bilgiler yakında eklenecektir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.
-                  </p>
-                </div>
+                {selectedDokumGovdeDisliAkisBoluculerCard === '30. GRUP AKIŞ BÖLÜCÜLER' ? (
+                  <>
+                    <div className="mb-6">
+                      <h3 className="text-lg font-semibold text-slate-900 mb-2">30. GRUP AKIŞ BÖLÜCÜLER</h3>
+                      <p className="text-sm text-slate-600">
+                        CASAPPA 30. grup döküm gövde dişli akış bölücüler için teknik veriler aşağıdaki tablolarda sunulmuştur.
+                      </p>
+                    </div>
+
+                    <div className="space-y-8">
+                      {/* İKİLİ AKIŞ BÖLÜCÜ */}
+                      <div>
+                        <h4 className="text-base font-semibold text-slate-900 mb-3">İKİLİ AKIŞ BÖLÜCÜ</h4>
+                        <div className="overflow-x-auto">
+                          <table className="w-full border-collapse text-sm">
+                            <thead>
+                              <tr className="bg-gradient-to-r from-[#1e4294] to-[#1e4294]/90 text-white">
+                                <th className="border border-slate-300 px-4 py-3 text-left font-semibold">MODEL</th>
+                                <th className="border border-slate-300 px-4 py-3 text-left font-semibold">BASINÇ (BAR)</th>
+                                <th className="border border-slate-300 px-4 py-3 text-left font-semibold">DEBİ</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr className="hover:bg-slate-50 transition-colors">
+                                <td className="border border-slate-300 px-4 py-3 font-medium text-slate-900">31177</td>
+                                <td className="border border-slate-300 px-4 py-3 text-slate-700">310-335</td>
+                                <td className="border border-slate-300 px-4 py-3 text-slate-700">34,39</td>
+                              </tr>
+                              <tr className="hover:bg-slate-50 transition-colors">
+                                <td className="border border-slate-300 px-4 py-3 font-medium text-slate-900">C03772265</td>
+                                <td className="border border-slate-300 px-4 py-3 text-slate-700">310-335</td>
+                                <td className="border border-slate-300 px-4 py-3 text-slate-700">51,59</td>
+                              </tr>
+                              <tr className="hover:bg-slate-50 transition-colors">
+                                <td className="border border-slate-300 px-4 py-3 font-medium text-slate-900">31178</td>
+                                <td className="border border-slate-300 px-4 py-3 text-slate-700">310-335</td>
+                                <td className="border border-slate-300 px-4 py-3 text-slate-700">60,97</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
+                      {/* ÜÇLÜ AKIŞ BÖLÜCÜ */}
+                      <div>
+                        <h4 className="text-base font-semibold text-slate-900 mb-3">ÜÇLÜ AKIŞ BÖLÜCÜ</h4>
+                        <div className="overflow-x-auto">
+                          <table className="w-full border-collapse text-sm">
+                            <thead>
+                              <tr className="bg-gradient-to-r from-[#1e4294] to-[#1e4294]/90 text-white">
+                                <th className="border border-slate-300 px-4 py-3 text-left font-semibold">MODEL</th>
+                                <th className="border border-slate-300 px-4 py-3 text-left font-semibold">BASINÇ (BAR)</th>
+                                <th className="border border-slate-300 px-4 py-3 text-left font-semibold">DEBİ</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr className="hover:bg-slate-50 transition-colors">
+                                <td className="border border-slate-300 px-4 py-3 font-medium text-slate-900">31206</td>
+                                <td className="border border-slate-300 px-4 py-3 text-slate-700">310-335</td>
+                                <td className="border border-slate-300 px-4 py-3 text-slate-700">26,58</td>
+                              </tr>
+                              <tr className="hover:bg-slate-50 transition-colors">
+                                <td className="border border-slate-300 px-4 py-3 font-medium text-slate-900">31207</td>
+                                <td className="border border-slate-300 px-4 py-3 text-slate-700">310-335</td>
+                                <td className="border border-slate-300 px-4 py-3 text-slate-700">38,00</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
+                      {/* DÖRTLÜ AKIŞ BÖLÜCÜ */}
+                      <div>
+                        <h4 className="text-base font-semibold text-slate-900 mb-3">DÖRTLÜ AKIŞ BÖLÜCÜ</h4>
+                        <div className="overflow-x-auto">
+                          <table className="w-full border-collapse text-sm">
+                            <thead>
+                              <tr className="bg-gradient-to-r from-[#1e4294] to-[#1e4294]/90 text-white">
+                                <th className="border border-slate-300 px-4 py-3 text-left font-semibold">MODEL</th>
+                                <th className="border border-slate-300 px-4 py-3 text-left font-semibold">BASINÇ (BAR)</th>
+                                <th className="border border-slate-300 px-4 py-3 text-left font-semibold">DEBİ</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr className="hover:bg-slate-50 transition-colors">
+                                <td className="border border-slate-300 px-4 py-3 font-medium text-slate-900">31270</td>
+                                <td className="border border-slate-300 px-4 py-3 text-slate-700">310-335</td>
+                                <td className="border border-slate-300 px-4 py-3 text-slate-700">26,58</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
+                      <div className="mt-4 pt-4 border-t border-slate-200 text-xs text-slate-500 bg-slate-50 rounded-lg px-4 py-3">
+                        <p>
+                          <strong>Not:</strong> Bu tabloda verilen değerler CASAPPA 30. grup döküm gövde dişli akış bölücülerin maksimum çalışma değerlerini temsil eder. Uygulamanıza
+                          uygun ürün seçimi ve detaylı teknik bilgi için lütfen bizimle iletişime geçin.
+                        </p>
+                      </div>
+                    </div>
+                  </>
+                ) : selectedDokumGovdeDisliAkisBoluculerCard === '35. GRUP AKIŞ BÖLÜCÜLER' ? (
+                  <>
+                    <div className="mb-6">
+                      <h3 className="text-lg font-semibold text-slate-900 mb-2">35. GRUP AKIŞ BÖLÜCÜLER</h3>
+                      <p className="text-sm text-slate-600">
+                        CASAPPA 35. grup döküm gövde dişli akış bölücüler için teknik veriler aşağıdaki tabloda sunulmuştur.
+                      </p>
+                    </div>
+
+                    {/* İKİLİ AKIŞ BÖLÜCÜ */}
+                    <div className="space-y-6">
+                      <div>
+                        <h4 className="text-base font-semibold text-slate-900 mb-3">İKİLİ AKIŞ BÖLÜCÜ</h4>
+                        <div className="overflow-x-auto">
+                          <table className="w-full border-collapse text-sm">
+                            <thead>
+                              <tr className="bg-gradient-to-r from-[#1e4294] to-[#1e4294]/90 text-white">
+                                <th className="border border-slate-300 px-4 py-3 text-left font-semibold">MODEL</th>
+                                <th className="border border-slate-300 px-4 py-3 text-left font-semibold">BASINÇ (BAR)</th>
+                                <th className="border border-slate-300 px-4 py-3 text-left font-semibold">DEBİ</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr className="hover:bg-slate-50 transition-colors">
+                                <td className="border border-slate-300 px-4 py-3 font-medium text-slate-900">31179</td>
+                                <td className="border border-slate-300 px-4 py-3 text-slate-700">310-335</td>
+                                <td className="border border-slate-300 px-4 py-3 text-slate-700">124,81</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
+                      <div className="mt-4 pt-4 border-t border-slate-200 text-xs text-slate-500 bg-slate-50 rounded-lg px-4 py-3">
+                        <p>
+                          <strong>Not:</strong> Bu tabloda verilen değerler CASAPPA 35. grup döküm gövde dişli akış bölücülerin maksimum çalışma değerlerini temsil eder.
+                          Uygulamanıza uygun ürün seçimi ve detaylı teknik bilgi için lütfen bizimle iletişime geçin.
+                        </p>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <div className="space-y-4 text-base leading-relaxed">
+                    <h3 className="text-xl font-bold text-slate-900 mb-4">{selectedDokumGovdeDisliAkisBoluculerCard}</h3>
+                    <p className="text-slate-600">
+                      Bu ürün grubu için detaylı bilgiler yakında eklenecektir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.
+                    </p>
+                  </div>
+                )}
               </div>
             </>
           ) : selectedBrand && productName === 'İŞ MAKİNESİ POMPALARI' && currentBrand === 'david-brown' ? (
