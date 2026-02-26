@@ -180,7 +180,53 @@ const disliMotorAltKategoriler = [
 ]
 
 // Markalara göre ALÜMİNYUM GÖVDELİ DİŞLİ POMPALAR grupları
-const getBrandGroups = (brandName) => {
+const getBrandGroups = (brandName, productName = null) => {
+  // DÖKÜM GÖVDELİ DİŞLİ POMPALAR için gruplar
+  if (productName === 'DÖKÜM GÖVDELİ DİŞLİ POMPALAR') {
+    const dokumBrandGroups = {
+      'asc': [
+        '20.GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ POMPALAR',
+        '20.GRUP G TİPİ KAPAK FREZELİ POMPALAR',
+        '30.GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ POMPALAR',
+        '30.GRUP B TİPİ KAPAK DÜZ MİLLİ POMPALAR',
+        '30.GRUP UNİ POMPALAR',
+        '30.GRUP ISO POMPALAR',
+        '40.GRUP UNİ POMPALAR',
+        '40.GRUP ISO POMPALAR',
+        '20.GRUP HELİSEL STANDART POMPALAR',
+        '30.GRUP HELİSEL STANDART POMPALAR',
+      ],
+      'casappa': [
+        '20.GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ POMPALAR',
+        '30.GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ POMPALAR',
+        '30.GRUP ÇİFT YÖNLÜ POMPALAR (T2)',
+        '30.GRUP UNİ POMPALAR',
+        '30.GRUP ISO POMPALAR',
+        '40.GRUP UNİ POMPALAR',
+        '40.GRUP ISO POMPALAR',
+        '30.GRUP G TİPİ KAPAK 7/8 13 DİŞ FREZELİ POMPALAR',
+        '35.GRUP SAE C KAPAK 14 DİŞ FREZELİ',
+      ],
+      'david-brown': [
+        '20.GRUP G TİPİ KAPAK DÜZ MİLLİ POMPALAR',
+        '20.GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ POMPALAR',
+        '40.GRUP END.HELİSEL G TİPİ KAPAK 7/8 DÜZ MİLLİ',
+        '30.GRUP G TİPİ KAPAK DÜZ MİLLİ POMPALAR',
+      ],
+      'hemko': [
+        '30.GRUP ISO POMPALAR',
+        '40.GRUP ISO POMPALAR',
+      ],
+      'hidromas': [
+        '40.GRUP UNİ POMPALAR',
+        '40.GRUP ISO POMPALAR',
+        '40.GRUP MEKANİK VANALI POMPALAR',
+      ],
+    }
+    return dokumBrandGroups[brandName] || []
+  }
+  
+  // ALÜMİNYUM GÖVDELİ DİŞLİ POMPALAR için gruplar (varsayılan)
   const brandGroups = {
     'hydropack': [
       '00.GRUP POMPALAR',
@@ -296,7 +342,7 @@ function ProductDetail() {
               if (groupParam) {
                 const decodedGroup = decodeURIComponent(groupParam.replace(/-/g, ' '))
                 // Grup adını bul
-                const brandGroups = getBrandGroups(brandParam || 'hydropack')
+                const brandGroups = getBrandGroups(brandParam || 'hydropack', decodedSubcategory)
                 for (const groupName of brandGroups) {
                   // Grup slug'ını oluştur (handleGroupCardClick ile aynı mantık)
                   const groupSlug = groupName
@@ -342,7 +388,7 @@ function ProductDetail() {
                   // Group parametresini oku
                   if (groupParam) {
                     const decodedGroup = decodeURIComponent(groupParam.replace(/-/g, ' '))
-                    const brandGroups = getBrandGroups(brandParam || 'hydropack')
+                    const brandGroups = getBrandGroups(brandParam || 'hydropack', item)
                     for (const groupName of brandGroups) {
                       // Grup slug'ını oluştur (handleGroupCardClick ile aynı mantık)
                       const groupSlug = groupName
@@ -444,9 +490,9 @@ function ProductDetail() {
     // Logo path'inden marka adını çıkar (örn: '/hydropack.png' -> 'hydropack')
     const brandName = logoPath.replace(/^\//, '').replace(/\.png$/, '')
     
-    // Eğer ALÜMİNYUM GÖVDELİ DİŞLİ POMPALAR sayfasındaysak ve bu markanın grupları varsa
-    if (productName === 'ALÜMİNYUM GÖVDELİ DİŞLİ POMPALAR') {
-      const groups = getBrandGroups(brandName)
+    // Eğer ALÜMİNYUM GÖVDELİ DİŞLİ POMPALAR veya DÖKÜM GÖVDELİ DİŞLİ POMPALAR sayfasındaysak ve bu markanın grupları varsa
+    if (productName === 'ALÜMİNYUM GÖVDELİ DİŞLİ POMPALAR' || productName === 'DÖKÜM GÖVDELİ DİŞLİ POMPALAR') {
+      const groups = getBrandGroups(brandName, productName)
       if (groups.length > 0) {
         // URL'yi güncelle: /urunler/category/subcategory/brand
         if (category && subcategory) {
@@ -896,11 +942,30 @@ function ProductDetail() {
   // Grup resimlerini al
   const getGroupImage = (groupName) => {
     const imageMap = {
+      // ALÜMİNYUM GÖVDELİ DİŞLİ POMPALAR
       '00.GRUP POMPALAR': '/aliminyumgovdelidislipompalar/00grup-pompalar.png',
       '10.GRUP POMPALAR (0.5P SERİSİ)': '/aliminyumgovdelidislipompalar/10grup-pompalar.png',
       '20.GRUP POMPALAR (1P SERİSİ)': '/aliminyumgovdelidislipompalar/20grup-pompalar.png',
       '30.GRUP POMPALAR (2P SERİSİ)': '/aliminyumgovdelidislipompalar/30grup-pompalar.png',
       '3P.GRUBU POMPALAR': '/aliminyumgovdelidislipompalar/3pgrubu-pompalar.png',
+      // DÖKÜM GÖVDELİ DİŞLİ POMPALAR
+      '20.GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ POMPALAR': '/dokumgovdelidislipompalar/20grup-b-tipi-kapak-1-8-kon.png',
+      '20.GRUP G TİPİ KAPAK FREZELİ POMPALAR': '/dokumgovdelidislipompalar/20grup-g-tipi-kapak-frezel.png',
+      '20.GRUP G TİPİ KAPAK DÜZ MİLLİ POMPALAR': '/dokumgovdelidislipompalar/20grup-g-tipi-kapak-duz-mi.png',
+      '20.GRUP HELİSEL STANDART POMPALAR': '/dokumgovdelidislipompalar/20grup-helisel-standart-po.png',
+      '30.GRUP B TİPİ KAPAK 1/8 KONİK MİLLİ POMPALAR': '/dokumgovdelidislipompalar/30grup-b-tipi-kapak-1-8-kon.png',
+      '30.GRUP B TİPİ KAPAK DÜZ MİLLİ POMPALAR': '/dokumgovdelidislipompalar/30grup-b-tipi-kapak-duz-mi.png',
+      '30.GRUP ÇİFT YÖNLÜ POMPALAR (T2)': '/dokumgovdelidislipompalar/30grup-cift-yonlu-pompalar(T2).png',
+      '30.GRUP G TİPİ KAPAK 7/8 13 DİŞ FREZELİ POMPALAR': '/dokumgovdelidislipompalar/30grup-g-tipi-kapak-7-8-13disfrazelipompalar.png',
+      '30.GRUP G TİPİ KAPAK DÜZ MİLLİ POMPALAR': '/dokumgovdelidislipompalar/30grup-g-tipi-kapak-duz-mi.png',
+      '30.GRUP HELİSEL STANDART POMPALAR': '/dokumgovdelidislipompalar/30grup-helisel-standart-po.png',
+      '30.GRUP UNİ POMPALAR': '/dokumgovdelidislipompalar/30grup-uni-pompalar.png',
+      '30.GRUP ISO POMPALAR': '/dokumgovdelidislipompalar/30grup-iso-pompalar.png',
+      '35.GRUP SAE C KAPAK 14 DİŞ FREZELİ': '/dokumgovdelidislipompalar/35grup-sae-c-kapak-14-dis.png',
+      '40.GRUP END.HELİSEL G TİPİ KAPAK 7/8 DÜZ MİLLİ': '/dokumgovdelidislipompalar/40grup-endhelisel-g-tipi-kapak-7-8-duzmilli.png',
+      '40.GRUP UNİ POMPALAR': '/dokumgovdelidislipompalar/40grup-uni-pompalar.png',
+      '40.GRUP ISO POMPALAR': '/dokumgovdelidislipompalar/40grup-iso-pompalar.png',
+      '40.GRUP MEKANİK VANALI POMPALAR': '/dokumgovdelidislipompalar/40grup-mekanik-vanali-pomp.png',
     }
     return imageMap[groupName] || '/pompa.png'
   }
@@ -1047,7 +1112,7 @@ function ProductDetail() {
                       
                       {/* Content Section */}
                       <div className="flex flex-1 flex-col p-6 pt-5">
-                        <h3 className="mb-4 line-clamp-2 min-h-[3.5rem] text-lg font-bold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                        <h3 className="mb-4 text-lg font-bold leading-snug text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
                           {item}
                         </h3>
                         <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
@@ -1115,7 +1180,7 @@ function ProductDetail() {
                       
                       {/* Content Section */}
                       <div className="flex flex-1 flex-col p-6 pt-5">
-                        <h3 className="mb-4 line-clamp-2 min-h-[3.5rem] text-lg font-bold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                        <h3 className="mb-4 text-lg font-bold leading-snug text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
                           {item}
                         </h3>
                         <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
@@ -1165,7 +1230,7 @@ function ProductDetail() {
                     >
                       {/* Content Section */}
                       <div className="flex flex-1 flex-col p-6 pt-8">
-                        <h3 className="mb-4 line-clamp-2 min-h-[3.5rem] text-lg font-bold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                        <h3 className="mb-4 text-lg font-bold leading-snug text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
                           {item}
                         </h3>
                         <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
@@ -3072,7 +3137,7 @@ function ProductDetail() {
 
               {/* Grup Kartları */}
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-                {getBrandGroups(selectedBrand).map((group) => {
+                {getBrandGroups(selectedBrand, productName).map((group) => {
                   const img = getGroupImage(group)
                   return (
                     <div
@@ -3099,7 +3164,78 @@ function ProductDetail() {
                       
                       {/* Content Section */}
                       <div className="flex flex-1 flex-col p-6 pt-5">
-                        <h3 className="mb-4 line-clamp-2 min-h-[3.5rem] text-lg font-bold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                        <h3 className="mb-4 text-lg font-bold leading-snug text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                          {group}
+                        </h3>
+                        <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                          <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                            Grup Detayı
+                          </span>
+                          <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                            <span className="text-xs font-semibold">İncele</span>
+                            <svg 
+                              className="h-4 w-4" 
+                              fill="none" 
+                              viewBox="0 0 24 24" 
+                              stroke="currentColor"
+                              strokeWidth={2.5}
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </>
+          ) : selectedBrand && productName === 'DÖKÜM GÖVDELİ DİŞLİ POMPALAR' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">{selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)} Grupları</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Grup Kartları */}
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+                {getBrandGroups(selectedBrand, productName).map((group) => {
+                  const img = getGroupImage(group)
+                  return (
+                    <div
+                      key={group}
+                      onClick={() => {
+                        handleGroupCardClick(group, selectedBrand)
+                      }}
+                      className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-2xl hover:shadow-[#ff7f00]/10"
+                    >
+                      {/* Image Container with Enhanced Design */}
+                      <div className="relative h-64 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50">
+                        <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                        <img 
+                          src={img} 
+                          alt={group} 
+                          className="h-full w-full object-contain p-6 transition-all duration-500 group-hover:scale-110"
+                          onError={(e) => {
+                            e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(group)}`
+                          }}
+                        />
+                        {/* Professional gradient overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#ff7f00]/0 via-transparent to-[#1e4294]/0 transition-all duration-500 group-hover:from-[#ff7f00]/5 group-hover:to-[#1e4294]/5" />
+                      </div>
+                      
+                      {/* Content Section */}
+                      <div className="flex flex-1 flex-col p-6 pt-5">
+                        <h3 className="mb-4 text-lg font-bold leading-snug text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
                           {group}
                         </h3>
                         <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
