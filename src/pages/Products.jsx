@@ -1,5 +1,5 @@
 import { useMemo, useState, useEffect } from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams, useParams } from 'react-router-dom'
 
 // Ürün isimlerini resim dosya isimlerine çeviren fonksiyon
 const getProductImage = (productName) => {
@@ -219,19 +219,54 @@ const disliMotorAltKategoriler = [
 
 function Products() {
   const navigate = useNavigate()
+  const { category, subcategory } = useParams()
   const [searchParams] = useSearchParams()
   const [activeSection, setActiveSection] = useState(null)
   const [openGroups, setOpenGroups] = useState(['HİDROLİK'])
   const [selectedGroup, setSelectedGroup] = useState('HİDROLİK')
   const [selectedItem, setSelectedItem] = useState(null)
 
-  // URL parametresinden kategoriyi oku
+  // URL parametrelerinden kategoriyi oku
   useEffect(() => {
-    const sectionParam = searchParams.get('section')
-    if (sectionParam) {
-      // URL'den gelen kategoriyi decode et
-      const decodedSection = decodeURIComponent(sectionParam)
+    // Eğer subcategory varsa, ProductDetail sayfasına yönlendir (bu sayfa Products için)
+    if (subcategory) {
+      // ProductDetail sayfasına yönlendir - route zaten /urunler/:category/:subcategory olarak ayarlandı
+      // Bu durumda Products sayfası render edilmemeli, ProductDetail render edilmeli
+      // Ama route yapısı doğru olduğu için burada bir şey yapmaya gerek yok
+      return
+    }
+    
+    // Eğer category varsa, onu kullan
+    if (category) {
       // Kategoriyi bul ve aç
+      for (const group of catalogGroups) {
+        const found = group.sections.find((section) => {
+          const sectionSlug = section.title.toLowerCase().replace(/\s+/g, '-')
+          return sectionSlug === category
+        })
+        if (found) {
+          setActiveSection(found.title)
+          setSelectedGroup(group.title)
+          setSelectedItem(null) // Alt kategori seçimini temizle
+          setOpenGroups((prev) => {
+            if (!prev.includes(group.title)) {
+              return [...prev, group.title]
+            }
+            return prev
+          })
+          return
+        }
+      }
+    } else {
+      // URL'de category yoksa, state'leri temizle
+      setActiveSection(null)
+      setSelectedItem(null)
+    }
+    
+    // Eski query parameter desteği (geriye dönük uyumluluk)
+    const sectionParam = searchParams.get('section')
+    if (sectionParam && !category) {
+      const decodedSection = decodeURIComponent(sectionParam)
       for (const group of catalogGroups) {
         const found = group.sections.find((section) => section.title === decodedSection)
         if (found) {
@@ -245,12 +280,11 @@ function Products() {
           })
           return
         }
-        // Eğer section title değilse, item olabilir - item'ın hangi section'a ait olduğunu bul
         for (const section of group.sections) {
           if (section.items.includes(decodedSection)) {
             setActiveSection(section.title)
             setSelectedGroup(group.title)
-            setSelectedItem(decodedSection) // URL'den gelen item'ı seç
+            setSelectedItem(decodedSection)
             setOpenGroups((prev) => {
               if (!prev.includes(group.title)) {
                 return [...prev, group.title]
@@ -262,7 +296,7 @@ function Products() {
         }
       }
     }
-  }, [searchParams])
+  }, [category, subcategory, searchParams])
 
   const currentItems = useMemo(() => {
     if (!activeSection) return []
@@ -752,22 +786,26 @@ function Products() {
                             </button>
                             {isActive ? (
                               <ul className="space-y-1 pl-3 text-sm text-slate-600">
-                                {section.items.map((item) => (
-                                  <li key={item}>
-                                    <button
-                                      onClick={() => {
-                                        setSelectedItem(item)
-                                        setActiveSection(section.title)
-                                        setSelectedGroup(group.title)
-                                      }}
-                                      className={`w-full rounded-lg px-2 py-1 text-left text-sm transition hover:text-[#ff7f00] ${
-                                        selectedItem === item ? 'font-semibold text-[#ff7f00]' : ''
-                                      }`}
-                                    >
-                                      {item}
-                                    </button>
-                                  </li>
-                                ))}
+                                {section.items.map((item) => {
+                                  const categorySlug = section.title.toLowerCase().replace(/\s+/g, '-')
+                                  const subcategorySlug = item.toLowerCase().replace(/\s+/g, '-')
+                                  const isSelected = subcategory === subcategorySlug
+                                  return (
+                                    <li key={item}>
+                                      <button
+                                        onClick={() => {
+                                          // Alt kategoriye tıklandığında ProductDetail sayfasına git
+                                          navigate(`/urunler/${categorySlug}/${subcategorySlug}`)
+                                        }}
+                                        className={`w-full rounded-lg px-2 py-1 text-left text-sm transition hover:text-[#ff7f00] ${
+                                          isSelected ? 'font-semibold text-[#ff7f00]' : ''
+                                        }`}
+                                      >
+                                        {item}
+                                      </button>
+                                    </li>
+                                  )
+                                })}
                               </ul>
                             ) : null}
                           </div>
@@ -1080,21 +1118,35 @@ function Products() {
                   </div>
                 ) : (
                   <div className="flex flex-wrap gap-3 sm:gap-4">
-                    {allBrandLogos.map((logo, index) => (
-                      <div
-                        key={index}
-                        className="flex h-20 w-32 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-2 transition hover:border-[#ff7f00] hover:bg-white hover:shadow-md sm:h-24 sm:w-36 sm:p-3"
-                      >
-                        <img 
-                          src={logo} 
-                          alt={`Brand ${index + 1}`} 
-                          className="h-12 w-auto object-contain sm:h-14"
-                          onError={(e) => {
-                            e.target.style.display = 'none'
+                    {allBrandLogos.map((logo, index) => {
+                      // HEMA logo için özel işlem
+                      const isHema = logo === '/hema.png'
+                      const brandName = isHema ? 'hema' : null
+                      const productSlug = selectedItem ? encodeURIComponent(selectedItem.toLowerCase().replace(/\s+/g, '-')) : ''
+                      
+                      return (
+                        <div
+                          key={index}
+                          onClick={() => {
+                            if (isHema && selectedItem === 'ALÜMİNYUM GÖVDELİ DİŞLİ POMPALAR') {
+                              navigate(`/urunler/pompa/aluminyum-govdeli-disli-pompalar/hema`)
+                            }
                           }}
-                        />
-                      </div>
-                    ))}
+                          className={`flex h-20 w-32 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-2 transition hover:border-[#ff7f00] hover:bg-white hover:shadow-md sm:h-24 sm:w-36 sm:p-3 ${
+                            isHema && selectedItem === 'ALÜMİNYUM GÖVDELİ DİŞLİ POMPALAR' ? 'cursor-pointer' : ''
+                          }`}
+                        >
+                          <img 
+                            src={logo} 
+                            alt={`Brand ${index + 1}`} 
+                            className="h-12 w-auto object-contain sm:h-14"
+                            onError={(e) => {
+                              e.target.style.display = 'none'
+                            }}
+                          />
+                        </div>
+                      )
+                    })}
                   </div>
                 )}
               </div>
