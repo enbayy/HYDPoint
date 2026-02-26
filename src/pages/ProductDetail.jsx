@@ -297,6 +297,47 @@ const getPaletliPompaBrandCards = (brandName) => {
   return brandCards[brandName] || []
 }
 
+// PİSTONLU POMPA için markalara göre kartlar
+const getPistonluPompaBrandCards = (brandName) => {
+  const brandCards = {
+    'casappa': [
+      'EKSENEL PİSTONLU POMPA',
+      'DEĞİŞKEN DEBİLİ POMPALAR',
+    ],
+    'hema': [
+      'DEĞİŞKEN DEBİLİ POMPALAR',
+    ],
+    'kawasaki': [
+      'DEĞİŞKEN DEBİLİ POMPALAR',
+    ],
+    'linde': [
+      'DEĞİŞKEN DEBİLİ POMPALAR',
+    ],
+    'celebi': [
+      'EKSENEL PİSTONLU POMPA',
+    ],
+    'gold': [
+      'EKSENEL PİSTONLU POMPA',
+    ],
+    'hpt': [
+      'EKSENEL PİSTONLU POMPA',
+    ],
+    'pzb': [
+      'EKSENEL PİSTONLU POMPA',
+    ],
+    'samhydraulic': [
+      'EKSENEL PİSTONLU POMPA',
+    ],
+    'sunfab': [
+      'EKSENEL PİSTONLU POMPA',
+    ],
+    'parker': [
+      'EKSENEL PİSTONLU POMPA',
+    ],
+  }
+  return brandCards[brandName] || []
+}
+
 // Slug'dan ürün adını geri çeviren fonksiyon
 const decodeProductName = (slug, groups) => {
   if (!slug) return null
@@ -337,6 +378,7 @@ function ProductDetail() {
   const [selectedGroup, setSelectedGroup] = useState(null) // Seçilen grup (örn: "00.GRUP POMPALAR")
   const [selectedGroupBrand, setSelectedGroupBrand] = useState(null) // Seçilen marka (örn: "hydropack")
   const [selectedPaletliPompaCard, setSelectedPaletliPompaCard] = useState(null) // Seçilen PALETLİ POMPA kartı
+  const [selectedPistonluPompaCard, setSelectedPistonluPompaCard] = useState(null) // Seçilen PİSTONLU POMPA kartı
   
   // URL parametrelerinden veya query parameter'dan veya state'ten marka bilgisini al
   const brandFromQuery = searchParams.get('brand')
@@ -601,6 +643,38 @@ function ProductDetail() {
         setSelectedBrand(brandName)
         setSelectedPaletliPompaCard(null) // Kart seçimini temizle
       }
+    } else if (productName === 'PİSTONLU POMPA') {
+      // PİSTONLU POMPA için marka kartlarını göster
+      const cards = getPistonluPompaBrandCards(brandName)
+      if (cards.length > 0) {
+        // URL'yi güncelle: /urunler/category/subcategory/brand
+        if (category && subcategory) {
+          navigate(`/urunler/${category}/${subcategory}/${brandName}`)
+        } else {
+          // Eski format için
+          const productSlug = encodeURIComponent(productName.toLowerCase().replace(/\s+/g, '-'))
+          navigate(`/urun-detay/${productSlug}?brand=${brandName}`, {
+            state: { productName, productImage, productLogo, brand: brandName }
+          })
+        }
+        setSelectedBrand(brandName)
+        setSelectedPistonluPompaCard(null) // Kart seçimini temizle
+        setSelectedProduct(null) // Ürün seçimini temizle
+        setSelectedGroup(null) // Grup seçimini temizle
+        setSelectedGroupBrand(null) // Grup marka seçimini temizle
+      } else {
+        // Bu marka için kart yoksa, marka bazlı detay sayfasına navigate et
+        if (category && subcategory) {
+          navigate(`/urunler/${category}/${subcategory}/${brandName}`)
+        } else {
+          const productSlug = encodeURIComponent(productName.toLowerCase().replace(/\s+/g, '-'))
+          navigate(`/urun-detay/${productSlug}?brand=${brandName}`, {
+            state: { productName, productImage, productLogo, brand: brandName }
+          })
+        }
+        setSelectedBrand(brandName)
+        setSelectedPistonluPompaCard(null) // Kart seçimini temizle
+      }
     } else if (productName === 'EL POMPASI') {
       // EL POMPASI için direkt detay sayfasına navigate et (kart yok)
       if (category && subcategory) {
@@ -627,6 +701,18 @@ function ProductDetail() {
       setSelectedProduct(null)
     } else if (productName === 'İŞ MAKİNESİ POMPALARI') {
       // İŞ MAKİNESİ POMPALARI için direkt detay sayfasına navigate et (kart yok)
+      if (category && subcategory) {
+        navigate(`/urunler/${category}/${subcategory}/${brandName}`)
+      } else {
+        const productSlug = encodeURIComponent(productName.toLowerCase().replace(/\s+/g, '-'))
+        navigate(`/urun-detay/${productSlug}?brand=${brandName}`, {
+          state: { productName, productImage, productLogo, brand: brandName }
+        })
+      }
+      setSelectedBrand(brandName)
+      setSelectedProduct(null)
+    } else if (productName === 'TANDEM POMPALAR') {
+      // TANDEM POMPALAR için direkt detay sayfasına navigate et
       if (category && subcategory) {
         navigate(`/urunler/${category}/${subcategory}/${brandName}`)
       } else {
@@ -1102,6 +1188,563 @@ function ProductDetail() {
     return imageMap[cardName] || '/paletli-pompa.png'
   }
 
+  const getPistonluPompaCardImage = (cardName) => {
+    const imageMap = {
+      'EKSENEL PİSTONLU POMPA': '/pistonlupompa/eksenel-pistonlu-pompa.png',
+      'DEĞİŞKEN DEBİLİ POMPALAR': '/pistonlupompa/degisken-debili-pompalar.png',
+    }
+    return imageMap[cardName] || '/pistonlu-pompa.png'
+  }
+
+  // HEMA PİSTONLU POMPA ürün verilerini al
+  const getHemaPistonluPompaProductData = (cardName) => {
+    if (cardName === 'DEĞİŞKEN DEBİLİ POMPALAR') {
+      return {
+        title: 'DEĞİŞKEN DEBİLİ POMPALAR',
+        categories: [
+          {
+            name: 'YÜK DUYARLI',
+            products: [
+              { kod: 'EPP045105M', basinc: '280-315', devDak: '2200', pompaVersiyon: 'YÜK DUYARLI (LOAD SENSING)' },
+              { kod: 'EPP045111M', basinc: '280-315', devDak: '2200', pompaVersiyon: 'YÜK DUYARLI (LOAD SENSING)' },
+              { kod: 'EPP045103M', basinc: '280-315', devDak: '2200', pompaVersiyon: 'YÜK DUYARLI (LOAD SENSING)' },
+            ]
+          }
+        ]
+      }
+    }
+    return null
+  }
+
+  // PARKER PİSTONLU POMPA ürün verilerini al
+  const getParkerPistonluPompaProductData = (cardName) => {
+    if (cardName === 'EKSENEL PİSTONLU POMPA') {
+      return {
+        title: 'EKSENEL PİSTONLU POMPA',
+        categories: [
+          {
+            name: 'EKSENEL (MOBİL) PİSTONLU POMPALAR',
+            products: [
+              { kod: '26419', basinc: '350', iletimHacmi: '25,6 CM³', maksDevir: '2600', maksGuc: '31', tork: '142' },
+              { kod: '26420', basinc: '350', iletimHacmi: '40,9 CM³', maksDevir: '2400', maksGuc: '46', tork: '227' },
+              { kod: 'PMH-2K-3781760', basinc: '350', iletimHacmi: '59,5 CM³', maksDevir: '2200', maksGuc: '61', tork: '331' },
+              { kod: 'PMH-2K-3781080', basinc: '350', iletimHacmi: '81,6 CM³', maksDevir: '2000', maksGuc: '76', tork: '453' },
+              { kod: 'PMH-2K-3781100', basinc: '350', iletimHacmi: '102,9 CM³', maksDevir: '1800', maksGuc: '86', tork: '572' },
+            ]
+          }
+        ]
+      }
+    }
+    return null
+  }
+
+  // ÇELEBİ PİSTONLU POMPA ürün verilerini al
+  const getCelebiPistonluPompaProductData = (cardName) => {
+    if (cardName === 'EKSENEL PİSTONLU POMPA') {
+      return {
+        title: 'EKSENEL PİSTONLU POMPA',
+        categories: [
+          {
+            name: 'EKSENEL (ENDÜSTRİYEL) PİSTONLU POMPALAR',
+            products: [
+              { 
+                kod: '2PBA 108 cc', 
+                agirlik: 'GİRİŞ RAKORLU 15,90 KG', 
+                cikintiTorku: 'GİRİŞ RAKORLU 18,45 NM', 
+                girisVeCikis: '1 İNÇ', 
+                iletimHacmi: '108,40 CM³', 
+                maxAlanSSurekBasinc: '350 ÇUBUĞU', 
+                maxAlanSaySinirliHiz: '1900 DEV/DAK', 
+                maxAlanSaySurekliHiz: '1700 DEV/DAK', 
+                maxAlanSay350BTork: '620 NM', 
+                maxAlanSayisiAralik: 'TEPE BASINCI 400 ÇUBUĞU', 
+                rotasyon: 'CW, CCW' 
+              },
+              { 
+                kod: '2PBA 12 cc', 
+                agirlik: 'GİRİŞ RAKORLU 9,40 KG', 
+                cikintiTorku: 'GİRİŞ RAKORLU 9,15 NM', 
+                girisVeCikis: '1 İNÇ', 
+                iletimHacmi: '12,00 CM³', 
+                maxAlanSSurekBasinc: '350 ÇUBUĞU', 
+                maxAlanSaySinirliHiz: '3100 DEV/DAK', 
+                maxAlanSaySurekliHiz: '2300 DAK/DEV', 
+                maxAlanSay350BTork: '71 NM', 
+                maxAlanSayisiAralik: 'TEPE BASINCI 400 ÇUBUĞU', 
+                rotasyon: 'CW,CCW' 
+              },
+              { 
+                kod: '2PBA 130 cc', 
+                agirlik: 'GİRİŞ RAKORLU 17,00 KG', 
+                cikintiTorku: 'GİRİŞ RAKORLU 20,45 NM', 
+                girisVeCikis: '1 İNÇ', 
+                iletimHacmi: '130,00 CM³', 
+                maxAlanSSurekBasinc: '350 ÇUBUĞU', 
+                maxAlanSaySinirliHiz: '1750 DEV/DAK', 
+                maxAlanSaySurekliHiz: '1600 DEV/DAK', 
+                maxAlanSay350BTork: '746 NM', 
+                maxAlanSayisiAralik: 'TEPE BASINCI 400 ÇUBUĞU', 
+                rotasyon: 'CW,CCW' 
+              },
+              { 
+                kod: '2PBA 18 cc', 
+                agirlik: 'GİRİŞ RAKORLU 9,40 KG', 
+                cikintiTorku: 'GİRİŞ RAKORLU 9,19 NM', 
+                girisVeCikis: '3/4 İNÇ', 
+                iletimHacmi: '18,00 CM³', 
+                maxAlanSSurekBasinc: '350 ÇUBUĞU', 
+                maxAlanSaySinirliHiz: '2900 DEV/DAK', 
+                maxAlanSaySurekliHiz: '2300 DEV/DAK', 
+                maxAlanSay350BTork: '105 NM', 
+                maxAlanSayisiAralik: '400 ÇUBUĞU', 
+                rotasyon: 'CW, CCW' 
+              },
+              { 
+                kod: '2PBA 25 cc', 
+                agirlik: 'GİRİŞ RAKORLU 9,90 KG', 
+                cikintiTorku: 'GİRİŞ RAKORLU 9,23 NM', 
+                girisVeCikis: '3/4 İNÇ', 
+                iletimHacmi: '25,00 CM³', 
+                maxAlanSSurekBasinc: '350 ÇUBUĞU', 
+                maxAlanSaySinirliHiz: '2700 DEV/DAK', 
+                maxAlanSaySurekliHiz: '2300 DEV/DAK', 
+                maxAlanSay350BTork: '146 NM', 
+                maxAlanSayisiAralik: 'TEPE BASINCI 400 ÇUBUĞU', 
+                rotasyon: 'CW, CCW' 
+              },
+              { 
+                kod: '2PBA 32 cc', 
+                agirlik: 'GİRİŞ RAKORLU 10,90KG', 
+                cikintiTorku: 'GİRİŞ RAKORLU 11,52NM', 
+                girisVeCikis: '1 İNÇ', 
+                iletimHacmi: '32,00 CM³', 
+                maxAlanSSurekBasinc: '350 ÇUBUĞU', 
+                maxAlanSaySinirliHiz: '2700 DEV/DAK', 
+                maxAlanSaySurekliHiz: '2250 DEV/DAK', 
+                maxAlanSay350BTork: '190 NM', 
+                maxAlanSayisiAralik: 'TEPE BASINCI - 400 ÇUBUĞU', 
+                rotasyon: 'CW, CCW' 
+              },
+              { 
+                kod: '2PBA 40 cc', 
+                agirlik: 'GİRİŞ RAKORLU 10,90KG', 
+                cikintiTorku: 'GİRİŞ RAKORLU 11,40 NM', 
+                girisVeCikis: '1 İNÇ', 
+                iletimHacmi: '40,20 CM³', 
+                maxAlanSSurekBasinc: '350 ÇUBUĞU', 
+                maxAlanSaySinirliHiz: '2500 DEVİR/DAKİKA', 
+                maxAlanSaySurekliHiz: '1900 DEV/DAK', 
+                maxAlanSay350BTork: '240 NM', 
+                maxAlanSayisiAralik: 'TEPE BASINCI 400 ÇUBUĞU', 
+                rotasyon: 'CW, CCW' 
+              },
+              { 
+                kod: '2PBA 50 cc', 
+                agirlik: 'GİRİŞ RAKORLU 11,40 KG', 
+                cikintiTorku: 'GİRİŞ RAKORLU12,20 NM', 
+                girisVeCikis: '1 İNÇ', 
+                iletimHacmi: '50,00 CM³', 
+                maxAlanSSurekBasinc: '350 ÇUBUĞU', 
+                maxAlanSaySinirliHiz: '2500 DEVİR/DAKİKA', 
+                maxAlanSaySurekliHiz: '1900 DEV/DAK', 
+                maxAlanSay350BTork: '292 NM', 
+                maxAlanSayisiAralik: 'TEPE BASINCI 400 ÇUBUĞU', 
+                rotasyon: 'CW, CCW' 
+              },
+              { 
+                kod: '2PBA 63 cc', 
+                agirlik: 'GİRİŞ RAKORLU 11,90KG', 
+                cikintiTorku: 'GİRİŞ RAKORLU 12,28NM', 
+                girisVeCikis: '1 İNÇ', 
+                iletimHacmi: '63,00 CM³', 
+                maxAlanSSurekBasinc: '350 ÇUBUĞU', 
+                maxAlanSaySinirliHiz: '2300 DEV/DAK', 
+                maxAlanSaySurekliHiz: '1900 DEV/DAK', 
+                maxAlanSay350BTork: '360 NM', 
+                maxAlanSayisiAralik: 'TEPE BASINCI 400 ÇUBUĞU', 
+                rotasyon: 'CW, CCW' 
+              },
+              { 
+                kod: '2PBA 80 cc', 
+                agirlik: 'GİRİŞ RAKORLU 25,40KG', 
+                cikintiTorku: 'GİRİŞ RAKOLRU 18,33 NM', 
+                girisVeCikis: '1 İNÇ', 
+                iletimHacmi: '80,00 CM³', 
+                maxAlanSSurekBasinc: '350 ÇUBUĞU', 
+                maxAlanSaySinirliHiz: '2100 DEV/DAK', 
+                maxAlanSaySurekliHiz: '1700 DEV/DAK', 
+                maxAlanSay350BTork: '460 NM', 
+                maxAlanSayisiAralik: 'TEPE BASINCI 400 ÇUBUĞU', 
+                rotasyon: 'CW, CCW' 
+              },
+            ]
+          }
+        ]
+      }
+    }
+    return null
+  }
+
+  // SAMHYDRAULIC PİSTONLU POMPA ürün verilerini al
+  const getSamhydraulicPistonluPompaProductData = (cardName) => {
+    if (cardName === 'EKSENEL PİSTONLU POMPA') {
+      return {
+        title: 'EKSENEL PİSTONLU POMPA',
+        categories: [
+          {
+            name: 'EKSENEL (ENDÜSTRİYEL) PİSTONLU POMPALAR',
+            products: [
+              { 
+                kod: '26299', 
+                basinc: '350-450', 
+                hiz: '4300', 
+                iletimHacmi: '19,6 CM³', 
+                maksDebi: '84', 
+                milCapi: 'FREZELİ - KAMALI', 
+                tork: '0,31' 
+              },
+              { 
+                kod: '26300', 
+                basinc: '350-450', 
+                hiz: '2300', 
+                iletimHacmi: '75,3 CM³', 
+                maksDebi: '173', 
+                milCapi: 'FREZELİ - KAMAL', 
+                tork: '1,20' 
+              },
+              { 
+                kod: '26301', 
+                basinc: '350-450', 
+                hiz: '2000', 
+                iletimHacmi: '107,5 CM³', 
+                maksDebi: '215', 
+                milCapi: 'FREZELİ - KAMALI', 
+                tork: '1,71' 
+              },
+              { 
+                kod: '26303', 
+                basinc: '350-450', 
+                hiz: '1800', 
+                iletimHacmi: '160,8 CM³', 
+                maksDebi: '289', 
+                milCapi: 'FREZELİ - KAMALI', 
+                tork: '2,56' 
+              },
+            ]
+          }
+        ]
+      }
+    }
+    return null
+  }
+
+  // CASAPPA PİSTONLU POMPA ürün verilerini al
+  const getCasappaPistonluPompaProductData = (cardName) => {
+    if (cardName === 'EKSENEL PİSTONLU POMPA') {
+      return {
+        title: 'EKSENEL PİSTONLU POMPA',
+        categories: [
+          {
+            name: 'EKSENEL (ENDÜSTRİYEL) PİSTONLU POMPALAR',
+            products: [
+              { kod: 'C06858700', calismaBasinci: '350', iletimHacmi: '40,90 CM³', kapakTipi: 'ISO FLANŞ', maksHiz: '2500' },
+              { kod: 'C06858701', calismaBasinci: '350', iletimHacmi: '40,90 CM³', kapakTipi: 'ISO FLANŞ', maksHiz: '250' },
+              { kod: '26344', calismaBasinci: '350', iletimHacmi: '50,10 CM³', kapakTipi: 'ISO FLANŞ', maksHiz: '2400' },
+              { kod: '26345', calismaBasinci: '350', iletimHacmi: '63,00 CM³', kapakTipi: 'ISO FLANŞ', maksHiz: '2200' },
+              { kod: '26346', calismaBasinci: '315', iletimHacmi: '71,60 CM³', kapakTipi: 'ISO FLANŞ', maksHiz: '2000' },
+              { kod: 'C06858764', calismaBasinci: '315', iletimHacmi: '78,30 CM³', kapakTipi: 'ISO FLANŞ', maksHiz: '2000' },
+              { kod: '26348', calismaBasinci: '315', iletimHacmi: '78,30 CM³', kapakTipi: 'ISO FLANŞ', maksHiz: '2000' },
+              { kod: '26349', calismaBasinci: '300', iletimHacmi: '110,00 CM³', kapakTipi: 'ISO FLANŞ', maksHiz: '2000' },
+            ]
+          }
+        ]
+      }
+    } else if (cardName === 'DEĞİŞKEN DEBİLİ POMPALAR') {
+      return {
+        title: 'DEĞİŞKEN DEBİLİ POMPALAR',
+        categories: [
+          {
+            name: 'YÜK DUYARLI',
+            products: [
+              { kod: '26151', basinc: '280', maksHiz: '2200', milKapakTipi: '06S7/34S7', pompaVersiyon: 'YÜK DUYARLI (LOAD SENSİNG)' },
+              { kod: 'C06862553', basinc: '280', maksHiz: '3000', milKapakTipi: '04S5', pompaVersiyon: 'YÜK DUYARLI (LOAD SENSİNG)' },
+              { kod: '26150', basinc: '280', maksHiz: '2600', milKapakTipi: '05S5', pompaVersiyon: 'YÜK DUYARLI (LOAD SENSİNG)' },
+            ]
+          },
+          {
+            name: 'GÜÇ REGÜLASYONLU',
+            products: [
+              { kod: '26101', basinc: '280', maksHiz: '2200', milKapakTipi: '06S7/34S7', pompaVersiyon: 'GÜÇ REGÜLASYONLU (22KW)' },
+              { kod: '26099', basinc: '280', maksHiz: '3000', milKapakTipi: '04S5', pompaVersiyon: 'GÜÇ REGÜLASYONLU (5,5 KW)' },
+              { kod: '26100', basinc: '280', maksHiz: '2600', milKapakTipi: '05S5', pompaVersiyon: 'GÜÇ REGÜLASYONLU (11KW)' },
+            ]
+          }
+        ]
+      }
+    }
+    return null
+  }
+
+  // LINDE PİSTONLU POMPA ürün verilerini al
+  const getLindePistonluPompaProductData = (cardName) => {
+    if (cardName === 'DEĞİŞKEN DEBİLİ POMPALAR') {
+      return {
+        title: 'DEĞİŞKEN DEBİLİ POMPALAR',
+        categories: [
+          {
+            name: 'GÜÇ REGÜLASYONLU',
+            products: [
+              { kod: '26089', basinc: '450', devDak: '2500-2700', flansTipi: 'SAE C', iletimHacmi: '105,0 CM³', kontrolTipi: 'BASINÇ + YÜK DUYARLI', milTipi: '16/32 23 T' },
+              { kod: '26090', basinc: '450', devDak: '2200-2400', flansTipi: 'SAE D', iletimHacmi: '165,6 CM³', kontrolTipi: 'BASINÇ+YÜK DUYARLI', milTipi: '16/32 27 T' },
+              { kod: '26091', basinc: '450', devDak: '2500-2700', flansTipi: 'SAE C', iletimHacmi: '75,9 CM³', kontrolTipi: 'BASINÇ + YÜK DUYARLI', milTipi: '16/32 - 21 T' },
+              { kod: '26088', basinc: '450', devDak: '2100-2300', flansTipi: 'SAE E', iletimHacmi: '210,0 CM³', kontrolTipi: 'BASINÇ + YÜK DUYARLI', milTipi: '8/16 15 T' },
+            ]
+          },
+          {
+            name: 'KAPALI ÇEVRİM (YÜRÜYÜŞ POMPALAR)',
+            products: [
+              { kod: '26127', basinc: '450', devDak: '3900-4100', flansTipi: 'SAE C', iletimHacmi: '54,8 CM³', kontrolTipi: 'ELEKTRİKLİ ORANSAL', milTipi: '16/32 21 T' },
+              { kod: '26123', basinc: '450', devDak: '3400-3600', flansTipi: 'SAE C', iletimHacmi: '75,9 CM³', kontrolTipi: 'ELEKTRİKLİ ORANSAL', milTipi: '16/32 21 T' },
+              { kod: '26124', basinc: '450', devDak: '2750-2950', flansTipi: 'SAE D', iletimHacmi: '165,5 CM³', kontrolTipi: 'ELEKTRİKLİ ORANSAL', milTipi: '16/32 27 T' },
+              { kod: '26129', basinc: '450', devDak: '3400-3600', flansTipi: 'SAE C', iletimHacmi: '75,9 CM³', kontrolTipi: 'ELEKTRİKLİ ON-OFF', milTipi: '16/32 21 T' },
+              { kod: '26125', basinc: '450', devDak: '3400-3600', flansTipi: 'SAE C', iletimHacmi: '75,9 CM³', kontrolTipi: 'MEKANİK ORANSAL', milTipi: '16/32 21T' },
+              { kod: 'HPV02-135L-M100M11-01', basinc: '450', devDak: '3000-3200', flansTipi: 'SAE D', iletimHacmi: '135,6 CM³', kontrolTipi: 'MEKANİK ORANSAL', milTipi: '16/32 27 T' },
+            ]
+          }
+        ]
+      }
+    }
+    return null
+  }
+
+  // PZB PİSTONLU POMPA ürün verilerini al
+  const getPzbPistonluPompaProductData = (cardName) => {
+    if (cardName === 'EKSENEL PİSTONLU POMPA') {
+      return {
+        title: 'EKSENEL PİSTONLU POMPA',
+        categories: [
+          {
+            name: 'EKSENEL (ENDÜSTRİYEL) PİSTONLU POMPALAR',
+            products: [
+              { kod: '26338', calismaBasinci: '350', debi: '108', maksHiz: '1700' },
+              { kod: '26340', calismaBasinci: '450', debi: '34', maksHiz: '2400' },
+              { kod: '26337', calismaBasinci: '450', debi: '47', maksHiz: '2100' },
+              { kod: '26339', calismaBasinci: '450', debi: '64', maksHiz: '2000' },
+            ]
+          }
+        ]
+      }
+    }
+    return null
+  }
+
+  // KAWASAKI PİSTONLU POMPA ürün verilerini al
+  const getKawasakiPistonluPompaProductData = (cardName) => {
+    if (cardName === 'DEĞİŞKEN DEBİLİ POMPALAR') {
+      return {
+        title: 'DEĞİŞKEN DEBİLİ POMPALAR',
+        categories: [
+          {
+            name: 'YÜK DUYARLI',
+            products: [
+              { kod: '26134', flansTipi: 'SAE D / 4 CİVATALI', iletimHacmi: '112 CM³', kontrolTipi: 'YÜK DUYARLI-BASINÇ KONTROLLÜ', milTipi: 'SAE D KAMALI' },
+              { kod: '26135', flansTipi: 'SAE D / 4 CİVATALI', iletimHacmi: '140 CM³', kontrolTipi: 'YÜK DUYARLI-BASINÇ KONTROLLÜ', milTipi: 'SAE D FREZELİ' },
+              { kod: '26136', flansTipi: 'SAE B / 2 CİVATALI', iletimHacmi: '28 CM³', kontrolTipi: 'YÜK DUYARLI-BASINÇ KONTROLLÜ', milTipi: 'SAE B FREZELİ' },
+              { kod: '26138', flansTipi: 'SAE B / 2 CİVATALI', iletimHacmi: '45 CM³', kontrolTipi: 'YÜK DUYARLI-BASINÇ KONTROLLÜ', milTipi: 'SAE BB FREZELİ' },
+              { kod: '26139', flansTipi: 'SAE C / 2 CİVATALI', iletimHacmi: '80 CM³', kontrolTipi: 'YÜK DUYARLI-BASINÇ KONTROLLÜ', milTipi: 'SAE C FREZELİ' },
+              { kod: 'YKPM-E-2903340-1670', flansTipi: 'SAE D / 4 CİVATALI', iletimHacmi: '112 CM³', kontrolTipi: 'YÜK DUYARLI-BASINÇ KONTROLLÜ', milTipi: 'SAE D KAMALI' },
+              { kod: 'YKPM-E-2903340-1669', flansTipi: 'SAE D / 4 CİVATALI', iletimHacmi: '112 CM³', kontrolTipi: 'YÜK DUYARLI-BASINÇ KONTROLLÜ', milTipi: 'SAE D KAMALI' },
+              { kod: '41000048', flansTipi: 'SAE D / 4 CİVATALI', iletimHacmi: '112 CM³', kontrolTipi: 'YÜK DUYARLI-BASINÇ KONTROLLÜ', milTipi: 'SAE D KAMALI' },
+            ]
+          },
+          {
+            name: 'GÜÇ REGÜLASYONLU',
+            products: [
+              { kod: '26121', flansTipi: 'SAE B / 2 CİVATALI', iletimHacmi: '45 CM³', kontrolTipi: 'YÜK DUYARLI-BASINÇ KONTROLLÜ-G', milTipi: 'SAE BB FREZELİ' },
+              { kod: '26094', flansTipi: 'SAE D/4 CİVATALI', iletimHacmi: '112 CM³', kontrolTipi: 'YÜK DUY.-BAS. KONT.-GÜÇ REG.', milTipi: 'SAE D KAMALI' },
+              { kod: '26119', flansTipi: 'SAE D / 4 CİVATALI', iletimHacmi: '140 CM³', kontrolTipi: 'YÜK DUYARLI-BASINÇ KONTROLLÜ-G', milTipi: 'SAE D KAMALI' },
+              { kod: '26086', flansTipi: 'SAE C / 2 CİVATALI', iletimHacmi: '80 CM³', kontrolTipi: 'YÜK DUYARLI-BASINÇ KONTROLLÜ-G', milTipi: 'SAE C KAMALI' },
+              { kod: '26102', flansTipi: 'SAE C / 2 CİVATALI', iletimHacmi: '80 CM³', kontrolTipi: 'YÜK DUYARLI-BASINÇ KONTROLLÜ-G', milTipi: 'SAE C KAMALI' },
+              { kod: '26120', flansTipi: 'SAE E / 4 CİVATALI', iletimHacmi: '200 CM³', kontrolTipi: 'YÜK DUYARLI-BASINÇ KONTROLLÜ-G', milTipi: 'SAE D KAMALI' },
+              { kod: '26085', flansTipi: 'SAE B/2CİVATALI', iletimHacmi: '45 CM³', kontrolTipi: 'YÜK DUYARLI-BASINÇ KONTROLLÜ-GÜÇ REGÜLASYONLU (11 KW )', milTipi: 'SAE BB FREZE' },
+              { kod: '26109', flansTipi: 'SAE C / 2 CİVATALI', iletimHacmi: '80 CM³', kontrolTipi: 'YÜK DUYARLI-BASINÇ KONTROLLÜ-G', milTipi: 'SAE C FREZELİ' },
+              { kod: 'KPM-29L83N0BL1M4', flansTipi: 'SAE C / 2 CİVATALI', iletimHacmi: '80 CM³', kontrolTipi: 'YÜK DUYARLI-BASINÇ KONTROLLÜ-G', milTipi: 'SAE C FREZELİ' },
+              { kod: '26087', flansTipi: 'SAE C / 2 CİVATALI', iletimHacmi: '80 CM³', kontrolTipi: 'YÜK DUYARLI-BASINÇ KONTROLLÜ-G', milTipi: 'SAE C FREZELİ' },
+              { kod: 'KPM-29L84N0BL0', flansTipi: 'SAE C / 2 CİVATALI', iletimHacmi: '80 CM³', kontrolTipi: 'YÜK DUYARLI-BASINÇ KONTROLLÜ-G', milTipi: 'SAE C FREZELİ' },
+              { kod: 'KPM-29L83N0SL0', flansTipi: 'SAE C / 2 CİVATALI', iletimHacmi: '80 CM³', kontrolTipi: 'YÜK DUYARLI-BASINÇ KONTROLLÜ-G', milTipi: 'SAE C FREZELİ' },
+              { kod: '26118', flansTipi: 'SAE D / 4 CİVATALI', iletimHacmi: '140 CM³', kontrolTipi: 'YÜK DUYARLI-BASINÇ KONTROLLÜ', milTipi: 'SAE D KAMALI' },
+            ]
+          }
+        ]
+      }
+    }
+    return null
+  }
+
+  // HPT PİSTONLU POMPA ürün verilerini al
+  const getHptPistonluPompaProductData = (cardName) => {
+    if (cardName === 'EKSENEL PİSTONLU POMPA') {
+      return {
+        title: 'EKSENEL PİSTONLU POMPA',
+        categories: [
+          {
+            name: 'EKSENEL (ENDÜSTRİYEL) PİSTONLU POMPALAR',
+            products: [
+              { kod: '26375', basinc: '400', iletimHacmi: '105,20 CM³', litre: '105', maksHiz: '2000' },
+              { kod: '26367', basinc: '400', iletimHacmi: '105,20 CM³', litre: '108', maksHiz: '2000' },
+              { kod: '26376', basinc: '400', iletimHacmi: '12,60 CM³', litre: '12', maksHiz: '3000' },
+              { kod: '26327', basinc: '400', iletimHacmi: '12,60 CM³', litre: '12', maksHiz: '3000' },
+              { kod: '26368', basinc: '300', iletimHacmi: '130,00 CM³', litre: '130', maksHiz: '2000' },
+              { kod: '26295', basinc: '400', iletimHacmi: '17,00 CM³', litre: '17', maksHiz: '3000' },
+              { kod: '26328', basinc: '400', iletimHacmi: '17,00 CM³', litre: '17', maksHiz: '3000' },
+              { kod: '26372', basinc: '400', iletimHacmi: '25,40 CM³', litre: '25', maksHiz: '3000' },
+              { kod: '26329', basinc: '400', iletimHacmi: '25,40 CM³', litre: '25', maksHiz: '3000' },
+              { kod: '26373', basinc: '400', iletimHacmi: '35,00 CM³', litre: '35', maksHiz: '3000' },
+              { kod: '26330', basinc: '400', iletimHacmi: '35,00 CM³', litre: '35', maksHiz: '300' },
+              { kod: '26374', basinc: '400', iletimHacmi: '41,20 CM³', litre: '40', maksHiz: '2500' },
+              { kod: '26362', basinc: '400', iletimHacmi: '41,20 CM³', litre: '40', maksHiz: '2500' },
+              { kod: '26296', basinc: '400', iletimHacmi: '47,10 CM³', litre: '47', maksHiz: '2500' },
+              { kod: '26363', basinc: '400', iletimHacmi: '47,10 CM³', litre: '47', maksHiz: '2500' },
+              { kod: '26297', basinc: '400', iletimHacmi: '56,00 CM³', litre: '56', maksHiz: '2500' },
+              { kod: '26364', basinc: '400', iletimHacmi: '56,00 CM³', litre: '56', maksHiz: '2500' },
+              { kod: '26298', basinc: '400', iletimHacmi: '63,60 CM³', litre: '65', maksHiz: '2500' },
+              { kod: '26365', basinc: '400', iletimHacmi: '63,60 CM³', litre: '65', maksHiz: '2500' },
+              { kod: '26371', basinc: '400', iletimHacmi: '83,60 CM³', litre: '84', maksHiz: '2000' },
+              { kod: '26366', basinc: '400', iletimHacmi: '83,60 CM³', litre: '84', maksHiz: '2000' },
+            ]
+          }
+        ]
+      }
+    }
+    return null
+  }
+
+  // GOLD PİSTONLU POMPA ürün verilerini al
+  const getGoldPistonluPompaProductData = (cardName) => {
+    if (cardName === 'EKSENEL PİSTONLU POMPA') {
+      return {
+        title: 'EKSENEL PİSTONLU POMPA',
+        categories: [
+          {
+            name: 'EKSENEL (ENDÜSTRİYEL) PİSTONLU POMPALAR',
+            products: [
+              { 
+                kod: '26304', 
+                agirlik: 'GİRİŞ RAKORLU 9,90KG', 
+                cikintiTorku: 'GİRİŞ RAKORLU 11,52 NM', 
+                girisVeCikis: '3/4"', 
+                iletimHacmi: '32,00 CM³', 
+                maksSinirliPompaHizi: '2700', 
+                maksSurekliPompaHizi: '2250', 
+                maxAlanSSurekBasinc: '350', 
+                maxAlanSay350BTork: '146', 
+                maxAlanSayisiAralik: 'TEPE BASINCI 400', 
+                rotasyon: 'W' 
+              },
+              { 
+                kod: '26305', 
+                agirlik: 'GİRİŞ RAKORLU 15,40 KG', 
+                cikintiTorku: 'GİRİŞ RAKORLU 18,33NM', 
+                girisVeCikis: '1 İNÇ', 
+                iletimHacmi: '80,00 CM³', 
+                maksSinirliPompaHizi: '2100', 
+                maksSurekliPompaHizi: '1700', 
+                maxAlanSSurekBasinc: '350', 
+                maxAlanSay350BTork: '460', 
+                maxAlanSayisiAralik: 'TEPE BASINCI 400', 
+                rotasyon: 'W' 
+              },
+            ]
+          },
+          {
+            name: 'EKSENEL (MOBİL) PİSTONLU POMPALAR',
+            products: [
+              { 
+                kod: '26438', 
+                agirlik: 'GİRİŞ REKORLU 17,00', 
+                cikintiTorku: 'GİRİŞ REKORLU 20,45NM', 
+                girisVeCikis: '1°', 
+                iletimHacmi: '130,0 CM³', 
+                maksSinirliPompaHizi: '1750', 
+                maksSurekliPompaHizi: '1600', 
+                maxAlanSSurekBasinc: '350', 
+                maxAlanSay350BTork: '746', 
+                maxAlanSayisiAralik: '400', 
+                rotasyon: 'W' 
+              },
+              { 
+                kod: '26381', 
+                agirlik: 'GİRİŞ RAKORLU 11,90KG', 
+                cikintiTorku: 'GİRİŞ RAKORLU 12,28 NM', 
+                girisVeCikis: '3/4"', 
+                iletimHacmi: '63,00 CM³', 
+                maksSinirliPompaHizi: '2300', 
+                maksSurekliPompaHizi: '1900', 
+                maxAlanSSurekBasinc: '350', 
+                maxAlanSay350BTork: '360', 
+                maxAlanSayisiAralik: '400', 
+                rotasyon: 'W' 
+              },
+            ]
+          }
+        ]
+      }
+    }
+    return null
+  }
+
+  // SUNFAB PİSTONLU POMPA ürün verilerini al
+  const getSunfabPistonluPompaProductData = (cardName) => {
+    if (cardName === 'EKSENEL PİSTONLU POMPA') {
+      return {
+        title: 'EKSENEL PİSTONLU POMPA',
+        categories: [
+          {
+            name: 'EKSENEL (ENDÜSTRİYEL) PİSTONLU POMPALAR',
+            products: [
+              { kod: '26361', basinc: '400', iletimHacmi: '12,60 CM³', maksHiz: '6000', milTipi: 'FREZELİ' },
+              { kod: '26360', basinc: '400', iletimHacmi: '56,00 CM³', maksHiz: '3750', milTipi: 'FREZELİ' },
+            ]
+          },
+          {
+            name: 'EKSENEL (MOBİL) PİSTONLU POMPALAR',
+            products: [
+              { kod: 'SUNFAB23012R', iletimHacmi: '12,60 CM³', kapak: 'ISO FLANŞ', maksBasinc: '400', maksHiz: '3000', milTipi: 'DIN MİL' },
+              { kod: 'SUNFAB23017R', iletimHacmi: '17,00 CM³', kapak: 'ISO FLANŞ', maksBasinc: '400', maksHiz: '3000', milTipi: 'DIN MİL' },
+              { kod: '26394', iletimHacmi: '25,40 CM³', kapak: 'ISO FLANŞ', maksBasinc: '400', maksHiz: '3000', milTipi: 'DIN MİL' },
+              { kod: 'SUNFAB23034R', iletimHacmi: '34,20 CM³', kapak: 'ISO FLANŞ', maksBasinc: '400', maksHiz: '3000', milTipi: 'DIN MİL' },
+              { kod: '26396', iletimHacmi: '47,10 CM³', kapak: 'ISO FLANŞ', maksBasinc: '400', maksHiz: '2500', milTipi: 'DIN MİL' },
+              { kod: 'SUNFAB23056L', iletimHacmi: '56,00 CM³', kapak: 'ISO FLANŞ', maksBasinc: '400', maksHiz: '2500', milTipi: 'DIN MİL' },
+              { kod: 'SUNFAB23056R', iletimHacmi: '56,00 CM³', kapak: 'ISO FLANŞ', maksBasinc: '400', maksHiz: '2500', milTipi: 'DIN MİL' },
+              { kod: 'SUNFAB23064R', iletimHacmi: '63,60 CM³', kapak: 'ISO FLANŞ', maksBasinc: '400', maksHiz: '2500', milTipi: 'DIN MİL' },
+              { kod: 'SUNFAB23084R', iletimHacmi: '83,60 CM³', kapak: 'ISO FLANŞ', maksBasinc: '400', maksHiz: '2000', milTipi: 'DIN MİL' },
+              { kod: 'SUNFAB23220R', iletimHacmi: '130,00 CM³', kapak: 'ISO FLANŞ', maksBasinc: '300', maksHiz: '2000', milTipi: 'DIN MİL' },
+              { kod: '26386', iletimHacmi: '12,60 CM³', kapak: 'ISO FLANŞ', maksBasinc: '400', maksHiz: '3000', milTipi: 'DIN MİL' },
+              { kod: '26387', iletimHacmi: '17,00 CM³', kapak: 'ISO FLANŞ', maksBasinc: '400', maksHiz: '3000', milTipi: 'DIN MİL' },
+              { kod: '26388', iletimHacmi: '25,40 CM³', kapak: 'ISO FLANŞ', maksBasinc: '400', maksHiz: '3000', milTipi: 'DIN MİL' },
+              { kod: '26389', iletimHacmi: '34,20 CM³', kapak: 'ISO FLANŞ', maksBasinc: '400', maksHiz: '3000', milTipi: 'DIN MİL' },
+              { kod: '26448', iletimHacmi: '47,20 CM³', kapak: 'ISO FLASH', maksBasinc: '400', maksHiz: '2500', milTipi: 'DIN MİL' },
+              { kod: '26383', iletimHacmi: '47,10 CM³', kapak: 'ISO FLANŞ', maksBasinc: '400', maksHiz: '2500', milTipi: 'DIN MİL' },
+              { kod: '26449', iletimHacmi: '47,10 CM³', kapak: 'ISO FLANŞ', maksBasinc: '400', maksHiz: '2500', milTipi: 'DIN MİL' },
+              { kod: '26384', iletimHacmi: '56,00 CM³', kapak: 'ISO FLANŞ', maksBasinc: '400', maksHiz: '2500', milTipi: 'DIN MİL' },
+              { kod: '26385', iletimHacmi: '63,60 CM³', kapak: 'ISO FLANŞ', maksBasinc: '400', maksHiz: '2500', milTipi: 'DIN MİL' },
+              { kod: '26405', iletimHacmi: '63,60 CM³', kapak: 'ISO FLANŞ', maksBasinc: '400', maksHiz: '2500', milTipi: 'DIN MİL' },
+              { kod: '26391', iletimHacmi: '83,60 CM³', kapak: 'ISO FLANŞ', maksBasinc: '400', maksHiz: '2500', milTipi: 'DIN MİL' },
+              { kod: '26390', iletimHacmi: '83,60 CM³', kapak: 'ISO FLANŞ', maksBasinc: '400', maksHiz: '2000', milTipi: 'DIN MİL' },
+              { kod: 'SUNFAB21085R', iletimHacmi: '108,00 CM³', kapak: 'ISO FLANŞ', maksBasinc: '400', maksHiz: '2000', milTipi: 'DIN MİL' },
+              { kod: 'SUNFAB21085L', iletimHacmi: '108,00 CM³', kapak: 'ISO FLANŞ', maksBasinc: '400', maksHiz: '2000', milTipi: 'DIN MİL' },
+              { kod: '26397', iletimHacmi: '90,00 CM³', kapak: 'ISO FLANŞ', maksBasinc: '300', maksHiz: '2000', milTipi: 'DIN MİL' },
+              { kod: '26446', iletimHacmi: '90,00 CM³', kapak: 'ISO FLANŞ', maksBasinc: '300', maksHiz: '2000', milTipi: 'DIN MİL' },
+              { kod: '26398', iletimHacmi: '130,00 CM³', kapak: 'ISO FLANŞ', maksBasinc: '300', maksHiz: '2000', milTipi: 'DIN MİL' },
+              { kod: '26447', iletimHacmi: '130,00 CM³', kapak: 'ISO FLANŞ', maksBasinc: '300', maksHiz: '2000', milTipi: 'DIN MİL' },
+            ]
+          }
+        ]
+      }
+    }
+    return null
+  }
+
   // BERARMA ürün verilerini al
   const getBerarmaProductData = (cardName) => {
     if (cardName === 'DEĞİŞKEN DEBİLİ PALETLİ POMPALAR') {
@@ -1234,6 +1877,211 @@ function ProductDetail() {
           { kod: '45018', basinc: '250', hiz: '100-3000', iletimHacmi: '19,3 CM³', pompaSesSid: '62', verim: '95' },
           { kod: '45030', basinc: '250', hiz: '100-3000', iletimHacmi: '22,2 CM³', pompaSesSid: '63', verim: '95' },
           { kod: '45034', basinc: '250', hiz: '100-3000', iletimHacmi: '25,2 CM³', pompaSesSid: '64', verim: '95' },
+        ]
+      }
+    }
+    return data[brandName] || null
+  }
+
+  // TANDEM POMPALAR ürün verilerini al
+  const getTandemPompalarProductData = (brandName) => {
+    const description = 'Tandem Pompalar: Güçlü Hidrolik Performansın Anahtarı\n\nHidrolik sistemlerin temel yapı taşlarından biri olan tandem pompalar, işlevsellikleri ve sağlamlıklarıyla endüstriyel dünyada öne çıkıyor. Hidrolik pompa çeşitleri arasında önemli bir yere sahip olan tandem pompalar, birçok sektörde verimliliği artırmak ve güvenilir bir performans sunmak için tercih ediliyor.\n\nTandem Pompaların Gücü\n\nHidrolik sistemlerde kullanılan bu pompalar, hidrolik akışkanlarını yüksek basınçlar altında ileterek güç sağlar. Dişli pompa teknolojisinin yanı sıra alüminyum gövdeli dişli pompaların sağladığı dayanıklılık, uzun ömür ve yüksek performans, endüstriyel uygulamalarda tercih edilme sebeplerinin başında gelir.\n\nHidrolik Pompa Çeşitleri Arasında Öne Çıkanlar\n\nTandem pompalar, hidrolik sistemlerin ihtiyaçlarına göre farklı kapasitelerde ve özelliklerde tasarlanabilir. Bu, kullanıcılara geniş bir yelpazede seçenek sunar ve farklı endüstriyel gereksinimlere uygun çözümler sunar. Hidrolik dişli pompa modelleri arasında yer alan tandem pompalar, güvenilirlikleri ve esnek yapılarıyla dikkat çeker.\n\nPerformans ve Verimlilikte Tandem Pompaların Rolü\n\nHidrolik pompa fiyatları açısından ekonomik olmaları ve uzun ömürlü yapılarıyla, tandem pompalar uzun vadede maliyet tasarrufu sağlar. Bu pompalar, işletmeler için kesintisiz çalışma ve yüksek verimlilik anlamına gelir. Hidrolik pompası alırken, güvenilirlik, performans ve dayanıklılık gibi unsurlar göz önünde bulundurulmalıdır.\n\nTandem Pompalarla Güvenilir Hidrolik Performans\n\nHidrolik sistemlerdeki başarının anahtarı, güçlü ve dayanıklı parçaların bir araya gelmesiyle oluşur. Tandem pompalar, hidrolik pompa dünyasında bu gereklilikleri karşılayarak, kullanıcılarına güvenilir ve kesintisiz bir performans vadediyor.'
+    
+    const data = {
+      'hydropack': {
+        description,
+        tableHeaders: ['MODEL', 'BASINÇ', 'DEBİ', 'İLETİM HACMİ', 'MAKS.HIZ'],
+        products: [
+          { model: '20A10X066', basinc: '250', debi: '32,55', iletimHacmi: '10 CM³', maksHiz: '3500' },
+          { model: '20A10X067', basinc: '250', debi: '13,95-32,55', iletimHacmi: '10 CM³', maksHiz: '3500' },
+          { model: '20A10X201', basinc: '250', debi: '13,95-32,55', iletimHacmi: '10 CM³', maksHiz: '3500' },
+          { model: '20A11X066-H', basinc: '250', debi: '15,76-36,78', iletimHacmi: '11,3 CM³', maksHiz: '3500' },
+          { model: '20A11X067-H', basinc: '250', debi: '15,76-36,78', iletimHacmi: '11,3 CM³', maksHiz: '3500' },
+          { model: '20A11X097-H', basinc: '250', debi: '15,76-36,78', iletimHacmi: '11,3 CM³', maksHiz: '3500' },
+          { model: '20A11X201-H', basinc: '250', debi: '15,76-36,78', iletimHacmi: '11,3 CM³', maksHiz: '3500' },
+          { model: '20A11X329-H', basinc: '250', debi: '', iletimHacmi: '4,5-25 CM³', maksHiz: '3500' },
+          { model: '20A12X066-H', basinc: '250', debi: '16,92-39,48', iletimHacmi: '12 CM³', maksHiz: '3500' },
+          { model: '20A12X067-H', basinc: '250', debi: '16,92-39,48', iletimHacmi: '12 CM³', maksHiz: '3500' },
+          { model: '20A12X201', basinc: '250', debi: '16,92-39,48', iletimHacmi: '12 CM³', maksHiz: '3500' },
+          { model: '20A14X066', basinc: '250', debi: '19,95-46,55', iletimHacmi: '14 CM³', maksHiz: '3500' },
+          { model: '20A14X067', basinc: '250', debi: '19,95-46,55', iletimHacmi: '14 CM³', maksHiz: '3500' },
+          { model: '20A14X201', basinc: '250', debi: '19,95-46,55', iletimHacmi: '14 CM³', maksHiz: '3500' },
+          { model: '20A15X066', basinc: '250', debi: '21,60-36,00', iletimHacmi: '15 CM³', maksHiz: '2500' },
+          { model: '20A15X067', basinc: '250', debi: '21,60-36,00', iletimHacmi: '15 CM³', maksHiz: '2500' },
+          { model: '20A15X201', basinc: '250', debi: '21,60-36,00', iletimHacmi: '15 CM³', maksHiz: '2500' },
+          { model: '20A16X066', basinc: '250', debi: '23,04-38,40', iletimHacmi: '16 CM³', maksHiz: '2500' },
+          { model: '20A16X067', basinc: '250', debi: '23,04-38,40', iletimHacmi: '16 CM³', maksHiz: '2500' },
+          { model: '20A16X201', basinc: '250', debi: '23,04-38,40', iletimHacmi: '16 CM³', maksHiz: '2500' },
+          { model: '20A19X067', basinc: '200', debi: '27,36-45,60', iletimHacmi: '19 CM³', maksHiz: '2500' },
+          { model: '20A19X201', basinc: '200', debi: '27,36-46,60', iletimHacmi: '19 CM³', maksHiz: '2500' },
+          { model: '20A22X066', basinc: '180', debi: '31,68-42,24', iletimHacmi: '22 CM³', maksHiz: '2000' },
+          { model: '20A22X067', basinc: '180', debi: '31,68-42,24', iletimHacmi: '22 CM³', maksHiz: '2000' },
+          { model: '20A22X155', basinc: '180', debi: '', iletimHacmi: '22 CM³', maksHiz: '2000' },
+          { model: '20A22X201', basinc: '180', debi: '31,68-42,24', iletimHacmi: '22 CM³', maksHiz: '2000' },
+          { model: '20A25X066', basinc: '160', debi: '36,00-48,00', iletimHacmi: '25 CM³', maksHiz: '2000' },
+          { model: '20A25X067', basinc: '160', debi: '36,00-48,00', iletimHacmi: '25 CM³', maksHiz: '2000' },
+          { model: '20A25X201', basinc: '160', debi: '36-48', iletimHacmi: '25 CM³', maksHiz: '2000' },
+          { model: '20A4.5X067', basinc: '250', debi: '6,14-14,33', iletimHacmi: '4,5 CM³', maksHiz: '3500' },
+          { model: '20A4.5X201', basinc: '250', debi: '6,14-14,33', iletimHacmi: '4,5 CM³', maksHiz: '3500' },
+          { model: '20A6.3X201', basinc: '250', debi: '8,69-20,29', iletimHacmi: '6,3 CM³', maksHiz: '3500' },
+          { model: '20A8.2X066', basinc: '250', debi: '11,32-26,40', iletimHacmi: '8,2 CM³', maksHiz: '3500' },
+          { model: '20A8.2X067', basinc: '250', debi: '11,32-26,40', iletimHacmi: '8,2 CM³', maksHiz: '3500' },
+          { model: '20A8.2X201', basinc: '250', debi: '11,32-26,40', iletimHacmi: '8,2 CM³', maksHiz: '3500' },
+          { model: '20C10X066', basinc: '250', debi: '13,95-32,55', iletimHacmi: '10 CM³', maksHiz: '3500' },
+          { model: '20C10X067', basinc: '250', debi: '13,95-32,55', iletimHacmi: '10 CM³', maksHiz: '3500' },
+          { model: '20C10X201', basinc: '250', debi: '13,95-32,55', iletimHacmi: '10 CM³', maksHiz: '3500' },
+          { model: '20C11X066-H', basinc: '250', debi: '15,76-36,78', iletimHacmi: '11,3 CM³', maksHiz: '3500' },
+          { model: '20C11X067', basinc: '250', debi: '15,76-36,78', iletimHacmi: '11,3 CM³', maksHiz: '3500' },
+          { model: '20C11X201', basinc: '250', debi: '15,76-36,78', iletimHacmi: '11,3 CM³', maksHiz: '3500' },
+          { model: '20C12X066-H', basinc: '250', debi: '16,92-39,48', iletimHacmi: '12 CM³', maksHiz: '3500' },
+          { model: '20C12X067', basinc: '250', debi: '16,92-39,48', iletimHacmi: '12 CM³', maksHiz: '3500' },
+          { model: '20C12X201-H', basinc: '250', debi: '39,48', iletimHacmi: '12 CM³', maksHiz: '3500' },
+          { model: '20C14X066', basinc: '250', debi: '19,95-46,55', iletimHacmi: '14 CM³', maksHiz: '3500' },
+          { model: '20C14X067', basinc: '250', debi: '19,95-46,55', iletimHacmi: '14 CM³', maksHiz: '3500' },
+          { model: '20C14X201', basinc: '250', debi: '19,95-46,55', iletimHacmi: '14 CM³', maksHiz: '3500' },
+          { model: '20C15X066', basinc: '250', debi: '21,60-36,00', iletimHacmi: '15 CM³', maksHiz: '2500' },
+          { model: '20C15X201', basinc: '250', debi: '21,60-36,00', iletimHacmi: '15 CM³', maksHiz: '2500' },
+          { model: '20C16X066', basinc: '250', debi: '23,04-38,40', iletimHacmi: '16 CM³', maksHiz: '2500' },
+          { model: '20C16X067', basinc: '250', debi: '23,04-38,40', iletimHacmi: '16 CM³', maksHiz: '2500' },
+          { model: '20C16X201', basinc: '250', debi: '23,04-38,40', iletimHacmi: '16 CM³', maksHiz: '2500' },
+          { model: '20C19X066', basinc: '200', debi: '27,36-45,60', iletimHacmi: '19 CM³', maksHiz: '2500' },
+          { model: '20C19X067-H', basinc: '200', debi: '27,36-54,72', iletimHacmi: '19 CM³', maksHiz: '3000' },
+          { model: '20C19X201', basinc: '200', debi: '27,36-45,60', iletimHacmi: '19 CM³', maksHiz: '2500' },
+          { model: '20C22X066', basinc: '180', debi: '31,68-42,24', iletimHacmi: '22 CM³', maksHiz: '2000' },
+          { model: '20C22X067', basinc: '180', debi: '31,68-42,24', iletimHacmi: '22 CM³', maksHiz: '2000' },
+          { model: '20C22X201', basinc: '180', debi: '31,68-42,24', iletimHacmi: '22 CM³', maksHiz: '2000' },
+          { model: '20C25X067', basinc: '160', debi: '36,00-48,00', iletimHacmi: '25 CM³', maksHiz: '2000' },
+          { model: '20C25X201', basinc: '160', debi: '36,00-48,00', iletimHacmi: '25 CM³', maksHiz: '2000' },
+          { model: '20C4.5X066', basinc: '250', debi: '6,14-14,33', iletimHacmi: '4,5 CM³', maksHiz: '3500' },
+          { model: '20C4.5X201', basinc: '250', debi: '6,14-14,33', iletimHacmi: '4,5 CM³', maksHiz: '3500' },
+          { model: '20C6.3X066', basinc: '250', debi: '8,69-20,29', iletimHacmi: '6,3 CM³', maksHiz: '3500' },
+          { model: '20C6.3X067', basinc: '250', debi: '8,69-20,29', iletimHacmi: '6,3 CM³', maksHiz: '3500' },
+          { model: '20C6.3X201', basinc: '250', debi: '8,69-20,29', iletimHacmi: '6,3 CM³', maksHiz: '3500' },
+          { model: '20C8.2X066', basinc: '250', debi: '11,32-26,40', iletimHacmi: '8,2 CM³', maksHiz: '3500' },
+          { model: '20C8.2X067', basinc: '250', debi: '11,32-26,40', iletimHacmi: '8,2 CM³', maksHiz: '3500' },
+          { model: '20C8.2X201', basinc: '250', debi: '11,32-26,40', iletimHacmi: '8,2 CM³', maksHiz: '3500' },
+          { model: '30A25X198', basinc: '250', debi: '35,3-70,5', iletimHacmi: '25 CM³', maksHiz: '3000' },
+          { model: '30A28X198', basinc: '250', debi: '39,5-79,0', iletimHacmi: '28 CM³', maksHiz: '3000' },
+          { model: '30A32X198', basinc: '250', debi: '45,1-75,2', iletimHacmi: '32 CM³', maksHiz: '2500' },
+          { model: '30A36X198', basinc: '250', debi: '50,8-84,6', iletimHacmi: '36 CM³', maksHiz: '2500' },
+          { model: '30A42X198', basinc: '230', debi: '59,9-99,8', iletimHacmi: '42 CM³', maksHiz: '2500' },
+          { model: '30A46X198', basinc: '230', debi: '65,6-100,5', iletimHacmi: '46 CM³', maksHiz: '2300' },
+          { model: '30A46X198+', basinc: '230', debi: '65,6-100,5', iletimHacmi: '46 CM³', maksHiz: '2300' },
+          { model: '30A50X198', basinc: '200', debi: '71,3-99,8', iletimHacmi: '50 CM³', maksHiz: '2100' },
+          { model: '30A55X198', basinc: '200', debi: '78,4-91,4', iletimHacmi: '55 CM³', maksHiz: '1750' },
+          { model: '30C20X198', basinc: '250', debi: '28,2-56,4', iletimHacmi: '20 CM³', maksHiz: '3000' },
+          { model: '30C22.5X19', basinc: '250', debi: '31,7-63,5', iletimHacmi: '22,5 CM³', maksHiz: '3000' },
+          { model: '30C25X198', basinc: '250', debi: '35,3-70,5', iletimHacmi: '25 CM³', maksHiz: '3000' },
+          { model: '30C28X198', basinc: '250', debi: '39,5-79,0', iletimHacmi: '28 CM³', maksHiz: '3000' },
+          { model: '30C32X198', basinc: '250', debi: '45,1-75,2', iletimHacmi: '32 CM³', maksHiz: '2500' },
+          { model: '30C36X198', basinc: '250', debi: '50,8-84,6', iletimHacmi: '36 CM³', maksHiz: '2500' },
+          { model: '30C42X198', basinc: '230', debi: '59,9-99,8', iletimHacmi: '42 CM³', maksHiz: '2500' },
+          { model: '30C46X198', basinc: '230', debi: '65,6-100,5', iletimHacmi: '46 CM³', maksHiz: '2300' },
+          { model: '30C55X198', basinc: '200', debi: '78,4-91,4', iletimHacmi: '55 CM³', maksHiz: '1750' },
+        ]
+      },
+      'asc': {
+        description,
+        tableHeaders: ['MODEL', 'İLETİM HACMİ', 'MAKS.BASINÇ', 'MAKS.HIZ', 'MİN.HIZ'],
+        products: [
+          { model: 'ASCAP20.040/AP30.CXX02SN', iletimHacmi: '3,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+          { model: 'ASCAP20.040/AP30.AXX02SN', iletimHacmi: '3,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+          { model: 'ASCTAP20.040/040.AAB02SN', iletimHacmi: '3,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+          { model: 'ASCAP20.060/AP30.CXX02SN', iletimHacmi: '5,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+          { model: 'ASCAP20.060/AP30.AXX02SN', iletimHacmi: '5,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+          { model: 'ASCTAP20.060/040.AAB02SN', iletimHacmi: '5,9 CM³', maksBasinc: '250', maksHiz: '250', minHiz: '650' },
+          { model: 'ASCTAP20.060/060.AAB02SN', iletimHacmi: '5,9 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+          { model: 'ASCAP20.080/AP30.CXX02SN', iletimHacmi: '8,0 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+          { model: 'ASCAP20.080/AP30.AXX02SN', iletimHacmi: '8,0 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '650' },
+          { model: 'ASCAP20.095/AP30.CXX02SN', iletimHacmi: '9,4 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '600' },
+          { model: 'ASCAP20.095/AP30.AXX02SN', iletimHacmi: '9,4 CM³', maksBasinc: '250', maksHiz: '3500', minHiz: '600' },
+          { model: 'ASCAP20.115/AP30.CXX02SN', iletimHacmi: '11,4 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+          { model: 'ASCAP20.140/AP30.CXX02SN', iletimHacmi: '13,9 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+          { model: 'ASCAP20.140/AP30.AXX02SN', iletimHacmi: '13,9 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+          { model: 'ASCAP20.160/AP30.CXX02SN', iletimHacmi: '16,0 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+          { model: 'ASCAP20.160/AP30.AXX02SN', iletimHacmi: '16,0 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+          { model: 'ASCAP20.190/AP30.CXX02SN', iletimHacmi: '19,2 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+          { model: 'ASCAP20.190/AP30.AXX02SN', iletimHacmi: '19,2 CM³', maksBasinc: '250', maksHiz: '3000', minHiz: '600' },
+          { model: 'ASCAP20.220/AP30.CXX02SN', iletimHacmi: '21,9 CM³', maksBasinc: '210', maksHiz: '2500', minHiz: '600' },
+          { model: 'ASCAP20.220/AP30.AXX02SN', iletimHacmi: '21,9 CM³', maksBasinc: '210', maksHiz: '2500', minHiz: '600' },
+          { model: 'ASCAP20.250/AP30.CXX02SN', iletimHacmi: '24,8 CM³', maksBasinc: '190', maksHiz: '2500', minHiz: '600' },
+          { model: 'ASCAP20.250/AP30.AXX02SN', iletimHacmi: '24,8 CM³', maksBasinc: '190', maksHiz: '2500', minHiz: '600' },
+          { model: 'ASCAP20.280/AP30.CXX02SN', iletimHacmi: '27,9 CM³', maksBasinc: '170', maksHiz: '2200', minHiz: '600' },
+          { model: 'ASCAP20.280/AP30.AXX02SN', iletimHacmi: '27,9 CM³', maksBasinc: '170', maksHiz: '2200', minHiz: '600' },
+          { model: 'ASCAP30.220/AP20.AAB02SN', iletimHacmi: '21,9 CM³', maksBasinc: '210', maksHiz: '2500', minHiz: '600' },
+          { model: 'ASCAP30.220/AP30.AAB02SN', iletimHacmi: '21,9 CM³', maksBasinc: '210', maksHiz: '2500', minHiz: '600' },
+          { model: 'ASCAP30.220/AP20.CAB02SN', iletimHacmi: '21,9 CM³', maksBasinc: '210', maksHiz: '2500', minHiz: '600' },
+          { model: 'ASCAP30.220/AP30.CAB02SN', iletimHacmi: '21,9 CM³', maksBasinc: '210', maksHiz: '2500', minHiz: '600' },
+          { model: 'ASCAP30.220/AP30.CXX02SN', iletimHacmi: '21,9 CM³', maksBasinc: '210', maksHiz: '2500', minHiz: '600' },
+          { model: 'ASCAP30.250/AP30.AAB02SN', iletimHacmi: '24,8 CM³', maksBasinc: '190', maksHiz: '2500', minHiz: '600' },
+          { model: 'ASCAP30.250/AP20.CAB02SN', iletimHacmi: '24,8 CM³', maksBasinc: '190', maksHiz: '2500', minHiz: '600' },
+          { model: 'ASCAP30.250/AP30.CAB02SN', iletimHacmi: '24,8 CM³', maksBasinc: '190', maksHiz: '2500', minHiz: '600' },
+          { model: 'ASCAP30.280/AP20.AAB02SN', iletimHacmi: '27,9 CM³', maksBasinc: '170', maksHiz: '2500', minHiz: '600' },
+          { model: 'ASCAP30.280/AP30.AAB02SN', iletimHacmi: '27,9 CM³', maksBasinc: '170', maksHiz: '2200', minHiz: '600' },
+          { model: 'ASCAP30.280/AP20.CAB02SN', iletimHacmi: '27,9 CM³', maksBasinc: '170', maksHiz: '2200', minHiz: '600' },
+          { model: 'ASCAP30.280/AP30.CAB02SN', iletimHacmi: '27,9 CM³', maksBasinc: '170', maksHiz: '2200', minHiz: '600' },
+          { model: 'ASCAP30.320/AP20.AAB02SN', iletimHacmi: '32,0 CM³', maksBasinc: '160', maksHiz: '2000', minHiz: '500' },
+          { model: 'ASCAP30.320/AP30.AAB02SN', iletimHacmi: '32,0 CM³', maksBasinc: '160', maksHiz: '2000', minHiz: '500' },
+          { model: 'ASCAP30.320/AP20.CAB02SN', iletimHacmi: '32,0 CM³', maksBasinc: '160', maksHiz: '2000', minHiz: '500' },
+          { model: 'ASCAP30.320/AP30.CAB02SN', iletimHacmi: '32,0 CM³', maksBasinc: '160', maksHiz: '2000', minHiz: '500' },
+          { model: 'ASCAP30.320/AP30.CXX02SN', iletimHacmi: '32,0 CM³', maksBasinc: '160', maksHiz: '2000', minHiz: '500' },
+          { model: 'ASCAP30.380/AP30.CAB02SN', iletimHacmi: '38,0 CM³', maksBasinc: '140', maksHiz: '1750', minHiz: '500' },
+          { model: 'ASCAP30.420/AP20.AAB02SN', iletimHacmi: '38,0 CM³', maksBasinc: '140', maksHiz: '1750', minHiz: '500' },
+        ]
+      },
+      'casappa': {
+        description,
+        tableHeaders: ['MODEL', 'ÇALIŞMA BASINCI', 'İLETİM HACMİ', 'MAKS.HIZ', 'MİL-KAPAK TİPİ', 'KAPAK', 'MAX HIZ'],
+        products: [
+          { model: '27303', calismaBasinci: '270', iletimHacmi: '38,00 CM³', maksHiz: '3000', milKapakTipi: '04-S3', kapak: '', maxHiz: '' },
+          { model: '27302', calismaBasinci: '270', iletimHacmi: '38,00 CM³', maksHiz: '3000', milKapakTipi: '04-S3', kapak: '', maxHiz: '' },
+          { model: '27301', calismaBasinci: '270', iletimHacmi: '38,00 CM³', maksHiz: '3000', milKapakTipi: '04-S3', kapak: '', maxHiz: '' },
+          { model: '27445', calismaBasinci: '270', iletimHacmi: '50,77 CM³', maksHiz: '3000', milKapakTipi: '06-S8', kapak: '', maxHiz: '' },
+          { model: '27167', calismaBasinci: '', iletimHacmi: '14+11 CM³', maksHiz: '', milKapakTipi: '82-E2', kapak: '', maxHiz: '' },
+          { model: '27166', calismaBasinci: '', iletimHacmi: '16+8 CM³', maksHiz: '', milKapakTipi: '82-E2', kapak: '', maxHiz: '' },
+          { model: 'T66610531', calismaBasinci: '', iletimHacmi: '16 + 16 CM³', maksHiz: '', milKapakTipi: '82-E2', kapak: '', maxHiz: '' },
+          { model: '27170', calismaBasinci: '', iletimHacmi: '16+4 CM³', maksHiz: '', milKapakTipi: '82-E2', kapak: '', maxHiz: '' },
+          { model: '27310', calismaBasinci: '200', iletimHacmi: '21,14 CM³', maksHiz: '3000', milKapakTipi: '82-E2', kapak: '', maxHiz: '' },
+          { model: '27168', calismaBasinci: '', iletimHacmi: '20+11 CM³', maksHiz: '', milKapakTipi: '82-E2', kapak: '', maxHiz: '' },
+          { model: 'T66610549', calismaBasinci: '', iletimHacmi: '20 + 11 CM³', maksHiz: '', milKapakTipi: '82-E2', kapak: '', maxHiz: '' },
+          { model: '27169', calismaBasinci: '', iletimHacmi: '20+20 CM³', maksHiz: '', milKapakTipi: '82-E2', kapak: '', maxHiz: '' },
+          { model: '27311', calismaBasinci: '', iletimHacmi: '20 + 4 CM³', maksHiz: '', milKapakTipi: '82-E2', kapak: '', maxHiz: '' },
+          { model: 'T66610553', calismaBasinci: '', iletimHacmi: '20+6,3 CM³', maksHiz: '', milKapakTipi: '82-E2', kapak: '', maxHiz: '' },
+          { model: '27304', calismaBasinci: '', iletimHacmi: '20+8 CM³', maksHiz: '', milKapakTipi: '82-E2', kapak: '', maxHiz: '' },
+          { model: 'T66610567', calismaBasinci: '', iletimHacmi: '25+8 CM³', maksHiz: '', milKapakTipi: '82-E2', kapak: '', maxHiz: '' },
+          { model: 'T66610565', calismaBasinci: '', iletimHacmi: '25+11 CM³', maksHiz: '', milKapakTipi: '82-E2', kapak: '', maxHiz: '' },
+          { model: '27255', calismaBasinci: '', iletimHacmi: '25+11 CM³', maksHiz: '', milKapakTipi: '82-E2', kapak: '', maxHiz: '' },
+          { model: '27446', calismaBasinci: '170', iletimHacmi: '26,42 CM³', maksHiz: '', milKapakTipi: '55-B2', kapak: '2500', maxHiz: '' },
+          { model: '27256', calismaBasinci: '250', iletimHacmi: '21,99 CM³', maksHiz: '3000', milKapakTipi: '04-S5', kapak: '', maxHiz: '' },
+          { model: '27174', calismaBasinci: '', iletimHacmi: '27 + 14 CM³', maksHiz: '', milKapakTipi: '32-S5', kapak: '', maxHiz: '' },
+          { model: 'T666000LP', calismaBasinci: '', iletimHacmi: '43 + 11,2 CM³', maksHiz: '', milKapakTipi: '04-S5', kapak: '', maxHiz: '' },
+          { model: '27300', calismaBasinci: '150', iletimHacmi: '91,1 CM³', maksHiz: '2200', milKapakTipi: '04-S5', kapak: '', maxHiz: '' },
+          { model: '27257', calismaBasinci: '240', iletimHacmi: '34,55 CM³', maksHiz: '3000', milKapakTipi: '04-S5', kapak: '', maxHiz: '' },
+        ]
+      },
+      'vivolo': {
+        description,
+        tableHeaders: ['MODEL', 'MAKS.BASINÇ', 'MAKS.HIZ', 'MİN.HIZ', 'YER DEĞİŞTİRME (CM³/REV)'],
+        products: [
+          { model: '27286', maksBasinc: '300 BAR', maksHiz: '6000 GİRİ/MİN', minHiz: '700 GİRİ/MİN', yerDegistirme: '3.64 CM3/GİRO' },
+          { model: '27364', maksBasinc: '240 BAR', maksHiz: '3000 GİRİ/MİN', minHiz: '700 GİRİ/MİN', yerDegistirme: '22.8 CM3/GİRO' },
+        ]
+      },
+      'salami': {
+        description,
+        tableHeaders: ['MODEL', 'ÇALIŞMA BASINCI', 'MAKS.HIZ', 'MİN.HIZ', 'YER DEĞİŞTİRME (CM³/REV)'],
+        products: [
+          { model: '27282', calismaBasinci: '180 BAR', maksHiz: '2500', minHiz: '400', yerDegistirme: '25,8' },
+          { model: '612T-3E65E46', calismaBasinci: '200 BAR', maksHiz: '2500', minHiz: '400', yerDegistirme: '63,1' },
+          { model: '612T-3E75E46DP38P2', calismaBasinci: '180 BAR', maksHiz: '2500', minHiz: '400', yerDegistirme: '73,4' },
+        ]
+      },
+      'hydrocar': {
+        description,
+        tableHeaders: ['MODEL', 'MAKS.BASINÇ', 'MAKS.HIZ', 'POMPA TİPİ'],
+        products: [
+          { model: '27444', maksBasinc: '270/3900', maksHiz: '1400', pompaTipi: 'DP 30-43 T1 UNI' },
+          { model: '27541', maksBasinc: '270/3900', maksHiz: '1400', pompaTipi: 'DP 30-43 T1 UNI' },
         ]
       }
     }
@@ -4816,6 +5664,104 @@ function ProductDetail() {
                                 </div>
                               </div>
                             </>
+                          ) : productName === 'TANDEM POMPALAR' && currentBrand === 'hema' ? (
+                            <>
+                              {/* Açıklama Metni */}
+                              <div className="space-y-4 text-base leading-relaxed">
+                                <p>
+                                  <strong>TANDEM POMPALAR</strong>
+                                </p>
+                                <p>
+                                  <strong>HEMA</strong>
+                                </p>
+                                <p>
+                                  <strong>Tandem Pompalar: Güçlü Hidrolik Performansın Anahtarı</strong>
+                                </p>
+                                <p>
+                                  Hidrolik sistemlerin temel yapı taşlarından biri olan tandem pompalar, işlevsellikleri ve sağlamlıklarıyla endüstriyel dünyada öne çıkıyor. Hidrolik pompa çeşitleri arasında önemli bir yere sahip olan tandem pompalar, birçok sektörde verimliliği artırmak ve güvenilir bir performans sunmak için tercih ediliyor.
+                                </p>
+
+                                <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3">Tandem Pompaların Gücü</h3>
+                                <p>
+                                  Hidrolik sistemlerde kullanılan bu pompalar, hidrolik akışkanlarını yüksek basınçlar altında ileterek güç sağlar. Dişli pompa teknolojisinin yanı sıra alüminyum gövdeli dişli pompaların sağladığı dayanıklılık, uzun ömür ve yüksek performans, endüstriyel uygulamalarda tercih edilme sebeplerinin başında gelir.
+                                </p>
+
+                                <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3">Hidrolik Pompa Çeşitleri Arasında Öne Çıkanlar</h3>
+                                <p>
+                                  Tandem pompalar, hidrolik sistemlerin ihtiyaçlarına göre farklı kapasitelerde ve özelliklerde tasarlanabilir. Bu, kullanıcılara geniş bir yelpazede seçenek sunar ve farklı endüstriyel gereksinimlere uygun çözümler sunar. Hidrolik dişli pompa modelleri arasında yer alan tandem pompalar, güvenilirlikleri ve esnek yapılarıyla dikkat çeker.
+                                </p>
+
+                                <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3">Performans ve Verimlilikte Tandem Pompaların Rolü</h3>
+                                <p>
+                                  Hidrolik pompa fiyatları açısından ekonomik olmaları ve uzun ömürlü yapılarıyla, tandem pompalar uzun vadede maliyet tasarrufu sağlar. Bu pompalar, işletmeler için kesintisiz çalışma ve yüksek verimlilik anlamına gelir. Hidrolik pompası alırken, güvenilirlik, performans ve dayanıklılık gibi unsurlar göz önünde bulundurulmalıdır.
+                                </p>
+
+                                <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3">Tandem Pompalarla Güvenilir Hidrolik Performans</h3>
+                                <p>
+                                  Hidrolik sistemlerdeki başarının anahtarı, güçlü ve dayanıklı parçaların bir araya gelmesiyle oluşur. Tandem pompalar, hidrolik pompa dünyasında bu gereklilikleri karşılayarak, kullanıcılarına güvenilir ve kesintisiz bir performans vadediyor.
+                                </p>
+                              </div>
+
+                              {/* Ürün Tablosu */}
+                              <div className="mt-8 pt-6 border-t border-slate-200">
+                                <h3 className="text-lg font-bold text-slate-900 mb-4">TANDEM POMPALAR</h3>
+                                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full text-xs">
+                                      <thead className="bg-slate-50">
+                                        <tr>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">DEBİ (LT/DAK.)</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">KAPAK</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">DÖNÜŞ YÖNÜ</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">DEBİ</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">İLETİM HACMİ</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS. ÇIKIŞ BASINCI</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.HIZ</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MİN.HIZ</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">BAR</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">LİTRE</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">HACİM</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKİNE TİPLERİ</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">ÇIKIŞ PORTU</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">GİRİŞ PORTU</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">İŞLETİM BASINCI (BAR)</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">ŞAFT TİPİ</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">KAPAK TİPİ</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">BASINÇ (BAR)</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.BASINÇ</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.DEVİR</th>
+                                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">ÇALIŞMA BASINCI</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="divide-y divide-slate-200">
+                                        <tr className="hover:bg-slate-50"><td className="px-2 py-2 font-medium text-slate-900">1P1/1P1 /178</td><td className="px-2 py-2 text-slate-700">119+082</td><td className="px-2 py-2 text-slate-700">G TİPİ KAPAK (SAE A)</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-2 py-2 font-medium text-slate-900">1P1/1P1 /276</td><td className="px-2 py-2 text-slate-700">119+082</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">SOL</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-2 py-2 font-medium text-slate-900">1P1/1P1 /277</td><td className="px-2 py-2 text-slate-700">119+082</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-2 py-2 font-medium text-slate-900">27628</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">11,8</td><td className="px-2 py-2 text-slate-700">8,2 CM³</td><td className="px-2 py-2 text-slate-700">250</td><td className="px-2 py-2 text-slate-700">3000</td><td className="px-2 py-2 text-slate-700">600</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-2 py-2 font-medium text-slate-900">1PN.192.AG10 /247</td><td className="px-2 py-2 text-slate-700">27,6</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">19,2 CM³</td><td className="px-2 py-2 text-slate-700">250</td><td className="px-2 py-2 text-slate-700">3000</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">600</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-2 py-2 font-medium text-slate-900">27369</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">280</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">3,9</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-2 py-2 font-medium text-slate-900">27627</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">4 CM³</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">250</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">5,7</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-2 py-2 font-medium text-slate-900">MF18-30001</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">250</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">8,7</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-2 py-2 font-medium text-slate-900">27632</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">250</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">13,1</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-2 py-2 font-medium text-slate-900">2P1/2P1/484</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">C</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">33,3+16,7</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">KOMATSU GD 655 / MAİN - STEERİ</td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-2 py-2 font-medium text-slate-900">27505</td><td className="px-2 py-2 text-slate-700">119+082</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-2 py-2 font-medium text-slate-900">F1PN040AGS3/101</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">4 CM³</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">35 - M6*1*13</td><td className="px-2 py-2 text-slate-700">40 - M6*1*13</td><td className="px-2 py-2 text-slate-700">250</td><td className="px-2 py-2 text-slate-700">SAE 16-4 9 DİŞ/15,5</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-2 py-2 font-medium text-slate-900">F1PN040CGS3/102</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">5,7</td><td className="px-2 py-2 text-slate-700">4,0 CM³</td><td className="px-2 py-2 text-slate-700">250</td><td className="px-2 py-2 text-slate-700">3000</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">600</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-2 py-2 font-medium text-slate-900">F1PN040CJT3/082</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">5,7</td><td className="px-2 py-2 text-slate-700">4,0 CM³</td><td className="px-2 py-2 text-slate-700">250</td><td className="px-2 py-2 text-slate-700">3000</td><td className="px-2 py-2 text-slate-700">600</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-2 py-2 font-medium text-slate-900">F1PN040AB12/001</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">4,0 CM³</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">30 - M6*1*13</td><td className="px-2 py-2 text-slate-700">30 - M6*1*13</td><td className="px-2 py-2 text-slate-700">250</td><td className="px-2 py-2 text-slate-700">1/8</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-2 py-2 font-medium text-slate-900">F1PN040AJT3/081</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">4,00 CM³</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">35 - M6*1*13</td><td className="px-2 py-2 text-slate-700">40 - M6*1*13</td><td className="px-2 py-2 text-slate-700">250</td><td className="px-2 py-2 text-slate-700">1/5</td><td className="px-2 py-2 text-slate-700">J</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td></tr>
+                                        <tr className="hover:bg-slate-50"><td className="px-2 py-2 font-medium text-slate-900">F1PN040CB12/002</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">4,0 CM³</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700">35 - M6*1*13</td><td className="px-2 py-2 text-slate-700">40 - M6*1*13</td><td className="px-2 py-2 text-slate-700">250</td><td className="px-2 py-2 text-slate-700">SAE 16-4 9 DİŞ/15,5</td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td><td className="px-2 py-2 text-slate-700"></td></tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                  <div className="px-4 py-3 text-xs text-slate-500 bg-slate-50 border-t border-slate-200">
+                                    <p className="mb-2"><strong>Not:</strong> Bu tablo, HEMA markasına ait TANDEM POMPALAR ürün serisinin örneklerini içermektedir. Tabloda yüzlerce ürün kodu bulunmaktadır. Tüm ürünler için detaylı bilgi, teknik özellikler ve fiyat bilgisi almak için lütfen bizimle iletişime geçin.</p>
+                                    <p>Daha fazla ürün kodu ve detaylı teknik bilgiler için kataloğumuzu inceleyebilir veya satış ekibimizle görüşebilirsiniz.</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
                           ) : (
                             <div className="rounded-lg border border-dashed border-slate-300 bg-slate-50 p-8 text-center">
                               <p className="text-sm text-slate-500 italic">İçerik eklenecek...</p>
@@ -5040,6 +5986,781 @@ function ProductDetail() {
                   )
                 })}
               </div>
+            </>
+          ) : selectedBrand && productName === 'PİSTONLU POMPA' && !selectedPistonluPompaCard ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">{selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)} Ürünleri</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedBrand(null)
+                    setSelectedPistonluPompaCard(null)
+                  }}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Kartlar */}
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+                {getPistonluPompaBrandCards(selectedBrand).map((card) => {
+                  const img = getPistonluPompaCardImage(card)
+                  return (
+                    <div
+                      key={card}
+                      onClick={() => setSelectedPistonluPompaCard(card)}
+                      className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-2xl hover:shadow-[#ff7f00]/10"
+                    >
+                      {/* Image Container */}
+                      <div className="relative h-64 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50">
+                        <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                        <img 
+                          src={img} 
+                          alt={card} 
+                          className="h-full w-full object-contain p-6 transition-all duration-500 group-hover:scale-110"
+                          onError={(e) => {
+                            e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(card)}`
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#ff7f00]/0 via-transparent to-[#1e4294]/0 transition-all duration-500 group-hover:from-[#ff7f00]/5 group-hover:to-[#1e4294]/5" />
+                      </div>
+                      
+                      {/* Content Section */}
+                      <div className="flex flex-1 flex-col p-6 pt-5">
+                        <h3 className="mb-4 line-clamp-2 min-h-[3.5rem] text-lg font-bold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                          {card}
+                        </h3>
+                        <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                          <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                            Detay
+                          </span>
+                          <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                            <span className="text-xs font-semibold">İncele</span>
+                            <svg 
+                              className="h-4 w-4" 
+                              fill="none" 
+                              viewBox="0 0 24 24" 
+                              stroke="currentColor"
+                              strokeWidth={2.5}
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </>
+          ) : selectedPistonluPompaCard && selectedBrand === 'casappa' && productName === 'PİSTONLU POMPA' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">CASAPPA</p>
+                  <h2 className="text-xl font-semibold">{selectedPistonluPompaCard}</h2>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedPistonluPompaCard(null)
+                  }}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Ürün Tablosu */}
+              {(() => {
+                const productData = getCasappaPistonluPompaProductData(selectedPistonluPompaCard)
+                if (!productData) return null
+                
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {productData.categories.map((category, catIndex) => (
+                      <div key={catIndex} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL KODU</th>
+                                  {selectedPistonluPompaCard === 'EKSENEL PİSTONLU POMPA' ? (
+                                    <>
+                                      <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇALIŞMA BASINCI</th>
+                                      <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                      <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">KAPAK TİPİ</th>
+                                      <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                    </>
+                                  ) : (
+                                    <>
+                                      <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                      <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                      <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MİL-KAPAK TİPİ</th>
+                                      <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">POMPA VERSİYON</th>
+                                    </>
+                                  )}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((product, prodIndex) => (
+                                  <tr key={prodIndex} className="hover:bg-slate-50">
+                                    <td className="px-4 py-3 font-medium text-slate-900">{product.kod}</td>
+                                    {selectedPistonluPompaCard === 'EKSENEL PİSTONLU POMPA' ? (
+                                      <>
+                                        <td className="px-4 py-3 text-slate-700">{product.calismaBasinci}</td>
+                                        <td className="px-4 py-3 text-slate-700">{product.iletimHacmi}</td>
+                                        <td className="px-4 py-3 text-slate-700">{product.kapakTipi}</td>
+                                        <td className="px-4 py-3 text-slate-700">{product.maksHiz}</td>
+                                      </>
+                                    ) : (
+                                      <>
+                                        <td className="px-4 py-3 text-slate-700">{product.basinc}</td>
+                                        <td className="px-4 py-3 text-slate-700">{product.maksHiz}</td>
+                                        <td className="px-4 py-3 text-slate-700">{product.milKapakTipi}</td>
+                                        <td className="px-4 py-3 text-slate-700">{product.pompaVersiyon}</td>
+                                      </>
+                                    )}
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="mt-6 pt-6 border-t border-slate-200 px-4 py-3 text-xs text-slate-500 bg-slate-50 rounded-lg">
+                      <p className="mb-2"><strong>Not:</strong> Bu tablo, CASAPPA {selectedPistonluPompaCard} ürün serisinin teknik özelliklerini içermektedir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.</p>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedPistonluPompaCard && selectedBrand === 'hema' && productName === 'PİSTONLU POMPA' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">HEMA</p>
+                  <h2 className="text-xl font-semibold">{selectedPistonluPompaCard}</h2>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedPistonluPompaCard(null)
+                  }}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Ürün Tablosu */}
+              {(() => {
+                const productData = getHemaPistonluPompaProductData(selectedPistonluPompaCard)
+                if (!productData) return null
+                
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {productData.categories.map((category, catIndex) => (
+                      <div key={catIndex} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL KODU</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">DEV/DAK</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">POMPA VERSİYON</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((product, prodIndex) => (
+                                  <tr key={prodIndex} className="hover:bg-slate-50">
+                                    <td className="px-4 py-3 font-medium text-slate-900">{product.kod}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.basinc}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.devDak}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.pompaVersiyon}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="mt-6 pt-6 border-t border-slate-200 px-4 py-3 text-xs text-slate-500 bg-slate-50 rounded-lg">
+                      <p className="mb-2"><strong>Not:</strong> Bu tablo, HEMA {selectedPistonluPompaCard} ürün serisinin teknik özelliklerini içermektedir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.</p>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedPistonluPompaCard && selectedBrand === 'gold' && productName === 'PİSTONLU POMPA' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">GOLD</p>
+                  <h2 className="text-xl font-semibold">{selectedPistonluPompaCard}</h2>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedPistonluPompaCard(null)
+                  }}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Ürün Tablosu */}
+              {(() => {
+                const productData = getGoldPistonluPompaProductData(selectedPistonluPompaCard)
+                if (!productData) return null
+                
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {productData.categories.map((category, catIndex) => (
+                      <div key={catIndex} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL KODU</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AĞIRLIK</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇIKINTI TORKU</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">GİRİŞ VE ÇIKIŞ</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS. SINIRLI POMPA HIZI</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS. SÜREKLİ POMPA HIZI</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAX.ALAN S. SÜREK BASINÇ (BAR)</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAX.ALAN SAY. 350 B. TORK</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAX.ALAN SAYISI ARALIK</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ROTASYON</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((product, prodIndex) => (
+                                  <tr key={prodIndex} className="hover:bg-slate-50">
+                                    <td className="px-4 py-3 font-medium text-slate-900">{product.kod}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.agirlik}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.cikintiTorku}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.girisVeCikis}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.iletimHacmi}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.maksSinirliPompaHizi}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.maksSurekliPompaHizi}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.maxAlanSSurekBasinc}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.maxAlanSay350BTork}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.maxAlanSayisiAralik}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.rotasyon}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="mt-6 pt-6 border-t border-slate-200 px-4 py-3 text-xs text-slate-500 bg-slate-50 rounded-lg">
+                      <p className="mb-2"><strong>Not:</strong> Bu tablo, GOLD {selectedPistonluPompaCard} ürün serisinin teknik özelliklerini içermektedir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.</p>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedPistonluPompaCard && selectedBrand === 'celebi' && productName === 'PİSTONLU POMPA' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">ÇELEBİ</p>
+                  <h2 className="text-xl font-semibold">{selectedPistonluPompaCard}</h2>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedPistonluPompaCard(null)
+                  }}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Ürün Tablosu */}
+              {(() => {
+                const productData = getCelebiPistonluPompaProductData(selectedPistonluPompaCard)
+                if (!productData) return null
+                
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {productData.categories.map((category, catIndex) => (
+                      <div key={catIndex} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL KODU</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AĞIRLIK</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇIKINTI TORKU</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">GİRİŞ VE ÇIKIŞ</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAX.ALAN S. SÜREK BASINÇ (BAR)</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAX.ALAN SAY SINIRLI HIZ</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAX.ALAN SAY SÜREKLİ HIZ</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAX.ALAN SAY. 350 B. TORK</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAX.ALAN SAYISI ARALIK</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ROTASYON</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((product, prodIndex) => (
+                                  <tr key={prodIndex} className="hover:bg-slate-50">
+                                    <td className="px-4 py-3 font-medium text-slate-900">{product.kod}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.agirlik}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.cikintiTorku}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.girisVeCikis}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.iletimHacmi}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.maxAlanSSurekBasinc}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.maxAlanSaySinirliHiz}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.maxAlanSaySurekliHiz}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.maxAlanSay350BTork}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.maxAlanSayisiAralik}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.rotasyon}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="mt-6 pt-6 border-t border-slate-200 px-4 py-3 text-xs text-slate-500 bg-slate-50 rounded-lg">
+                      <p className="mb-2"><strong>Not:</strong> Bu tablo, ÇELEBİ {selectedPistonluPompaCard} ürün serisinin teknik özelliklerini içermektedir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.</p>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedPistonluPompaCard && selectedBrand === 'samhydraulic' && productName === 'PİSTONLU POMPA' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">SAMHYDRAULIC</p>
+                  <h2 className="text-xl font-semibold">{selectedPistonluPompaCard}</h2>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedPistonluPompaCard(null)
+                  }}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Ürün Tablosu */}
+              {(() => {
+                const productData = getSamhydraulicPistonluPompaProductData(selectedPistonluPompaCard)
+                if (!productData) return null
+                
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {productData.categories.map((category, catIndex) => (
+                      <div key={catIndex} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL KODU</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">HIZ</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.DEBİ (LT./DAK)</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MİL ÇAPI</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">TORK</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((product, prodIndex) => (
+                                  <tr key={prodIndex} className="hover:bg-slate-50">
+                                    <td className="px-4 py-3 font-medium text-slate-900">{product.kod}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.basinc}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.hiz}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.iletimHacmi}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.maksDebi}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.milCapi}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.tork}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="mt-6 pt-6 border-t border-slate-200 px-4 py-3 text-xs text-slate-500 bg-slate-50 rounded-lg">
+                      <p className="mb-2"><strong>Not:</strong> Bu tablo, SAMHYDRAULIC {selectedPistonluPompaCard} ürün serisinin teknik özelliklerini içermektedir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.</p>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedPistonluPompaCard && selectedBrand === 'linde' && productName === 'PİSTONLU POMPA' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">LINDE</p>
+                  <h2 className="text-xl font-semibold">{selectedPistonluPompaCard}</h2>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedPistonluPompaCard(null)
+                  }}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Ürün Tablosu */}
+              {(() => {
+                const productData = getLindePistonluPompaProductData(selectedPistonluPompaCard)
+                if (!productData) return null
+                
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {productData.categories.map((category, catIndex) => (
+                      <div key={catIndex} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL KODU</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">DEV/DAK</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">FLANŞ TİPİ</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">KONTROL TİPİ</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MİL TİPİ</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((product, prodIndex) => (
+                                  <tr key={prodIndex} className="hover:bg-slate-50">
+                                    <td className="px-4 py-3 font-medium text-slate-900">{product.kod}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.basinc}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.devDak}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.flansTipi}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.iletimHacmi}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.kontrolTipi}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.milTipi}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="mt-6 pt-6 border-t border-slate-200 px-4 py-3 text-xs text-slate-500 bg-slate-50 rounded-lg">
+                      <p className="mb-2"><strong>Not:</strong> Bu tablo, LINDE {selectedPistonluPompaCard} ürün serisinin teknik özelliklerini içermektedir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.</p>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedPistonluPompaCard && selectedBrand === 'kawasaki' && productName === 'PİSTONLU POMPA' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">KAWASAKI</p>
+                  <h2 className="text-xl font-semibold">{selectedPistonluPompaCard}</h2>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedPistonluPompaCard(null)
+                  }}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Ürün Tablosu */}
+              {(() => {
+                const productData = getKawasakiPistonluPompaProductData(selectedPistonluPompaCard)
+                if (!productData) return null
+                
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {productData.categories.map((category, catIndex) => (
+                      <div key={catIndex} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL KODU</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">FLANŞ TİPİ</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">KONTROL TİPİ</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MİL TİPİ</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((product, prodIndex) => (
+                                  <tr key={prodIndex} className="hover:bg-slate-50">
+                                    <td className="px-4 py-3 font-medium text-slate-900">{product.kod}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.flansTipi}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.iletimHacmi}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.kontrolTipi}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.milTipi}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="mt-6 pt-6 border-t border-slate-200 px-4 py-3 text-xs text-slate-500 bg-slate-50 rounded-lg">
+                      <p className="mb-2"><strong>Not:</strong> Bu tablo, KAWASAKI {selectedPistonluPompaCard} ürün serisinin teknik özelliklerini içermektedir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.</p>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedPistonluPompaCard && selectedBrand === 'pzb' && productName === 'PİSTONLU POMPA' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">PZB</p>
+                  <h2 className="text-xl font-semibold">{selectedPistonluPompaCard}</h2>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedPistonluPompaCard(null)
+                  }}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Ürün Tablosu */}
+              {(() => {
+                const productData = getPzbPistonluPompaProductData(selectedPistonluPompaCard)
+                if (!productData) return null
+                
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {productData.categories.map((category, catIndex) => (
+                      <div key={catIndex} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL KODU</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇALIŞMA BASINCI</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">DEBİ</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((product, prodIndex) => (
+                                  <tr key={prodIndex} className="hover:bg-slate-50">
+                                    <td className="px-4 py-3 font-medium text-slate-900">{product.kod}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.calismaBasinci}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.debi}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.maksHiz}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="mt-6 pt-6 border-t border-slate-200 px-4 py-3 text-xs text-slate-500 bg-slate-50 rounded-lg">
+                      <p className="mb-2"><strong>Not:</strong> Bu tablo, PZB {selectedPistonluPompaCard} ürün serisinin teknik özelliklerini içermektedir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.</p>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedPistonluPompaCard && selectedBrand === 'hpt' && productName === 'PİSTONLU POMPA' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">HPT</p>
+                  <h2 className="text-xl font-semibold">{selectedPistonluPompaCard}</h2>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedPistonluPompaCard(null)
+                  }}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Ürün Tablosu */}
+              {(() => {
+                const productData = getHptPistonluPompaProductData(selectedPistonluPompaCard)
+                if (!productData) return null
+                
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {productData.categories.map((category, catIndex) => (
+                      <div key={catIndex} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL KODU</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">LİTRE</th>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((product, prodIndex) => (
+                                  <tr key={prodIndex} className="hover:bg-slate-50">
+                                    <td className="px-4 py-3 font-medium text-slate-900">{product.kod}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.basinc}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.iletimHacmi}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.litre}</td>
+                                    <td className="px-4 py-3 text-slate-700">{product.maksHiz}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="mt-6 pt-6 border-t border-slate-200 px-4 py-3 text-xs text-slate-500 bg-slate-50 rounded-lg">
+                      <p className="mb-2"><strong>Not:</strong> Bu tablo, HPT {selectedPistonluPompaCard} ürün serisinin teknik özelliklerini içermektedir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.</p>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedPistonluPompaCard && selectedBrand === 'sunfab' && productName === 'PİSTONLU POMPA' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">SUNFAB</p>
+                  <h2 className="text-xl font-semibold">{selectedPistonluPompaCard}</h2>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedPistonluPompaCard(null)
+                  }}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Ürün Tablosu */}
+              {(() => {
+                const productData = getSunfabPistonluPompaProductData(selectedPistonluPompaCard)
+                if (!productData) return null
+                
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    {productData.categories.map((category, catIndex) => (
+                      <div key={catIndex} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                        <div className="rounded-lg border border-slate-200 overflow-hidden">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead className="bg-slate-50">
+                                <tr>
+                                  <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL KODU</th>
+                                  {category.name === 'EKSENEL (ENDÜSTRİYEL) PİSTONLU POMPALAR' ? (
+                                    <>
+                                      <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                                      <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                      <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                      <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MİL TİPİ</th>
+                                    </>
+                                  ) : (
+                                    <>
+                                      <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">İLETİM HACMİ</th>
+                                      <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">KAPAK</th>
+                                      <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.BASINÇ (BAR)</th>
+                                      <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MAKS.HIZ</th>
+                                      <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MİL TİPİ</th>
+                                    </>
+                                  )}
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-200">
+                                {category.products.map((product, prodIndex) => (
+                                  <tr key={prodIndex} className="hover:bg-slate-50">
+                                    <td className="px-4 py-3 font-medium text-slate-900">{product.kod}</td>
+                                    {category.name === 'EKSENEL (ENDÜSTRİYEL) PİSTONLU POMPALAR' ? (
+                                      <>
+                                        <td className="px-4 py-3 text-slate-700">{product.basinc}</td>
+                                        <td className="px-4 py-3 text-slate-700">{product.iletimHacmi}</td>
+                                        <td className="px-4 py-3 text-slate-700">{product.maksHiz}</td>
+                                        <td className="px-4 py-3 text-slate-700">{product.milTipi}</td>
+                                      </>
+                                    ) : (
+                                      <>
+                                        <td className="px-4 py-3 text-slate-700">{product.iletimHacmi}</td>
+                                        <td className="px-4 py-3 text-slate-700">{product.kapak}</td>
+                                        <td className="px-4 py-3 text-slate-700">{product.maksBasinc}</td>
+                                        <td className="px-4 py-3 text-slate-700">{product.maksHiz}</td>
+                                        <td className="px-4 py-3 text-slate-700">{product.milTipi}</td>
+                                      </>
+                                    )}
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="mt-6 pt-6 border-t border-slate-200 px-4 py-3 text-xs text-slate-500 bg-slate-50 rounded-lg">
+                      <p className="mb-2"><strong>Not:</strong> Bu tablo, SUNFAB {selectedPistonluPompaCard} ürün serisinin teknik özelliklerini içermektedir. Detaylı bilgi, fiyat ve teknik destek için lütfen bizimle iletişime geçin.</p>
+                    </div>
+                  </div>
+                )
+              })()}
             </>
           ) : selectedPaletliPompaCard && selectedBrand === 'berarma' && productName === 'PALETLİ POMPA' ? (
             <>
@@ -5700,6 +7421,110 @@ function ProductDetail() {
                   </div>
                 </div>
               </div>
+            </>
+          ) : selectedBrand && productName === 'TANDEM POMPALAR' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">{selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Detay Sayfası İçeriği */}
+              {(() => {
+                const productData = getTandemPompalarProductData(selectedBrand)
+                if (!productData) {
+                  return (
+                    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                      <div className="space-y-4 text-base leading-relaxed">
+                        <h1 className="text-2xl font-bold text-slate-900 mb-4">{productName} - {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</h1>
+                        <p className="text-slate-700">
+                          {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)} markasına ait {productName} ürünleri hakkında detaylı bilgi için lütfen bizimle iletişime geçin.
+                        </p>
+                        <p className="text-slate-600 text-sm mt-4">
+                          Detaylı teknik özellikler, fiyat bilgisi ve teknik destek için satış ekibimizle görüşebilirsiniz.
+                        </p>
+                      </div>
+                    </div>
+                  )
+                }
+
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <div className="space-y-6">
+                      <div>
+                        <h1 className="text-2xl font-bold text-slate-900 mb-4">{productName} - {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}</h1>
+                        <div className="space-y-4 text-base leading-relaxed text-slate-700 whitespace-pre-line">
+                          {productData.description.split('\n').map((paragraph, idx) => (
+                            <p key={idx}>{paragraph}</p>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Ürün Tablosu */}
+                      <div className="mt-8">
+                        <h2 className="text-xl font-bold text-slate-900 mb-4">{productName}</h2>
+                        <div className="overflow-x-auto rounded-lg border border-slate-200">
+                          <table className="w-full text-sm">
+                            <thead className="bg-slate-50">
+                              <tr>
+                                {productData.tableHeaders.map((header, index) => (
+                                  <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                    {header}
+                                  </th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {productData.products.map((product, index) => {
+                                // Header'lara göre değerleri sırayla al
+                                const getCellValue = (header) => {
+                                  if (header === 'MODEL') return product.model
+                                  if (header === 'BASINÇ') return product.basinc || ''
+                                  if (header === 'DEBİ') return product.debi || ''
+                                  if (header === 'İLETİM HACMİ') return product.iletimHacmi || ''
+                                  if (header === 'MAKS.HIZ') return product.maksHiz || ''
+                                  if (header === 'MAKS.BASINÇ') return product.maksBasinc || ''
+                                  if (header === 'MİN.HIZ') return product.minHiz || ''
+                                  if (header === 'ÇALIŞMA BASINCI') return product.calismaBasinci || ''
+                                  if (header === 'MİL-KAPAK TİPİ') return product.milKapakTipi || ''
+                                  if (header === 'KAPAK') return product.kapak || ''
+                                  if (header === 'MAX HIZ') return product.maxHiz || ''
+                                  if (header === 'YER DEĞİŞTİRME (CM³/REV)') return product.yerDegistirme || ''
+                                  if (header === 'POMPA TİPİ') return product.pompaTipi || ''
+                                  return ''
+                                }
+
+                                return (
+                                  <tr key={index} className="border-b border-slate-200 last:border-b-0 hover:bg-slate-50">
+                                    {productData.tableHeaders.map((header, headerIndex) => (
+                                      <td key={headerIndex} className="px-4 py-3 text-slate-700">
+                                        {headerIndex === 0 ? (
+                                          <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                        ) : (
+                                          getCellValue(header)
+                                        )}
+                                      </td>
+                                    ))}
+                                  </tr>
+                                )
+                              })}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })()}
             </>
           ) : selectedBrand && productName === 'EL POMPASI' ? (
             <>
