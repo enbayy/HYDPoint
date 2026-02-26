@@ -880,6 +880,150 @@ const FERRO_MANOMETRE_TEST_RAKORLARI_CATEGORIES = [
   },
 ]
 
+// HYDROPACK - DİLİMLİ KUMANDA KOLU
+const HYDROPACK_DILIMLI_KUMANDA_KOLU_CATEGORIES = [
+  {
+    name: '1/2 DİLİMLİ',
+    tableHeaders: ['MODEL', 'DEBİ (LT/DAK.)', 'DİŞ ÖLÇÜSÜ', 'MAKS.BASINÇ', 'MAKS.DÖNÜŞ'],
+    products: [
+      { model: 'B2PC70N1-2*PA1/T1-GKZ1', debi: '80', disOlcusu: "1/2''", maksBasinc: '320', maksDonus: '25' },
+      { model: 'B3PC70N1-3*PA1/T1-GKZ1', debi: '80', disOlcusu: "1/2''", maksBasinc: '320', maksDonus: '25' },
+      { model: 'B4PC70N1-A1C1C1A1-GKZ1', debi: '80', disOlcusu: "1/2''", maksBasinc: '320', maksDonus: '25' },
+      { model: 'B5PC70N1-5*PA1/T1-GKZ1', debi: '80', disOlcusu: "1/2''", maksBasinc: '320', maksDonus: '25' },
+      { model: 'B6PC70N1-6*PA1(AXBX)GKZ1', debi: '80', disOlcusu: "1/2''", maksBasinc: '320', maksDonus: '25' },
+      { model: 'B7PC70N1-7*PA1/T1-GKZ1', debi: '80', disOlcusu: "1/2''", maksBasinc: '320', maksDonus: '25' },
+      { model: 'B8PC70N1-8*PA1/T1-GKZ1', debi: '80', disOlcusu: "1/2''", maksBasinc: '320', maksDonus: '25' },
+    ],
+  },
+  {
+    name: '3/4 DİLİMLİ',
+    tableHeaders: ['MODEL', 'DEBİ (LT/DAK.)', 'DİŞ ÖLÇÜSÜ', 'MAKS.BASINÇ', 'MAKS.DÖNÜŞ'],
+    products: [
+      { model: 'BPC100N1-A1/T1-G2KZ1', debi: '120', disOlcusu: "3/4''", maksBasinc: '320', maksDonus: '25' },
+      { model: 'B2PC100N1-A1A1/T1-G2KZ1', debi: '120', disOlcusu: "3/4''", maksBasinc: '320', maksDonus: '25' },
+      { model: 'B3PC100N1-3*A1/T1-G2KZ1', debi: '120', disOlcusu: "3/4''", maksBasinc: '320', maksDonus: '25' },
+      { model: 'B4PC100N1-4*A1/T1-G2KZ1', debi: '120', disOlcusu: "3/4''", maksBasinc: '320', maksDonus: '25' },
+      { model: 'B5PC100N1-5*A1/T1-G2KZ1', debi: '120', disOlcusu: "3/4''", maksBasinc: '320', maksDonus: '25' },
+      { model: 'B6PC100N1-6*A1/T1-G2KZ1', debi: '120', disOlcusu: "3/4''", maksBasinc: '320', maksDonus: '25' },
+      { model: 'B7PC100N1-7*A1/T1-G2KZ1', debi: '120', disOlcusu: "3/4''", maksBasinc: '320', maksDonus: '25' },
+      { model: 'B9PC100N1-9*A1/T1-G2KZ1', debi: '80', disOlcusu: "1/2''", maksBasinc: '320', maksDonus: '25' },
+    ],
+  },
+]
+
+// AKON - DİLİMLİ KUMANDA KOLU
+const AKON_DILIMLI_KUMANDA_KOLU_CATEGORIES = [
+  {
+    name: '1" DİLİMLİ',
+    tableHeaders: ['MODEL', 'BASINÇ (BAR)', 'ÇIKIŞ PORTU', 'DEBİ (LT/DAK.)', 'GİRİŞ PORTU'],
+    products: [
+      { model: 'KV201', basinc: '315', cikisPortu: '3/4"', debi: '150', girisPortu: '1"' },
+      { model: 'KV202', basinc: '315', cikisPortu: '3/4"', debi: '150', girisPortu: '1"' },
+      { model: 'KV203', basinc: '315', cikisPortu: '3/4"', debi: '150', girisPortu: '1"' },
+      { model: 'KV204', basinc: '315', cikisPortu: '3/4"', debi: '150', girisPortu: '1"' },
+      { model: 'KV205', basinc: '315', cikisPortu: '3/4"', debi: '150', girisPortu: '1"' },
+      { model: 'KV206', basinc: '315', cikisPortu: '3/4"', debi: '150', girisPortu: '1"' },
+      { model: 'KV207', basinc: '315', cikisPortu: '3/4"', debi: '150', girisPortu: '1"' },
+    ],
+  },
+  {
+    name: '1/2 DİLİMLİ',
+    tableHeaders: ['MODEL', 'BAR', 'DEBİ (LT/DAK.)', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'KV174-1', bar: '350', debi: '80', disOlcusu: "3/4''" },
+      { model: 'KV171', bar: '350', debi: '80', disOlcusu: "3/4''" },
+      { model: 'KV172', bar: '350', debi: '80', disOlcusu: "3/4''" },
+      { model: 'KV173', bar: '350', debi: '80', disOlcusu: "3/4''" },
+      { model: 'KV174', bar: '350', debi: '80', disOlcusu: "3/4''" },
+      { model: 'KV175', bar: '350', debi: '80', disOlcusu: "3/4''" },
+      { model: 'KV176', bar: '350', debi: '80', disOlcusu: "3/4''" },
+      { model: 'KV177', bar: '350', debi: '80', disOlcusu: "3/4''" },
+      { model: 'KV178', bar: '350', debi: '80', disOlcusu: "3/4''" },
+    ],
+  },
+  {
+    name: '3/4 DİLİMLİ',
+    tableHeaders: ['MODEL', 'BAR', 'DEBİ (LT/DAK.)', 'DİŞ ÖLÇÜSÜ'],
+    products: [
+      { model: 'KV184-1', bar: '320', debi: '120', disOlcusu: "3/4 ''" },
+      { model: 'KV181', bar: '320', debi: '120', disOlcusu: "3/4 ''" },
+      { model: 'KV182', bar: '320', debi: '120', disOlcusu: "3/4 ''" },
+      { model: 'KV183', bar: '320', debi: '120', disOlcusu: "3/4 ''" },
+      { model: 'KV184', bar: '320', debi: '120', disOlcusu: "3/4 ''" },
+      { model: 'KV185', bar: '320', debi: '120', disOlcusu: "3/4 ''" },
+      { model: 'KV186', bar: '320', debi: '120', disOlcusu: "3/4 ''" },
+      { model: 'KV187', bar: '320', debi: '120', disOlcusu: "3/4 ''" },
+      { model: 'KV194', bar: '350', debi: '80', disOlcusu: "3/4''" },
+      { model: 'KV196', bar: '350', debi: '80', disOlcusu: "3/4''" },
+      { model: 'KV197', bar: '350', debi: '80', disOlcusu: "3/4''" },
+    ],
+  },
+]
+
+// WALVOIL - DİLİMLİ KUMANDA KOLU
+const WALVOIL_DILIMLI_KUMANDA_KOLU_CATEGORIES = [
+  {
+    name: '1/2 DİLİMLİ',
+    tableHeaders: ['MODEL', 'DEBİ (LT/DAK.)', 'DİŞ ÖLÇÜSÜ', 'MAKS.BASINÇ', 'MAKS.DÖNÜŞ'],
+    products: [
+      { model: 'WSDH213100105', debi: '80', disOlcusu: "1/2''", maksBasinc: '315', maksDonus: '25' },
+      { model: '42057', debi: '80', disOlcusu: "1/2''", maksBasinc: '315', maksDonus: '25' },
+      { model: 'W113200042', debi: '80', disOlcusu: "1/2''", maksBasinc: '315', maksDonus: '25' },
+      { model: 'WSDH213300077', debi: '80', disOlcusu: "1/2''", maksBasinc: '315', maksDonus: '25' },
+      { model: '42059', debi: '80', disOlcusu: "1/2''", maksBasinc: '315', maksDonus: '25' },
+      { model: 'W113500049', debi: '80', disOlcusu: "1/2''", maksBasinc: '315', maksDonus: '25' },
+      { model: '42061', debi: '80', disOlcusu: "1/2''", maksBasinc: '315', maksDonus: '25' },
+      { model: 'WSDH213711033', debi: '80', disOlcusu: "1/2''", maksBasinc: '315', maksDonus: '25' },
+      { model: '42063', debi: '80', disOlcusu: "1/2''", maksBasinc: '315', maksDonus: '25' },
+    ],
+  },
+  {
+    name: '3/4 DİLİMLİ',
+    tableHeaders: ['MODEL', 'DEBİ (LT/DAK.)', 'DİŞ ÖLÇÜSÜ', 'MAKS.BASINÇ', 'MAKS.DÖNÜŞ'],
+    products: [
+      { model: 'W10A100010', debi: '80', disOlcusu: "3/4''", maksBasinc: '315', maksDonus: '25' },
+      { model: 'W114130038', debi: '100', disOlcusu: "3/4''", maksBasinc: '315', maksDonus: '25' },
+      { model: '42114', debi: '100', disOlcusu: "3/4''", maksBasinc: '315', maksDonus: '25' },
+      { model: 'W114330062', debi: '100', disOlcusu: "3/4''", maksBasinc: '315', maksDonus: '25' },
+      { model: 'W114430109', debi: '100', disOlcusu: "3/4''", maksBasinc: '315', maksDonus: '25' },
+      { model: 'W114530013', debi: '100', disOlcusu: "3/4''", maksBasinc: '315', maksDonus: '25' },
+      { model: 'W114630063', debi: '100', disOlcusu: "3/4''", maksBasinc: '315', maksDonus: '25' },
+      { model: 'W114730024', debi: '100', disOlcusu: "3/4''", maksBasinc: '315', maksDonus: '25' },
+      { model: 'W114830028', debi: '100', disOlcusu: "3/4''", maksBasinc: '315', maksDonus: '25' },
+      { model: 'W114930008', debi: '100', disOlcusu: "3/4''", maksBasinc: '315', maksDonus: '25' },
+      { model: 'WSDH218100GEÇ', debi: '140', disOlcusu: "3/4''", maksBasinc: '315', maksDonus: '25' },
+      { model: '42144', debi: '140', disOlcusu: "3/4''", maksBasinc: '315', maksDonus: '25' },
+      { model: '42145', debi: '140', disOlcusu: "3/4''", maksBasinc: '315', maksDonus: '25' },
+      { model: 'W118300029', debi: '140', disOlcusu: "3/4''", maksBasinc: '315', maksDonus: '25' },
+      { model: 'W118400019', debi: '140', disOlcusu: "3/4''", maksBasinc: '315', maksDonus: '25' },
+      { model: 'WSDH218500116', debi: '140', disOlcusu: "3/4''", maksBasinc: '315', maksDonus: '25' },
+      { model: '42135', debi: '140', disOlcusu: "3/4''", maksBasinc: '315', maksDonus: '25' },
+      { model: 'W118700005', debi: '140', disOlcusu: "3/4''", maksBasinc: '315', maksDonus: '25' },
+      { model: 'WSDH218800024', debi: '140', disOlcusu: "3/4''", maksBasinc: '315', maksDonus: '25' },
+      { model: 'W118900001', debi: '140', disOlcusu: "3/4''", maksBasinc: '315', maksDonus: '25' },
+    ],
+  },
+  {
+    name: '1"1/4 DİLİMLİ',
+    tableHeaders: ['MODEL', 'DEBİ (LT/DAK.)', 'DİŞ ÖLÇÜSÜ', 'MAKS.BASINÇ', 'MAKS.DÖNÜŞ'],
+    products: [
+      { model: 'W11H113001', debi: '240', disOlcusu: '1" 1/4\'\'', maksBasinc: '315', maksDonus: '25' },
+      { model: 'W11H200017', debi: '240', disOlcusu: '1" 1/4\'\'', maksBasinc: '315', maksDonus: '25' },
+      { model: 'W117300011', debi: '240', disOlcusu: '1" 1/4\'\'', maksBasinc: '315', maksDonus: '25' },
+      { model: '42042', debi: '240', disOlcusu: '1" 1/4\'\'', maksBasinc: '315', maksDonus: '25' },
+      { model: 'WÖ11H400038', debi: '240', disOlcusu: '1" 1/4\'\'', maksBasinc: '315', maksDonus: '25' },
+    ],
+  },
+  {
+    name: '3/8 DİLİMLİ',
+    tableHeaders: ['MODEL', 'BASINÇ (BAR)', 'DEBİ (LT/DAK.)', 'DİŞ ÖLÇÜSÜ', 'MAKS.DÖNÜŞ'],
+    products: [
+      { model: 'WSDH212400106', basinc: '315', debi: '45', disOlcusu: "3/8″", maksDonus: '25' },
+      { model: '42146', basinc: '315', debi: '45', disOlcusu: "3/8″", maksDonus: '25' },
+    ],
+  },
+]
+
 // PALETLİ POMPA için markalara göre kartlar
 const getPaletliPompaBrandCards = (brandName) => {
   const brandCards = {
@@ -12163,6 +12307,204 @@ function ProductDetail() {
                     </table>
                   </div>
                 </div>
+              </div>
+            </>
+          ) : selectedBrand && productName === 'DİLİMLİ KUMANDA KOLU' && currentBrand === 'hydropack' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Hydropack</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* HYDROPACK Dilimli Kumanda Kolu Tabloları */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                {HYDROPACK_DILIMLI_KUMANDA_KOLU_CATEGORIES.map((category, catIndex) => (
+                  <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                    <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                    <div className="rounded-lg border border-slate-200 overflow-hidden">
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-sm">
+                          <thead className="bg-slate-50">
+                            <tr>
+                              {category.tableHeaders.map((header, index) => (
+                                <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                  {header}
+                                </th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-slate-200">
+                            {category.products.map((row) => {
+                              const getCellValue = (header) => {
+                                if (header === 'MODEL') return row.model
+                                if (header === 'DEBİ (LT/DAK.)') return row.debi || ''
+                                if (header === 'DİŞ ÖLÇÜSÜ') return row.disOlcusu || ''
+                                if (header === 'MAKS.BASINÇ') return row.maksBasinc || ''
+                                if (header === 'MAKS.DÖNÜŞ') return row.maksDonus || ''
+                                return ''
+                              }
+                              return (
+                                <tr key={row.model} className="hover:bg-slate-50">
+                                  {category.tableHeaders.map((header, headerIndex) => (
+                                    <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                      {headerIndex === 0 ? (
+                                        <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                      ) : (
+                                        getCellValue(header)
+                                      )}
+                                    </td>
+                                  ))}
+                                </tr>
+                              )
+                            })}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : selectedBrand && productName === 'DİLİMLİ KUMANDA KOLU' && currentBrand === 'akon' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Akon</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* AKON Dilimli Kumanda Kolu Tabloları */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                {AKON_DILIMLI_KUMANDA_KOLU_CATEGORIES.map((category, catIndex) => (
+                  <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                    <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                    <div className="rounded-lg border border-slate-200 overflow-hidden">
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-sm">
+                          <thead className="bg-slate-50">
+                            <tr>
+                              {category.tableHeaders.map((header, index) => (
+                                <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                  {header}
+                                </th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-slate-200">
+                            {category.products.map((row) => {
+                              const getCellValue = (header) => {
+                                if (header === 'MODEL') return row.model
+                                if (header === 'BASINÇ (BAR)') return row.basinc || ''
+                                if (header === 'BAR') return row.bar || ''
+                                if (header === 'ÇIKIŞ PORTU') return row.cikisPortu || ''
+                                if (header === 'DEBİ (LT/DAK.)') return row.debi || ''
+                                if (header === 'GİRİŞ PORTU') return row.girisPortu || ''
+                                if (header === 'DİŞ ÖLÇÜSÜ') return row.disOlcusu || ''
+                                return ''
+                              }
+                              return (
+                                <tr key={row.model} className="hover:bg-slate-50">
+                                  {category.tableHeaders.map((header, headerIndex) => (
+                                    <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                      {headerIndex === 0 ? (
+                                        <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                      ) : (
+                                        getCellValue(header)
+                                      )}
+                                    </td>
+                                  ))}
+                                </tr>
+                              )
+                            })}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : selectedBrand && productName === 'DİLİMLİ KUMANDA KOLU' && currentBrand === 'walvoil' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Walvoil</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* WALVOIL Dilimli Kumanda Kolu Tabloları */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                {WALVOIL_DILIMLI_KUMANDA_KOLU_CATEGORIES.map((category, catIndex) => (
+                  <div key={category.name} className={catIndex > 0 ? 'mt-8 pt-8 border-t border-slate-200' : ''}>
+                    <h3 className="text-lg font-bold text-slate-900 mb-4">{category.name}</h3>
+                    <div className="rounded-lg border border-slate-200 overflow-hidden">
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-sm">
+                          <thead className="bg-slate-50">
+                            <tr>
+                              {category.tableHeaders.map((header, index) => (
+                                <th key={index} className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">
+                                  {header}
+                                </th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-slate-200">
+                            {category.products.map((row) => {
+                              const getCellValue = (header) => {
+                                if (header === 'MODEL') return row.model
+                                if (header === 'BASINÇ (BAR)') return row.basinc || ''
+                                if (header === 'DEBİ (LT/DAK.)') return row.debi || ''
+                                if (header === 'DİŞ ÖLÇÜSÜ') return row.disOlcusu || ''
+                                if (header === 'MAKS.BASINÇ') return row.maksBasinc || ''
+                                if (header === 'MAKS.DÖNÜŞ') return row.maksDonus || ''
+                                return ''
+                              }
+                              return (
+                                <tr key={row.model} className="hover:bg-slate-50">
+                                  {category.tableHeaders.map((header, headerIndex) => (
+                                    <td key={headerIndex} className="px-4 py-3 text-slate-700 whitespace-nowrap">
+                                      {headerIndex === 0 ? (
+                                        <span className="font-medium text-slate-900">{getCellValue(header)}</span>
+                                      ) : (
+                                        getCellValue(header)
+                                      )}
+                                    </td>
+                                  ))}
+                                </tr>
+                              )
+                            })}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </>
           ) : selectedBrand && productName === 'MANOMETRE TEST RAKORLARI' && currentBrand === 'ferro' ? (
