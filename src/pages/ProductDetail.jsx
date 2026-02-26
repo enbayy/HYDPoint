@@ -755,6 +755,100 @@ const TRAFAG_TRANSMITTERLER_ROWS = [
   },
 ]
 
+// ÇELEBİ - EĞİK EKSENLİ HİDROMOTORLAR
+const CELEBI_EGIK_EKSENLI_HIDROMOTORLAR_ROWS = [
+  { model: '2PBM 108 cc', agirlik: '16 KG', iletimHacmi: '108,40 CM³', maksBasinc: '400', maksHiz: '4000 RPM' },
+  { model: '2PBM 130 cc', agirlik: '16,5 KG', iletimHacmi: '130,00 CM³', maksBasinc: '400', maksHiz: '3400 RPM' },
+  { model: '2PBM 25 cc', agirlik: '10 KG', iletimHacmi: '25,00 CM³', maksBasinc: '400', maksHiz: '6250 RPM' },
+  { model: '2PBM 32 cc', agirlik: '11 KG', iletimHacmi: '32,00 CM³', maksBasinc: '400', maksHiz: '6250 RPM' },
+  { model: '2PBM 40 cc', agirlik: '11 KG', iletimHacmi: '40,20 CM³', maksBasinc: '400', maksHiz: '5600 RPM' },
+  { model: '2PBM 50 cc', agirlik: '11 KG', iletimHacmi: '50,00 CM³', maksBasinc: '400', maksHiz: '5000 RPM' },
+  { model: '2PBM 63 cc', agirlik: '12 KG', iletimHacmi: '63,00 CM³', maksBasinc: '400', maksHiz: '5000 RPM' },
+  { model: '2PBM 80 cc', agirlik: '15 KG', iletimHacmi: '80,00 CM³', maksBasinc: '400', maksHiz: '4400 RPM' },
+]
+
+// GOLD - EĞİK EKSENLİ HİDROMOTORLAR
+const GOLD_EGIK_EKSENLI_HIDROMOTORLAR_ROWS = [
+  {
+    model: '37370',
+    agirlik: '11,50 KG',
+    iletimHacmi: '32,00 CM³',
+    maksBasinc: '400',
+    maksDebi: '200',
+    maksHiz: '6250 RPM',
+    maxAlanSay350BTork: '174 M.N',
+  },
+  {
+    model: '37371',
+    agirlik: '11,50 KG',
+    iletimHacmi: '40,20 CM³',
+    maksBasinc: '400',
+    maksDebi: '225',
+    maksHiz: '5600 RPM',
+    maxAlanSay350BTork: '228 M.N',
+  },
+]
+
+// SUNFAB - EĞİK EKSENLİ HİDROMOTORLAR
+const SUNFAB_EGIK_EKSENLI_HIDROMOTORLAR_ROWS = [
+  { model: '37339', basinc: '350', iletimHacmi: '12,60 CM³', maksHiz: '8800', milTipi: 'FREZELİ' },
+  { model: '37349', basinc: '350', iletimHacmi: '17,00 CM³', maksHiz: '8800', milTipi: 'FREZELİ' },
+  { model: 'SUNFAB36762', basinc: '350', iletimHacmi: '25,40 CM³', maksHiz: '7000', milTipi: 'FREZELİ' },
+  { model: 'SUNFAB35980', basinc: '350', iletimHacmi: '34,20 CM³', maksHiz: '7000', milTipi: 'FREZELİ' },
+  { model: '37350', basinc: '350', iletimHacmi: '41,20 CM³', maksHiz: '6300', milTipi: 'FREZELİ' },
+  { model: '37342', basinc: '350', iletimHacmi: '47,10 CM³', maksHiz: '6300', milTipi: 'FREZELİ' },
+  { model: '37343', basinc: '350', iletimHacmi: '63,50 CM³', maksHiz: '6300', milTipi: 'FREZELİ' },
+  { model: 'SUNFAB35467', basinc: '350', iletimHacmi: '83,60 CM³', maksHiz: '5200', milTipi: 'FREZELİ' },
+  { model: '37345', basinc: '350', iletimHacmi: '108,00 CM³', maksHiz: '5200', milTipi: 'FREZELİ' },
+  { model: 'SUNFAB36058', basinc: '350', iletimHacmi: '130,00 CM³', maksHiz: '5200', milTipi: 'FREZELİ' },
+]
+
+// PARKER - EĞİK EKSENLİ HİDROMOTORLAR
+const PARKER_EGIK_EKSENLI_HIDROMOTORLAR_ROWS = [
+  { model: 'PMH-2K-3781740', basinc: '250', iletimHacmi: '40,9 CM³', maksDevir: '2000', maksGuc: '27', tork: '130' },
+  { model: '37356', basinc: '250', iletimHacmi: '59,5 CM³', maksDevir: '1700', maksGuc: '34', tork: '189' },
+  { model: '37368', basinc: '250', iletimHacmi: '81,6 CM³', maksDevir: '1500', maksGuc: '41', tork: '259' },
+  { model: 'PMH-2E-3707249', basinc: '350', iletimHacmi: '4,9 CM³', maksDevir: '12800', maksGuc: '63', tork: '7,8' },
+  { model: '09M8083', basinc: '350', iletimHacmi: '4,9 CM³', maksDevir: '12800', maksGuc: '63', tork: '7,8' },
+  { model: 'PMH-2E-3706030', basinc: '350', iletimHacmi: '9,8 CM³', maksDevir: '10200', maksGuc: '100', tork: '15,6' },
+  { model: 'PMH-2E-3799539', basinc: '420', iletimHacmi: '80,4 CM³', maksDevir: '4800', maksGuc: '386', tork: '127,6' },
+  { model: '37347', basinc: '420', iletimHacmi: '80,4 CM³', maksDevir: '4800', maksGuc: '386', tork: '127,6' },
+  { model: 'PMH-2F-3786110', basinc: '420', iletimHacmi: '80,4 CM³', maksDevir: '4800', maksGuc: '386', tork: '127,6' },
+]
+
+// HYDROPACK - YILDIZ (RADIAL) MOTOR
+const HYDROPACK_YILDIZ_RADIAL_MOTOR_ROWS = [
+  { model: 'ZJMDG3-300', calismaBasinci: '225', devir: '6-500', iletimHacmi: '289 CM³', maksBasinc: '275', tork: '43' },
+  { model: 'ZJMDG6-500', calismaBasinci: '225', devir: '5-500', iletimHacmi: '491 CM³', maksBasinc: '275', tork: '73' },
+  { model: 'ZJMDG6-600', calismaBasinci: '225', devir: '4-500', iletimHacmi: '594 CM³', maksBasinc: '275', tork: '88' },
+]
+
+// SAI - YILDIZ (RADIAL) MOTOR
+const SAI_YILDIZ_RADIAL_MOTOR_ROWS = [
+  { model: '37804', iletimHacmi: '352 - 987 CM³', maksGuc: '80', tork: '5,49 - 15.4 SPESİFİK' },
+]
+
+// ITALGROUP - YILDIZ (RADIAL) MOTOR
+const ITALGROUP_YILDIZ_RADIAL_MOTOR_ROWS = [
+  { model: '012.00242', agirlik: '42', iletimHacmi: '424 CM³', maksBasinc: '270', maksGuc: '50', maksHiz: '600', tepeHizi: '700', tork: '6.7' },
+  { model: '37796', agirlik: '26', iletimHacmi: '100 CM³', maksBasinc: '270', maksGuc: '41', maksHiz: '950', tepeHizi: '1050', tork: '1,6' },
+  { model: '37790', agirlik: '26', iletimHacmi: '157 CM³', maksBasinc: '270', maksGuc: '41', maksHiz: '950', tepeHizi: '1050', tork: '2,5' },
+  { model: '37791', agirlik: '26', iletimHacmi: '176 CM³', maksBasinc: '270', maksGuc: '41', maksHiz: '800', tepeHizi: '900', tork: '2,8' },
+  { model: '37808', agirlik: '26', iletimHacmi: '207 CM³', maksBasinc: '250', maksGuc: '41', maksHiz: '750', tepeHizi: '850', tork: '3,3' },
+  { model: '37809', agirlik: '26', iletimHacmi: '257 CM³', maksBasinc: '250', maksGuc: '41', maksHiz: '750', tepeHizi: '850', tork: '4,1' },
+  { model: '37810', agirlik: '42', iletimHacmi: '253 CM³', maksBasinc: '270', maksGuc: '50', maksHiz: '750', tepeHizi: '850', tork: '4,0' },
+  { model: '37811', agirlik: '42', iletimHacmi: '314 CM³', maksBasinc: '270', maksGuc: '50', maksHiz: '750', tepeHizi: '850', tork: '5,0' },
+  { model: 'ITLGRP-IAM.400 H2A0 D31', agirlik: '42', iletimHacmi: '424 CM³', maksBasinc: '270', maksGuc: '50', maksHiz: '600', tepeHizi: '700', tork: '6,7' },
+  { model: '37788', agirlik: '42', iletimHacmi: '492 CM³', maksBasinc: '260', maksGuc: '50', maksHiz: '500', tepeHizi: '600', tork: '7,8' },
+  { model: '37794', agirlik: '42', iletimHacmi: '584 CM³', maksBasinc: '250', maksGuc: '50', maksHiz: '500', tepeHizi: '600', tork: '9,3' },
+  { model: '37812', agirlik: '68', iletimHacmi: '594 CM³', maksBasinc: '270', maksGuc: '70', maksHiz: '550', tepeHizi: '630', tork: '9,4' },
+  { model: '37786', agirlik: '92', iletimHacmi: '992 CM³', maksBasinc: '270', maksGuc: '82', maksHiz: '330', tepeHizi: '400', tork: '15,8' },
+  { model: 'ITLGRP-R8M.1100 H4 A0 D40', agirlik: '92', iletimHacmi: '1116 CM³', maksBasinc: '260', maksGuc: '82', maksHiz: '330', tepeHizi: '400', tork: '17,8' },
+  { model: '37795', agirlik: '92', iletimHacmi: '792 CM³', maksBasinc: '270', maksGuc: '82', maksHiz: '450', tepeHizi: '530', tork: '12,6' },
+  { model: '37789', agirlik: '173', iletimHacmi: '1528 CM³', maksBasinc: '270', maksGuc: '122', maksHiz: '300', tepeHizi: '350', tork: '24,3' },
+  { model: 'ITLGRP-R8M.1800 H5 A0 D75', agirlik: '173', iletimHacmi: '1815 CM³', maksBasinc: '260', maksGuc: '122', maksHiz: '250', tepeHizi: '300', tork: '28,9' },
+]
+
 // FERRO - MANOMETRE TEST RAKORLARI
 const FERRO_MANOMETRE_TEST_RAKORLARI_CATEGORIES = [
   {
@@ -2623,6 +2717,726 @@ function ProductDetail() {
           { kod: 'OHP-602', calismaBasinci: '310', calismaSicakligi: '-30 C / +110 C', disNormlari: 'BSP', disOlculeri: '25CC\'DEN 45CC', malzeme: '666 4', sizdirmazlik: 'NITRILE NBR' },
         ]
       }
+  }
+  return data[brandName] || null
+  }
+
+  // GEROTOR MOTORLAR (ORBİT) ürün verilerini al
+  const getGerotorMotorlarOrbitProductData = (brandName) => {
+    const data = {
+      hema: {
+        description:
+          'HEMA Gerotor motorlar (Orbit), kompakt yapıları ve yüksek tork değerleri ile endüstriyel ve mobil uygulamalarda güvenilir bir çözüm sunar. MR ve MS serileri, farklı debi ve basınç gereksinimlerine yönelik geniş bir ürün yelpazesi sağlar.',
+        categories: [
+          {
+            name: 'MR SERİSİ',
+            tableHeaders: [
+              'MODEL',
+              'AKIŞ MİKTARI (L/DK)',
+              'ÇIKIŞ GÜCÜ (KW)',
+              'DEVİR',
+              'GİRİŞ BASINCI',
+              'İLETİM HACMİ',
+              'TAHRİK MİLİ',
+              'TORK',
+            ],
+            products: [
+              { model: 'HMR100A.2', akisMiktari: '53', cikisGucu: '9,50', devir: '510', girisBasinci: '155/138', iletimHacmi: '100 CM³', tahrikMili: '25 MM', tork: '19,6' },
+              { model: 'HMR100AF.2', akisMiktari: '53', cikisGucu: '9,50', devir: '510', girisBasinci: '155/138', iletimHacmi: '100 CM³', tahrikMili: '25 MM', tork: '19,6' },
+              { model: 'HMR125A.2', akisMiktari: '53', cikisGucu: '8,60', devir: '430', girisBasinci: '155/138', iletimHacmi: '125 CM³', tahrikMili: '25 MM', tork: '23' },
+              { model: 'HMR125FA.2', akisMiktari: '53', cikisGucu: '8,60', devir: '430', girisBasinci: '155/138', iletimHacmi: '125 CM³', tahrikMili: '25 MM', tork: '23' },
+              { model: 'HMR160A.2', akisMiktari: '53', cikisGucu: '8,60', devir: '329', girisBasinci: '138/124', iletimHacmi: '160 CM³', tahrikMili: '25 MM', tork: '27,1' },
+              { model: 'HMR160AF3', akisMiktari: '53', cikisGucu: '8,60', devir: '329', girisBasinci: '138/124', iletimHacmi: '160 CM³', tahrikMili: '25 MM', tork: '27,1' },
+              { model: 'HMR200A.2', akisMiktari: '53', cikisGucu: '8,60', devir: '266', girisBasinci: '138/124', iletimHacmi: '200 CM³', tahrikMili: '25 MM', tork: '32,8' },
+              { model: 'HMR200AF.2', akisMiktari: '53', cikisGucu: '8,60', devir: '266', girisBasinci: '138/124', iletimHacmi: '200 CM³', tahrikMili: '25 MM', tork: '32,8' },
+              { model: 'HMR250A.2', akisMiktari: '53', cikisGucu: '8,60', devir: '213', girisBasinci: '138/124', iletimHacmi: '250 CM³', tahrikMili: '25 MM', tork: '40,1' },
+              { model: 'HMR250AF.2', akisMiktari: '53', cikisGucu: '8,60', devir: '213', girisBasinci: '138/124', iletimHacmi: '250 CM³', tahrikMili: '25 MM', tork: '40,1' },
+              { model: 'HMR305A.2', akisMiktari: '53', cikisGucu: '7,00', devir: '171', girisBasinci: '124/103', iletimHacmi: '305 CM³', tahrikMili: '25 MM', tork: '41,7' },
+              { model: 'HMR305AF.2', akisMiktari: '53', cikisGucu: '7,00', devir: '171', girisBasinci: '124/103', iletimHacmi: '305 CM³', tahrikMili: '25 MM', tork: '41,7' },
+              { model: 'HMR395A.2', akisMiktari: '53', cikisGucu: '6,30', devir: '133', girisBasinci: '103/90', iletimHacmi: '395 CM³', tahrikMili: '25 MM', tork: '42,9' },
+              { model: 'HMR395AF.2', akisMiktari: '53', cikisGucu: '6,30', devir: '133', girisBasinci: '103/90', iletimHacmi: '395 CM³', tahrikMili: '25 MM', tork: '42,9' },
+              { model: 'HMR50A.2', akisMiktari: '38', cikisGucu: '7,00', devir: '750', girisBasinci: '155/138', iletimHacmi: '50 CM³', tahrikMili: '25 MM', tork: '9,2' },
+              { model: 'HMR50AF.2', akisMiktari: '38', cikisGucu: '7,00', devir: '750', girisBasinci: '155/138', iletimHacmi: '50 CM³', tahrikMili: '25 MM', tork: '9,2' },
+              { model: 'HMR80A.2', akisMiktari: '53', cikisGucu: '9,50', devir: '635', girisBasinci: '155/139', iletimHacmi: '80 CM³', tahrikMili: '25 MM', tork: '15' },
+              { model: 'HMR80FA.2', akisMiktari: '53', cikisGucu: '9,50', devir: '635', girisBasinci: '155/139', iletimHacmi: '80 CM³', tahrikMili: '25 MM', tork: '15' },
+            ],
+          },
+          {
+            name: 'MS SERİSİ',
+            tableHeaders: [
+              'MODEL',
+              'AKIŞ MİKTARI (L/DK)',
+              'ÇIKIŞ GÜCÜ (KW)',
+              'DEVİR',
+              'GİRİŞ BASINCI',
+              'İLETİM HACMİ',
+              'TAHRİK MİLİ',
+              'TORK',
+            ],
+            products: [
+              { model: 'HMS100BS.2', akisMiktari: '95', cikisGucu: '16', devir: '924', girisBasinci: '310/170', iletimHacmi: '100 CM³', tahrikMili: '32 MM', tork: '24,5' },
+              { model: 'HMS130BS.2', akisMiktari: '95', cikisGucu: '16', devir: '820', girisBasinci: '310/170', iletimHacmi: '125 CM³', tahrikMili: '32 MM', tork: '31,5' },
+              { model: 'HMS160BS.2', akisMiktari: '115', cikisGucu: '16', devir: '713', girisBasinci: '260/170', iletimHacmi: '160 CM³', tahrikMili: '32 MM', tork: '38,5' },
+              { model: 'HMS200BS.2', akisMiktari: '115', cikisGucu: '16', devir: '577', girisBasinci: '260/170', iletimHacmi: '195 CM³', tahrikMili: '32 MM', tork: '46,5' },
+              { model: 'HMS245BS.2', akisMiktari: '115', cikisGucu: '16', devir: '462', girisBasinci: '260-170', iletimHacmi: '245 CM³', tahrikMili: '32 MM', tork: '55,5' },
+              { model: 'HMS305BS.2', akisMiktari: '115', cikisGucu: '15', devir: '365', girisBasinci: '240/170', iletimHacmi: '305 CM³', tahrikMili: '32 MM', tork: '61' },
+              { model: 'HMS80BS.2', akisMiktari: '75', cikisGucu: '16', devir: '908', girisBasinci: '310/170', iletimHacmi: '80 CM³', tahrikMili: '32 MM', tork: '19,5' },
+              { model: 'HMSQ100', akisMiktari: '95', cikisGucu: '16', devir: '924', girisBasinci: '310/170', iletimHacmi: '100 CM³', tahrikMili: '32 MM', tork: '24,5' },
+              { model: 'HMSQ160', akisMiktari: '115', cikisGucu: '16', devir: '713', girisBasinci: '260/170', iletimHacmi: '160 CM³', tahrikMili: '32 MM', tork: '38,5' },
+              { model: 'HMSQ200', akisMiktari: '115', cikisGucu: '16', devir: '577', girisBasinci: '260/170', iletimHacmi: '195 CM³', tahrikMili: '32 MM', tork: '46,5' },
+            ],
+          },
+        ],
+      },
+      oxim: {
+        description:
+          'OXIM Gerotor motorlar (Orbit), MM, MH, MR ve MT serileriyle farklı tork, hız ve debi ihtiyaçlarına yönelik geniş bir çözüm aralığı sunar.',
+        categories: [
+          {
+            name: 'MM SERİSİ',
+            tableHeaders: [
+              'MODEL',
+              'AĞIRLIK',
+              'BASINÇ DÜŞMESİ',
+              'İLETİM HACMİ',
+              'MAK. TORK',
+              'MAKS.ÇIKIŞ DEĞERİ',
+              'MAKS.DEBİ (LT./DAK)',
+              'MAKS.HIZ',
+            ],
+            products: [
+              {
+                model: 'OMM12,5',
+                agirlik: '2',
+                basincDusmesi: '10',
+                iletimHacmi: '12,9 CM³',
+                makTork: '16',
+                maksCikis: '2,4',
+                maksDebi: '20',
+                maksHiz: '1550',
+              },
+            ],
+          },
+          {
+            name: 'MH SERİSİ',
+            tableHeaders: [
+              'MODEL',
+              'AĞIRLIK',
+              'BASINÇ DÜŞMESİ',
+              'İLETİM HACMİ',
+              'MAK. TORK',
+              'MAKS.ÇIKIŞ DEĞERİ',
+              'MAKS.DEBİ (LT./DAK)',
+              'MAKS.HIZ',
+            ],
+            products: [
+              {
+                model: 'OMH 200-32',
+                agirlik: '10,5',
+                basincDusmesi: '17,5',
+                iletimHacmi: '203,2 CM³',
+                makTork: '510',
+                maksCikis: '16',
+                maksDebi: '75',
+                maksHiz: '366',
+              },
+              {
+                model: 'OMH 400-32',
+                agirlik: '12,3',
+                basincDusmesi: '15,5',
+                iletimHacmi: '406,4 CM³',
+                makTork: '850',
+                maksCikis: '12,5',
+                maksDebi: '75',
+                maksHiz: '183',
+              },
+              {
+                model: 'OMH 500-32',
+                agirlik: '13',
+                basincDusmesi: '12,5',
+                iletimHacmi: '489,2 CM³',
+                makTork: '830',
+                maksCikis: '11',
+                maksDebi: '75',
+                maksHiz: '155',
+              },
+            ],
+          },
+          {
+            name: 'MR SERİSİ',
+            tableHeaders: [
+              'MODEL',
+              'AĞIRLIK',
+              'BASINÇ DÜŞMESİ',
+              'İLETİM HACMİ',
+              'MAK. TORK',
+              'MAKS.ÇIKIŞ DEĞERİ',
+              'MAKS.DEBİ (LT./DAK)',
+              'MAKS.HIZ',
+            ],
+            products: [
+              {
+                model: 'OMR100',
+                agirlik: '7',
+                basincDusmesi: '17,5',
+                iletimHacmi: '102 CM³',
+                makTork: '240',
+                maksCikis: '13,0',
+                maksDebi: '60',
+                maksHiz: '600',
+              },
+              {
+                model: 'OMR125',
+                agirlik: '7,3',
+                basincDusmesi: '17,5',
+                iletimHacmi: '127,2 CM³',
+                makTork: '300',
+                maksCikis: '12,5',
+                maksDebi: '60',
+                maksHiz: '475',
+              },
+              {
+                model: 'OMR160',
+                agirlik: '7,6',
+                basincDusmesi: '16,5',
+                iletimHacmi: '157,2 CM³',
+                makTork: '360',
+                maksCikis: '12,5',
+                maksDebi: '60',
+                maksHiz: '378',
+              },
+              {
+                model: 'OMR400',
+                agirlik: '9,5',
+                basincDusmesi: '7',
+                iletimHacmi: '381,4 CM³',
+                makTork: '365',
+                maksCikis: '5,0',
+                maksDebi: '60',
+                maksHiz: '155',
+              },
+              {
+                model: 'OMR50',
+                agirlik: '6,5',
+                basincDusmesi: '14,0',
+                iletimHacmi: '51 CM³',
+                makTork: '72',
+                maksCikis: '8,5',
+                maksDebi: '40',
+                maksHiz: '1085',
+              },
+              {
+                model: 'OMS125',
+                agirlik: '10,03',
+                basincDusmesi: '20,5',
+                iletimHacmi: '125 CM³',
+                makTork: '365',
+                maksCikis: '18',
+                maksDebi: '75',
+                maksHiz: '600',
+              },
+            ],
+          },
+          {
+            name: 'MT SERİSİ',
+            tableHeaders: [
+              'MODEL',
+              'AĞIRLIK',
+              'BASINÇ DÜŞMESİ',
+              'GİRİŞ BASINCI',
+              'İLETİM HACMİ',
+              'MAK. TORK',
+              'MAKS.ÇIKIŞ DEĞERİ',
+              'MAKS.DEBİ (LT./DAK)',
+              'MAKS.HIZ',
+            ],
+            products: [
+              {
+                model: 'OMT200',
+                agirlik: '20',
+                basincDusmesi: '20',
+                girisBasinci: '21',
+                iletimHacmi: '201,4 CM³',
+                makTork: '590',
+                maksCikis: '34,9',
+                maksDebi: '125',
+                maksHiz: '625',
+              },
+            ],
+          },
+        ],
+      },
+      samhydraulic: {
+        description:
+          'SAMHYDRAULIC Gerotor motorlar (Orbit), MP, MM, MR ve MS serileri ile farklı tork ve hız gereksinimleri için tasarlanmıştır.',
+        categories: [
+          {
+            name: 'MP SERİSİ',
+            tableHeaders: ['MODEL', 'BASINÇ (BAR)', 'DEBİ (LT/DAK.)', 'İLETİM HACMİ', 'MAKS.DEVİR', 'MİL ÇAPI', 'TORK'],
+            products: [
+              { model: '37457', basinc: '165', debi: '60', iletimHacmi: '101 CM³', maksDevir: '590', milCapi: '25', tork: '19' },
+              { model: '37458', basinc: '165', debi: '60', iletimHacmi: '128 CM³', maksDevir: '465', milCapi: '25', tork: '24' },
+              { model: '37459', basinc: '165', debi: '60', iletimHacmi: '168 CM³', maksDevir: '355', milCapi: '25', tork: '30' },
+              { model: '37460', basinc: '165', debi: '60', iletimHacmi: '195 CM³', maksDevir: '305', milCapi: '25', tork: '30' },
+              { model: '37468', basinc: '165', debi: '60', iletimHacmi: '244 CM³', maksDevir: '245', milCapi: '25', tork: '30' },
+              { model: '37477', basinc: '165', debi: '60', iletimHacmi: '292 CM³', maksDevir: '205', milCapi: '25', tork: '30' },
+              { model: '37478', basinc: '165', debi: '60', iletimHacmi: '390 CM³', maksDevir: '150', milCapi: '25', tork: '30' },
+              { model: '37455', basinc: '165', debi: '60', iletimHacmi: '49 CM³', maksDevir: '1220', milCapi: '25', tork: '9,3' },
+              { model: '37456', basinc: '165', debi: '60', iletimHacmi: '73 CM³', maksDevir: '820', milCapi: '25', tork: '14' },
+            ],
+          },
+          {
+            name: 'MM SERİSİ',
+            tableHeaders: ['MODEL', 'BASINÇ (BAR)', 'DEBİ (LT/DAK.)', 'İLETİM HACMİ', 'MAK. TORK', 'MAKS.DEVİR', 'MİL ÇAPI'],
+            products: [
+              { model: '37433', basinc: '140', debi: '20', iletimHacmi: '31,80 CM³', makTork: '3,9', maksDevir: '625', milCapi: '16' },
+              { model: '37435', basinc: '140', debi: '20', iletimHacmi: '50,00 CM³', makTork: '4,9', maksDevir: '400', milCapi: '16' },
+              { model: '37434', basinc: '140', debi: '20', iletimHacmi: '50,00 CM³', makTork: '4,9', maksDevir: '400', milCapi: '16' },
+            ],
+          },
+          {
+            name: 'MR SERİSİ',
+            tableHeaders: ['MODEL', 'BASINÇ (BAR)', 'DEBİ (LT/DAK.)', 'İLETİM HACMİ', 'MAK. TORK', 'MAKS.DEVİR', 'MİL ÇAPI'],
+            products: [
+              { model: '37565', basinc: '175', debi: '60', iletimHacmi: '100 CM³', makTork: '23,70', maksDevir: '600', milCapi: '25' },
+              { model: '37566', basinc: '175', debi: '60', iletimHacmi: '125,7 CM³', makTork: '30,00', maksDevir: '477', milCapi: '25' },
+              { model: '37567', basinc: '175', debi: '60', iletimHacmi: '160 CM³', makTork: '29,60', maksDevir: '375', milCapi: '25' },
+              { model: '37542', basinc: '175', debi: '60', iletimHacmi: '200 CM³', makTork: '29,70', maksDevir: '300', milCapi: '25' },
+              { model: '37543', basinc: '175', debi: '60', iletimHacmi: '250 CM³', makTork: '29,70', maksDevir: '240', milCapi: '25' },
+              { model: '37544', basinc: '175', debi: '60', iletimHacmi: '314,5 CM³', makTork: '30,00', maksDevir: '191', milCapi: '25' },
+              { model: '37545', basinc: '175', debi: '60', iletimHacmi: '393 CM³', makTork: '29,20', maksDevir: '153', milCapi: '25' },
+              { model: '37563', basinc: '175', debi: '40', iletimHacmi: '51,6 CM³', makTork: '10,30', maksDevir: '775', milCapi: '25' },
+              { model: '37564', basinc: '175', debi: '50', iletimHacmi: '80,4 CM³', makTork: '19,70', maksDevir: '746', milCapi: '25' },
+              { model: '37585', basinc: '175', debi: '60', iletimHacmi: '100 CM³', makTork: '23,70', maksDevir: '600', milCapi: '25' },
+            ],
+          },
+          {
+            name: 'MS SERİSİ',
+            tableHeaders: ['MODEL', 'ÇALIŞMA BASINCI', 'HIZ', 'İLETİM HACMİ', 'MAK. TORK', 'MAKS.DEBİ (LT./DAK)', 'MİL ÇAPI'],
+            products: [
+              { model: '37648', calismaBasinci: '205', hiz: '750,0', iletimHacmi: '100 CM³', makTork: '29,5', maksDebi: '75', milCapi: '32' },
+              { model: '37649', calismaBasinci: '205', hiz: '596,5', iletimHacmi: '125,7 CM³', makTork: '37,5', maksDebi: '75', milCapi: '32' },
+              { model: '37650', calismaBasinci: '205', hiz: '468,5', iletimHacmi: '160 CM³', makTork: '46,5', maksDebi: '75', milCapi: '32' },
+              { model: '37651', calismaBasinci: '205', hiz: '375,0', iletimHacmi: '200 CM³', makTork: '58,0', maksDebi: '75', milCapi: '32' },
+              { model: '37633', calismaBasinci: '205', hiz: '300,0', iletimHacmi: '250 CM³', makTork: '71,0', maksDebi: '75', milCapi: '32' },
+              { model: '37634', calismaBasinci: '205', hiz: '238,5', iletimHacmi: '315 CM³', makTork: '89,0', maksDebi: '75', milCapi: '32' },
+              { model: '37667', calismaBasinci: '155', hiz: '190,0', iletimHacmi: '393 CM³', makTork: '86,0', maksDebi: '75', milCapi: '32' },
+              { model: '37647', calismaBasinci: '205', hiz: '932,0', iletimHacmi: '84,0 CM³', makTork: '23,5', maksDebi: '75', milCapi: '30' },
+              { model: '37652', calismaBasinci: '200', hiz: '380', iletimHacmi: '326,3 CM³', makTork: '95', maksDebi: '125', milCapi: '40' },
+              { model: '37668', calismaBasinci: '180', hiz: '305', iletimHacmi: '410,9 CM³', makTork: '108', maksDebi: '125', milCapi: '40' },
+            ],
+          },
+          {
+            name: 'FRENLİ YÜRÜYÜŞ HİDROMOTOR',
+            tableHeaders: ['MODEL', 'BASINÇ (BAR)', 'DEBİ', 'İLETİM HACMİ', 'MAK. TORK', 'MAKS.DEVİR', 'MİL ÇAPI'],
+            products: [
+              { model: '37377', basinc: '210', debi: '75', iletimHacmi: '315 CM³', makTork: '89', maksDevir: '239', milCapi: 'KAMALI' },
+            ],
+          },
+        ],
+      },
+      parker: {
+        description:
+          'PARKER Gerotor motorlar (Orbit), MP, MH, MR ve ME-TG [S] kare kapak serileriyle yüksek tork ve dayanıklılık sunan hidromotor çözümleridir.',
+        categories: [
+          {
+            name: 'MP SERİSİ',
+            tableHeaders: ['MODEL', 'BASINÇ', 'HIZ', 'İLETİM HACMİ', 'MAK. TORK', 'MAKS.DEBİ (LT./DAK)'],
+            products: [
+              { model: 'PMH-PW-TE0100CW260AAAB', basinc: '140', hiz: '', iletimHacmi: '', makTork: '', maksDebi: '' },
+              { model: '37467', basinc: '140', hiz: '280', iletimHacmi: '163 CM³', makTork: '310', maksDebi: '45' },
+              { model: '37487', basinc: '140', hiz: '235', iletimHacmi: '196 CM³', makTork: '390', maksDebi: '45' },
+            ],
+          },
+          {
+            name: 'MH SERİSİ',
+            tableHeaders: ['MODEL', 'BASINÇ (BAR)', 'HIZ', 'İLETİM HACMİ', 'MAK. TORK', 'MAKS.DEBİ (LT./DAK)'],
+            products: [
+              { model: '37410', basinc: '210', hiz: '225', iletimHacmi: '337 CM³', makTork: '980', maksDebi: '75' },
+              { model: 'PMH-PW-TE0130CW260AAAB', basinc: '140', hiz: '350', iletimHacmi: '130 CM³', makTork: '255', maksDebi: '45' },
+            ],
+          },
+          {
+            name: 'MR SERİSİ',
+            tableHeaders: ['MODEL', 'BASINÇ', 'HIZ', 'İLETİM HACMİ', 'MAK. TORK', 'MAKS.DEBİ (LT./DAK)'],
+            products: [
+              { model: 'PMH-TM-PW-TF0130EW260AAAB', basinc: '140', hiz: '470', iletimHacmi: '128 CM³', makTork: '230', maksDebi: '60' },
+              { model: '37578', basinc: '140', hiz: '300', iletimHacmi: '197 CM³', makTork: '320', maksDebi: '60' },
+              { model: 'PMH-TM-PW-TF0240EW260AAAB', basinc: '140', hiz: '320', iletimHacmi: '238 CM³', makTork: '430', maksDebi: '75' },
+              { model: '37613', basinc: '210', hiz: '440', iletimHacmi: '169 CM³', makTork: '485', maksDebi: '75' },
+              { model: '37581', basinc: '100', hiz: '200', iletimHacmi: '293 CM³', makTork: '428', maksDebi: '60' },
+              { model: 'PMH-PW-TE0390CW260AAAB', basinc: '85', hiz: '152', iletimHacmi: '392 CM³', makTork: '445', maksDebi: '60' },
+            ],
+          },
+          {
+            name: 'ME-TG [S] SERİSİ KARE KAPAK',
+            tableHeaders: ['MODEL', 'BASINÇ (BAR)', 'İLETİM HACMİ', 'MAKS.DEBİ (LT./DAK)', 'MAKS.HIZ', 'MİL ÇAPI', 'TORK'],
+            products: [
+              { model: '37387', basinc: '210', iletimHacmi: '238 CM³', maksDebi: '75', maksHiz: '320', milCapi: '32', tork: '685' },
+              { model: '09M7292', basinc: '210', iletimHacmi: '238 CM³', maksDebi: '75', maksHiz: '320', milCapi: '32', tork: '685' },
+              { model: '37388', basinc: '140', iletimHacmi: '477 CM³', maksDebi: '75', maksHiz: '160', milCapi: '32', tork: '960' },
+            ],
+          },
+        ],
+      },
+      ms: {
+        description:
+          'M+S Gerotor motorlar (Orbit), MP, MM, MH, MS, MT, MV, HW, HWF, MSU ve RW serileriyle farklı tork, hız ve debi gereksinimlerine yönelik geniş bir ürün yelpazesi sunar.',
+        categories: [
+          {
+            name: 'MP SERİSİ',
+            tableHeaders: ['MODEL', 'İLETİM HACMİ', 'MAKS.BASINÇ', 'MAKS.DEBİ (LT./DAK)', 'MAKS.HIZ', 'MİL ÇAPI', 'TORK'],
+            products: [
+              { model: '37503', iletimHacmi: '49,5 CM³', maksBasinc: '140-175', maksDebi: '60', maksHiz: '1210', milCapi: '25 MM', tork: '9,4-11,9' },
+              { model: 'MP100C', iletimHacmi: '99 CM³', maksBasinc: '140-175', maksDebi: '60', maksHiz: '605', milCapi: '25 MM', tork: '19,3 - 23,7' },
+              { model: '37481', iletimHacmi: '99 CM³', maksBasinc: '170-175', maksDebi: '60', maksHiz: '605', milCapi: '25 MM', tork: '19,3-23,7' },
+              { model: 'MP125C', iletimHacmi: '123,8 CM³', maksBasinc: '140 - 175', maksDebi: '60', maksHiz: '486', milCapi: '25 MM', tork: '23,7 - 29,8' },
+              { model: '37480', iletimHacmi: '123,8 CM³', maksBasinc: '140 - 175', maksDebi: '60', maksHiz: '486', milCapi: '25 MM', tork: '23,7 - 29,8' },
+              { model: 'MP160C', iletimHacmi: '158,4 CM³', maksBasinc: '140 -175', maksDebi: '60', maksHiz: '378', milCapi: '25 MM', tork: '31,3 - 37,8' },
+              { model: '37504', iletimHacmi: '158,4 CM³', maksBasinc: '140-175', maksDebi: '60', maksHiz: '378', milCapi: '25 MM', tork: '31,3-37,8' },
+              { model: 'MP200C', iletimHacmi: '198 CM³', maksBasinc: '140 - 175', maksDebi: '60', maksHiz: '303', milCapi: '25 MM', tork: '36,6 - 45,6' },
+              { model: 'MP25C', iletimHacmi: '25 CM³', maksBasinc: '100 - 140', maksDebi: '40', maksHiz: '1600', milCapi: '25 MM', tork: '3,3 - 4,7' },
+              { model: 'MP250C', iletimHacmi: '247,5 CM³', maksBasinc: '110 - 175', maksDebi: '60', maksHiz: '242', milCapi: '25 MM', tork: '38 - 58,3' },
+              { model: 'MP315C', iletimHacmi: '36,8 CM³', maksBasinc: '90 -140', maksDebi: '60', maksHiz: '190', milCapi: '25 MM', tork: '38 - 56' },
+              { model: 'MP32CD', iletimHacmi: '32 CM³', maksBasinc: '100 - 140', maksDebi: '50', maksHiz: '1560', milCapi: '25 MM', tork: '4,3 - 6,1' },
+              { model: 'MP40CD', iletimHacmi: '40 CM³', maksBasinc: '120 - 155', maksDebi: '60', maksHiz: '1500', milCapi: '25 MM', tork: '6,2 - 8,2' },
+              { model: 'MP400C', iletimHacmi: '396 CM³', maksBasinc: '70 -115', maksDebi: '60', maksHiz: '150', milCapi: '25 MM', tork: '36 - 59' },
+              { model: 'MP50C', iletimHacmi: '49,5CM³', maksBasinc: '140 - 175', maksDebi: '60', maksHiz: '1210', milCapi: '25 MM', tork: '9,4 - 11,9' },
+              { model: 'MP500C', iletimHacmi: '495 CM³', maksBasinc: '60 -90', maksDebi: '60', maksHiz: '120', milCapi: '25 MM', tork: '39 - 57' },
+              { model: 'MP630C', iletimHacmi: '623,6 CM³', maksBasinc: '55 - 80', maksDebi: '60', maksHiz: '95', milCapi: '25 MM', tork: '44 - 64' },
+              { model: 'MP80C', iletimHacmi: '79,2 CM³', maksBasinc: '140 - 175', maksDebi: '60', maksHiz: '755', milCapi: '25 MM', tork: '15,1 - 19,5' },
+            ],
+          },
+          {
+            name: 'MM SERİSİ',
+            tableHeaders: ['MODEL', 'İLETİM HACMİ', 'MAKS.BASINÇ', 'MAKS.DEBİ (LT./DAK)', 'MAKS.HIZ', 'MİL ÇAPI', 'TORK'],
+            products: [
+              { model: 'MM12C', iletimHacmi: '12,9 CM³', maksBasinc: '100 - 140', maksDebi: '20', maksHiz: '1550', milCapi: '16 MM', tork: '1,6 - 2,3' },
+              { model: 'MM20C', iletimHacmi: '20 CM³', maksBasinc: '100 - 140', maksDebi: '20', maksHiz: '1000', milCapi: '16 MM', tork: '2,5 - 3,5' },
+              { model: 'MMS20C', iletimHacmi: '20 CM³', maksBasinc: '100-140', maksDebi: '20', maksHiz: '1000', milCapi: '16 MM', tork: '2,5-3,5' },
+              { model: 'MM32C', iletimHacmi: '31,8 CM³', maksBasinc: '100 - 140', maksDebi: '20', maksHiz: '630', milCapi: '16 MM', tork: '4,0 - 5,7' },
+              { model: 'MMS32C', iletimHacmi: '31,8 CM³', maksBasinc: '100-140', maksDebi: '20', maksHiz: '630', milCapi: '16 MM', tork: '4,0-5,7' },
+              { model: 'MM40C', iletimHacmi: '40 CM³', maksBasinc: '80 - 110', maksDebi: '20', maksHiz: '500', milCapi: '16 MM', tork: '4,1 - 5,7' },
+              { model: '37447', iletimHacmi: '50 CM³', maksBasinc: '70-90', maksDebi: '20', maksHiz: '400', milCapi: '16 MM', tork: '4,5-5,8' },
+              { model: 'MM50C', iletimHacmi: '50 CM³', maksBasinc: '70 - 90', maksDebi: '20', maksHiz: '400', milCapi: '16 MM', tork: '4,5 - 5,8' },
+              { model: 'MMS50C', iletimHacmi: '50 CM³', maksBasinc: '70-90', maksDebi: '20', maksHiz: '400', milCapi: '16 MM', tork: '4,5-5,8' },
+              { model: 'MM8C', iletimHacmi: '8,2 CM³', maksBasinc: '100 - 140', maksDebi: '16', maksHiz: '1950', milCapi: '16 MM', tork: '1,1 - 1,5' },
+            ],
+          },
+          {
+            name: 'MH SERİSİ',
+            tableHeaders: ['MODEL', 'İLETİM HACMİ', 'MAKS.BASINÇ', 'MAKS.DEBİ (LT./DAK)', 'MAKS.HIZ', 'MİL ÇAPI', 'TORK'],
+            products: [
+              { model: '37417', iletimHacmi: '159,7 CM³', maksBasinc: '175-210', maksDebi: '75', maksHiz: '470', milCapi: '32 MM', tork: '34-48' },
+              { model: 'MH200C', iletimHacmi: '201,3 CM³', maksBasinc: '175 - 200', maksDebi: '75', maksHiz: '370', milCapi: '32 MM', tork: '51 - 58' },
+              { model: 'MH200SH', iletimHacmi: '201,3 CM³', maksBasinc: '175 - 200', maksDebi: '75', maksHiz: '370', milCapi: '32 MM', tork: '51 - 58' },
+              { model: 'MH250C', iletimHacmi: '252 CM³', maksBasinc: '175 - 200', maksDebi: '75', maksHiz: '295', milCapi: '32 MM', tork: '61 - 70' },
+              { model: 'MH315C', iletimHacmi: '314,9 CM³', maksBasinc: '175 - 200', maksDebi: '75', maksHiz: '235', milCapi: '32 MM', tork: '74 - 82' },
+              { model: 'MH315SH', iletimHacmi: '314,9 CM³', maksBasinc: '175 - 200', maksDebi: '75', maksHiz: '235', milCapi: '32 MM', tork: '74 - 82' },
+              { model: '37405', iletimHacmi: '396,8 CM³', maksBasinc: '190', maksDebi: '75', maksHiz: '185', milCapi: '32 MM', tork: '98' },
+              { model: 'MH400C', iletimHacmi: '396,8 CM³', maksBasinc: '155 - 190', maksDebi: '75', maksHiz: '185', milCapi: '32 MM', tork: '84 - 98' },
+              { model: 'MH400CB', iletimHacmi: '396.8 CM³', maksBasinc: '155-190', maksDebi: '75', maksHiz: '185', milCapi: '32 MM', tork: '84-98' },
+              { model: 'MH500C', iletimHacmi: '502,4 CM³', maksBasinc: '125 - 160', maksDebi: '75', maksHiz: '150', milCapi: '32 MM', tork: '85 - 104' },
+              { model: 'MH500CB', iletimHacmi: '502,4 CM³', maksBasinc: '125-160', maksDebi: '75', maksHiz: '150', milCapi: '32 MM', tork: '85-104' },
+            ],
+          },
+          {
+            name: 'MS SERİSİ',
+            tableHeaders: ['MODEL', 'İLETİM HACMİ', 'MAKS.BASINÇ', 'MAKS.DEBİ (LT./DAK)', 'MAKS.HIZ', 'MİL ÇAPI', 'TORK'],
+            products: [
+              { model: 'MS100C', iletimHacmi: '100 CM³', maksBasinc: '200 - 225', maksDebi: '75', maksHiz: '750', milCapi: '32 MM', tork: '28,5 - 32' },
+              { model: 'MS125C', iletimHacmi: '125,7 CM³', maksBasinc: '175 -210', maksDebi: '75', maksHiz: '600', milCapi: '32 MM', tork: '32 - 38' },
+              { model: '37653', iletimHacmi: '125,7 CM³', maksBasinc: '175-210', maksDebi: '75', maksHiz: '600', milCapi: '32 MM', tork: '32-38' },
+              { model: 'MS160C', iletimHacmi: '159,7 CM³', maksBasinc: '175 - 210', maksDebi: '75', maksHiz: '470', milCapi: '32 MM', tork: '34 - 48' },
+              { model: '37625', iletimHacmi: '159,7 CM³', maksBasinc: '175-210', maksDebi: '75', maksHiz: '470', milCapi: '32 MM', tork: '34-48' },
+              { model: 'MS200C', iletimHacmi: '200 CM³', maksBasinc: '140 - 175', maksDebi: '75', maksHiz: '375', milCapi: '32 MM', tork: '40 - 50' },
+              { model: 'MS250C', iletimHacmi: '250 CM³', maksBasinc: '125 -155', maksDebi: '75', maksHiz: '300', milCapi: '32 MM', tork: '45 - 54' },
+              { model: 'MS315C', iletimHacmi: '314,9 CM³', maksBasinc: '120 -140', maksDebi: '75', maksHiz: '240', milCapi: '32 MM', tork: '54 - 63' },
+              { model: 'MS315SH', iletimHacmi: '314,9 CM³', maksBasinc: '120-140', maksDebi: '75', maksHiz: '240', milCapi: '32 MM', tork: '54-63' },
+              { model: 'MS400C', iletimHacmi: '397 CM³', maksBasinc: '100 - 120', maksDebi: '75', maksHiz: '185', milCapi: '32 MM', tork: '58 - 69' },
+              { model: '37627', iletimHacmi: '397 CM³', maksBasinc: '100-120', maksDebi: '75', maksHiz: '185', milCapi: '32 MM', tork: '58-69' },
+              { model: 'MS475C', iletimHacmi: '474,6 CM³', maksBasinc: '85 - 100', maksDebi: '75', maksHiz: '160', milCapi: '32 MM', tork: '58 - 68' },
+              { model: 'MS50C', iletimHacmi: '200 CM³', maksBasinc: '140 - 175', maksDebi: '75', maksHiz: '375', milCapi: '32 MM', tork: '40 - 50' },
+              { model: 'MS80C', iletimHacmi: '80,5 CM³', maksBasinc: '200 - 225', maksDebi: '65', maksHiz: '810', milCapi: '32 MM', tork: '523 - 25,8' },
+              { model: 'MS80SH', iletimHacmi: '80,5 CM³', maksBasinc: '200-225', maksDebi: '65', maksHiz: '810', milCapi: '32 MM', tork: '523-25,8' },
+              { model: 'MSF160SH', iletimHacmi: '159,7 CM³', maksBasinc: '175 - 210', maksDebi: '75', maksHiz: '470', milCapi: '32 MM', tork: '34 - 48' },
+              { model: 'MSQ200SH', iletimHacmi: '200 CM³', maksBasinc: '140-175', maksDebi: '75', maksHiz: '375', milCapi: '32 MM', tork: '40-50' },
+              { model: 'MSQ250SH', iletimHacmi: '250 CM³', maksBasinc: '125-155', maksDebi: '75', maksHiz: '300', milCapi: '32 MM', tork: '45-54' },
+              { model: 'MSS160C', iletimHacmi: '158,4 CM³', maksBasinc: '140-175', maksDebi: '60', maksHiz: '378', milCapi: '25 MM', tork: '31,3-37,8' },
+              { model: 'MSS200C', iletimHacmi: '198 CM³', maksBasinc: '140-175', maksDebi: '60', maksHiz: '303', milCapi: '25 MM', tork: '36,6-45,6' },
+              { model: 'MSY250C', iletimHacmi: '247,5 CM³', maksBasinc: '110-175', maksDebi: '60', maksHiz: '242', milCapi: '25 MM', tork: '38-58,3' },
+              { model: 'MTS250', iletimHacmi: '251,8 CM³', maksBasinc: '200-240', maksDebi: '125', maksHiz: '500', milCapi: '40 MM', tork: '73-88' },
+              { model: 'MSE315C', iletimHacmi: '314,9 CM³', maksBasinc: '120 -140', maksDebi: '75', maksHiz: '240', milCapi: '32 MM', tork: '54 - 63' },
+            ],
+          },
+          {
+            name: 'MT SERİSİ',
+            tableHeaders: ['MODEL', 'İLETİM HACMİ', 'MAKS.BASINÇ', 'MAKS.DEBİ (LT./DAK)', 'MAKS.HIZ', 'MİL ÇAPI', 'TORK'],
+            products: [
+              { model: 'MT200C', iletimHacmi: '201,4 CM³', maksBasinc: '200 - 240', maksDebi: '125', maksHiz: '625', milCapi: '40 MM', tork: '59 - 71' },
+              { model: 'MT250C', iletimHacmi: '251,8 CM³', maksBasinc: '200 - 240', maksDebi: '125', maksHiz: '500', milCapi: '40 MM', tork: '73 - 88' },
+              { model: '37683', iletimHacmi: '251,8 CM³', maksBasinc: '200-240', maksDebi: '125', maksHiz: '500', milCapi: '40 MM', tork: '73-88' },
+              { model: 'MT315C', iletimHacmi: '326,3 CM³', maksBasinc: '200 - 240', maksDebi: '125', maksHiz: '380', milCapi: '40 MM', tork: '95 - 114' },
+              { model: 'MT400C', iletimHacmi: '410,9 CM³', maksBasinc: '180 - 210', maksDebi: '125', maksHiz: '305', milCapi: '40 MM', tork: '108 - 126' },
+              { model: '37696', iletimHacmi: '410,9 CM³', maksBasinc: '180-210', maksDebi: '125', maksHiz: '305', milCapi: '40 MM', tork: '108-126' },
+              { model: 'MT500C', iletimHacmi: '523,6 CM³', maksBasinc: '160-180', maksDebi: '125', maksHiz: '240', milCapi: '40 MM', tork: '122-137' },
+              { model: '37700', iletimHacmi: '523,6 CM³', maksBasinc: '160-180', maksDebi: '125', maksHiz: '240', milCapi: '40 MM', tork: '122-137' },
+              { model: 'MT630C', iletimHacmi: '612,3 CM³', maksBasinc: '140 - 160', maksDebi: '125', maksHiz: '206', milCapi: '40 MM', tork: '123 - 138' },
+              { model: 'MT725C', iletimHacmi: '725 CM³', maksBasinc: '115 - 130', maksDebi: '125', maksHiz: '172', milCapi: '40 MM', tork: '125 - 140' },
+              { model: 'MT160C', iletimHacmi: '161,1 CM³', maksBasinc: '200 - 240', maksDebi: '100', maksHiz: '625', milCapi: '40 MM', tork: '47 - 56' },
+              { model: 'MTS200', iletimHacmi: '201,4 CM³', maksBasinc: '200-240', maksDebi: '125', maksHiz: '625', milCapi: '40 MM', tork: '59-71' },
+              { model: 'MTS315', iletimHacmi: '326,3 CM³', maksBasinc: '200-240', maksDebi: '125', maksHiz: '380', milCapi: '40 MM', tork: '95-114' },
+              { model: 'MTS400', iletimHacmi: '410,9 CM³', maksBasinc: '180-210', maksDebi: '125', maksHiz: '305', milCapi: '40 MM', tork: '108-126' },
+            ],
+          },
+          {
+            name: 'MV SERİSİ',
+            tableHeaders: ['MODEL', 'İLETİM HACMİ', 'MAKS.BASINÇ', 'MAKS.DEBİ (LT./DAK)', 'MAKS.HIZ', 'MİL ÇAPI', 'TORK'],
+            products: [
+              { model: 'MV315C', iletimHacmi: '314,5 CM³', maksBasinc: '200 - 240', maksDebi: '240', maksHiz: '510', milCapi: '50 MM', tork: '92 - 11' },
+              { model: 'MV400C', iletimHacmi: '400,9 CM³', maksBasinc: '200 - 240', maksDebi: '240', maksHiz: '500', milCapi: '50 MM', tork: '118 - 141' },
+              { model: 'MV500C', iletimHacmi: '499,6 CM³', maksBasinc: '200 - 240', maksDebi: '240', maksHiz: '400', milCapi: '50 MM', tork: '146 - 176' },
+              { model: 'MV630C', iletimHacmi: '629,1 CM³', maksBasinc: '180-210', maksDebi: '210', maksHiz: '315', milCapi: '50 MM', tork: '166-194' },
+              { model: 'MV800C', iletimHacmi: '801,8 CM³', maksBasinc: '160 - 180', maksDebi: '180', maksHiz: '250', milCapi: '50 MM', tork: '188 - 211' },
+              { model: 'MVM315SH2HD', iletimHacmi: '314,5 CM³', maksBasinc: '270-370', maksDebi: '200', maksHiz: '636', milCapi: '50 MM', tork: '115-160' },
+              { model: 'MVM630C', iletimHacmi: '629,1 CM³', maksBasinc: '180-210', maksDebi: '210', maksHiz: '315', milCapi: '50 MM', tork: '166-194' },
+              { model: 'MVM800C', iletimHacmi: '801,8 CM³', maksBasinc: '160-180', maksDebi: '180', maksHiz: '250', milCapi: '50 MM', tork: '188-211' },
+            ],
+          },
+          {
+            name: 'HW SERİSİ',
+            tableHeaders: ['MODEL', 'İLETİM HACMİ', 'MAKS.BASINÇ', 'MAKS.DEBİ (LT./DAK)', 'MAKS.HIZ', 'MİL ÇAPI', 'TORK'],
+            products: [
+              { model: 'HW 200', iletimHacmi: '201,3 CM³', maksBasinc: '210 - 250', maksDebi: '75', maksHiz: '373', milCapi: '32 MM', tork: '55 - 60' },
+              { model: 'HW 315', iletimHacmi: '300 CM³', maksBasinc: '210 - 250', maksDebi: '75', maksHiz: '250', milCapi: '32 MM', tork: '81 - 89' },
+            ],
+          },
+          {
+            name: 'HWF SERİSİ',
+            tableHeaders: ['MODEL', 'İLETİM HACMİ', 'MAKS.BASINÇ', 'MAKS.DEBİ (LT./DAK)', 'MAKS.HIZ', 'MİL ÇAPI', 'TORK'],
+            products: [
+              { model: 'HWF160', iletimHacmi: '158 CM³', maksBasinc: '210-250', maksDebi: '60', maksHiz: '380', milCapi: '32 MM', tork: '44-48' },
+              { model: 'HWF200', iletimHacmi: '201,3 CM³', maksBasinc: '210-250', maksDebi: '75', maksHiz: '373', milCapi: '32 MM', tork: '55-60' },
+              { model: 'HWF235', iletimHacmi: '235 CM³', maksBasinc: '210-250', maksDebi: '75', maksHiz: '319', milCapi: '32 MM', tork: '64,5-70' },
+              { model: 'HWF250', iletimHacmi: '252 CM³', maksBasinc: '210-250', maksDebi: '75', maksHiz: '298', milCapi: '32 MM', tork: '69-75' },
+              { model: 'HWF400', iletimHacmi: '396,8 CM³', maksBasinc: '210-250', maksDebi: '75', maksHiz: '189', milCapi: '32 MM', tork: '96-98' },
+              { model: 'HWF500', iletimHacmi: '502,4 CM³', maksBasinc: '250', maksDebi: '75', maksHiz: '140', milCapi: '32MM', tork: '91-101' },
+            ],
+          },
+          {
+            name: 'MSU SERİSİ',
+            tableHeaders: ['MODEL', 'İLETİM HACMİ', 'MAKS.BASINÇ', 'MAKS.DEBİ (LT./DAK)', 'MAKS.HIZ', 'MİL ÇAPI', 'TORK'],
+            products: [
+              { model: 'MSU200', iletimHacmi: '200 CM³', maksBasinc: '140 - 175', maksDebi: '75', maksHiz: '375', milCapi: '75 MM', tork: '40 - 50' },
+            ],
+          },
+          {
+            name: 'RW SERİSİ',
+            tableHeaders: ['MODEL', 'İLETİM HACMİ', 'MAK. TORK', 'MAKS. BASINÇ FARKI', 'MAKS. GİRİŞ BASINCI', 'MAKS.DEBİ (LT./DAK)', 'MAKS.HIZ'],
+            products: [
+              { model: 'RW160KB', iletimHacmi: '159,6 CM³', makTork: '39', maksBasincFarki: '172', maksGirisBasinci: '175', maksDebi: '60', maksHiz: '375' },
+              { model: 'RW200KB', iletimHacmi: '199,8 CM³', makTork: '45', maksBasincFarki: '175', maksGirisBasinci: '175', maksDebi: '60', maksHiz: '300' },
+              { model: 'RW315KB', iletimHacmi: '315,7 CM³', makTork: '55', maksBasincFarki: '135', maksGirisBasinci: '175', maksDebi: '75', maksHiz: '240' },
+              { model: 'RW400KB', iletimHacmi: '397 CM³', makTork: '61', maksBasincFarki: '110', maksGirisBasinci: '175', maksDebi: '75', maksHiz: '190' },
+            ],
+          },
+        ],
+      },
+      dinamicoil: {
+        description:
+          'DINAMICOIL Gerotor motorlar (Orbit) MGLR serisi, yüksek tork ve geniş hacim aralıklarıyla farklı mobil ve endüstriyel uygulamalar için uygundur.',
+        categories: [
+          {
+            name: 'MGLR SERİSİ',
+            tableHeaders: ['MODEL', 'AKIŞ KAPASİTESİ', 'BASINÇ DÜŞMESİ', 'İLETİM HACMİ', 'MAKS.GÜÇ', 'MAKS.HIZ', 'TORK'],
+            products: [
+              { model: '37394', akisKapasitesi: '65', basincDusmesi: '160', iletimHacmi: '103 CM³', maksGuc: '14', maksHiz: '630', tork: '22' },
+              { model: '37395', akisKapasitesi: '65', basincDusmesi: '160', iletimHacmi: '127 CM³', maksGuc: '14', maksHiz: '510', tork: '26,5' },
+              { model: '37396', akisKapasitesi: '65', basincDusmesi: '155', iletimHacmi: '162 CM³', maksGuc: '13', maksHiz: '400', tork: '33' },
+              { model: '37397', akisKapasitesi: '65', basincDusmesi: '135', iletimHacmi: '205 CM³', maksGuc: '11', maksHiz: '320', tork: '36' },
+              { model: '37398', akisKapasitesi: '65', basincDusmesi: '115', iletimHacmi: '255 CM³', maksGuc: '10', maksHiz: '250', tork: '39' },
+              { model: '37399', akisKapasitesi: '65', basincDusmesi: '85', iletimHacmi: '377 CM³', maksGuc: '6,5', maksHiz: '170', tork: '40' },
+              { model: '37392', akisKapasitesi: '40', basincDusmesi: '150', iletimHacmi: '49 CM³', maksGuc: '7,5', maksHiz: '830', tork: '9,5' },
+              { model: '37393', akisKapasitesi: '60', basincDusmesi: '160', iletimHacmi: '83 CM³', maksGuc: '13', maksHiz: '720', tork: '17,5' },
+            ],
+          },
+        ],
+      },
+      zhenjiang: {
+        description:
+          'ZHENJIANG Gerotor motorlar (Orbit), MP, MM, MH, MR, MS, MT ve MV serileri ile geniş bir debi ve tork aralığında çözümler sunar.',
+        categories: [
+          {
+            name: 'MP SERİSİ',
+            tableHeaders: ['MODEL', 'BASINÇ (BAR)', 'İLETİM HACMİ', 'MAKS.DEBİ (LT./DAK)', 'MAKS.HIZ', 'MİL ÇAPI', 'TORK'],
+            products: [
+              { model: 'ZHBMP1002ADSN', basinc: '140', iletimHacmi: '96,2 CM³', maksDebi: '60', maksHiz: '615', milCapi: '25', tork: '18,2' },
+              { model: 'ZHBMP1252ADSN', basinc: '140', iletimHacmi: '120,2 CM³', maksDebi: '60', maksHiz: '490', milCapi: '25', tork: '23,6' },
+              { model: 'ZHBMP1602ADSN', basinc: '140', iletimHacmi: '157, CM³', maksDebi: '60', maksHiz: '383', milCapi: '25', tork: '30,2' },
+              { model: 'ZHBMP2002ADSN', basinc: '140', iletimHacmi: '194,5 CM³', maksDebi: '60', maksHiz: '310', milCapi: '25', tork: '36' },
+              { model: 'ZHBMP2502ADSN', basinc: '110', iletimHacmi: '240,3 CM³', maksDebi: '60', maksHiz: '250', milCapi: '25', tork: '38' },
+              { model: 'ZHBMP3152ADSN', basinc: '90', iletimHacmi: '314,5 CM³', maksDebi: '60', maksHiz: '192', milCapi: '25', tork: '37,5' },
+              { model: 'ZHBMP0322ADSN', basinc: '125', iletimHacmi: '36 CM³', maksDebi: '55', maksHiz: '1500', milCapi: '25', tork: '5,5' },
+              { model: 'ZHBMP4002ADSN', basinc: '70', iletimHacmi: '389,5 CM³', maksDebi: '60', maksHiz: '155', milCapi: '25', tork: '36' },
+              { model: 'ZHBMP0502ADSN', basinc: '140', iletimHacmi: '51,7 CM³', maksDebi: '60', maksHiz: '1150', milCapi: '25', tork: '10' },
+              { model: 'ZHBMP0802ADSN', basinc: '140', iletimHacmi: '77,7 CM³', maksDebi: '60', maksHiz: '770', milCapi: '25', tork: '14,6' },
+            ],
+          },
+          {
+            name: 'MM SERİSİ',
+            tableHeaders: ['MODEL', 'BASINÇ (BAR)', 'İLETİM HACMİ', 'MAKS.DEBİ (LT./DAK)', 'MAKS.HIZ', 'MİL ÇAPI', 'TORK'],
+            products: [
+              { model: 'ZHBMM20MAE', basinc: '100', iletimHacmi: '19,9 CM³', maksDebi: '20', maksHiz: '1000', milCapi: '16', tork: '2,5' },
+              { model: 'ZHBMM32MAE', basinc: '100', iletimHacmi: '31,6 CM³', maksDebi: '20', maksHiz: '630', milCapi: '16', tork: '4' },
+              { model: 'ZHBMM50MAIE', basinc: '70', iletimHacmi: '50,3 CM³', maksDebi: '20', maksHiz: '400', milCapi: '16', tork: '4,6' },
+              { model: 'ZHBMM8MAE', basinc: '100', iletimHacmi: '8,2 CM³', maksDebi: '16', maksHiz: '1950', milCapi: '16', tork: '1,1' },
+            ],
+          },
+          {
+            name: 'MH SERİSİ',
+            tableHeaders: ['MODEL', 'BASINÇ (BAR)', 'İLETİM HACMİ', 'MAKS.DEBİ (LT./DAK)', 'MAKS.HIZ', 'MİL ÇAPI', 'TORK'],
+            products: [
+              { model: 'ZHBMH2004BDS', basinc: '175', iletimHacmi: '203,2 CM³', maksDebi: '75', maksHiz: '366', milCapi: '32/35', tork: '51' },
+              { model: 'ZHBMH2504BDS', basinc: '175', iletimHacmi: '255,9 CM³', maksDebi: '75', maksHiz: '290', milCapi: '32/35', tork: '62,1' },
+              { model: 'ZHBMH3154BDS', basinc: '175', iletimHacmi: '316,1 CM³', maksDebi: '75', maksHiz: '236', milCapi: '32/35', tork: '74' },
+              { model: 'ZHBMH4004BDS', basinc: '155', iletimHacmi: '406,4 CM³', maksDebi: '75', maksHiz: '183', milCapi: '32/35', tork: '85' },
+              { model: 'ZHBMH5004MDS', basinc: '125', iletimHacmi: '489,2 CM³', maksDebi: '75', maksHiz: '155', milCapi: '32/35', tork: '83' },
+            ],
+          },
+          {
+            name: 'MR SERİSİ',
+            tableHeaders: ['MODEL', 'İLETİM HACMİ', 'MAKS.DEBİ (LT./DAK)', 'MAKS.HIZ', 'MİL ÇAPI', 'TORK', 'BASINÇ (BAR)'],
+            products: [
+              { model: 'ZHBMR1002ADSN', iletimHacmi: '100,8 CM³', maksDebi: '60', maksHiz: '600', milCapi: '25', tork: '20', basinc: '140' },
+              { model: 'ZHBMR1252ADSN1', iletimHacmi: '124,9 CM³', maksDebi: '60', maksHiz: '475', milCapi: '25', tork: '25', basinc: '140' },
+              { model: 'ZHBMR1602ADSN', iletimHacmi: '157,2 CM³', maksDebi: '60', maksHiz: '378', milCapi: '25', tork: '32', basinc: '140' },
+              { model: 'ZHBMR2002ADSN', iletimHacmi: '199,2 CM³', maksDebi: '60', maksHiz: '310', milCapi: '25', tork: '33', basinc: '120' },
+              { model: 'ZHBMR2502ADSN', iletimHacmi: '252 CM³', maksDebi: '60', maksHiz: '240', milCapi: '25', tork: '35,2', basinc: '110' },
+              { model: 'ZHBMR3152ADSN', iletimHacmi: '314,5 CM³', maksDebi: '60', maksHiz: '190', milCapi: '25', tork: '36', basinc: '85' },
+              { model: 'ZHBMR0362ADSN', iletimHacmi: '36 CM³', maksDebi: '40', maksHiz: '1085', milCapi: '25', tork: '6,9', basinc: '140' },
+              { model: 'ZHBMR4002ADSN', iletimHacmi: '395 CM³', maksDebi: '60', maksHiz: '155', milCapi: '25', tork: '40', basinc: '70' },
+              { model: 'ZHBMR0502ADSN', iletimHacmi: '51,3 CM³', maksDebi: '40', maksHiz: '960', milCapi: '25', tork: '10', basinc: '140' },
+              { model: 'ZHBMR0802ADSN', iletimHacmi: '80,6 CM³', maksDebi: '60', maksHiz: '750', milCapi: '25', tork: '16', basinc: '140' },
+            ],
+          },
+          {
+            name: 'MS SERİSİ',
+            tableHeaders: ['MODEL', 'BASINÇ (BAR)', 'İLETİM HACMİ', 'MAKS.DEBİ (LT./DAK)', 'MAKS.HIZ', 'MİL ÇAPI', 'TORK'],
+            products: [
+              { model: 'ZHBMSY100E4BDS', basinc: '205', iletimHacmi: '100,8 CM³', maksDebi: '75', maksHiz: '748', milCapi: '32', tork: '29' },
+              { model: 'ZHBMSY125E4BDS', basinc: '205', iletimHacmi: '125 CM³', maksDebi: '75', maksHiz: '600', milCapi: '32', tork: '36,5' },
+              { model: 'ZHBMSY160E4BDS', basinc: '210', iletimHacmi: '154 CM³', maksDebi: '75', maksHiz: '470', milCapi: '32', tork: '48,5' },
+              { model: 'ZHBMSY200E4BDS', basinc: '210', iletimHacmi: '194 CM³', maksDebi: '75', maksHiz: '375', milCapi: '32', tork: '58,6' },
+              { model: 'ZHBMSY250E4BDS', basinc: '200', iletimHacmi: '243 CM³', maksDebi: '75', maksHiz: '300', milCapi: '32', tork: '70,8' },
+              { model: 'ZHBMSY315E4BDS', basinc: '200', iletimHacmi: '311 CM³', maksDebi: '75', maksHiz: '240', milCapi: '32', tork: '88' },
+              { model: 'ZHBMSY400E4BDS', basinc: '160', iletimHacmi: '394 CM³', maksDebi: '75', maksHiz: '185', milCapi: '32', tork: '88' },
+              { model: 'ZHBMSY80E4BDS', basinc: '205', iletimHacmi: '80,6 CM³', maksDebi: '75', maksHiz: '800', milCapi: '32', tork: '22,5' },
+            ],
+          },
+          {
+            name: 'MT SERİSİ',
+            tableHeaders: ['MODEL', 'BASINÇ (BAR)', 'İLETİM HACMİ', 'MAKS.DEBİ (LT./DAK)', 'MAKS.HIZ', 'MİL ÇAPI', 'TORK'],
+            products: [
+              { model: 'ZHBMT400K6MDS', basinc: '180', iletimHacmi: '410,9 CM³', maksDebi: '125', maksHiz: '305', milCapi: '40', tork: '108' },
+              { model: 'ZHBMT8004MDS', basinc: '125', iletimHacmi: '801,8 CM³', maksDebi: '125', maksHiz: '154', milCapi: '40', tork: '146,4' },
+            ],
+          },
+          {
+            name: 'MV SERİSİ',
+            tableHeaders: ['MODEL', 'BASINÇ (BAR)', 'İLETİM HACMİ', 'MAKS.DEBİ (LT./DAK)', 'MAKS.HIZ', 'MİL ÇAPI', 'TORK'],
+            products: [
+              { model: 'ZHBMV6304ADS', basinc: '180', iletimHacmi: '666 CM³', maksDebi: '200', maksHiz: '320', milCapi: '50', tork: '166' },
+            ],
+          },
+        ],
+      },
+      danfoss: {
+        description:
+          'DANFOSS Gerotor motorlar (Orbit) MH serisi, yüksek tork ve kararlı performans gerektiren ağır hizmet uygulamaları için tasarlanmıştır.',
+        categories: [
+          {
+            name: 'MH SERİSİ',
+            tableHeaders: ['MODEL', 'BASINÇ DÜŞMESİ', 'İLETİM HACMİ', 'MAKS. YAĞ AKIŞI', 'MAKS.ÇIKIŞ DEĞERİ', 'MAKS.HIZ', 'TORK'],
+            products: [
+              { model: '37402', basincDusmesi: '115', iletimHacmi: '201,3 CM³', maksYagAkisi: '75', maksCikis: '11,2', maksHiz: '370', tork: '340' },
+              { model: '37403', basincDusmesi: '90', iletimHacmi: '252,0 CM³', maksYagAkisi: '75', maksCikis: '7,5', maksHiz: '295', tork: '340' },
+              { model: '37431', basincDusmesi: '60', iletimHacmi: '396,8 CM³', maksYagAkisi: '75', maksCikis: '4,8', maksHiz: '185', tork: '340' },
+              { model: '37404', basincDusmesi: '50', iletimHacmi: '470,6 CM³', maksYagAkisi: '75', maksCikis: '3,7', maksHiz: '155', tork: '340' },
+            ],
+          },
+        ],
+      },
+      white: {
+        description:
+          'WHITE Gerotor motorlar (Orbit), MP, MR, DT, RE ve WS serileriyle farklı tork ve hız gereksinimlerine uygun çözümler sunar.',
+        categories: [
+          {
+            name: 'MP SERİSİ',
+            tableHeaders: ['MODEL', 'BASINÇ (BAR)', 'DEBİ (LT/DAK.)', 'İLETİM HACMİ', 'MAKS.HIZ', 'MİL ÇAPI', 'TORK'],
+            products: [
+              { model: '155160', basinc: '160', debi: '60-75', iletimHacmi: '154 CM³', maksHiz: '452-483', milCapi: '25 MM', tork: '321' },
+              { model: '155080', basinc: '160', debi: '160', iletimHacmi: '78 CM³', maksHiz: '896-960', milCapi: '25 MM', tork: '164' },
+            ],
+          },
+          {
+            name: 'MR SERİSİ',
+            tableHeaders: ['MODEL', 'BASINÇ', 'DEBİ (LT/DAK.)', 'İLETİM HACMİ', 'MAKS.HIZ', 'MİL ÇAPI', 'TORK'],
+            products: [
+              { model: '200050', basinc: '121', debi: '23', iletimHacmi: '52 CM³', maksHiz: '400', milCapi: '25 MM', tork: '83' },
+              { model: '200080', basinc: '121', debi: '38', iletimHacmi: '76 CM³', maksHiz: '460', milCapi: '25 MM', tork: '121' },
+              { model: '200100', basinc: '121', debi: '53', iletimHacmi: '103 CM³', maksHiz: '510', milCapi: '25 MM', tork: '169' },
+              { model: '200160', basinc: '103', debi: '61', iletimHacmi: '164 CM³', maksHiz: '370', milCapi: '25 MM', tork: '222' },
+              { model: '200200', basinc: '103', debi: '61', iletimHacmi: '205 CM³', maksHiz: '300', milCapi: '25 MM', tork: '297' },
+              { model: '200250', basinc: '86', debi: '76', iletimHacmi: '254 CM³', maksHiz: '300', milCapi: '25 MM', tork: '287' },
+              { model: '200315', basinc: '69', debi: '76', iletimHacmi: '293 CM³', maksHiz: '300', milCapi: '25 MM', tork: '277' },
+              { model: '200400', basinc: '69', debi: '76', iletimHacmi: '405 CM³', maksHiz: '190', milCapi: '25 MM', tork: '377' },
+              { model: '255100', basinc: '172', debi: '100', iletimHacmi: '100 CM³', maksHiz: '610', milCapi: '25 MM', tork: '246' },
+              { model: '255130', basinc: '172', debi: '129', iletimHacmi: '129 CM³', maksHiz: '472', milCapi: '25 MM', tork: '316' },
+              { model: '255160', basinc: '172', debi: '160', iletimHacmi: '160 CM³', maksHiz: '379', milCapi: '25 MM', tork: '400' },
+              { model: '255200', basinc: '172', debi: '198', iletimHacmi: '198 CM³', maksHiz: '308', milCapi: '25 MM', tork: '462' },
+              { model: '255240', basinc: '172', debi: '236', iletimHacmi: '236 CM³', maksHiz: '249', milCapi: '25 MM', tork: '548' },
+              { model: '255320', basinc: '121', debi: '322', iletimHacmi: '196 MM', maksHiz: '188', milCapi: '25 MM', tork: '518' },
+              { model: '255040', basinc: '155', debi: '40', iletimHacmi: '40 CM³', maksHiz: '1116', milCapi: '25 MM', tork: '93' },
+              { model: '255400', basinc: '104', debi: '400', iletimHacmi: '400 CM³', maksHiz: '152', milCapi: '25 MM', tork: '551' },
+              { model: '255050', basinc: '207', debi: '50', iletimHacmi: '50 CM³', maksHiz: '1220', milCapi: '25 MM', tork: '123' },
+              { model: '255060', basinc: '155', debi: '59', iletimHacmi: '59 CM³', maksHiz: '890', milCapi: '25 MM', tork: '138' },
+              { model: '37610', basinc: '172', debi: '71', iletimHacmi: '71 CM³', maksHiz: '865', milCapi: '25 MM', tork: '176' },
+              { model: '255080', basinc: '207', debi: '79', iletimHacmi: '79 CM³', maksHiz: '957', milCapi: '25 MM', tork: '243' },
+            ],
+          },
+          {
+            name: 'DT SERİSİ',
+            tableHeaders: ['MODEL', 'BASINÇ', 'DEBİ (LT/DAK.)', 'İLETİM HACMİ', 'MİL ÇAPI', 'TORK'],
+            products: [
+              { model: '700930', basinc: '138', debi: '95', iletimHacmi: '100 CM³', milCapi: '929 MM', tork: '1780' },
+            ],
+          },
+          {
+            name: 'RE SERİSİ',
+            tableHeaders: ['MODEL', 'BASINÇ', 'DEBİ (LT/DAK.)', 'İLETİM HACMİ', 'MAKS.HIZ', 'MİL ÇAPI', 'TORK'],
+            products: [
+              { model: '500120', basinc: '207', debi: '45', iletimHacmi: '121 CM³', maksHiz: '360', milCapi: '32 MM', tork: '328' },
+              { model: '500160', basinc: '207', debi: '61', iletimHacmi: '162 CM³', maksHiz: '370', milCapi: '32 MM', tork: '475' },
+              { model: '500200', basinc: '207', debi: '68', iletimHacmi: '204 CM³', maksHiz: '300', milCapi: '32 MM', tork: '542' },
+              { model: '500230', basinc: '207', debi: '68', iletimHacmi: '232 CM³', maksHiz: '260', milCapi: '32 MM', tork: '644' },
+              { model: '500260', basinc: '207', debi: '76', iletimHacmi: '261 CM³', maksHiz: '260', milCapi: '32 MM', tork: '712' },
+              { model: '500300', basinc: '207', debi: '83', iletimHacmi: '300 CM³', maksHiz: '250', milCapi: '32 MM', tork: '825' },
+              { model: '500375', basinc: '207', debi: '76', iletimHacmi: '375 CM³', maksHiz: '200', milCapi: '32 MM', tork: '1006' },
+              { model: '500375 F', basinc: '207', debi: '76', iletimHacmi: '375 CM³', maksHiz: '200', milCapi: '32 MM', tork: '1006' },
+              { model: '500540', basinc: '138', debi: '76', iletimHacmi: '536 CM³', maksHiz: '140', milCapi: '32 MM', tork: '983' },
+              { model: '500540 F', basinc: '138', debi: '76', iletimHacmi: '536 CM³', maksHiz: '140', milCapi: '32 MM', tork: '983' },
+              { model: '500750', basinc: '103', debi: '76', iletimHacmi: '748 CM³', maksHiz: '100', milCapi: '32 MM', tork: '1062' },
+            ],
+          },
+          {
+            name: 'WS SERİSİ',
+            tableHeaders: ['MODEL', 'BASINÇ', 'DEBİ (LT/DAK.)', 'İLETİM HACMİ', 'MAKS.HIZ', 'MİL ÇAPI', 'TORK'],
+            products: [
+              { model: '360100AH321BAAAA', basinc: '207', debi: '100', iletimHacmi: '100 CM³', maksHiz: '745', milCapi: 'KARDAN', tork: '280' },
+            ],
+          },
+        ],
+      },
     }
     return data[brandName] || null
   }
@@ -11017,6 +11831,340 @@ function ProductDetail() {
                 </div>
               </div>
             </>
+          ) : selectedBrand && productName === 'EĞİK EKSENLİ HİDROMOTORLAR' && currentBrand === 'celebi' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Çelebi</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* ÇELEBİ Eğik Eksenli Hidromotorlar Tablosu */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-xs">
+                      <thead className="bg-slate-50">
+                        <tr>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">AĞIRLIK</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">İLETİM HACMİ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.BASINÇ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.HIZ</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-200">
+                        {CELEBI_EGIK_EKSENLI_HIDROMOTORLAR_ROWS.map((row, index) => (
+                          <tr key={row.model || index} className="hover:bg-slate-50">
+                            <td className="px-2 py-2 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.agirlik}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.iletimHacmi}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.maksBasinc}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.maksHiz}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : selectedBrand && productName === 'EĞİK EKSENLİ HİDROMOTORLAR' && currentBrand === 'gold' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Gold</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* GOLD Eğik Eksenli Hidromotorlar Tablosu */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-xs">
+                      <thead className="bg-slate-50">
+                        <tr>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">AĞIRLIK</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">İLETİM HACMİ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.BASINÇ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.DEBİ (LT./DAK)</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.HIZ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAX.ALAN SAY. 350 B. TORK</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-200">
+                        {GOLD_EGIK_EKSENLI_HIDROMOTORLAR_ROWS.map((row, index) => (
+                          <tr key={row.model || index} className="hover:bg-slate-50">
+                            <td className="px-2 py-2 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.agirlik}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.iletimHacmi}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.maksBasinc}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.maksDebi}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.maksHiz}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.maxAlanSay350BTork}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : selectedBrand && productName === 'EĞİK EKSENLİ HİDROMOTORLAR' && currentBrand === 'sunfab' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Sunfab</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* SUNFAB Eğik Eksenli Hidromotorlar Tablosu */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-xs">
+                      <thead className="bg-slate-50">
+                        <tr>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">BASINÇ (BAR)</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">İLETİM HACMİ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.HIZ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MİL TİPİ</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-200">
+                        {SUNFAB_EGIK_EKSENLI_HIDROMOTORLAR_ROWS.map((row, index) => (
+                          <tr key={row.model || index} className="hover:bg-slate-50">
+                            <td className="px-2 py-2 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.iletimHacmi}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.maksHiz}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.milTipi}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : selectedBrand && productName === 'EĞİK EKSENLİ HİDROMOTORLAR' && currentBrand === 'parker' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Parker</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* PARKER Eğik Eksenli Hidromotorlar Tablosu */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-xs">
+                      <thead className="bg-slate-50">
+                        <tr>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">BASINÇ (BAR)</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">İLETİM HACMİ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.DEVİR</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.GÜÇ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">TORK</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-200">
+                        {PARKER_EGIK_EKSENLI_HIDROMOTORLAR_ROWS.map((row, index) => (
+                          <tr key={row.model || index} className="hover:bg-slate-50">
+                            <td className="px-2 py-2 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.iletimHacmi}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.maksDevir}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.maksGuc}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.tork}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : selectedBrand && productName === 'YILDIZ (RADIAL) MOTOR' && currentBrand === 'hydropack' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Hydropack</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* HYDROPACK Yıldız (Radial) Motor Tablosu */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-xs">
+                      <thead className="bg-slate-50">
+                        <tr>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">ÇALIŞMA BASINCI</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">DEVİR</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">İLETİM HACMİ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.BASINÇ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">TORK</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-200">
+                        {HYDROPACK_YILDIZ_RADIAL_MOTOR_ROWS.map((row, index) => (
+                          <tr key={row.model || index} className="hover:bg-slate-50">
+                            <td className="px-2 py-2 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.calismaBasinci}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.devir}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.iletimHacmi}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.maksBasinc}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.tork}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : selectedBrand && productName === 'YILDIZ (RADIAL) MOTOR' && currentBrand === 'sai' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">SAI</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* SAI Yıldız (Radial) Motor Tablosu */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-xs">
+                      <thead className="bg-slate-50">
+                        <tr>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">İLETİM HACMİ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.GÜÇ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">TORK</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-200">
+                        {SAI_YILDIZ_RADIAL_MOTOR_ROWS.map((row, index) => (
+                          <tr key={row.model || index} className="hover:bg-slate-50">
+                            <td className="px-2 py-2 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.iletimHacmi}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.maksGuc}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.tork}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : selectedBrand && productName === 'YILDIZ (RADIAL) MOTOR' && currentBrand === 'italgroup' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Italgroup</p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* ITALGROUP Yıldız (Radial) Motor Tablosu */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                <div className="rounded-lg border border-slate-200 overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-xs">
+                      <thead className="bg-slate-50">
+                        <tr>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MODEL</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">AĞIRLIK</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">İLETİM HACMİ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.BASINÇ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.GÜÇ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">MAKS.HIZ</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">TEPE HIZI</th>
+                          <th className="px-2 py-2 text-left font-semibold text-slate-900 border-b border-slate-200 whitespace-nowrap">TORK</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-200">
+                        {ITALGROUP_YILDIZ_RADIAL_MOTOR_ROWS.map((row, index) => (
+                          <tr key={row.model || index} className="hover:bg-slate-50">
+                            <td className="px-2 py-2 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.agirlik}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.iletimHacmi}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.maksBasinc}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.maksGuc}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.maksHiz}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.tepeHizi}</td>
+                            <td className="px-2 py-2 text-slate-700 whitespace-nowrap">{row.tork}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </>
           ) : selectedBrand && productName === 'MANOMETRE TEST RAKORLARI' && currentBrand === 'ferro' ? (
             <>
               {/* Ürün Başlığı */}
@@ -11155,6 +12303,152 @@ function ProductDetail() {
                             </tbody>
                           </table>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })()}
+            </>
+          ) : selectedBrand && productName === 'GEROTOR MOTORLAR (ORBİT)' ? (
+            <>
+              {/* Ürün Başlığı */}
+              <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">
+                    {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}
+                  </p>
+                  <h2 className="text-xl font-semibold">{productName}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedBrand(null)}
+                  className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                >
+                  ← Geri Dön
+                </button>
+              </div>
+
+              {/* Detay Sayfası İçeriği */}
+              {(() => {
+                const productData = getGerotorMotorlarOrbitProductData(selectedBrand)
+                if (!productData) {
+                  return (
+                    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                      <div className="space-y-4 text-base leading-relaxed">
+                        <h1 className="text-2xl font-bold text-slate-900 mb-4">
+                          {productName} - {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}
+                        </h1>
+                        <p className="text-slate-700">
+                          {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)} markasına ait {productName}{' '}
+                          ürünleri hakkında detaylı bilgi için lütfen bizimle iletişime geçin.
+                        </p>
+                        <p className="text-slate-600 text-sm mt-4">
+                          Detaylı teknik özellikler, fiyat bilgisi ve teknik destek için satış ekibimizle görüşebilirsiniz.
+                        </p>
+                      </div>
+                    </div>
+                  )
+                }
+
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <div className="space-y-6">
+                      <div>
+                        <h1 className="text-2xl font-bold text-slate-900 mb-4">
+                          {productName} - {selectedBrand.charAt(0).toUpperCase() + selectedBrand.slice(1)}
+                        </h1>
+                        {productData.description && (
+                          <div className="space-y-4 text-base leading-relaxed text-slate-700">
+                            <p>{productData.description}</p>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Seri Tabloları */}
+                      <div className="mt-8 space-y-8">
+                        {productData.categories.map((category, catIndex) => (
+                          <div
+                            key={category.name}
+                            className={catIndex > 0 ? 'pt-8 border-t border-slate-200' : ''}
+                          >
+                            <h2 className="text-xl font-bold text-slate-900 mb-4">{category.name}</h2>
+                            <div className="overflow-x-auto rounded-lg border border-slate-200">
+                              <table className="w-full text-sm">
+                                <thead className="bg-slate-50">
+                                  <tr>
+                                    {category.tableHeaders.map((header, index) => (
+                                      <th
+                                        key={index}
+                                        className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200"
+                                      >
+                                        {header}
+                                      </th>
+                                    ))}
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {category.products.map((product, index) => {
+                                    const getCellValue = (header) => {
+                                      if (header === 'MODEL') return product.model
+                                      if (header === 'AKIŞ MİKTARI (L/DK)') return product.akisMiktari || ''
+                                      if (header === 'ÇIKIŞ GÜCÜ (KW)') return product.cikisGucu || ''
+                                      if (header === 'DEVİR') return product.devir || ''
+                                      if (header === 'GİRİŞ BASINCI') return product.girisBasinci || ''
+                                      if (header === 'İLETİM HACMİ') return product.iletimHacmi || ''
+                                      if (header === 'TAHRİK MİLİ') return product.tahrikMili || ''
+                                      if (header === 'TORK') return product.tork || ''
+
+                                      if (header === 'AĞIRLIK') return product.agirlik || ''
+                                      if (header === 'BASINÇ DÜŞMESİ') return product.basincDusmesi || ''
+                                      if (header === 'MAK. TORK') return product.makTork || ''
+                                      if (header === 'MAKS.ÇIKIŞ DEĞERİ') return product.maksCikis || ''
+                                      if (header === 'MAKS.DEBİ (LT./DAK)') return product.maksDebi || ''
+                                      if (header === 'MAKS.HIZ') return product.maksHiz || ''
+                                      if (header === 'MAKS.BASINÇ') return product.maksBasinc || ''
+                                      if (header === 'MAKS. BASINÇ FARKI') return product.maksBasincFarki || ''
+                                      if (header === 'MAKS. GİRİŞ BASINCI') return product.maksGirisBasinci || ''
+                                      if (header === 'AKIŞ KAPASİTESİ') return product.akisKapasitesi || ''
+                                      if (header === 'MAKS.GÜÇ') return product.maksGuc || ''
+                                      if (header === 'MAKS. YAĞ AKIŞI') return product.maksYagAkisi || ''
+
+                                      if (header === 'BASINÇ (BAR)') return product.basinc || ''
+                                      if (header === 'DEBİ (LT/DAK.)') return product.debi || ''
+                                      if (header === 'MAKS.DEVİR') return product.maksDevir || ''
+                                      if (header === 'MİL ÇAPI') return product.milCapi || ''
+
+                                      if (header === 'ÇALIŞMA BASINCI') return product.calismaBasinci || ''
+                                      if (header === 'HIZ') return product.hiz || ''
+
+                                      if (header === 'DEBİ') return product.debi || ''
+
+                                      if (header === 'BASINÇ') return product.basinc || ''
+
+                                      return ''
+                                    }
+
+                                    return (
+                                      <tr
+                                        key={index}
+                                        className="border-b border-slate-200 last:border-b-0 hover:bg-slate-50"
+                                      >
+                                        {category.tableHeaders.map((header, headerIndex) => (
+                                          <td key={headerIndex} className="px-4 py-3 text-slate-700">
+                                            {headerIndex === 0 ? (
+                                              <span className="font-medium text-slate-900">
+                                                {getCellValue(header)}
+                                              </span>
+                                            ) : (
+                                              getCellValue(header)
+                                            )}
+                                          </td>
+                                        ))}
+                                      </tr>
+                                    )
+                                  })}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
