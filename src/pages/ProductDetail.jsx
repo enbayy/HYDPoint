@@ -19911,10 +19911,19 @@ function ProductDetail() {
               {selectedProduct === 'GLİSERİNLİ ALT BAĞLANTILI MANOMETRELER' && currentBrand === 'pakkens' && (
                 <>
                   {/* Ürün Başlığı */}
-                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
-                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                  <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-slate-50">
+                        <img
+                          src="/pakkens.png"
+                          alt="Pakkens"
+                          className="h-8 w-auto object-contain"
+                        />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Pakkens</p>
+                        <h2 className="text-xl font-semibold text-slate-900">{selectedProduct}</h2>
+                      </div>
                     </div>
                     <button
                       onClick={() => {
@@ -20262,9 +20271,18 @@ function ProductDetail() {
                 <>
                   {/* Ürün Başlığı */}
                   <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
-                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-slate-50">
+                        <img
+                          src="/pakkens.png"
+                          alt="Pakkens"
+                          className="h-8 w-auto object-contain"
+                        />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Pakkens</p>
+                        <h2 className="text-xl font-semibold text-slate-900">{selectedProduct}</h2>
+                      </div>
                     </div>
                     <button
                       onClick={() => {
@@ -20381,9 +20399,18 @@ function ProductDetail() {
                 <>
                   {/* Ürün Başlığı */}
                   <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
-                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-slate-50">
+                        <img
+                          src="/pakkens.png"
+                          alt="Pakkens"
+                          className="h-8 w-auto object-contain"
+                        />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Pakkens</p>
+                        <h2 className="text-xl font-semibold text-slate-900">{selectedProduct}</h2>
+                      </div>
                     </div>
                     <button
                       onClick={() => {
@@ -20497,9 +20524,18 @@ function ProductDetail() {
                 <>
                   {/* Ürün Başlığı */}
                   <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
-                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-slate-50">
+                        <img
+                          src="/pakkens.png"
+                          alt="Pakkens"
+                          className="h-8 w-auto object-contain"
+                        />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Pakkens</p>
+                        <h2 className="text-xl font-semibold text-slate-900">{selectedProduct}</h2>
+                      </div>
                     </div>
                     <button
                       onClick={() => {
@@ -20585,9 +20621,18 @@ function ProductDetail() {
                 <>
                   {/* Ürün Başlığı */}
                   <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
-                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-slate-50">
+                        <img
+                          src="/pakkens.png"
+                          alt="Pakkens"
+                          className="h-8 w-auto object-contain"
+                        />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Pakkens</p>
+                        <h2 className="text-xl font-semibold text-slate-900">{selectedProduct}</h2>
+                      </div>
                     </div>
                     <button
                       onClick={() => {
@@ -20671,9 +20716,18 @@ function ProductDetail() {
                 <>
                   {/* Ürün Başlığı */}
                   <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
-                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-slate-50">
+                        <img
+                          src="/pakkens.png"
+                          alt="Pakkens"
+                          className="h-8 w-auto object-contain"
+                        />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Pakkens</p>
+                        <h2 className="text-xl font-semibold text-slate-900">{selectedProduct}</h2>
+                      </div>
                     </div>
                     <button
                       onClick={() => {
@@ -20726,9 +20780,18 @@ function ProductDetail() {
                 <>
                   {/* Ürün Başlığı */}
                   <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
-                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-slate-50">
+                        <img
+                          src="/pakkens.png"
+                          alt="Pakkens"
+                          className="h-8 w-auto object-contain"
+                        />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Pakkens</p>
+                        <h2 className="text-xl font-semibold text-slate-900">{selectedProduct}</h2>
+                      </div>
                     </div>
                     <button
                       onClick={() => {
@@ -20782,9 +20845,18 @@ function ProductDetail() {
                 <>
                   {/* Ürün Başlığı */}
                   <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
-                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-slate-50">
+                        <img
+                          src="/pakkens.png"
+                          alt="Pakkens"
+                          className="h-8 w-auto object-contain"
+                        />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Pakkens</p>
+                        <h2 className="text-xl font-semibold text-slate-900">{selectedProduct}</h2>
+                      </div>
                     </div>
                     <button
                       onClick={() => {
@@ -20885,9 +20957,18 @@ function ProductDetail() {
                 <>
                   {/* Ürün Başlığı */}
                   <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
-                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-slate-50">
+                        <img
+                          src="/pakkens.png"
+                          alt="Pakkens"
+                          className="h-8 w-auto object-contain"
+                        />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Pakkens</p>
+                        <h2 className="text-xl font-semibold text-slate-900">{selectedProduct}</h2>
+                      </div>
                     </div>
                     <button
                       onClick={() => {
@@ -21052,9 +21133,18 @@ function ProductDetail() {
                 <>
                   {/* Ürün Başlığı */}
                   <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
-                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-slate-50">
+                        <img
+                          src="/pakkens.png"
+                          alt="Pakkens"
+                          className="h-8 w-auto object-contain"
+                        />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Pakkens</p>
+                        <h2 className="text-xl font-semibold text-slate-900">{selectedProduct}</h2>
+                      </div>
                     </div>
                     <button
                       onClick={() => {
@@ -21224,9 +21314,18 @@ function ProductDetail() {
                 <>
                   {/* Ürün Başlığı */}
                   <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
-                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-slate-50">
+                        <img
+                          src="/pakkens.png"
+                          alt="Pakkens"
+                          className="h-8 w-auto object-contain"
+                        />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Pakkens</p>
+                        <h2 className="text-xl font-semibold text-slate-900">{selectedProduct}</h2>
+                      </div>
                     </div>
                     <button
                       onClick={() => {
@@ -21361,9 +21460,18 @@ function ProductDetail() {
                 <>
                   {/* Ürün Başlığı */}
                   <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
-                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-slate-50">
+                        <img
+                          src="/pakkens.png"
+                          alt="Pakkens"
+                          className="h-8 w-auto object-contain"
+                        />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Pakkens</p>
+                        <h2 className="text-xl font-semibold text-slate-900">{selectedProduct}</h2>
+                      </div>
                     </div>
                     <button
                       onClick={() => {
