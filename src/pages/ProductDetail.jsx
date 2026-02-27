@@ -18525,6 +18525,18 @@ function ProductDetail() {
               {/* Marka Logoları / Marka Bazlı Kartlar */}
               {productName !== 'GLİSERİNLİ ALT BAĞLANTILI MANOMETRELER' &&
                productName !== 'KURU TİP ALT BAĞLANTILI MANOMETRELER' &&
+               productName !== 'GLİSERİNLİ VAKUMMETRELER' &&
+               productName !== 'KURU TİP VAKUMMETRELER' &&
+               productName !== 'MANOVAKOMETRELER' &&
+               productName !== 'GLİSERİNLİ ALT BAĞLANTILI VAKUMMETRELER' &&
+               productName !== 'KURU TİP ALT BAĞLANTILI VAKUMMETRELER' &&
+               productName !== 'TEK KONTAK MANOMETRELER' &&
+               productName !== 'ÇİFT KONTAK MANOMETRELER' &&
+               productName !== 'GLİSERİNLİ ARKADAN BAĞLANTILI MANOMETRELER' &&
+               productName !== 'KURU TİP ARKADAN BAĞLANTILI MANOMETRELER' &&
+               productName !== 'GLİSERİNLİ PANO BAĞLANTILI MANOMETRELER' &&
+               productName !== 'KURU TİP PANO BAĞLANTILI MANOMETRELER' &&
+               productName !== 'ARKADAN BAĞLANTILI VAKUMMETRELER' &&
                !['PVC ÇELİK TELLİ HORTUMLAR', 'PULVERİZATÖR (İLAÇLAMA) HORTUMU', 'PVC SU HORTUMLARI', 'PVC HAVA HORTUMLARI', 'TELLİ HORTUMLAR', 'TEKSTİL ÖRGÜLÜ HORTUMLAR', 'YAKIT HORTUMLARI', 'BUHAR VE SICAK SU HORTUMLARI', 'HAVA HORTUMLARI', 'AŞINDIRICI MADDE HORTUMLARI', 'GIDA HORTUMLARI', 'SU HORTUMLARI', 'TERMOPLASTİK HİDROLİK HORTUMLAR', 'BOYA VE SOLVENT HORTUMLARI', 'DN 2 - DN 4 HORTUMLAR', 'SPİRAL POLİETİLEN KORUYUCU'].includes(selectedProduct) && (
               <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 md:p-8">
                 {allBrandLogos.length === 0 ? (
@@ -20153,6 +20165,1202 @@ function ProductDetail() {
                               <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
                               <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.hassasiyet}</td>
                               <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.kapak}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {selectedProduct === 'ÇİFT KONTAK VAKUMMETRELER' && currentBrand === 'pakkens' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* ÇİFT KONTAK VAKUMMETRELER Tablosu */}
+                  <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">ÇİFT KONTAK VAKUMMETRELER</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'VKALT100-1C', aciklama: 'ÇİFT KONTAK VAKUMMETRELER', baglanti: 'ALT.ÇIK.KONTAKLI VAKUMTRE', basinc: '1', cap: '100' },
+                            { model: 'VKALT100760C', aciklama: 'ÇİFT KONTAK VAKUMMETRELER', baglanti: 'ALT.ÇIK.ÇİFT KONT.VAKUMETRE', basinc: '760', cap: '100' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {selectedProduct === 'GLİSERİNLİ VAKUMMETRELER' && currentBrand === 'pakkens' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* Ø 100 GLİSERİNLİ VAKUMMETRELER */}
+                  <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 100 GLİSERİNLİ VAKUMMETRELER</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">HASSASİYET</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'VKPG100001', aciklama: 'GLİSERİNLİ VAKUMMETRELER', baglanti: 'ARK.ÇIK.PANO.GLS.VAKUKMETRE', basinc: '1', cap: '100', hassasiyet: 'KL 2,5' },
+                            { model: 'VKPG100760', aciklama: 'GLİSERİNLİ VAKUMMETRELER', baglanti: 'ARK.ÇIK.PANO GLS.VAKUMETRE', basinc: '760', cap: '100', hassasiyet: 'KL 2,5' },
+                            { model: 'VKPHG100760', aciklama: 'GLİSERİNLİ VAKUMMETRELER', baglanti: 'PANOTİP HASSAS GLS. VAKUMETRE', basinc: '760', cap: '100', hassasiyet: 'KL 1,0' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.hassasiyet}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* Ø 40 GLİSERİNLİ VAKUMMETRELER */}
+                  <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 40 GLİSERİNLİ VAKUMMETRELER</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'VKARK040001', aciklama: 'GLİSERİNLİ VAKUMMETRELER', baglanti: 'ARK.ÇIK.VAKUMETRE', basinc: '1/0', cap: '40' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* Ø 63 GLİSERİNLİ VAKUMMETRELER */}
+                  <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 63 GLİSERİNLİ VAKUMMETRELER</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'VKPG063001', aciklama: 'GLİSERİNLİ VAKUMMETRELER', baglanti: 'ARK.ÇIK.PANO GLS.VAKUMETRE', basinc: '1/0', cap: '63' },
+                            { model: 'VKPG063760', aciklama: 'GLİSERİNLİ VAKUMMETRELER', baglanti: 'ARK.ÇIK.PANO GLS.VAKUMETRE', basinc: '760', cap: '63' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {selectedProduct === 'KURU TİP VAKUMMETRELER' && currentBrand === 'pakkens' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* Ø 63 KURU TİP VAKUMMETRELER */}
+                  <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 63 KURU TİP VAKUMMETRELER</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'VKALT063001', aciklama: 'KURU TİP VAKUMMETRELER', baglanti: 'ALT.ÇIK.VAKUMETRE METAL', basinc: '1/0', cap: '63' },
+                            { model: 'VKARK063760', aciklama: 'KURU TİP VAKUMMETRELER', baglanti: 'PANOTİP VAKUMETRE METAL', basinc: '760', cap: '63' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {selectedProduct === 'MANOVAKOMETRELER' && currentBrand === 'pakkens' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* MANOVAKOMETRELER Tablosu */}
+                  <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">MANOVAKOMETRELER</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: '31615', aciklama: 'MANOVAKOMETRELER', baglanti: 'ALT.ÇIK.MANOVKOMETRE', basinc: '1/+1,5', cap: '100' },
+                            { model: 'VKALTG063015', aciklama: 'MANOVAKOMETRELER', baglanti: 'ALT.ÇIK.GLS.MANOVAKOMETRE', basinc: '1/5', cap: '63' },
+                            { model: 'VKALTG063019', aciklama: 'MANOVAKOMETRELER', baglanti: 'ALT.ÇIK.GLS.MANOVAKOMETRE', basinc: '1/9', cap: '63' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {selectedProduct === 'GLİSERİNLİ ALT BAĞLANTILI VAKUMMETRELER' && currentBrand === 'pakkens' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* Ø 100 GLİSERİNLİ ALT BAĞLANTILI VAKUMMETRELER */}
+                  <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 100 GLİSERİNLİ ALT BAĞLANTILI VAKUMMETRELER</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">HASSASİYET</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'VKALTG100001', aciklama: 'GLİSERİNLİ ALT BAĞLANTILI VAKUMMETRELER', baglanti: 'ALT.ÇIK.GLİS.VAKUMETRE', basinc: '1/0', cap: '100', hassasiyet: 'KL 2,5' },
+                            { model: 'VKALTG100760', aciklama: 'GLİSERİNLİ ALT BAĞLANTILI VAKUMMETRELER', baglanti: 'ALT.ÇIK.GLİS.VAKUMETRE', basinc: '760', cap: '100', hassasiyet: 'KL 2,5' },
+                            { model: 'VKALTHG100760', aciklama: 'GLİSERİNLİ ALT BAĞLANTILI VAKUMMETRELER', baglanti: 'ALT.ÇIK.HASSAS GLS.VAKUMETRE', basinc: '760', cap: '100', hassasiyet: 'KL 1,0' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.hassasiyet}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* Ø 63 GLİSERİNLİ ALT BAĞLANTILI VAKUMMETRELER */}
+                  <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 63 GLİSERİNLİ ALT BAĞLANTILI VAKUMMETRELER</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'VKALTG063001', aciklama: 'GLİSERİNLİ ALT BAĞLANTILI VAKUMMETRELER', baglanti: 'ALT.ÇIK.GLİS.VAKUMETRE', basinc: '1', cap: '63' },
+                            { model: 'VKALTG063760', aciklama: 'GLİSERİNLİ ALT BAĞLANTILI VAKUMMETRELER', baglanti: 'ALT.ÇIK.GLS.VAKUMETRE', basinc: '760', cap: '63' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {selectedProduct === 'KURU TİP ALT BAĞLANTILI VAKUMMETRELER' && currentBrand === 'pakkens' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* Ø 100 KURU TİP ALT BAĞLANTILI VAKUMMETRELER */}
+                  <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 100 KURU TİP ALT BAĞLANTILI VAKUMMETRELER</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'VKALT100001', aciklama: 'KURU TİP ALT BAĞLANTILI VAKUMMETRELER', baglanti: 'ALT.ÇIK.VAKUMETRE METAL', basinc: '1/0', cap: '100' },
+                            { model: 'VKALT100760', aciklama: 'KURU TİP ALT BAĞLANTILI VAKUMMETRELER', baglanti: 'ALT.ÇIK.VAKUMETRE METAL', basinc: '760', cap: '100' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* Ø 63 KURU TİP ALT BAĞLANTILI VAKUMMETRELER */}
+                  <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 63 KURU TİP ALT BAĞLANTILI VAKUMMETRELER</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'VKALT0630019', aciklama: 'KURU TİP ALT BAĞLANTILI VAKUMMETRELER', baglanti: 'ALT.ÇIK.MANOVAKUMETRE METRE', basinc: '1/9', cap: '63' },
+                            { model: 'VKALD063250', aciklama: 'KURU TİP ALT BAĞLANTILI VAKUMMETRELER', baglanti: 'ALT.ÇIK.DİYAF.VAKUMETRE', basinc: '250', cap: '63' },
+                            { model: 'VKALT063760', aciklama: 'KURU TİP ALT BAĞLANTILI VAKUMMETRELER', baglanti: 'ALT.ÇIK.VAKUMETRE METAL', basinc: '760', cap: '63' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {selectedProduct === 'TEK KONTAK MANOMETRELER' && currentBrand === 'pakkens' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* TEK KONTAK MANOMETRELER Tablosu */}
+                  <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">TEK KONTAK MANOMETRELER</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'MNALT100010T', aciklama: 'TEK KONTAK MANOMETRELER', baglanti: 'ALT.ÇIK.TEK KONTAKLI MANOMETRE', basinc: '10', cap: '100' },
+                            { model: 'MNALT100016T', aciklama: 'TEK KONTAK MANOMETRELER', baglanti: 'ALT.ÇIK.TEK.KONTAKLI MANOMETRE', basinc: '16', cap: '100' },
+                            { model: 'MNALT100400T', aciklama: 'TEK KONTAK MANOMETRELER', baglanti: 'ALT.ÇIK.TEK.KONTAKLI MANOMETRE', basinc: '400', cap: '100' },
+                            { model: 'MNALT100060T', aciklama: 'TEK KONTAK MANOMETRELER', baglanti: 'ALT.ÇIK.TEK.KONTAKLI MANOMETRE', basinc: '60', cap: '100' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {selectedProduct === 'ÇİFT KONTAK MANOMETRELER' && currentBrand === 'pakkens' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* ÇİFT KONTAK MANOMETRELER Tablosu */}
+                  <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">ÇİFT KONTAK MANOMETRELER</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'MNALT100100C', aciklama: 'ÇİFT KONTAK MANOMETRELER', baglanti: 'ALT.ÇIK.ÇİFT.KONTAKLI MANOMETR', basinc: '100', cap: '100' },
+                            { model: 'MNALT100250C', aciklama: 'ÇİFT KONTAK MANOMETRELER', baglanti: 'ALT.ÇIK.ÇİFT.KONTAKLI MANOMETR', basinc: '250', cap: '100' },
+                            { model: 'MNALT100315C', aciklama: 'ÇİFT KONTAK MANOMETRELER', baglanti: 'ALT.ÇIK.ÇİFT.KONTAKLI MANOMETR', basinc: '315', cap: '100' },
+                            { model: 'MNALT100400C', aciklama: 'ÇİFT KONTAK MANOMETRELER', baglanti: 'ALT.ÇIK.ÇİFT KONTAKLI MANOMETR', basinc: '400', cap: '100' },
+                            { model: 'MNARK100600C', aciklama: 'ÇİFT KONTAK MANOMETRELER', baglanti: 'ARK.ÇIK.ÇİFT.KONTAKLI MANOMETR', basinc: '600', cap: '100' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {selectedProduct === 'GLİSERİNLİ ARKADAN BAĞLANTILI MANOMETRELER' && currentBrand === 'pakkens' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* Ø 100 ARKADAN BAĞLANTILI GLİSERİNLİ */}
+                  <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 100 ARKADAN BAĞLANTILI GLİSERİNLİ</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'MNARKG100010', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ARKADAN BAĞ.GLS.MANOMETRE', basinc: '10', cap: '100' },
+                            { model: 'MNARKG100002', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ARKADAN BAĞL.GLS.MANOMETRE', basinc: '2,5', cap: '100' },
+                            { model: 'MNARKG100025', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ARKADNA BAĞ.GLS.MANOMETRE', basinc: '25', cap: '100' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* Ø 63 ARKADAN BAĞLANTILI GLİSERİNLİ */}
+                  <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 63 ARKADAN BAĞLANTILI GLİSERİNLİ</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'MNARKG063010F', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ARKADAN BAĞL.GLS.FLANŞLI', basinc: '10', cap: '63' },
+                            { model: 'MNARKG063100', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ARKDAN BAĞL.GLS.MANOMETRE', basinc: '100', cap: '63' },
+                            { model: '31457', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ARKADAN BAĞL.GLS.FLANŞLI', basinc: '16', cap: '63' },
+                            { model: 'MNARKG063016', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ARKADAN BAĞL.GLS.MANOMETRE', basinc: '16', cap: '63' },
+                            { model: 'MNARKG063160F', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ARKADAN BAĞL.GLS.FLANŞLI', basinc: '160', cap: '63' },
+                            { model: 'MNARKG063160', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ARKADAN BAĞL.GLS.MANOMETRE', basinc: '160', cap: '63' },
+                            { model: 'MNARKG063025', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ARKADAN.BAĞL.GLD.MANOMETRE', basinc: '25', cap: '63' },
+                            { model: 'MNPG063250F', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ARKADAN BAĞL.GLS.FLANŞLI', basinc: '250', cap: '63' },
+                            { model: 'MNARKG063250', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ARKADAN BAĞL.GLS.MANOMETRE', basinc: '250', cap: '63' },
+                            { model: 'MNARKG063315', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ARKADAN BAĞL.GLS.MANOMETRE', basinc: '315', cap: '63' },
+                            { model: 'MNARKG063040', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ARKADAN.BAĞL.GLS.MANOMETRE', basinc: '40', cap: '63' },
+                            { model: 'MNARKG063400F', aciklama: 'PASLNAMAZ GÖVDE', baglanti: 'ARKADAN BAĞL.GLS.FLANŞLI', basinc: '400', cap: '63' },
+                            { model: 'MNARKG063400', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ARKADNA BAĞL.MANOMETRE', basinc: '40', cap: '63' },
+                            { model: 'MNARK063006F', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ARKADNA BAĞL.GLS.FLANŞLI', basinc: '6', cap: '63' },
+                            { model: 'MNARKG063006', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ARKADAN BAĞL.GLD.MANOMETRE', basinc: '6', cap: '63' },
+                            { model: 'MNARKG063060F', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ARKADAN BAĞL.GLS.FLANŞLI', basinc: '60', cap: '63' },
+                            { model: 'MNARKG063060', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ARKADAN BAĞL.GLS.MANOMETRE', basinc: '60', cap: '63' },
+                            { model: 'MNARKG063600F', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ARKADAN BAĞL.GLS.FLANŞLI', basinc: '600', cap: '63' },
+                            { model: 'MNARKG063600', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ARKADAN BAĞL.GLS.MANOMETRE', basinc: '600', cap: '63' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {selectedProduct === 'KURU TİP ARKADAN BAĞLANTILI MANOMETRELER' && currentBrand === 'pakkens' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* Ø 63 ARKADAN BAĞLANTILI GLİSERİNLİ (KURU TİP) */}
+                  <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 63 ARKADAN BAĞLANTILI GLİSERİNLİ</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">KAPAK TİPİ</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: '31478', aciklama: 'METAL GÖVDE', baglanti: 'ARK.ÇIK.MANOMETRE METAL', basinc: '315', cap: '100', kapak: 'AKRİ KAPAK' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.kapak}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* Ø 40 ARKADAN BAĞLANTILI KURU TİP */}
+                  <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 40 ARKADAN BAĞLANTILI KURU TİP</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">KAPAK TİPİ</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'MNARK040016', aciklama: 'PLASTİK GÖVDE', baglanti: 'ARK.ÇIK.MANOMETRE PLASTİK', basinc: '10', cap: '40', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNARK040400', aciklama: 'PLASTİK GÖVDE', baglanti: 'ARK.ÇIK.MANOMETRE PLASTİK', basinc: '16', cap: '40', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNARK0400025', aciklama: 'PLASTİK GÖVDE', baglanti: 'ARK.ÇIK.MANOMETRE PLASTİK', basinc: '2,5', cap: '40', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNARK040025', aciklama: 'PLASTİK GÖVDE', baglanti: 'ARK.ÇIK.MANOMETRE PLASTİK', basinc: '25', cap: '40', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNARK040004', aciklama: 'PLASTİK GÖVDE', baglanti: 'ARK.ÇIK.MANOMETRE PLASİTK', basinc: '4', cap: '40', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNARK040040', aciklama: 'PLASTİK GÖVDE', baglanti: 'ARK.ÇIK.MANOMETRE PLASTİK', basinc: '40', cap: '40', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNARK040006', aciklama: 'PLASTİK GÖVDE', baglanti: 'ARK.ÇIK.MANOMETRE PLASTİK', basinc: '6', cap: '40', kapak: 'AKRİ KAPAK' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.kapak}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* Ø 50 ARKADAN BAĞLANTILI KURU TİP */}
+                  <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 50 ARKADAN BAĞLANTILI KURU TİP</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">KAPAK TİPİ</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'MNARK050016M', aciklama: 'METAL GÖVDE', baglanti: 'ARK.ÇIK.MANOMETRE METAL', basinc: '16', cap: '50', kapak: 'AKRİ KAPAK' },
+                            { model: '31491', aciklama: 'PLASTİK GÖVDE', baglanti: 'ARK.ÇIK.MANOMETRE PLASTİK', basinc: '16', cap: '50', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNARK050025M', aciklama: 'METAL GÖVDE', baglanti: 'ARK.ÇIK.MANOMETRE METAL', basinc: '25', cap: '50', kapak: 'AKRİ KAPAK' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.kapak}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* Ø 63 ARKADAN BAĞLANTILI KURU TİP */}
+                  <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 63 ARKADAN BAĞLANTILI KURU TİP</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">KAPAK TİPİ</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'MNARK063010M', aciklama: 'METAL GÖVDE', baglanti: 'ARK.ÇIK.MANOMETRE METAL', basinc: '10', cap: '63', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNARK063016M', aciklama: 'METAL GÖVDE', baglanti: 'ARK.ÇIK.MANOMETRE', basinc: '16', cap: '63', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNARK063025M', aciklama: 'METAL GÖVDE', baglanti: 'ARK.ÇIK.MANOMETRE METAL', basinc: '25', cap: '63', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNARK063315M', aciklama: 'METAL GÖVDE', baglanti: 'ARK.ÇIK.MANOMETRE METAL', basinc: '315', cap: '63', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNARK063400M', aciklama: 'METAL GÖVDE', baglanti: 'ARK.ÇIK.MANOMETRE METAL', basinc: '400', cap: '63', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNARK063006M', aciklama: 'METAL GÖVDE', baglanti: 'ARK.ÇIK.MANOMETRE METAL', basinc: '6', cap: '63', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNARK063060M', aciklama: 'METAL GÖVDE', baglanti: 'ARK.ÇIK.MANOMETRE METAL', basinc: '60', cap: '63', kapak: 'AKRİ KAPAK' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.kapak}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {selectedProduct === 'GLİSERİNLİ PANO BAĞLANTILI MANOMETRELER' && currentBrand === 'pakkens' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* Ø 100 PANOTİP GLİSERİNLİ */}
+                  <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 100 PANOTİP GLİSERİNLİ</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">HASSASİYET</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'MNPG100010EK', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'EKS.KAÇ.PANOTİP GLS.MANOMETRE', basinc: '10', cap: '100', hassasiyet: 'KL 1' },
+                            { model: 'MNPG100100EK', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'EKS.KAÇ.PANOTİP GLS.MANOMETRE', basinc: '100', cap: '100', hassasiyet: 'KL 1' },
+                            { model: 'MNPG100100', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP. GLS.MANOMETRE', basinc: '100', cap: '100', hassasiyet: '' },
+                            { model: 'MNPH100100', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP HASSAS GLS.MANOMETRE', basinc: '100', cap: '100', hassasiyet: 'KL 1,0' },
+                            { model: 'MNPG100016EK', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'EKS.KAÇ.PANOTİP GLS.MANOMETRE', basinc: '16', cap: '100', hassasiyet: 'KL 1' },
+                            { model: 'MNPG100016', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '16', cap: '100', hassasiyet: '' },
+                            { model: 'MNPH100016', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP HASSAS GLS.MANOMETRE', basinc: '16', cap: '100', hassasiyet: 'KL 1,0' },
+                            { model: 'MNPG100160EK', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'EKS.KAÇ.PANOTİP GLS.MANOMETRE', basinc: '160', cap: '100', hassasiyet: 'KL 1' },
+                            { model: 'MNPG100160', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '160', cap: '100', hassasiyet: '' },
+                            { model: 'MNPH100160', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP HASSAS GLS. MANOMETRE', basinc: '160', cap: '100', hassasiyet: 'KL 1,0' },
+                            { model: 'MNPH100002', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP HASSAS GLS. MANOMETRE', basinc: '2,5', cap: '100', hassasiyet: 'KL 1,0' },
+                            { model: 'MNPG100025EK', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'EKS.KAÇ.PANOTİP GLS. MANOMETRE', basinc: '25', cap: '100', hassasiyet: 'KL 1' },
+                            { model: 'MNPH100025', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP HASSAS GLS. MANOMETRE', basinc: '25', cap: '100', hassasiyet: 'KL 1,0' },
+                            { model: 'MNPG100250EK', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'EKS.PANOTİP GLS.MANOMETRE', basinc: '250', cap: '100', hassasiyet: 'KL 1' },
+                            { model: 'MNPG100250', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '250', cap: '100', hassasiyet: '' },
+                            { model: 'MNPH100250', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP HASSAS GLS.MANOMETRE', basinc: '250', cap: '100', hassasiyet: 'KL 1,0' },
+                            { model: 'MNPH100280', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP HASSAS GLS.MANOMETR', basinc: '280', cap: '100', hassasiyet: 'KL 1,0' },
+                            { model: 'MNP100315EK', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'EKS.KAÇ.PANOTİP GLS. ÖANOMETRE', basinc: '315', cap: '100', hassasiyet: 'KL 1' },
+                            { model: 'MNPG100315', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANMETRE', basinc: '315', cap: '100', hassasiyet: '' },
+                            { model: 'MNPH100315', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP HASSAS GLS.MANOMETRE', basinc: '315', cap: '100', hassasiyet: 'KL 1,0' },
+                            { model: '31526', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'EKS.KAÇ.ÖN FLŞ.GLS.MANOMETRE', basinc: '4', cap: '100', hassasiyet: 'KL 1' },
+                            { model: 'MNPG100040', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '40', cap: '100', hassasiyet: '' },
+                            { model: 'MNPH100040', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP HASSAS GLS.MANOMETRE', basinc: '40', cap: '100', hassasiyet: 'KL 1,0' },
+                            { model: 'MNPG100400EK', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'EKS.KAÇ.PANOTİP GLS.MANOMETRE', basinc: '400', cap: '100', hassasiyet: 'KL 1' },
+                            { model: 'MNPG100400', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '400', cap: '100', hassasiyet: 'KL 2,5' },
+                            { model: 'MNPH100400', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP HASSAS GLS.MANOMETRE', basinc: '400', cap: '100', hassasiyet: 'KL 1,0' },
+                            { model: 'MNPG100006EK', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'EKS.KAÇ.PANOTİP GLS.MANOMETRE', basinc: '6', cap: '100', hassasiyet: 'KL 1' },
+                            { model: 'MNPH100006', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP HASSAS GLS.MANOMETRE', basinc: '6', cap: '100', hassasiyet: 'KL 1,0' },
+                            { model: 'MNPH100060', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP HASSAS GLS.MANOMETRE', basinc: '60', cap: '100', hassasiyet: 'KL 1,0' },
+                            { model: 'MNPG100600EKÇ', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'EKS.KAÇ.PANOTİP ÇİFT KONT. MAN', basinc: '600', cap: '100', hassasiyet: 'KL 1' },
+                            { model: 'MNPG100600', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '600', cap: '100', hassasiyet: 'KL 2,5' },
+                            { model: 'MNPH100600', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP HASSAS GLS.MANOMETRE', basinc: '600', cap: '100', hassasiyet: 'KL 1,0' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.hassasiyet}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* Ø 50 PANOTİP GLİSERİNLİ */}
+                  <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 50 PANOTİP GLİSERİNLİ</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'MNPG050010', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '10', cap: '50' },
+                            { model: 'MNPG050016', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '16', cap: '50' },
+                            { model: 'MNPG050160', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '160', cap: '50' },
+                            { model: 'MNPG050025', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '25', cap: '50' },
+                            { model: 'MNPG050250', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '250', cap: '50' },
+                            { model: 'MNPG050315', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '315', cap: '50' },
+                            { model: 'MNPG050600', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '600', cap: '50' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* Ø 63 PANOTİP GLİSERİNLİ */}
+                  <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 63 PANOTİP GLİSERİNLİ</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">HASSASİYET</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'MNPG063006', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '0,6', cap: '63', hassasiyet: '' },
+                            { model: 'MNPG063001', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '1', cap: '63', hassasiyet: '' },
+                            { model: 'MNPG063010', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '10', cap: '63', hassasiyet: '' },
+                            { model: 'MNPG063100', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '100', cap: '63', hassasiyet: '' },
+                            { model: 'MNPG063016', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '16', cap: '63', hassasiyet: '' },
+                            { model: 'MNPG063160', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '160', cap: '63', hassasiyet: '' },
+                            { model: 'MNPG063002', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '2,5', cap: '63', hassasiyet: '' },
+                            { model: 'MNPG063025', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '25', cap: '63', hassasiyet: '' },
+                            { model: 'MNPG063250', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '250', cap: '63', hassasiyet: '' },
+                            { model: 'MNPG063280', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '280', cap: '63', hassasiyet: '' },
+                            { model: 'MNPG063315', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '315', cap: '63', hassasiyet: '' },
+                            { model: 'MNPG063004', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '4', cap: '63', hassasiyet: '' },
+                            { model: 'MNPG063040EK', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'EKS.KAÇ.GLS.PASLANMAZ MANOMETR', basinc: '40', cap: '63', hassasiyet: 'KL 2,5' },
+                            { model: 'MNPG063040', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '40', cap: '63', hassasiyet: '' },
+                            { model: 'MNPG063400EK', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'EKS.KAÇ.PANOTİP GLS.MANOMETRE', basinc: '400', cap: '63', hassasiyet: 'KL 2,5' },
+                            { model: 'MNPG063400', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '400', cap: '63', hassasiyet: '' },
+                            { model: 'MNPG063060', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '60', cap: '63', hassasiyet: '' },
+                            { model: 'MNPG063600', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'PANOTİP GLS.MANOMETRE', basinc: '600', cap: '63', hassasiyet: '' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.hassasiyet}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {selectedProduct === 'KURU TİP PANO BAĞLANTILI MANOMETRELER' && currentBrand === 'pakkens' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* Ø 40 PANOTİP KURU */}
+                  <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 40 PANOTİP KURU</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">KAPAK TİPİ</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: '31592', aciklama: 'METAL GÖVDE', baglanti: 'PANOTİP MANOMETRE METAL', basinc: '1,6', cap: '40', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNP040010M', aciklama: 'METAL GÖVDE', baglanti: 'PANOTİP MANOMETRE METAL', basinc: '10', cap: '40', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNP040016M', aciklama: 'METAL GÖVDE', baglanti: 'PANOTİP MANOMETRE METAL', basinc: '16', cap: '40', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNP0400025M', aciklama: 'METAL GÖVDE', baglanti: 'PANOTİP MANOMETRE METAL', basinc: '2,5', cap: '40', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNP040040M', aciklama: 'METAL GÖVDE', baglanti: 'PANOTİP MANOMETRE METAL', basinc: '40', cap: '40', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNP040006M', aciklama: 'METAL GÖVDE', baglanti: 'PANOTİP MANOMETRE METAL', basinc: '6', cap: '40', kapak: 'AKRİ KAPAK' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.kapak}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* Ø 50 PANOTİP KURU */}
+                  <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 50 PANOTİP KURU</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">KAPAK TİPİ</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'MNP050010M', aciklama: 'METAL GÖVDE', baglanti: 'PANOTİP MANOMETRE METAL', basinc: '10', cap: '50', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNP050016M', aciklama: 'METAL GÖVDE', baglanti: 'PANOTİP MANOMETRE METAL', basinc: '16', cap: '50', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNP050025M', aciklama: 'METAL GÖVDE', baglanti: 'PANOTİP MANOMETRE METAL', basinc: '25', cap: '50', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNP050006M', aciklama: 'METAL GÖVDE', baglanti: 'PANOTİP MANOMETRE METAL', basinc: '6', cap: '50', kapak: 'AKRİ KAPAK' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.kapak}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* Ø 63 PANOTİP KURU */}
+                  <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 63 PANOTİP KURU</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">KAPAK TİPİ</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'MNP063010M', aciklama: 'METAL GÖVDE', baglanti: 'PANOTİP MANOMETRE METAL', basinc: '10', cap: '63', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNP063016M', aciklama: 'METAL GÖVDE', baglanti: 'PANOTİP MANOMETRE METAL', basinc: '16', cap: '63', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNP063160M', aciklama: 'METAL GÖVDE', baglanti: 'PANOTİP MANOMETRE METAL', basinc: '160', cap: '63', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNP063025M', aciklama: 'METAL GÖVDE', baglanti: 'PANOTİP MANOÖETRE METAL', basinc: '25', cap: '63', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNP063250M', aciklama: 'METAL GÖVDE', baglanti: 'PANOTİP MANOMETRE METAL', basinc: '250', cap: '63', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNP063040M', aciklama: 'METAL GÖVDE', baglanti: 'PANOTİP MANOMETRE METAL', basinc: '40', cap: '63', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNP063400M', aciklama: 'METAL GÖVDE', baglanti: 'PANOTİP MANOMETRE METAL', basinc: '400', cap: '63', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNP063006M', aciklama: 'METAL GÖVDE', baglanti: 'PANOTİP MANOMETRE METAL', basinc: '6', cap: '63', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNP063060M', aciklama: 'METAL GÖVDE', baglanti: 'PANOTİP MANOMETRE METAL', basinc: '60', cap: '63', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNP063600M', aciklama: 'METAL GÖVDE', baglanti: 'PANOTİP MANOMETRE METAL', basinc: '600', cap: '63', kapak: 'AKRİ KAPAK' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.kapak}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {selectedProduct === 'ARKADAN BAĞLANTILI VAKUMMETRELER' && currentBrand === 'pakkens' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* ARKADAN BAĞLANTILI VAKUMMETRELER Tablosu */}
+                  <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">ARKADAN BAĞLANTILI VAKUMMETRELER</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'VKARKD1001000', aciklama: 'ARKADAN BAĞLANTILI VAKUMMETRELER', baglanti: 'ARK.ÇIK.DİYAF.VAKUMETRE', basinc: '1000', cap: '100' },
+                            { model: 'VKARK050760', aciklama: 'ARKADAN BAĞLANTILI VAKUMMETRELER', baglanti: 'ARK.ÇIK.VAKUMETRE PLS.GÖVDE', basinc: '760', cap: '50' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
                             </tr>
                           ))}
                         </tbody>
