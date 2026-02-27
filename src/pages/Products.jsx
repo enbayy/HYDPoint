@@ -835,10 +835,18 @@ function Products() {
                 {manometreVakummetreAltKategoriler.map((item) => {
                   const img = getProductImage(item)
                   const productSlug = encodeURIComponent(item.toLowerCase().replace(/\s+/g, '-'))
+                  const isAltBaglantiliManometre = item === 'ALT BAĞLANTILI MANOMETRELER'
+                  const handleClick = () => {
+                    if (isAltBaglantiliManometre) {
+                      navigate(`/urunler/basinc-isi-olcum-ve-kontrol-cihazlari/alt-baglantili-manometreler`)
+                    } else {
+                      navigate(`/urun-detay/${productSlug}`, { state: { productName: item, productImage: img } })
+                    }
+                  }
                   return (
                     <div
                       key={item}
-                      onClick={() => navigate(`/urun-detay/${productSlug}`, { state: { productName: item, productImage: img } })}
+                      onClick={handleClick}
                       className="group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border border-slate-200/60 bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-[#ff7f00]/30 hover:shadow-xl hover:shadow-[#ff7f00]/5 max-w-md w-full mx-auto min-h-[360px]"
                     >
                       {/* Decorative top accent */}

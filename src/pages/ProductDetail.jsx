@@ -4805,8 +4805,145 @@ function ProductDetail() {
     }
   }, [category, subcategory, brandParam, groupParam, productSlugParam])
 
-  // HORTUM BAĞLANTI ELEMANLARI için product slug'ını oku
+  // Bazı özel ürün grupları için product slug'ını oku
   useEffect(() => {
+    const slugKey = productSlugParam || groupParam
+
+    // ALT BAĞLANTILI MANOMETRELER için product slug'ını oku
+    if (category === 'basinc-isi-olcum-ve-kontrol-cihazlari' && subcategory === 'alt-baglantili-manometreler' && slugKey) {
+      const productNameMap = {
+        'gliserinli-alt-baglantili-manometreler': 'GLİSERİNLİ ALT BAĞLANTILI MANOMETRELER',
+        'kuru-tip-alt-baglantili-manometreler': 'KURU TİP ALT BAĞLANTILI MANOMETRELER',
+      }
+      const decodedProductName = productNameMap[slugKey]
+      if (decodedProductName) {
+        setSelectedProduct(decodedProductName)
+        if (brandParam === 'pakkens') {
+          setSelectedBrand('pakkens')
+        } else if (brandParam === 'wika') {
+          setSelectedBrand('wika')
+        }
+      }
+    }
+
+    // KONTAKLI VAKUMMETRELER için product slug'ını oku
+    if (category === 'basinc-isi-olcum-ve-kontrol-cihazlari' && subcategory === 'kontakli-vakummetreler' && slugKey) {
+      const productNameMap = {
+        'cift-kontak-vakummetreler': 'ÇİFT KONTAK VAKUMMETRELER',
+      }
+      const decodedProductName = productNameMap[slugKey]
+      if (decodedProductName) {
+        setSelectedProduct(decodedProductName)
+        if (brandParam === 'pakkens') {
+          setSelectedBrand('pakkens')
+        }
+      }
+    }
+
+    // PANO BAĞLANTILI VAKUMMETRELER için product slug'ını oku
+    if (category === 'basinc-isi-olcum-ve-kontrol-cihazlari' && subcategory === 'pano-baglantili-vakummetreler' && slugKey) {
+      const productNameMap = {
+        'gliserinli-vakummetreler': 'GLİSERİNLİ VAKUMMETRELER',
+        'kuru-tip-vakummetreler': 'KURU TİP VAKUMMETRELER',
+      }
+      const decodedProductName = productNameMap[slugKey]
+      if (decodedProductName) {
+        setSelectedProduct(decodedProductName)
+        if (brandParam === 'pakkens') {
+          setSelectedBrand('pakkens')
+        }
+      }
+    }
+
+    // MANOVAKOMETRELER için product slug'ını oku
+    if (category === 'basinc-isi-olcum-ve-kontrol-cihazlari' && subcategory === 'manovakometreler' && slugKey) {
+      const productNameMap = {
+        'manovakometreler': 'MANOVAKOMETRELER',
+      }
+      const decodedProductName = productNameMap[slugKey]
+      if (decodedProductName) {
+        setSelectedProduct(decodedProductName)
+        if (brandParam === 'pakkens') {
+          setSelectedBrand('pakkens')
+        }
+      }
+    }
+
+    // ALT BAĞLANTILI VAKUMMETRELER için product slug'ını oku
+    if (category === 'basinc-isi-olcum-ve-kontrol-cihazlari' && subcategory === 'alt-baglantili-vakummetreler' && slugKey) {
+      const productNameMap = {
+        'gliserinli-alt-baglantili-vakummetreler': 'GLİSERİNLİ ALT BAĞLANTILI VAKUMMETRELER',
+        'kuru-tip-alt-baglantili-vakummetreler': 'KURU TİP ALT BAĞLANTILI VAKUMMETRELER',
+      }
+      const decodedProductName = productNameMap[slugKey]
+      if (decodedProductName) {
+        setSelectedProduct(decodedProductName)
+        if (brandParam === 'pakkens') {
+          setSelectedBrand('pakkens')
+        }
+      }
+    }
+
+    // KONTAKLI MANOMETRELER için product slug'ını oku
+    if (category === 'basinc-isi-olcum-ve-kontrol-cihazlari' && subcategory === 'kontakli-manometreler' && slugKey) {
+      const productNameMap = {
+        'tek-kontak-manometreler': 'TEK KONTAK MANOMETRELER',
+        'cift-kontak-manometreler': 'ÇİFT KONTAK MANOMETRELER',
+      }
+      const decodedProductName = productNameMap[slugKey]
+      if (decodedProductName) {
+        setSelectedProduct(decodedProductName)
+        if (brandParam === 'pakkens') {
+          setSelectedBrand('pakkens')
+        }
+      }
+    }
+
+    // ARKADAN BAĞLANTILI MANOMETRELER için product slug'ını oku
+    if (category === 'basinc-isi-olcum-ve-kontrol-cihazlari' && subcategory === 'arkadan-baglantili-manometreler' && slugKey) {
+      const productNameMap = {
+        'gliserinli-arkadan-baglantili-manometreler': 'GLİSERİNLİ ARKADAN BAĞLANTILI MANOMETRELER',
+        'kuru-tip-arkadan-baglantili-manometreler': 'KURU TİP ARKADAN BAĞLANTILI MANOMETRELER',
+      }
+      const decodedProductName = productNameMap[slugKey]
+      if (decodedProductName) {
+        setSelectedProduct(decodedProductName)
+        if (brandParam === 'pakkens') {
+          setSelectedBrand('pakkens')
+        }
+      }
+    }
+
+    // PANO BAĞLANTILI MANOMETRELER için product slug'ını oku
+    if (category === 'basinc-isi-olcum-ve-kontrol-cihazlari' && subcategory === 'pano-baglantili-manometreler' && slugKey) {
+      const productNameMap = {
+        'gliserinli-pano-baglantili-manometreler': 'GLİSERİNLİ PANO BAĞLANTILI MANOMETRELER',
+        'kuru-tip-pano-baglantili-manometreler': 'KURU TİP PANO BAĞLANTILI MANOMETRELER',
+      }
+      const decodedProductName = productNameMap[slugKey]
+      if (decodedProductName) {
+        setSelectedProduct(decodedProductName)
+        if (brandParam === 'pakkens') {
+          setSelectedBrand('pakkens')
+        }
+      }
+    }
+
+    // ARKADAN BAĞLANTILI VAKUMMETRELER için product slug'ını oku
+    if (category === 'basinc-isi-olcum-ve-kontrol-cihazlari' && subcategory === 'arkadan-baglantili-vakummetreler' && productSlugParam) {
+      const productNameMap = {
+        'arkadan-baglantili-vakummetreler': 'ARKADAN BAĞLANTILI VAKUMMETRELER',
+      }
+      const decodedProductName = productNameMap[productSlugParam]
+      if (decodedProductName) {
+        setSelectedProduct(decodedProductName)
+        if (brandParam === 'pakkens') {
+          setSelectedBrand('pakkens')
+        }
+      }
+    }
+
+    // HORTUM BAĞLANTI ELEMANLARI için product slug'ını oku
     if (category === 'hidrolik-baglanti-elemanlari' && subcategory === 'hortum-baglanti-elemanlari' && productSlugParam) {
       const productNameMap = {
         'metrik-hortum-rakorlari': 'METRİK HORTUM RAKORLARI',
@@ -18367,7 +18504,9 @@ function ProductDetail() {
           ) : selectedProduct || currentBrand || (productName && !activeSection) ? (
             <>
               {/* Ürün Başlığı */}
-              {!['PVC ÇELİK TELLİ HORTUMLAR', 'PULVERİZATÖR (İLAÇLAMA) HORTUMU', 'PVC SU HORTUMLARI', 'PVC HAVA HORTUMLARI', 'TELLİ HORTUMLAR', 'TEKSTİL ÖRGÜLÜ HORTUMLAR', 'YAKIT HORTUMLARI', 'BUHAR VE SICAK SU HORTUMLARI', 'HAVA HORTUMLARI', 'AŞINDIRICI MADDE HORTUMLARI', 'GIDA HORTUMLARI', 'SU HORTUMLARI', 'TERMOPLASTİK HİDROLİK HORTUMLAR', 'BOYA VE SOLVENT HORTUMLARI', 'DN 2 - DN 4 HORTUMLAR', 'SPİRAL POLİETİLEN KORUYUCU'].includes(selectedProduct) && (
+              {productName !== 'GLİSERİNLİ ALT BAĞLANTILI MANOMETRELER' &&
+               productName !== 'KURU TİP ALT BAĞLANTILI MANOMETRELER' &&
+               !['PVC ÇELİK TELLİ HORTUMLAR', 'PULVERİZATÖR (İLAÇLAMA) HORTUMU', 'PVC SU HORTUMLARI', 'PVC HAVA HORTUMLARI', 'TELLİ HORTUMLAR', 'TEKSTİL ÖRGÜLÜ HORTUMLAR', 'YAKIT HORTUMLARI', 'BUHAR VE SICAK SU HORTUMLARI', 'HAVA HORTUMLARI', 'AŞINDIRICI MADDE HORTUMLARI', 'GIDA HORTUMLARI', 'SU HORTUMLARI', 'TERMOPLASTİK HİDROLİK HORTUMLAR', 'BOYA VE SOLVENT HORTUMLARI', 'DN 2 - DN 4 HORTUMLAR', 'SPİRAL POLİETİLEN KORUYUCU'].includes(selectedProduct) && (
               <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Ürün Detayı</p>
@@ -18383,12 +18522,682 @@ function ProductDetail() {
               </div>
               )}
 
-              {/* Marka Logoları */}
-              {!['PVC ÇELİK TELLİ HORTUMLAR', 'PULVERİZATÖR (İLAÇLAMA) HORTUMU', 'PVC SU HORTUMLARI', 'PVC HAVA HORTUMLARI', 'TELLİ HORTUMLAR', 'TEKSTİL ÖRGÜLÜ HORTUMLAR', 'YAKIT HORTUMLARI', 'BUHAR VE SICAK SU HORTUMLARI', 'HAVA HORTUMLARI', 'AŞINDIRICI MADDE HORTUMLARI', 'GIDA HORTUMLARI', 'SU HORTUMLARI', 'TERMOPLASTİK HİDROLİK HORTUMLAR', 'BOYA VE SOLVENT HORTUMLARI', 'DN 2 - DN 4 HORTUMLAR', 'SPİRAL POLİETİLEN KORUYUCU'].includes(selectedProduct) && (
+              {/* Marka Logoları / Marka Bazlı Kartlar */}
+              {productName !== 'GLİSERİNLİ ALT BAĞLANTILI MANOMETRELER' &&
+               productName !== 'KURU TİP ALT BAĞLANTILI MANOMETRELER' &&
+               !['PVC ÇELİK TELLİ HORTUMLAR', 'PULVERİZATÖR (İLAÇLAMA) HORTUMU', 'PVC SU HORTUMLARI', 'PVC HAVA HORTUMLARI', 'TELLİ HORTUMLAR', 'TEKSTİL ÖRGÜLÜ HORTUMLAR', 'YAKIT HORTUMLARI', 'BUHAR VE SICAK SU HORTUMLARI', 'HAVA HORTUMLARI', 'AŞINDIRICI MADDE HORTUMLARI', 'GIDA HORTUMLARI', 'SU HORTUMLARI', 'TERMOPLASTİK HİDROLİK HORTUMLAR', 'BOYA VE SOLVENT HORTUMLARI', 'DN 2 - DN 4 HORTUMLAR', 'SPİRAL POLİETİLEN KORUYUCU'].includes(selectedProduct) && (
               <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 md:p-8">
                 {allBrandLogos.length === 0 ? (
                   <div className="py-12 text-center text-slate-500">
                     <p>Bu ürün için marka logosu bulunamadı.</p>
+                  </div>
+                ) : productName === 'ALT BAĞLANTILI MANOMETRELER' ? (
+                  <div className="space-y-10">
+                    {/* PAKKENS */}
+                    <div className="space-y-4">
+                      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                        {[
+                          {
+                            name: 'GLİSERİNLİ ALT BAĞLANTILI MANOMETRELER',
+                            slug: 'gliserinli-alt-baglantili-manometreler',
+                          },
+                          {
+                            name: 'KURU TİP ALT BAĞLANTILI MANOMETRELER',
+                            slug: 'kuru-tip-alt-baglantili-manometreler',
+                          },
+                        ].map((product, index) => (
+                          <div
+                            key={`pakkens-${index}`}
+                            onClick={() => {
+                              setSelectedProduct(product.name)
+                              setSelectedBrand('pakkens')
+                              const categorySlug = 'basinc-isi-olcum-ve-kontrol-cihazlari'
+                              const subcategorySlug = 'alt-baglantili-manometreler'
+                              const productSlug = product.slug
+                              navigate(`/urunler/${categorySlug}/${subcategorySlug}/pakkens/${productSlug}`)
+                            }}
+                            className="group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-lg"
+                          >
+                            {/* Image Container */}
+                            <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50 border-b border-slate-100">
+                              <img
+                                src="/gliserinli-alt-baglantili.png"
+                                alt={product.name}
+                                className="h-full w-full object-contain p-6 transition-all duration-500 group-hover:scale-110"
+                                onError={(e) => {
+                                  e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(product.name)}`
+                                }}
+                              />
+                            </div>
+                            <div className="flex flex-1 flex-col p-6">
+                              <h3 className="mb-4 text-left text-lg font-semibold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                                {product.name}
+                              </h3>
+                              <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                                <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                                  Ürün Detayı
+                                </span>
+                                <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                                  <span className="text-xs font-semibold">İncele</span>
+                                  <svg
+                                    className="h-4 w-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    strokeWidth={2.5}
+                                  >
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* WIKA */}
+                    <div className="space-y-4">
+                      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                        {[
+                          {
+                            name: 'GLİSERİNLİ ALT BAĞLANTILI MANOMETRELER',
+                            slug: 'gliserinli-alt-baglantili-manometreler',
+                          },
+                        ].map((product, index) => (
+                          <div
+                            key={`wika-${index}`}
+                            onClick={() => {
+                              setSelectedProduct(product.name)
+                              setSelectedBrand('wika')
+                              const categorySlug = 'basinc-isi-olcum-ve-kontrol-cihazlari'
+                              const subcategorySlug = 'alt-baglantili-manometreler'
+                              const productSlug = product.slug
+                              navigate(`/urunler/${categorySlug}/${subcategorySlug}/wika/${productSlug}`)
+                            }}
+                            className="group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-lg"
+                          >
+                            {/* Image Container */}
+                            <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50 border-b border-slate-100">
+                              <img
+                                src="/gliserinli-alt-baglantili.png"
+                                alt={product.name}
+                                className="h-full w-full object-contain p-6 transition-all duration-500 group-hover:scale-110"
+                                onError={(e) => {
+                                  e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(product.name)}`
+                                }}
+                              />
+                            </div>
+                            <div className="flex flex-1 flex-col p-6">
+                              <h3 className="mb-4 text-left text-lg font-semibold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                                {product.name}
+                              </h3>
+                              <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                                <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                                  Ürün Detayı
+                                </span>
+                                <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                                  <span className="text-xs font-semibold">İncele</span>
+                                  <svg
+                                    className="h-4 w-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    strokeWidth={2.5}
+                                  >
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ) : productName === 'KONTAKLI VAKUMMETRELER' ? (
+                  <div className="space-y-6">
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                      {[
+                        {
+                          name: 'ÇİFT KONTAK VAKUMMETRELER',
+                          slug: 'cift-kontak-vakummetreler',
+                        },
+                      ].map((product, index) => (
+                        <div
+                          key={`pakkens-kontakli-${index}`}
+                          onClick={() => {
+                            setSelectedProduct(product.name)
+                            setSelectedBrand('pakkens')
+                            const categorySlug = 'basinc-isi-olcum-ve-kontrol-cihazlari'
+                            const subcategorySlug = 'kontakli-vakummetreler'
+                            const productSlug = product.slug
+                            navigate(`/urunler/${categorySlug}/${subcategorySlug}/pakkens/${productSlug}`)
+                          }}
+                          className="group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-lg"
+                        >
+                          {/* Image Container */}
+                          <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50 border-b border-slate-100">
+                            <img
+                              src="/gliserinli-alt-baglantili.png"
+                              alt={product.name}
+                              className="h-full w-full object-contain p-6 transition-all duration-500 group-hover:scale-110"
+                              onError={(e) => {
+                                e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(product.name)}`
+                              }}
+                            />
+                          </div>
+                          <div className="flex flex-1 flex-col p-6">
+                            <h3 className="mb-4 text-left text-lg font-semibold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                              {product.name}
+                            </h3>
+                            <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                                Ürün Detayı
+                              </span>
+                              <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                                <span className="text-xs font-semibold">İncele</span>
+                                <svg
+                                  className="h-4 w-4"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  strokeWidth={2.5}
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : productName === 'PANO BAĞLANTILI VAKUMMETRELER' ? (
+                  <div className="space-y-6">
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                      {[
+                        {
+                          name: 'GLİSERİNLİ VAKUMMETRELER',
+                          slug: 'gliserinli-vakummetreler',
+                        },
+                        {
+                          name: 'KURU TİP VAKUMMETRELER',
+                          slug: 'kuru-tip-vakummetreler',
+                        },
+                      ].map((product, index) => (
+                        <div
+                          key={`pakkens-pano-vakum-${index}`}
+                          onClick={() => {
+                            setSelectedProduct(product.name)
+                            setSelectedBrand('pakkens')
+                            const categorySlug = 'basinc-isi-olcum-ve-kontrol-cihazlari'
+                            const subcategorySlug = 'pano-baglantili-vakummetreler'
+                            const productSlug = product.slug
+                            navigate(`/urunler/${categorySlug}/${subcategorySlug}/pakkens/${productSlug}`)
+                          }}
+                          className="group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-lg"
+                        >
+                          {/* Image Container */}
+                          <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50 border-b border-slate-100">
+                            <img
+                              src="/gliserinli-alt-baglantili.png"
+                              alt={product.name}
+                              className="h-full w-full object-contain p-6 transition-all duration-500 group-hover:scale-110"
+                              onError={(e) => {
+                                e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(product.name)}`
+                              }}
+                            />
+                          </div>
+                          <div className="flex flex-1 flex-col p-6">
+                            <h3 className="mb-4 text-left text-lg font-semibold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                              {product.name}
+                            </h3>
+                            <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                                Ürün Detayı
+                              </span>
+                              <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                                <span className="text-xs font-semibold">İncele</span>
+                                <svg
+                                  className="h-4 w-4"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  strokeWidth={2.5}
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : productName === 'MANOVAKOMETRELER' ? (
+                  <div className="space-y-6">
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                      {[
+                        {
+                          name: 'MANOVAKOMETRELER',
+                          slug: 'manovakometreler',
+                        },
+                      ].map((product, index) => (
+                        <div
+                          key={`pakkens-manovakometre-${index}`}
+                          onClick={() => {
+                            setSelectedProduct(product.name)
+                            setSelectedBrand('pakkens')
+                            const categorySlug = 'basinc-isi-olcum-ve-kontrol-cihazlari'
+                            const subcategorySlug = 'manovakometreler'
+                            const productSlug = product.slug
+                            navigate(`/urunler/${categorySlug}/${subcategorySlug}/pakkens/${productSlug}`)
+                          }}
+                          className="group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-lg"
+                        >
+                          {/* Image Container */}
+                          <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50 border-b border-slate-100">
+                            <img
+                              src="/gliserinli-alt-baglantili.png"
+                              alt={product.name}
+                              className="h-full w-full object-contain p-6 transition-all duration-500 group-hover:scale-110"
+                              onError={(e) => {
+                                e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(product.name)}`
+                              }}
+                            />
+                          </div>
+                          <div className="flex flex-1 flex-col p-6">
+                            <h3 className="mb-4 text-left text-lg font-semibold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                              {product.name}
+                            </h3>
+                            <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                                Ürün Detayı
+                              </span>
+                              <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                                <span className="text-xs font-semibold">İncele</span>
+                                <svg
+                                  className="h-4 w-4"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  strokeWidth={2.5}
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : productName === 'ALT BAĞLANTILI VAKUMMETRELER' ? (
+                  <div className="space-y-6">
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                      {[
+                        {
+                          name: 'GLİSERİNLİ ALT BAĞLANTILI VAKUMMETRELER',
+                          slug: 'gliserinli-alt-baglantili-vakummetreler',
+                        },
+                        {
+                          name: 'KURU TİP ALT BAĞLANTILI VAKUMMETRELER',
+                          slug: 'kuru-tip-alt-baglantili-vakummetreler',
+                        },
+                      ].map((product, index) => (
+                        <div
+                          key={`pakkens-alt-vakum-${index}`}
+                          onClick={() => {
+                            setSelectedProduct(product.name)
+                            setSelectedBrand('pakkens')
+                            const categorySlug = 'basinc-isi-olcum-ve-kontrol-cihazlari'
+                            const subcategorySlug = 'alt-baglantili-vakummetreler'
+                            const productSlug = product.slug
+                            navigate(`/urunler/${categorySlug}/${subcategorySlug}/pakkens/${productSlug}`)
+                          }}
+                          className="group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-lg"
+                        >
+                          {/* Image Container */}
+                          <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50 border-b border-slate-100">
+                            <img
+                              src="/gliserinli-alt-baglantili.png"
+                              alt={product.name}
+                              className="h-full w-full object-contain p-6 transition-all duration-500 group-hover:scale-110"
+                              onError={(e) => {
+                                e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(product.name)}`
+                              }}
+                            />
+                          </div>
+                          <div className="flex flex-1 flex-col p-6">
+                            <h3 className="mb-4 text-left text-lg font-semibold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                              {product.name}
+                            </h3>
+                            <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                                Ürün Detayı
+                              </span>
+                              <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                                <span className="text-xs font-semibold">İncele</span>
+                                <svg
+                                  className="h-4 w-4"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  strokeWidth={2.5}
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : productName === 'KONTAKLI MANOMETRELER' ? (
+                  <div className="space-y-6">
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                      {[
+                        {
+                          name: 'TEK KONTAK MANOMETRELER',
+                          slug: 'tek-kontak-manometreler',
+                        },
+                        {
+                          name: 'ÇİFT KONTAK MANOMETRELER',
+                          slug: 'cift-kontak-manometreler',
+                        },
+                      ].map((product, index) => (
+                        <div
+                          key={`pakkens-kontakli-mano-${index}`}
+                          onClick={() => {
+                            setSelectedProduct(product.name)
+                            setSelectedBrand('pakkens')
+                            const categorySlug = 'basinc-isi-olcum-ve-kontrol-cihazlari'
+                            const subcategorySlug = 'kontakli-manometreler'
+                            const productSlug = product.slug
+                            navigate(`/urunler/${categorySlug}/${subcategorySlug}/pakkens/${productSlug}`)
+                          }}
+                          className="group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-lg"
+                        >
+                          {/* Image Container */}
+                          <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50 border-b border-slate-100">
+                            <img
+                              src="/gliserinli-alt-baglantili.png"
+                              alt={product.name}
+                              className="h-full w-full object-contain p-6 transition-all duration-500 group-hover:scale-110"
+                              onError={(e) => {
+                                e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(product.name)}`
+                              }}
+                            />
+                          </div>
+                          <div className="flex flex-1 flex-col p-6">
+                            <h3 className="mb-4 text-left text-lg font-semibold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                              {product.name}
+                            </h3>
+                            <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                                Ürün Detayı
+                              </span>
+                              <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                                <span className="text-xs font-semibold">İncele</span>
+                                <svg
+                                  className="h-4 w-4"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  strokeWidth={2.5}
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : productName === 'ARKADAN BAĞLANTILI MANOMETRELER' ? (
+                  <div className="space-y-6">
+                    {/* PAKKENS */}
+                    <div className="flex items-center justify-between gap-4">
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-slate-50">
+                          <img
+                            src="/pakkens.png"
+                            alt="Pakkens"
+                            className="h-8 w-auto object-contain"
+                            onError={(e) => {
+                              e.target.style.display = 'none'
+                            }}
+                          />
+                        </div>
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Marka</p>
+                          <h3 className="text-base font-semibold text-slate-900">Pakkens</h3>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                      {[
+                        {
+                          name: 'GLİSERİNLİ ARKADAN BAĞLANTILI MANOMETRELER',
+                          slug: 'gliserinli-arkadan-baglantili-manometreler',
+                        },
+                        {
+                          name: 'KURU TİP ARKADAN BAĞLANTILI MANOMETRELER',
+                          slug: 'kuru-tip-arkadan-baglantili-manometreler',
+                        },
+                      ].map((product, index) => (
+                        <div
+                          key={`pakkens-arka-mano-${index}`}
+                          onClick={() => {
+                            setSelectedProduct(product.name)
+                            setSelectedBrand('pakkens')
+                            const categorySlug = 'basinc-isi-olcum-ve-kontrol-cihazlari'
+                            const subcategorySlug = 'arkadan-baglantili-manometreler'
+                            const productSlug = product.slug
+                            navigate(`/urunler/${categorySlug}/${subcategorySlug}/pakkens/${productSlug}`)
+                          }}
+                          className="group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-lg"
+                        >
+                          {/* Image Container */}
+                          <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50 border-b border-slate-100">
+                            <img
+                              src="/gliserinli-alt-baglantili.png"
+                              alt={product.name}
+                              className="h-full w-full object-contain p-6 transition-all duration-500 group-hover:scale-110"
+                              onError={(e) => {
+                                e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(product.name)}`
+                              }}
+                            />
+                          </div>
+                          <div className="flex flex-1 flex-col p-6">
+                            <h3 className="mb-4 text-left text-lg font-semibold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                              {product.name}
+                            </h3>
+                            <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                                Ürün Detayı
+                              </span>
+                              <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                                <span className="text-xs font-semibold">İncele</span>
+                                <svg
+                                  className="h-4 w-4"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  strokeWidth={2.5}
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : productName === 'PANO BAĞLANTILI MANOMETRELER' ? (
+                  <div className="space-y-6">
+                    {/* PAKKENS */}
+                    <div className="flex items-center justify-between gap-4">
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-slate-50">
+                          <img
+                            src="/pakkens.png"
+                            alt="Pakkens"
+                            className="h-8 w-auto object-contain"
+                            onError={(e) => {
+                              e.target.style.display = 'none'
+                            }}
+                          />
+                        </div>
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Marka</p>
+                          <h3 className="text-base font-semibold text-slate-900">Pakkens</h3>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                      {[
+                        {
+                          name: 'GLİSERİNLİ PANO BAĞLANTILI MANOMETRELER',
+                          slug: 'gliserinli-pano-baglantili-manometreler',
+                        },
+                        {
+                          name: 'KURU TİP PANO BAĞLANTILI MANOMETRELER',
+                          slug: 'kuru-tip-pano-baglantili-manometreler',
+                        },
+                      ].map((product, index) => (
+                        <div
+                          key={`pakkens-pano-mano-${index}`}
+                          onClick={() => {
+                            setSelectedProduct(product.name)
+                            setSelectedBrand('pakkens')
+                            const categorySlug = 'basinc-isi-olcum-ve-kontrol-cihazlari'
+                            const subcategorySlug = 'pano-baglantili-manometreler'
+                            const productSlug = product.slug
+                            navigate(`/urunler/${categorySlug}/${subcategorySlug}/pakkens/${productSlug}`)
+                          }}
+                          className="group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-lg"
+                        >
+                          {/* Image Container */}
+                          <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50 border-b border-slate-100">
+                            <img
+                              src="/gliserinli-alt-baglantili.png"
+                              alt={product.name}
+                              className="h-full w-full object-contain p-6 transition-all duration-500 group-hover:scale-110"
+                              onError={(e) => {
+                                e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(product.name)}`
+                              }}
+                            />
+                          </div>
+                          <div className="flex flex-1 flex-col p-6">
+                            <h3 className="mb-4 text-left text-lg font-semibold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                              {product.name}
+                            </h3>
+                            <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                                Ürün Detayı
+                              </span>
+                              <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                                <span className="text-xs font-semibold">İncele</span>
+                                <svg
+                                  className="h-4 w-4"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  strokeWidth={2.5}
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : productName === 'ARKADAN BAĞLANTILI VAKUMMETRELER' ? (
+                  <div className="space-y-6">
+                    {/* PAKKENS */}
+                    <div className="flex items-center justify-between gap-4">
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-slate-50">
+                          <img
+                            src="/pakkens.png"
+                            alt="Pakkens"
+                            className="h-8 w-auto object-contain"
+                            onError={(e) => {
+                              e.target.style.display = 'none'
+                            }}
+                          />
+                        </div>
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Marka</p>
+                          <h3 className="text-base font-semibold text-slate-900">Pakkens</h3>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                      {[
+                        {
+                          name: 'ARKADAN BAĞLANTILI VAKUMMETRELER',
+                          slug: 'arkadan-baglantili-vakummetreler',
+                        },
+                      ].map((product, index) => (
+                        <div
+                          key={`pakkens-arka-vakum-${index}`}
+                          onClick={() => {
+                            setSelectedProduct(product.name)
+                            setSelectedBrand('pakkens')
+                            const categorySlug = 'basinc-isi-olcum-ve-kontrol-cihazlari'
+                            const subcategorySlug = 'arkadan-baglantili-vakummetreler'
+                            const productSlug = product.slug
+                            navigate(`/urunler/${categorySlug}/${subcategorySlug}/pakkens/${productSlug}`)
+                          }}
+                          className="group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-lg"
+                        >
+                          {/* Image Container */}
+                          <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50 border-b border-slate-100">
+                            <img
+                              src="/gliserinli-alt-baglantili.png"
+                              alt={product.name}
+                              className="h-full w-full object-contain p-6 transition-all duration-500 group-hover:scale-110"
+                              onError={(e) => {
+                                e.target.src = `https://via.placeholder.com/320x200.png?text=${encodeURIComponent(product.name)}`
+                              }}
+                            />
+                          </div>
+                          <div className="flex flex-1 flex-col p-6">
+                            <h3 className="mb-4 text-left text-lg font-semibold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#1e4294]">
+                              {product.name}
+                            </h3>
+                            <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                                Ürün Detayı
+                              </span>
+                              <div className="flex items-center gap-1.5 text-[#ff7f00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                                <span className="text-xs font-semibold">İncele</span>
+                                <svg
+                                  className="h-4 w-4"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  strokeWidth={2.5}
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 ) : productName === 'HORTUM BAĞLANTI ELEMANLARI' ? (
                   <div className="space-y-6">
@@ -19067,7 +19876,292 @@ function ProductDetail() {
               </div>
               )}
 
-              {/* REKORSAN METRİK HORTUM RAKORLARI Detay Sayfası */}
+              {/* Pakkens / Wika GLİSERİNLİ & KURU TİP ALT BAĞLANTILI MANOMETRELER Detay Sayfaları */}
+              {selectedProduct === 'GLİSERİNLİ ALT BAĞLANTILI MANOMETRELER' && currentBrand === 'pakkens' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* Ø 100 ALT BAĞLANTILI GLİSERİNLİ */}
+                  <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 100 ALT BAĞLANTILI GLİSERİNLİ</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">HASSASİYET</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'MNALTG100006 / 1001000112', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '0,06', cap: '100', hassasiyet: 'KL 2,5' },
+                            { model: 'MNALTH100006', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.HASSAS.GLS.MANO.', basinc: '0,6', cap: '100', hassasiyet: 'KL 1,0' },
+                            { model: 'MNALTG100001', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '1', cap: '100', hassasiyet: '2,5' },
+                            { model: 'MNALTH100001P', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.HASS.PASL.MANOMETRE', basinc: '1,6', cap: '100', hassasiyet: 'KL 1' },
+                            { model: 'MNALTG100010', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '10', cap: '100', hassasiyet: 'KL 2,5' },
+                            { model: 'MNALTH100010', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT. ÇIK.HASSAS.GLS.MANOMETRE', basinc: '10', cap: '100', hassasiyet: 'KL 1,0' },
+                            { model: 'MNALTG100100', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '100', cap: '100', hassasiyet: 'KL 2,5' },
+                            { model: 'MNALTG1001000', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '1000', cap: '100', hassasiyet: '-' },
+                            { model: 'MNALTH100016', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.HASSAS.GLS.MANOMETERE', basinc: '16', cap: '100', hassasiyet: 'KL 1,0' },
+                            { model: 'MNALTG100016', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '16', cap: '100', hassasiyet: 'KL 2,5' },
+                            { model: 'MNALTG100160', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '160', cap: '100', hassasiyet: 'KL 2,5' },
+                            { model: 'MNALTG100002', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '2,5', cap: '100', hassasiyet: 'KL 2,5' },
+                            { model: 'MNALTG100025', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '25', cap: '100', hassasiyet: 'KL 2,5' },
+                            { model: 'MNALTH100025', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOETRE', basinc: '25', cap: '100', hassasiyet: 'KL 1,0' },
+                            { model: 'MNALTG100250', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '250', cap: '100', hassasiyet: 'KL 2,5' },
+                            { model: 'MNALTH100250', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.ASS.GLS.MANOMETRE', basinc: '250', cap: '100', hassasiyet: 'KL 1,0' },
+                            { model: 'MNALTG100280', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '280', cap: '100', hassasiyet: 'KL 2,5' },
+                            { model: 'MNALTH100280', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.HASS.GLS.MANOMETRE', basinc: '280', cap: '100', hassasiyet: 'KL 1,0' },
+                            { model: 'MNALTG100315', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '315', cap: '100', hassasiyet: 'KL 2,5' },
+                            { model: 'MNALTH100315', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.HASS.GLS.MANOMETRE', basinc: '315', cap: '100', hassasiyet: 'KL 1,0' },
+                            { model: 'MNALTG100004', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '4', cap: '100', hassasiyet: 'KL 2,5' },
+                            { model: 'MNALTH100004', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.HASS.GLS.MANOMETRE', basinc: '4', cap: '100', hassasiyet: 'KL 1,0' },
+                            { model: '1001412105/050020', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.MEMB.PAS.MANOMETRE', basinc: '4', cap: '100', hassasiyet: 'KL 1,0' },
+                            { model: 'MNALTG100040', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '40', cap: '100', hassasiyet: 'KL 2,5' },
+                            { model: 'MNALTG100400', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '400', cap: '100', hassasiyet: 'KL 2,5' },
+                            { model: 'MNALTH100400', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.HASS.GLS.MANOMETRE', basinc: '400', cap: '100', hassasiyet: 'KL 1,0' },
+                            { model: 'MNALTG100006 / 1001000106', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '6', cap: '100', hassasiyet: 'KL 2,5' },
+                            { model: 'MNALTHG100006', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.HASS.GLS.MANOMETRE', basinc: '6', cap: '100', hassasiyet: 'KL 1,0' },
+                            { model: 'MNALTG100060', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '60', cap: '100', hassasiyet: 'KL 2,5' },
+                            { model: 'MNALTG100600', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '600', cap: '100', hassasiyet: 'KL 2,5' },
+                            { model: 'MNALTH100600', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.HASS.GLS.MANOMETRE', basinc: '600', cap: '100', hassasiyet: 'KL 1,0' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.hassasiyet}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* Ø 50 ALT BAĞLANTILI GLİSERİNLİ */}
+                  <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 50 ALT BAĞLANTILI GLİSERİNLİ</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'MNARK050010M', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ARK.ÇIK.MANOMETRE', basinc: '10', cap: '50' },
+                            { model: 'MNALTG050025', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GKL.MANOMETRE', basinc: '25', cap: '50' },
+                            { model: 'MNALTG050040', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '40', cap: '50' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* Ø 63 ALT BAĞLANTILI GLİSERİNLİ */}
+                  <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 63 ALT BAĞLANTILI GLİSERİNLİ</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'MNALTG063006', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '0,6', cap: '63' },
+                            { model: 'MNALTG063001', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '1', cap: '63' },
+                            { model: 'MNALTG063100', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '100', cap: '63' },
+                            { model: 'MNALTG063100P', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.PASL.MANOMETRE', basinc: '100', cap: '63' },
+                            { model: 'MNALTG0631000', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '1000', cap: '63' },
+                            { model: 'MNALTG063016', aciklama: 'PASLANMAAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETR', basinc: '16', cap: '63' },
+                            { model: 'MNALTG063160', aciklama: 'ALT.ÇIK.GLS.MANOMETR', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '160', cap: '63' },
+                            { model: 'MNALTG063002', aciklama: 'ALT.ÇIK.GLS.MANOMETR', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '2,5', cap: '63' },
+                            { model: 'MNALTG063025', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '25', cap: '63' },
+                            { model: 'MNALTG063250', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '250', cap: '63' },
+                            { model: 'MNALTG063280', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '280', cap: '63' },
+                            { model: 'MNALTG063315', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '315', cap: '63' },
+                            { model: 'MNALTG063315P', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.PASL.MANOMETRE', basinc: '315', cap: '63' },
+                            { model: 'MNALTG063004', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '4', cap: '63' },
+                            { model: 'MNALTG063040P', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.PASL.MANOMETRE', basinc: '40', cap: '63' },
+                            { model: 'MNALTG063400', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '400', cap: '63' },
+                            { model: 'MNALTG063400P', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.PAS.MANOMETRE', basinc: '400', cap: '63' },
+                            { model: 'MNALTG063060', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '60', cap: '63' },
+                            { model: 'MNALTG063600', aciklama: 'PASLANMAZ GÖVDE', baglanti: 'ALT.ÇIK.GLS.MANOMETRE', basinc: '600', cap: '63' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {selectedProduct === 'GLİSERİNLİ ALT BAĞLANTILI MANOMETRELER' && currentBrand === 'wika' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">WIKA</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* WIKA Ø 63 ALT BAĞLANTILI GLİSERİNLİ */}
+                  <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 63 ALT BAĞLANTILI GLİSERİNLİ</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          <tr className="hover:bg-slate-50">
+                            <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">31384</td>
+                            <td className="px-4 py-3 text-slate-700 whitespace-nowrap">PASLANMAZ GÖVDE</td>
+                            <td className="px-4 py-3 text-slate-700 whitespace-nowrap">ALT.ÇIK.GLS.MANOMETRE</td>
+                            <td className="px-4 py-3 text-slate-700 whitespace-nowrap">1000</td>
+                            <td className="px-4 py-3 text-slate-700 whitespace-nowrap">63</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {selectedProduct === 'KURU TİP ALT BAĞLANTILI MANOMETRELER' && currentBrand === 'pakkens' && (
+                <>
+                  {/* Ürün Başlığı */}
+                  <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
+                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null)
+                        setSelectedBrand(null)
+                      }}
+                      className="text-sm text-slate-600 hover:text-[#ff7f00] transition-colors"
+                    >
+                      ← Geri Dön
+                    </button>
+                  </div>
+
+                  {/* Ø 100 ALT BAĞLANTILI KURU TİP */}
+                  <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                    <h3 className="mb-4 text-lg font-bold text-slate-900">Ø 100 ALT BAĞLANTILI KURU TİP</h3>
+                    <div className="overflow-x-auto rounded-lg border border-slate-200">
+                      <table className="w-full text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">MODEL</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">AÇIKLAMA</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BAĞLANTI TİPİ</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">BASINÇ (BAR)</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">ÇAP</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">HASSASİYET</th>
+                            <th className="px-4 py-3 text-left font-semibold text-slate-900 border-b border-slate-200">KAPAK TİPİ</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                          {[
+                            { model: 'MNALT100006M', aciklama: 'METAL GÖVDE', baglanti: 'ALT.ÇIK.MANOMETRE', basinc: '0,006', cap: '100', hassasiyet: 'KL 2,5', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNALT100001M', aciklama: 'METAL GÖVDE', baglanti: 'ALT.ÇIK.MANOMETRE', basinc: '1', cap: '100', hassasiyet: 'KL 2,5', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNALT100010M', aciklama: 'METAL GÖVDE', baglanti: 'ALT.ÇIK.MANOMETRE', basinc: '10', cap: '100', hassasiyet: 'KL 2,5', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNALT100100M', aciklama: 'METAL GÖDVE', baglanti: 'ALT.ÇIK.MANOMETRE', basinc: '100', cap: '100', hassasiyet: 'KL 2,5', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNALTD100100', aciklama: 'METAL GÖVDE', baglanti: 'ALT.ÇIK.DİYAF.MANOMETRE', basinc: '100', cap: '100', hassasiyet: '', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNALT100016M', aciklama: 'METAL GÖVDE', baglanti: 'ALT.ÇIK.MANOMETRE METAL', basinc: '16', cap: '100', hassasiyet: 'KL 2,5', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNALT100160M', aciklama: 'METAL GÖVDE', baglanti: 'ALT.ÇIK.MANOMETRE', basinc: '160', cap: '100', hassasiyet: 'KL 2,5', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNALTD100160', aciklama: 'METAL GÖVDE', baglanti: 'ALT.ÇIK.DİYAF.MANOMTRE', basinc: '160', cap: '100', hassasiyet: '', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNALT100002M', aciklama: 'METLA GÖVDE', baglanti: 'ALT.ÇIK.MANOMETRE', basinc: '2,5', cap: '100', hassasiyet: 'KL 2,5', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNALT100025M', aciklama: 'METAL GÖVDE', baglanti: 'ALT.ÇIK.MANOMETRE METAL', basinc: '25', cap: '100', hassasiyet: 'KL 2,5', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNALTD100025', aciklama: 'METAL GÖVDE', baglanti: 'ALT.ÇIK.DİYAF.MANOMETRE', basinc: '25', cap: '100', hassasiyet: '', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNALT100250M', aciklama: 'MERAL GÖDVE', baglanti: 'ALT.ÇIK.MANOMETRE METAL', basinc: '250', cap: '100', hassasiyet: 'KL 2,5', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNALT100280M', aciklama: 'METAL GÖVDE', baglanti: 'ALT.ÇIK.MANOMETRE METAL', basinc: '280', cap: '100', hassasiyet: 'KL 2,5', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNALT100315M', aciklama: 'METAL GÖVDE', baglanti: 'ALT.ÇIK.MANOMETRE METAL', basinc: '315', cap: '100', hassasiyet: 'KL 2,5', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNALT100004M', aciklama: 'METAL GÖVDE', baglanti: 'ALT.ÇIK.MANOMETRE METAL', basinc: '4', cap: '100', hassasiyet: 'KL 2,5', kapak: 'AKRİ KAPAK' },
+                            { model: 'MNALT100040M', aciklama: 'METAL GÖVDE', baglanti: 'ALT.ÇIK.MANOMETRE METAL', basinc: '40', cap: '100', hassasiyet: 'KL 2,5', kapak: 'AKRİ KAPAK' },
+                          ].map((row) => (
+                            <tr key={row.model} className="hover:bg-slate-50">
+                              <td className="px-4 py-3 font-medium text-slate-900 whitespace-nowrap">{row.model}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.aciklama}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.baglanti}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.basinc}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.cap}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.hassasiyet}</td>
+                              <td className="px-4 py-3 text-slate-700 whitespace-nowrap">{row.kapak}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </>
+              )}
+
               {selectedProduct === 'METRİK HORTUM RAKORLARI' && currentBrand === 'rekorsan' && (
                 <>
                   {/* Ürün Başlığı */}
