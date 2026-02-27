@@ -43,12 +43,12 @@ const getProductImage = (productName) => {
     'ALT BAĞLANTILI MANOMETRELER': '/manometrevevakummetreler.png',
     'KONTAKLI VAKUMMETRELER': '/manometrevevakummetreler.png',
     'PANO BAĞLANTILI VAKUMMETRELER': '/manometrevevakummetreler.png',
-    'MANOVAKOMETRELER': '/manometrevevakummetreler.png',
+    'MANOVAKOMETRELER': '/gliserinli-alt-baglantili.png',
     'ALT BAĞLANTILI VAKUMMETRELER': '/manometrevevakummetreler.png',
     'KONTAKLI MANOMETRELER': '/manometrevevakummetreler.png',
     'ARKADAN BAĞLANTILI MANOMETRELER': '/manometrevevakummetreler.png',
     'PANO BAĞLANTILI MANOMETRELER': '/manometrevevakummetreler.png',
-    'ARKADAN BAĞLANTILI VAKUMMETRELER': '/manometrevevakummetreler.png',
+    'ARKADAN BAĞLANTILI VAKUMMETRELER': '/gliserinli-alt-baglantili.png',
 
     // Hidromotorlar alt kategorileri
     'DİŞLİ MOTORLAR': '/disli-motorlar.png',
@@ -8618,10 +8618,25 @@ function ProductDetail() {
                     <div
                       key={item}
                       onClick={() => {
-                        setSelectedProduct(item)
-                        setSelectedBrand(null) // Marka seçimini temizle
-                        setSelectedGroup(null) // Grup seçimini temizle
-                        setSelectedGroupBrand(null) // Grup marka seçimini temizle
+                        if (item === 'MANOVAKOMETRELER') {
+                          // MANOVAKOMETRELER için direkt PAKKENS detay sayfasına git
+                          const categorySlug = 'basinc-isi-olcum-ve-kontrol-cihazlari'
+                          const subcategorySlug = 'manovakometreler'
+                          const productSlug = 'manovakometreler'
+
+                          setSelectedProduct('MANOVAKOMETRELER')
+                          setSelectedBrand('pakkens')
+                          setSelectedGroup(null)
+                          setSelectedGroupBrand(null)
+
+                          navigate(`/urunler/${categorySlug}/${subcategorySlug}/pakkens/${productSlug}`)
+                        } else {
+                          // Diğer alt kategoriler için mevcut davranışı koru
+                          setSelectedProduct(item)
+                          setSelectedBrand(null) // Marka seçimini temizle
+                          setSelectedGroup(null) // Grup seçimini temizle
+                          setSelectedGroupBrand(null) // Grup marka seçimini temizle
+                        }
                       }}
                       className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#ff7f00]/40 hover:shadow-2xl hover:shadow-[#ff7f00]/10"
                     >
@@ -18504,8 +18519,21 @@ function ProductDetail() {
           ) : selectedProduct || currentBrand || (productName && !activeSection) ? (
             <>
               {/* Ürün Başlığı */}
-              {productName !== 'GLİSERİNLİ ALT BAĞLANTILI MANOMETRELER' &&
+              {!(selectedProduct === 'ÇİFT KONTAK VAKUMMETRELER' && currentBrand === 'pakkens') &&
+               productName !== 'GLİSERİNLİ ALT BAĞLANTILI MANOMETRELER' &&
                productName !== 'KURU TİP ALT BAĞLANTILI MANOMETRELER' &&
+               productName !== 'GLİSERİNLİ VAKUMMETRELER' &&
+               productName !== 'KURU TİP VAKUMMETRELER' &&
+               productName !== 'MANOVAKOMETRELER' &&
+               productName !== 'GLİSERİNLİ ALT BAĞLANTILI VAKUMMETRELER' &&
+               productName !== 'KURU TİP ALT BAĞLANTILI VAKUMMETRELER' &&
+               productName !== 'TEK KONTAK MANOMETRELER' &&
+               productName !== 'ÇİFT KONTAK MANOMETRELER' &&
+               productName !== 'GLİSERİNLİ ARKADAN BAĞLANTILI MANOMETRELER' &&
+               productName !== 'KURU TİP ARKADAN BAĞLANTILI MANOMETRELER' &&
+               productName !== 'GLİSERİNLİ PANO BAĞLANTILI MANOMETRELER' &&
+               productName !== 'KURU TİP PANO BAĞLANTILI MANOMETRELER' &&
+               productName !== 'ARKADAN BAĞLANTILI VAKUMMETRELER' &&
                !['PVC ÇELİK TELLİ HORTUMLAR', 'PULVERİZATÖR (İLAÇLAMA) HORTUMU', 'PVC SU HORTUMLARI', 'PVC HAVA HORTUMLARI', 'TELLİ HORTUMLAR', 'TEKSTİL ÖRGÜLÜ HORTUMLAR', 'YAKIT HORTUMLARI', 'BUHAR VE SICAK SU HORTUMLARI', 'HAVA HORTUMLARI', 'AŞINDIRICI MADDE HORTUMLARI', 'GIDA HORTUMLARI', 'SU HORTUMLARI', 'TERMOPLASTİK HİDROLİK HORTUMLAR', 'BOYA VE SOLVENT HORTUMLARI', 'DN 2 - DN 4 HORTUMLAR', 'SPİRAL POLİETİLEN KORUYUCU'].includes(selectedProduct) && (
               <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
                 <div>
@@ -18523,7 +18551,9 @@ function ProductDetail() {
               )}
 
               {/* Marka Logoları / Marka Bazlı Kartlar */}
-              {productName !== 'GLİSERİNLİ ALT BAĞLANTILI MANOMETRELER' &&
+              {!productSlugParam &&
+               !(selectedProduct === 'ÇİFT KONTAK VAKUMMETRELER' && currentBrand === 'pakkens') &&
+               productName !== 'GLİSERİNLİ ALT BAĞLANTILI MANOMETRELER' &&
                productName !== 'KURU TİP ALT BAĞLANTILI MANOMETRELER' &&
                productName !== 'GLİSERİNLİ VAKUMMETRELER' &&
                productName !== 'KURU TİP VAKUMMETRELER' &&
@@ -18536,7 +18566,6 @@ function ProductDetail() {
                productName !== 'KURU TİP ARKADAN BAĞLANTILI MANOMETRELER' &&
                productName !== 'GLİSERİNLİ PANO BAĞLANTILI MANOMETRELER' &&
                productName !== 'KURU TİP PANO BAĞLANTILI MANOMETRELER' &&
-               productName !== 'ARKADAN BAĞLANTILI VAKUMMETRELER' &&
                !['PVC ÇELİK TELLİ HORTUMLAR', 'PULVERİZATÖR (İLAÇLAMA) HORTUMU', 'PVC SU HORTUMLARI', 'PVC HAVA HORTUMLARI', 'TELLİ HORTUMLAR', 'TEKSTİL ÖRGÜLÜ HORTUMLAR', 'YAKIT HORTUMLARI', 'BUHAR VE SICAK SU HORTUMLARI', 'HAVA HORTUMLARI', 'AŞINDIRICI MADDE HORTUMLARI', 'GIDA HORTUMLARI', 'SU HORTUMLARI', 'TERMOPLASTİK HİDROLİK HORTUMLAR', 'BOYA VE SOLVENT HORTUMLARI', 'DN 2 - DN 4 HORTUMLAR', 'SPİRAL POLİETİLEN KORUYUCU'].includes(selectedProduct) && (
               <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 md:p-8">
                 {allBrandLogos.length === 0 ? (
@@ -19133,21 +19162,11 @@ function ProductDetail() {
                       ))}
                     </div>
                   </div>
-                ) : productName === 'ARKADAN BAĞLANTILI VAKUMMETRELER' ? (
+                ) : productName === 'ARKADAN BAĞLANTILI VAKUMMETRELER' && !productSlugParam && !(selectedProduct === 'ARKADAN BAĞLANTILI VAKUMMETRELER' && currentBrand === 'pakkens') ? (
                   <div className="space-y-6">
-                    {/* PAKKENS */}
+                    {/* PAKKENS (logo olmadan) */}
                     <div className="flex items-center justify-between gap-4">
                       <div className="flex items-center gap-3">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-slate-50">
-                          <img
-                            src="/pakkens.png"
-                            alt="Pakkens"
-                            className="h-8 w-auto object-contain"
-                            onError={(e) => {
-                              e.target.style.display = 'none'
-                            }}
-                          />
-                        </div>
                         <div>
                           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Marka</p>
                           <h3 className="text-base font-semibold text-slate-900">Pakkens</h3>
@@ -20107,9 +20126,21 @@ function ProductDetail() {
                 <>
                   {/* Ürün Başlığı */}
                   <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
-                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-slate-50">
+                        <img
+                          src="/pakkens.png"
+                          alt="Pakkens"
+                          className="h-8 w-auto object-contain"
+                          onError={(e) => {
+                            e.target.style.display = 'none'
+                          }}
+                        />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Pakkens</p>
+                        <h2 className="text-xl font-semibold text-slate-900">{selectedProduct}</h2>
+                      </div>
                     </div>
                     <button
                       onClick={() => {
@@ -20403,9 +20434,18 @@ function ProductDetail() {
                 <>
                   {/* Ürün Başlığı */}
                   <div className="mt-10 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.12em] text-[#ff7f00]">Pakkens</p>
-                      <h2 className="text-xl font-semibold">{selectedProduct}</h2>
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-slate-50">
+                        <img
+                          src="/pakkens.png"
+                          alt="Pakkens"
+                          className="h-8 w-auto object-contain"
+                        />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Pakkens</p>
+                        <h2 className="text-xl font-semibold text-slate-900">{selectedProduct}</h2>
+                      </div>
                     </div>
                     <button
                       onClick={() => {
