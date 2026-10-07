@@ -258,6 +258,7 @@ function AppContent() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mobileSubOpen, setMobileSubOpen] = useState(null)
   const [brandsMenuOpen, setBrandsMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [showSearchResults, setShowSearchResults] = useState(false)
   const closeSecondaryTimer = useRef(null)
@@ -472,55 +473,76 @@ function AppContent() {
     }
   }, [location.pathname])
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
-        <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/60 shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
+        <header className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${scrolled ? 'shadow-[0_10px_30px_-18px_rgba(15,23,42,0.45)]' : ''}`}>
           {/* Top Info Bar */}
-          <div className="border-b border-slate-100/80 bg-gradient-to-r from-slate-50/50 to-white">
-            <div className="mx-auto flex w-full max-w-7xl items-center justify-center px-6 py-2.5 text-xs">
-              <div className="flex items-center gap-6">
-                <a href="tel:+905336000362" className="hidden sm:inline-flex items-center gap-2 text-[#1e4294] font-medium transition-colors hover:text-[#ff7f00]">
+          <div className="bg-[#12263f] text-white">
+            <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-2 text-[12px] sm:px-6">
+              <div className="flex items-center gap-4 sm:gap-5">
+                <a href="tel:+905336000362" className="inline-flex items-center gap-2 font-medium text-white/90 transition-colors hover:text-white">
                   <svg className="h-3.5 w-3.5 text-[#ff7f00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
-                  <span className="tracking-wide">0 533 600 0362</span>
+                  <span>0 533 600 0362</span>
                 </a>
-                <a href="mailto:info@hydpoint.com" className="hidden md:inline-flex items-center gap-2 text-[#1e4294] font-medium transition-colors hover:text-[#ff7f00]">
+                <span className="hidden h-3 w-px bg-white/20 sm:block" />
+                <a href="mailto:info@hydpoint.com" className="hidden items-center gap-2 font-medium text-white/90 transition-colors hover:text-white sm:inline-flex">
                   <svg className="h-3.5 w-3.5 text-[#ff7f00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  <span className="tracking-wide">info@hydpoint.com</span>
+                  <span>info@hydpoint.com</span>
                 </a>
-                <span className="hidden lg:inline-flex items-center gap-2 text-slate-600 font-medium">
-                  <svg className="h-3.5 w-3.5 text-[#ff7f00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <span className="tracking-wide">Pazartesi - Cumartesi: 09:00 - 18:00</span>
-                </span>
               </div>
+              <span className="hidden items-center gap-2 font-medium text-white/75 lg:inline-flex">
+                <svg className="h-3.5 w-3.5 text-[#ff7f00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Pzt – Cmt · 09:00 – 18:00</span>
+              </span>
             </div>
           </div>
 
           {/* Main Navigation */}
-          <div className="relative mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4">
+          <div className="relative z-40 mx-auto flex w-full max-w-7xl items-center justify-between gap-6 border-b border-slate-200/80 px-4 py-2.5 sm:px-6">
             {/* Logo */}
-            <NavLink to="/" className="flex items-center transition-transform hover:scale-105 duration-200">
+            <NavLink to="/" className="flex shrink-0 items-center">
               <img
                 src={hydLogo3}
                 alt="HYD Point logo"
-                className="h-14 w-auto"
+                className="h-14 w-auto sm:h-[4.25rem]"
               />
             </NavLink>
 
             {/* Desktop Navigation */}
-            <nav className="hidden items-center gap-10 text-[15px] font-semibold text-slate-800 lg:flex">
+            <nav className="hidden items-center gap-1 lg:flex">
               {navItems.map((item) => {
-                if (item.label === 'Markalar') {
+                const linkClass = ({ isActive }) =>
+                  `group relative inline-flex items-center gap-1 px-3 py-2 text-[13px] font-semibold tracking-[0.12em] transition-colors duration-200 ${
+                    isActive ? 'text-[#1e4294]' : 'text-slate-600 hover:text-[#1e4294]'
+                  }`
+
+                const underline = (isActive) => (
+                  <span
+                    className={`absolute bottom-0 left-3 right-3 h-0.5 origin-left rounded-full bg-[#ff7f00] transition-transform duration-300 ${
+                      isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                    }`}
+                  />
+                )
+
+                if (item.label === 'MARKALAR') {
                   return (
                     <div
                       key={item.path}
-                      className="group relative"
+                      className="relative"
                       onMouseEnter={() => {
                         if (brandsMenuTimer.current) {
                           clearTimeout(brandsMenuTimer.current)
@@ -532,24 +554,14 @@ function AppContent() {
                         brandsMenuTimer.current = setTimeout(() => setBrandsMenuOpen(false), 120)
                       }}
                     >
-                      <NavLink
-                        to={item.path}
-                        className={({ isActive }) =>
-                          `relative px-3 py-2.5 transition-colors duration-200 tracking-wide ${
-                            isActive 
-                              ? 'text-[#1e4294]' 
-                              : 'text-slate-700 hover:text-[#1e4294]'
-                          }`
-                        }
-                      >
+                      <NavLink to={item.path} className={linkClass}>
                         {({ isActive }) => (
                           <>
-                            <span className="relative z-10">{item.label}</span>
-                            <span
-                              className={`absolute bottom-0 left-0 h-0.5 w-full bg-[#1e4294] transition-all duration-300 ${
-                                isActive ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100'
-                              }`}
-                            />
+                            <span>{item.label}</span>
+                            <svg className={`h-3 w-3 transition-transform duration-200 ${brandsMenuOpen ? 'rotate-180 text-[#1e4294]' : 'text-slate-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                            </svg>
+                            {underline(isActive || brandsMenuOpen)}
                           </>
                         )}
                       </NavLink>
@@ -560,23 +572,13 @@ function AppContent() {
                   <NavLink
                     key={item.path}
                     to={item.path}
-                    className={({ isActive }) =>
-                      `group relative px-3 py-2.5 transition-colors duration-200 tracking-wide ${
-                        isActive 
-                          ? 'text-[#1e4294]' 
-                          : 'text-slate-700 hover:text-[#1e4294]'
-                      }`
-                    }
+                    className={linkClass}
                     end={item.path === '/'}
                   >
                     {({ isActive }) => (
                       <>
-                        <span className="relative z-10">{item.label}</span>
-                        <span
-                          className={`absolute bottom-0 left-0 h-0.5 w-full bg-[#1e4294] transition-all duration-300 ${
-                            isActive ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100'
-                          }`}
-                        />
+                        <span>{item.label}</span>
+                        {underline(isActive)}
                       </>
                     )}
                   </NavLink>
@@ -587,7 +589,7 @@ function AppContent() {
             {/* Brands Dropdown */}
             {brandsMenuOpen && (
               <div
-                className="absolute left-1/2 top-full z-50 mt-2 w-[90vw] max-w-5xl -translate-x-1/2 rounded-2xl border border-slate-200/80 bg-white/95 backdrop-blur-md p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)]"
+                className="absolute inset-x-0 top-full z-50 border-x border-b border-slate-200 bg-white p-6 shadow-[0_24px_40px_-24px_rgba(15,23,42,0.35)]"
                 onMouseEnter={() => {
                   if (brandsMenuTimer.current) {
                     clearTimeout(brandsMenuTimer.current)
@@ -620,7 +622,7 @@ function AppContent() {
                 <div className="mt-6 border-t border-slate-200 pt-6">
                   <NavLink
                     to="/markalar"
-                    className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#1e4294] to-[#1e4294]/90 px-6 py-3 text-sm font-bold text-white shadow-md transition-all duration-200 hover:from-[#1e4294]/90 hover:to-[#1e4294] hover:shadow-lg hover:shadow-[#1e4294]/30"
+                    className="flex items-center justify-center gap-2 rounded-lg bg-[#1e4294] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#183578]"
                     onClick={() => setBrandsMenuOpen(false)}
                   >
                     TÜM MARKALARI GÖRÜNTÜLE
@@ -635,8 +637,8 @@ function AppContent() {
             {/* Search & Mobile Menu */}
             <div className="flex items-center gap-3">
               {/* Search Bar */}
-              <div className="hidden sm:flex">
-                <div className="relative w-72" ref={searchResultsRef}>
+              <div className="hidden md:flex">
+                <div className="relative w-52 xl:w-64" ref={searchResultsRef}>
                   <input
                     ref={searchInputRef}
                     type="text"
@@ -651,10 +653,10 @@ function AppContent() {
                       }
                     }}
                     placeholder="Ürün arayın..."
-                    className="w-full rounded-full border border-slate-300 bg-white px-5 py-2.5 pl-12 pr-4 text-sm text-slate-700 placeholder:text-slate-400 shadow-sm transition-all duration-200 focus:border-[#ff7f00] focus:outline-none focus:ring-2 focus:ring-[#ff7f00]/20 focus:shadow-md hover:border-slate-400"
+                    className="w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-2 pl-10 pr-8 text-sm text-slate-700 placeholder:text-slate-400 transition focus:border-[#1e4294] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1e4294]/15"
                   />
                   <svg
-                    className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
+                    className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -716,7 +718,7 @@ function AppContent() {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setMobileOpen((prev) => !prev)}
-                className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-300 bg-white text-slate-700 shadow-sm transition-all duration-200 hover:border-[#1e4294]/50 hover:bg-[#1e4294]/5 hover:text-[#1e4294] lg:hidden"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 transition hover:border-[#1e4294]/40 hover:text-[#1e4294] lg:hidden"
                 aria-label="Menüyü aç/kapat"
               >
                 <span className="relative block h-5 w-6">
@@ -741,8 +743,8 @@ function AppContent() {
           </div>
 
           {/* Secondary Navigation */}
-          <div className="hidden lg:block relative z-30 border-t border-slate-200/60 bg-gradient-to-b from-white via-slate-50/40 to-white">
-            <div className="relative mx-auto flex w-full max-w-7xl flex-wrap items-center justify-center gap-3 px-6 py-3.5">
+          <div className="relative z-30 hidden border-b border-slate-200 bg-[#f6f7f9] lg:block">
+            <div className="relative mx-auto flex w-full max-w-7xl items-stretch px-6">
               {secondaryNav.map((item) => (
                 <div
                   key={item.label}
@@ -767,15 +769,30 @@ function AppContent() {
                         setOpenSecondary(null)
                       }
                     }}
-                    className="relative flex items-center gap-2 rounded-md border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition-all duration-200 hover:border-[#1e4294] hover:bg-[#1e4294]/5 hover:text-[#1e4294]"
+                    className={`relative flex items-center gap-1.5 border-b-2 px-4 py-3 text-[12px] font-semibold tracking-[0.14em] transition-colors duration-200 ${
+                      openSecondary === item.label
+                        ? 'border-[#ff7f00] text-[#1e4294]'
+                        : 'border-transparent text-slate-600 hover:text-[#1e4294]'
+                    }`}
                   >
-                    <span className="relative z-10 tracking-wide">{item.label}</span>
-                    <svg className="relative z-10 h-3 w-3 text-slate-400 transition-colors duration-200 group-hover:text-[#1e4294]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
-                    </svg>
+                    <span>{item.label}</span>
+                    {item.label === 'HİDROLİK' && (
+                      <svg className={`h-3 w-3 transition-transform duration-200 ${openSecondary === item.label ? 'rotate-180 text-[#1e4294]' : 'text-slate-400 group-hover:text-[#1e4294]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    )}
                   </NavLink>
                 </div>
               ))}
+              <Link
+                to="/iletisim"
+                className="ml-auto flex items-center gap-1.5 text-[12px] font-semibold tracking-[0.08em] text-[#1e4294] transition-colors hover:text-[#ff7f00]"
+              >
+                Teklif Alın
+                <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </Link>
             </div>
             {secondaryNav.map((item) => (
               openSecondary === item.label && (
@@ -783,7 +800,7 @@ function AppContent() {
                   key={item.label}
                   onMouseEnter={() => handleOpenSecondary(item.label)}
                   onMouseLeave={handleCloseSecondary}
-                  className="absolute left-0 right-0 top-full z-50 mx-auto mt-2 w-full max-w-7xl rounded-2xl border border-slate-200/80 bg-white/95 backdrop-blur-md p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)]"
+                  className="absolute left-0 right-0 top-full z-50 mx-auto w-full max-w-7xl rounded-b-xl border border-t-0 border-slate-200 bg-white p-8 shadow-[0_24px_50px_-24px_rgba(15,23,42,0.35)]"
                 >
                       {item.label !== 'HİDROLİK' ? (
                         <div className="flex items-start justify-between gap-3">
@@ -1031,19 +1048,9 @@ function AppContent() {
                   <NavLink 
                     to="/" 
                     onClick={() => setMobileOpen(false)} 
-                    className="flex items-center gap-3 group"
+                    className="flex items-center"
                   >
-                    <div className="relative">
-                      <img src={hydLogo3} alt="HYD Point logo" className="h-10 w-auto transition-transform duration-200 group-hover:scale-105" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-lg font-bold bg-gradient-to-r from-[#1e4294] to-[#1e4294]/80 bg-clip-text text-transparent">
-                        HYD Point
-                      </span>
-                      <span className="text-[10px] font-medium text-slate-500 uppercase tracking-wider">
-                        Endüstriyel
-                      </span>
-                    </div>
+                    <img src={hydLogo3} alt="HYD Point logo" className="h-14 w-auto" />
                   </NavLink>
                   <button
                     onClick={() => setMobileOpen(false)}
